@@ -1,0 +1,1101 @@
+﻿@page
+@using Telamingo.Domain.Enums;
+@using Telamingo.Domain.Dtos;
+@model HTM.Pages.FormModel
+@{
+    Layout = "";
+}
+  <link href="./Form.css" rel="stylesheet" />
+
+<div class="info">
+  <h1>Telamingo</h1>
+  <span>
+    Made with by Ty Stelmach
+  </span>
+</div>
+
+<!-- Modal -info -->
+<div class="container">
+    <div id="modal-3" class="modal" data-modal-effect="slide-top">
+      <div class="modal-content">
+        <h2 class="fs-title">RESULT CAN BE HERE.</h2>
+        <h3 class="fs-subtitle">@ViewData["Message"].</h3>
+        <p>RESULT CAN BE HERE.</p>
+        <input type="button" name="next" class="next action-button modal-close" value="Got it!">
+
+        <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> What Is This?</div> 
+        <h5>@ViewData["Result"]</h5>
+        <h5>@ViewData["Percentage"]</h5>
+      </div>
+    </div>
+</div>
+
+<form asp-page-handler="./Form" method="post" class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="">
+  <ul id="progressbar">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <!-- LANGUAGE FIELD SET -->  
+  <fieldset>
+    <h2 class="fs-title">Language Level</h2>
+      <!-- Begin Total Number of Donors in Year 1 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field" id="webform-component-acquisition--amount-1">
+        
+          <label for="edit-submitted-acquisition-amount-1 total_number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">
+              What is your First Language Level?(English)</label>
+
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Language.FirstLanguageLevel" data-placeholder="Select your level">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumLanguageLevel)).OfType<EnumLanguageLevel>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+          </div>
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+      <!-- End Total Number of Donors in Year 1 Field -->
+    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Language Level</h2>
+      <!-- Begin Total Number of Donors in Year 2 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+        
+          <label for="edit-submitted-acquisition-amount-2 total_number_of_donors_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">
+              What is your Second Language Level?(French)</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Language.SecondLanguageLevel">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumLanguageLevel)).OfType<EnumLanguageLevel>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <!-- End Total Number of Donors in Year 2 Field -->
+
+    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <!-- TARGET CUNTRY FIELD SET -->  
+      @*<fieldset>
+        <h2 class="fs-title">Acquisition of Donors</h2>
+          <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
+            <div class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
+        
+              <label for="edit-submitted-acquisition-percent-change total_donor_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">
+                  What is your target cuntry?</label>
+                <div class="custom-select" style="width:100%;">
+                  <select name="mdl.PersonalInformation.TargetCuntry" required="required">
+                  @{
+                      foreach(var item in Enum.GetValues(typeof(EnumTargetCuntry)).OfType<EnumTargetCuntry>().ToArray())
+                      {
+                      <option value="@((int)item)"> @item.ToString()</option>
+                      }
+                  }
+                  </select>  
+                </div>
+
+            </div>
+          <!-- End Calc of Total Number of Donors Fields -->
+        <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+      </fieldset>*@ 
+  <!-- END OF TARGET CUNTRY FIELD SET -->
+
+
+  <!-- physical health FIELD SET -->
+    <fieldset>
+      <h2 class="fs-title">physical health</h2>
+      <!-- Begin Total Number of Donors in Year 2 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+        
+          <label for="edit-submitted-acquisition-amount-2 total_number_of_donors_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">
+              Do you have a specific illness?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.PhysicalHealth.HealthSystemForPatients.DoYouHaveSpecificIllness">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumDoYouHaveSpecificIllness)).OfType<EnumDoYouHaveSpecificIllness>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <!-- End Total Number of Donors in Year 2 Field -->
+    
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- END OF physical health FIELD SET -->
+
+  <!-- food lifestyle FIELD SET -->
+    <fieldset>
+      <h2 class="fs-title">food lifestyle</h2>
+        <!-- Begin Total Number of Donors in Year 2 Field -->
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+            <label for="edit-submitted-acquisition-amount-2 total_number_of_donors_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">
+                Applicant's food lifestyle:</label>
+              <div class="custom-select" style="width:100%;">
+                <select name="mdl.PhysicalHealth.ApplicantsFoodLifestyle.Option">
+                @{
+                    foreach(var item in Enum.GetValues(typeof(EnumApplicantsFoodLifestyle)).OfType<EnumApplicantsFoodLifestyle>().ToArray())
+                    {
+                    <option value="@((int)item)"> @item.ToString()</option>
+                    }
+                }
+                </select>  
+              </div>
+   
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+          <!-- End Total Number of Donors in Year 2 Field -->
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- END OF food lifestyle FIELD SET -->
+
+  <fieldset>
+    <h2 class="fs-title">Need to access a doctor</h2>
+      <!-- Begin Total Number of Donors in Year 2 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+        
+          <label for="edit-submitted-acquisition-percent-change total_donor_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">
+              How many times a year do you or your family usually see a doctor? For what reasons?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.PhysicalHealth.NeedToAccessDoctor.HowManyTimesYearDoYouOrYourFamilyUsuallySeeDoctor">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumHowManyTimesYearDoYouOrYourFamilyUsuallySeeDoctor)).OfType<EnumHowManyTimesYearDoYouOrYourFamilyUsuallySeeDoctor>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <!-- End Total Number of Donors in Year 2 Field -->
+
+    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+  </fieldset>
+
+  <!-- medical issues FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">spending on medical issues</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+            <label for="edit-submitted-acquisition-percent-change total_donor_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">
+                How much do you expect to spend on your treatment and medical issues during the year?</label>
+   
+            <input id="edit-submitted-constituent-base-total-constituents" class="form-text hs-input" name="mdl.PhysicalHealth.HealthCostsToSavings.SpendsOnTreatment" 
+            required="required" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number" >
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- medical issues FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Mental and emotional health</h2>
+        <h3 class="fs-subtitle">Probability of dealing with mental illness:</h3>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+          <label for="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
+              Which of the following disorders do you have a history of? (Depression, anxiety, ...)</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.MentalHealth.ProbabilityOfDealingWithMentalIllness.WhichOfTheFollowingDisordersDoYouHaveHistoryOf">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumWhichOfTheFollowingDisordersDoYouHaveHistoryOf)).OfType<EnumWhichOfTheFollowingDisordersDoYouHaveHistoryOf>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Visit family and friends</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+          <label for="edit-submitted-cultivation-amount-2 average_gift_size_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
+              How many times a week do you visit your family?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.MentalHealth.VisitFamilyAndFriends.HowManyTimesWeekDoYouVisitYourFamily">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumHowManyTimesWeekDoYouVisitYourFamily)).OfType<EnumHowManyTimesWeekDoYouVisitYourFamily>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Welfare | Economy</h2>
+        <h3 class="fs-subtitle">saving:</h3>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+              <label for=" edit-submitted-cultivation-amount-3 total_giving_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">
+                  How much do you expect to save annually? *</label>
+
+              <input type="text" placeholder="0" value="" name="mdl.Welfare.Saving.HowMuchDoYouExpectToSaveAnnually"
+              data-msg-required="Please enter a valid number"class="form-text hs-input"  required>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Welfare | Economy</h2>
+        <h3 class="fs-subtitle">saving:</h3>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+            <label for=" edit-submitted-cultivation-amount-4 total_giving_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">
+                How much is your current savings? *</label>
+            <input type="text" placeholder="0" value="" name="mdl.Welfare.Saving.HowMuchIsYourCurrentSavings"
+              data-rule-required="true" data-msg-required="Please enter a valid number" class="form-text hs-input"  required>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">specialty:</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+          <label for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">
+              What is your job or skill now?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Welfare.Specialty.WhatIsYourJobOrSkillNow">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumWhatIsYourJobOrSkillNow)).OfType<EnumWhatIsYourJobOrSkillNow>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">specialty:</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+          <label for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">
+              What is your second job or skill now?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Welfare.Specialty.WhatIsYourSecondJobOrSkillNow">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumWhatIsYourJobOrSkillNow)).OfType<EnumWhatIsYourJobOrSkillNow>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Religious - Value (Patriotism):</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+          
+          <label for=" edit-submitted-cultivation-amount-3 total_giving_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">
+              How committed are you to religious issues?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Cultural.Religious.HowCommittedAreYouToReligiousIssues">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumHowCommittedAreYouToReligiousIssues)).OfType<EnumHowCommittedAreYouToReligiousIssues>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Religious - Value (Patriotism):</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"id="webform-component-acquisition--amount-2">
+            <label for=" edit-submitted-cultivation-amount-4 total_giving_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">
+              How important is the future of Iran for you? *</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Cultural.Religious.HowImportantIsTheFutureOfIranForYou">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumHowImportantIsTheFutureOfIranForYou)).OfType<EnumHowImportantIsTheFutureOfIranForYou>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET --> 
+  
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Immigration:</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"id="webform-component-acquisition--amount-2">
+          <label for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">
+              How important is the immigration of the destination community to you?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Cultural.Immigration.ImmigrationOfTheDestination">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumHowImportantIsTheImmigrationOfTheDestinationCommunityToYou)).OfType<EnumHowImportantIsTheImmigrationOfTheDestinationCommunityToYou>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Social relationship matching:</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"id="webform-component-acquisition--amount-2">
+          <label for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">
+              How important is the similarity of the culture and behavior of the destination community to the community of origin?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Cultural.SocialRelationshipMatching.EnumSimilarityOfTheCulture">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumSimilarityOfTheCulture)).OfType<EnumSimilarityOfTheCulture>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Temperature and weather:</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"id="webform-component-acquisition--amount-2">
+          <label for=" edit-submitted-retention-amount-1 number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">
+              What is your unfavorable weather?</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Environmental.TemperatureAndWeather.WhatIsYourUnfavorableWeather">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumWhatIsYourUnfavorableWeather)).OfType<EnumWhatIsYourUnfavorableWeather>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Climate:</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"id="webform-component-acquisition--amount-2">
+          <label for=" edit-submitted-retention-amount-2 number_of_year_1_donors_who_also_gave_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">
+              Problems with day and night hours? *</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Environmental.Climate.ProblemsWithDayAndNightHours">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumProblemsWithDayAndNightHours)).OfType<EnumProblemsWithDayAndNightHours>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">educational:</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"id="webform-component-acquisition--amount-2">
+          <label for="edit-submitted-retention-percent-change">
+              Tuition: If you want to go to school, how much can you pay per year?</label>
+
+          <input type="text" placeholder="0" value="" name="mdl.Educational.Tuition.HowMuchCanYouPayPerYear" class="form-text hs-input" required >
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- ACQUISITION FIELD SET -->  
+    <fieldset>
+      <h2 class="fs-title">Probability of acceptance:</h2>
+          <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"id="webform-component-acquisition--amount-2">
+          <label for=" fundraising_400_index-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">
+              Academic resume (we calculate with the sheikh)</label>
+            <div class="custom-select" style="width:100%;">
+              <select name="mdl.Educational.ProbabilityOfAcceptance.AcademicResume">
+              @{
+                  foreach(var item in Enum.GetValues(typeof(EnumAcademicResume)).OfType<EnumAcademicResume>().ToArray())
+                  {
+                  <option value="@((int)item)"> @item.ToString()</option>
+                  }
+              }
+              </select>  
+            </div>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+          </div>
+   
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+
+  <!-- USER INFORMATION FIELD SET --> 
+  <fieldset>
+    <h2 class="fs-title">Basic Information</h2>
+    <h3 class="fs-subtitle">We just need some basic information to begin your scoring</h3>
+    <!-- Begin What's Your First Name Field -->
+        <div class="hs_firstname field hs-form-field">
+        
+          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your First Name? *</label>
+
+          <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="mdl.PersonalInformation.FirstName" 
+          required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your first name" >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+    <!-- End What's Your First Name Field -->
+
+    <!-- Begin What's Your Email Field -->
+        <div class="hs_email field hs-form-field">
+        
+          <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your E-mail Address? *</label>
+
+          <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="mdl.PersonalInformation.Email"
+          required="required" type="email" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid email address." >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+    <!-- End What's Your Email Field -->
+
+    <!-- Begin Total Number of Constituents in Your Database Field -->
+        <div class="hs_email field hs-form-field hs_total_number_of_constituents_in_your_database">
+        
+          <label for="edit-submitted-constituent-base-total-constituents total_number_of_constituents_in_your_database-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">
+              Pleas enter your phone number: *</label>
+
+          <input id="edit-submitted-constituent-base-total-constituents" class="form-text hs-input" name="mdl.PersonalInformation.PhoneNumber"
+          required="required" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number" >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+
+    <!-- End Total Number of Constituents in Your Database Field -->
+    <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
+    <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
+  </fieldset>
+</form>
+
+ <!-- Cultivation FIELD SET -->  
+  @*  <fieldset>
+    <h2 class="fs-title">:</h2>
+
+      <!-- Begin Average Gift Size Perchent Change Field -->
+      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
+        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_average_gift_size_percent_change field hs-form-field" id="webform-component-cultivation--percent-change1">
+        
+          <label for="edit-submitted-cultivation-percent-change1 average_gift_size_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">Average Gift Size Percent Change</label>
+
+          <input id="edit-submitted-cultivation-percent-change1" class="form-text hs-input" name="average_gift_size_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+        </div>
+        <!-- End Average Gift Size Perchent Change Field -->
+    <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" data-page="3" name="next" class="next action-button" value="Next" />
+    </fieldset>
+  *@
+
+@*<section class="pt-lg-7 pt-5">
+ <form asp-page-handler="./Calculations" method="post">
+    <div class="col-md-7 mx-auto text-center">
+        <button type="submit" class="btn btn-primary btn-lg mb-3 mb-sm-0">Submit the data</button>
+    </div>
+ </form>
+</section>
+*@
+@*
+    <div style="margin: 50px;
+        box-shadow: inset 0 0 15px 0px #009688;
+        border-radius: 20px;
+        padding: 5px 20px 5px 30px;">
+        <hr/>
+        <h5>@ViewData["Cultural"] </h5>
+        <h5>@ViewData["PhysicalHealth"]</h5>
+        <h5>@ViewData["MentalHealth"] </h5>
+        <h5>@ViewData["Environmental"] </h5>
+        <h5>@ViewData["Educational"] </h5>
+        <h5>@ViewData["Welfare"] </h5>
+        <br/>
+        <h5>@ViewData["Result"]</h5>
+        <h5>@ViewData["Percentage"]</h5>
+        <h5>@ViewData["Message"]</h5>
+        <hr/>
+    </div>
+*@
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+
+@*<script type="text/javascript" src="./SelectTag/js/jquery.js"></script>
+<script type="text/javascript" src="./SelectTag/js/awselect.js"></script>
+<link href="./SelectTag/css/awselect.css" rel="stylesheet" />
+*@
+<script src="./Form.js"></script>
+
+@*<form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="">
+  <ul id="progressbar">
+    <li class="active">User Information</li>
+    <li>Cultural</li>
+    <li>PhysicalHealth</li>
+    <li>MentalHealth</li>
+    <li>Environmental</li>
+    <li>Educational</li>
+    <li>Welfare</li>
+  </ul>
+  <!-- USER INFORMATION FIELD SET --> 
+  <fieldset>
+    <h2 class="fs-title">Basic Information</h2>
+    <h3 class="fs-subtitle">We just need some basic information to begin your scoring</h3>
+    <!-- Begin What's Your First Name Field -->
+        <div class="hs_firstname field hs-form-field">
+        
+          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your First Name? *</label>
+
+          <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="mdl.PersonalInformation.FirstName" 
+          required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your first name" >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+    <!-- End What's Your First Name Field -->
+
+    <!-- Begin What's Your Email Field -->
+        <div class="hs_email field hs-form-field">
+        
+          <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your E-mail Address? *</label>
+
+          <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="mdl.PersonalInformation.Email"
+          required="required" type="email" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid email address." >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+    <!-- End What's Your Email Field -->
+
+    <!-- Begin Total Number of Constituents in Your Database Field -->
+        <div class="hs_email field hs-form-field hs_total_number_of_constituents_in_your_database">
+        
+          <label for="edit-submitted-constituent-base-total-constituents total_number_of_constituents_in_your_database-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What's the Total Number of Constituents in your Database? *</label>
+
+          <input id="edit-submitted-constituent-base-total-constituents" class="form-text hs-input" name="mdl.PersonalInformation.PhoneNumber"
+          required="required" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number" >
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+
+    <!-- End Total Number of Constituents in Your Database Field -->
+    <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> What Is This?</div> 
+  </fieldset>
+  <!-- ACQUISITION FIELD SET -->  
+  <fieldset>
+    <h2 class="fs-title">Acquisition of Donors</h2>
+    <h3 class="fs-subtitle">How have you been doing in acquiring donors?</h3>
+      <!-- Begin Total Number of Donors in Year 1 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field" id="webform-component-acquisition--amount-1">
+        
+          <label for="edit-submitted-acquisition-amount-1 total_number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What was your number of total donors in year 1? *</label>
+
+          <input id="edit-submitted-acquisition-amount-1" class="form-text hs-input" name="total_number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+      <!-- End Total Number of Donors in Year 1 Field -->
+
+      <!-- Begin Total Number of Donors in Year 2 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
+        
+          <label for="edit-submitted-acquisition-amount-2 total_number_of_donors_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What was your number of total donors in year 2? *</label>
+
+          <input id="edit-submitted-acquisition-amount-2" class="form-text hs-input" name="total_number_of_donors_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <!-- End Total Number of Donors in Year 2 Field -->
+
+      <!-- Begin Calc of Total Number of Donors Fields -->
+      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
+        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
+        
+          <label for="edit-submitted-acquisition-percent-change total_donor_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">Total Donors Percent Change</label>
+
+          <input id="edit-submitted-acquisition-percent-change" class="form-text hs-input" name="total_donor_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+        </div>
+        <!-- End Calc of Total Number of Donors Fields -->
+    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+  </fieldset>
+  <!-- Cultivation FIELD SET -->  
+  <fieldset>
+    <h2 class="fs-title">Cultivation and Nurturing your Donors</h2>
+    <h3 class="fs-subtitle">How have you been nurturing donors to get better donations?</h3>
+      <!-- Begin Average Gift Size in Year 1 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field" id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
+        
+          <label for="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What was your average gift size in year 1? *</label>
+
+          <input id="edit-submitted-cultivation-amount-1" class="form-text hs-input" name="average_gift_size_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <!-- End Average Gift Size in Year 1 Field -->
+
+      <!-- Begin Average Gift Size in Year 2 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field" id="webform-component-cultivation--amount-2">
+        
+          <label for="edit-submitted-cultivation-amount-2 average_gift_size_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What was your average gift size in year 2? *</label>
+
+          <input id="edit-submitted-cultivation-amount-2" class="form-text hs-input" name="average_gift_size_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <!-- End Average Gift Size in Year 2 Field -->
+
+      <!-- Begin Average Gift Size Perchent Change Field -->
+      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
+        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_average_gift_size_percent_change field hs-form-field" id="webform-component-cultivation--percent-change1">
+        
+          <label for="edit-submitted-cultivation-percent-change1 average_gift_size_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">Average Gift Size Percent Change</label>
+
+          <input id="edit-submitted-cultivation-percent-change1" class="form-text hs-input" name="average_gift_size_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+        </div>
+        <!-- End Average Gift Size Perchent Change Field -->
+    <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" data-page="3" name="next" class="next action-button" value="Next" />
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+  </fieldset>
+  <!-- Cultivation2 FIELD SET --> 
+  <fieldset>
+    <h2 class="fs-title">Total Cultivation in Donation</h2>
+    <h3 class="fs-subtitle">Let's talk about your donations as a whole</h3>
+              <!-- Begin Total Giving In Year 1 Field -->
+        <div class="form-item webform-component webform-component-textfield" id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
+        
+          <label for=" edit-submitted-cultivation-amount-3 total_giving_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What was your total giving in Year 1? *</label>
+
+          <input id="edit-submitted-cultivation-amount-3" class="form-text hs-input" name="total_giving_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <!-- End Total Giving In Year 1 Field -->
+
+      <!-- Begin Total Giving In Year 2 Field -->
+        <div class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field" id="webform-component-cultivation--amount-4"> 
+        
+          <label for=" edit-submitted-cultivation-amount-4 total_giving_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What was your total giving in Year 2? *</label>
+
+          <input id="edit-submitted-cultivation-amount-4" class="form-text hs-input" name="total_giving_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+        <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        
+        <!-- End Total Giving In Year 2 Field -->
+
+      <!-- Begin Average Gift Size Percent Change Field 2 -->
+      <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
+        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_total_giving_percent_change field hs-form-field" id="webform-component-cultivation--percent-change2">
+
+          <label for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">Average Gift Size Percent Change</label>
+
+          <input id="edit-submitted-cultivation-percent-change2" class="form-text hs-input" name="total_giving_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+        </div>
+        <!-- End Average Gift Size Percent Change Field 2 -->
+    <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" data-page="4" name="next" class="next action-button" value="Next" />
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+  </fieldset>
+  <!-- RETENTION FIELD SET -->  
+  <fieldset>
+    <h2 class="fs-title">Retention of your donors</h2>
+    <h3 class="fs-subtitle">How long can you keep your donors and their donations?</h3>
+        <!-- Begin Total Number of Donors Who Gave in Year 1 Field -->
+          <div class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field" id="webform-component-retention--amount-1"> 
+        
+          <label for=" edit-submitted-retention-amount-1 number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What was your total number of donors who gave in year 1? *</label>
+
+          <input id="edit-submitted-retention-amount-1" class="form-text hs-input" name="number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+          </div>
+        <!-- End Total Number of Donors Who Gave in Year 1 Field-->
+
+
+        <!-- Begin Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
+          <div class="form-item webform-component webform-component-textfield" id="webform-component-retention--amount-2 hs_number_of_year_1_donors_who_also_gave_in_year_2 field hs-form-field">
+        
+          <label for=" edit-submitted-retention-amount-2 number_of_year_1_donors_who_also_gave_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What was your total number of donors who gave in year 1 that also gave in year 2? *</label>
+
+          <input id="edit-submitted-retention-amount-2" class="form-text hs-input" name="number_of_year_1_donors_who_also_gave_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+          </div>
+        <!-- End Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
+
+        <!-- Begin Retention Rate Percent -->
+          <div class="form-item webform-component webform-component-textfield" id="webform-component-retention--percent-change field hs-form-field">
+        
+          <label for="edit-submitted-retention-percent-change">Retention Rate</label>
+
+         <input id="edit-submitted-retention-percent-change" class="form-text hs-input" name="retention_rate_percent" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+          
+          <span class="error1" style="display: none;">
+              <i class="error-log fa fa-exclamation-triangle"></i>
+          </span>
+          </div>
+
+        <!-- End Retention Rate Percent -->
+
+
+        <!-- Begin Final Calc -->
+          <div class="form-item webform-component webform-component-textfield hs_fundraising_400_index field hs-form-field" id="webform-component-final-grade--grade">
+
+          <label for=" fundraising_400_index-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Fundraising 400 Index Score</label>
+
+          <input id="edit-submitted-final-grade-grade" class="form-text hs-input" name="fundraising_400_index" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+          </div>
+        <!-- End Final Calc -->
+    <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
+    <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+  </fieldset>
+
+  <fieldset>
+    <h2 class="fs-title">It's on the way!</h2>
+    <h3 class="fs-subtitle">Thank you for trying out our marketing grader, please go check your email for your fundraising report card and some helpful tips to improve it!</h3>
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+  </fieldset>
+</form>
+*@
+
+
+
+<style>
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  margin: 10px 0 20px 0;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-image: linear-gradient(310deg, #ff57b1 0%, #FF0080 100%);
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.875rem;
+  border-radius: 3px;
+  box-shadow: 0 4px 7px -1px rgb(0 0 0 / 11%), 0 2px 4px -1px rgb(0 0 0 / 7%);
+  
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #f881da;
+  box-shadow: 0 4px 7px -1px rgb(0 0 0 / 11%), 0 2px 4px -1px rgb(0 0 0 / 7%);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  font-size: 0.875rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+</style>
+<script>
+var x, i, j, l, ll, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script>

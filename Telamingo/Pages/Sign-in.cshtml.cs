@@ -1,0 +1,12 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace HTM.Pages
+{
+    public class Sign_inModel : PageModel
+    {
+        public void OnGet()
+        {
+        }
+    }
+}
