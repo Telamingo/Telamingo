@@ -10,7 +10,7 @@ namespace Telamingo.AdminPanel.Pages
         public void OnGet()
         {
         }
-        public async Task OpPost([FromServices] IAdminService adminService, AdminDto model)
+        public async Task OnPost([FromServices] IAdminService adminService, AdminDto model)
         {
             try
             {

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Telamingo.BusinessLogic.AdminService;
 using Telamingo.BusinessLogic.Identity.GenerateToken;
 using Telamingo.BusinessLogic.Identity.VerifyToken;
 using Telamingo.BusinessLogic.Login;
@@ -107,6 +108,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IVerifyTokenService, VerifyTokenService>();
 builder.Services.AddTransient<IGenerateTokenService, GenerateTokenService>();
 builder.Services.AddTransient<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+
 
 builder.Services.AddControllers();
 
