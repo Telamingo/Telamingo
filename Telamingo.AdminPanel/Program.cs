@@ -19,9 +19,20 @@ ConfigurationManager Configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+builder.Services.AddMvc().AddRazorPagesOptions(options =>
+{
+    options.Conventions.AddPageRoute("/Sign_in", "");
+});
+
 //builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddMvc()
+    .AddSessionStateTempDataProvider();
+builder.Services.AddHttpClient("AccountClient", c => //Named Http Client
+            {
+    c.DefaultRequestHeaders.Add("X-Custom-Env", "TEST");
+});
 
 //builder.Services.AddAuthentication(x =>
 //{
@@ -46,6 +57,26 @@ builder.Services.AddIdentity<Admin, AdminRole>()
     .AddEntityFrameworkStores<TelamingoDbContext>()
     .AddDefaultTokenProviders();
 
+var myCorsPolicy = "MyCorsPolicy";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(myCorsPolicy,
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+            .WithExposedHeaders("x-my-custom-header");
+        });
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Jwt", policy =>
+    {
+        policy.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
+        policy.RequireAuthenticatedUser();
+    });
+});
 //Adding Authentication
 builder.Services.AddAuthentication(options =>
 {
@@ -53,7 +84,6 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-
  //Adding Jwt Bearer
 .AddJwtBearer(options =>
 {
@@ -128,17 +158,27 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseExceptionHandler("./Error");
+}
+
 // Authentication & Authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
 
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapControllers();
-//    endpoints.MapRazorPages();
-//});
+app.UseEndpoints(endpoints =>
+{
+    //endpoints.MapControllers();
+    endpoints.MapRazorPages();
+});
+//app.UseMvc();
 
 
 // Configure the HTTP request pipeline.
@@ -163,6 +203,16 @@ if (!app.Environment.IsDevelopment())
 //    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
 //    options.RoutePrefix = string.Empty;
 //});
+
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Add("Authentication4", "Satinder singh");
+
+    await next.Invoke();
+
+});
+
+app.UseCors(myCorsPolicy);
 
 app.MapRazorPages();
 

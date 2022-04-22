@@ -23,6 +23,13 @@ public class AdminRoleEntityTypeConfiguration : IEntityTypeConfiguration<AdminRo
             .Property(ct => ct.Role)
             .UsePropertyAccessMode(PropertyAccessMode.Field)
             .HasColumnName("Role")
+            .HasColumnType("int")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.Name)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("Name")
             .HasColumnType("nvarchar")
             .HasMaxLength(250)
             .IsRequired();

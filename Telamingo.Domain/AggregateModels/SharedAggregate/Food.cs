@@ -2,8 +2,7 @@
 
 namespace Telamingo.Domain.AggregateModels.CountryAggregate;
 
-public class EducationalInformation: Entity
+public class Food : Entity
 {
-    public int CountryId { get; set; }
-
+    public string Option { get; set; }
 }

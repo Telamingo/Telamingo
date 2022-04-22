@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,20 +65,20 @@ public enum EnumFinancialSituation
 
 public enum EnumHowCommittedAreYouToReligiousIssues
 {
-    IWantToGetRidOfValueConstraints = 1,
-    DoesNotMatter = 2,
-    ItIsImportantToMe = 3,
+    I_Want_To_Get_Rid_Of_Value_Constraints = 1,
+    Does_Not_Matter = 2,
+    It_Is_Important_To_Me = 3,
 }
 public enum EnumHowImportantIsTheFutureOfIranForYou
 {
-    DoesNotMatter = 2,
-    ItIsImportantToMe = 3,
+    Does_Not_Matter = 2,
+    It_Is_Important_To_Me = 3,
 }
 public enum EnumHowImportantIsTheImmigrationOfTheDestinationCommunityToYou
 {
-    IDoNotLikeToBeImmigrant = 1,
-    DoesNotMatter = 2,
-    ItIsImportantToMe = 3,
+    I_Do_Not_Like_To_Be_Immigrant = 1,
+    Does_Not_Matter = 2,
+    It_Is_Important_To_Me = 3,
 }
 //===========================================================================
 //public enum EnumHowImportantIsThesimilarityOfTheCultureAndBehaviorOfTheDestinationCommunityToTheCommunityOfOrigin
@@ -87,9 +89,9 @@ public enum EnumHowImportantIsTheImmigrationOfTheDestinationCommunityToYou
 //}
 public enum EnumSimilarityOfTheCulture
 {
-    ILikeToBeDifferent = 1,
-    DoesNotMatter = 2,
-    ItIsImportantToMe = 3,
+    I_Like_To_Be_Different = 1,
+    Does_Not_Matter = 2,
+    It_Is_Important_To_Me = 3,
 }
 //===========================================================================
 #endregion
@@ -103,7 +105,7 @@ public enum EnumDoYouHaveSpecificIllness
 }
 public enum EnumApplicantsFoodLifestyle
 {
-    DoesNotMatter = 0,
+    Does_Not_Matter = 0,
     Vegetarian = 1,
     FastFood = 2,
     Iranian = 3,
@@ -128,9 +130,9 @@ public enum EnumWhichOfTheFollowingDisordersDoYouHaveHistoryOf
 {
     Non = 0,
     Anxiety = 1,
-    MinorDepression = 2,
-    MajorDpression = 3,
-    AversionToSociety = 4,
+    Minor_Depression = 2,
+    Major_Dpression = 3,
+    Aversion_To_Society = 4,
     Bipolar = 5,
     Obsession = 6,
 }
@@ -151,16 +153,16 @@ public enum EnumWhatIsYourUnfavorableWeather
     Equatorial = 2,
     Monsoon = 3,
     Desert = 4,
-    MountainBase = 5,
-    ModerateMediterranean = 6
+    Mountain_Base = 5,
+    Moderate_Mediterranean = 6
 }
 public enum EnumProblemsWithDayAndNightHours
 {
     Non = 0,
-    LongNight = 1,
-    LongDay = 2,
-    MostlyCloudy = 3,
-    MostlySunny = 4,
+    Long_Night = 1,
+    Long_Day = 2,
+    Mostly_Cloudy = 3,
+    Mostly_Sunny = 4,
 }
 #endregion
 
@@ -169,7 +171,7 @@ public enum EnumProblemsWithDayAndNightHours
 public enum EnumAcademicResume
 {
     Engineering = 0,
-    MedicineAndPharmacy = 1,
+    Medicine_And_Pharmacy = 1,
     law = 2,
     Management = 3,
     Psychology = 4,

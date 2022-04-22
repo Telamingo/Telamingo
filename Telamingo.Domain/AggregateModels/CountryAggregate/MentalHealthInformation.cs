@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Telamingo.Domain.SeedWork;
 
-namespace Telamingo.Domain.AggregateModels.CountryAggregate
+namespace Telamingo.Domain.AggregateModels.CountryAggregate;
+
+public class MentalHealthInformation: Entity
 {
-    public class MentalHealthInformation
-    {
-        public int CountryId { get; set; }
-        public double PossibilityOfExacerbationOfTheDisorder { get; set; }
-        public double AbilityToVisitFamily { get; set; }
-    }
+    public int CountryId { get; set; }
+    public double PossibilityOfExacerbationOfTheDisorder { get; set; }
+    public double AbilityToVisitFamily { get; set; }
 }

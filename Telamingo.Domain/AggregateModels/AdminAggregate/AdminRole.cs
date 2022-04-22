@@ -5,4 +5,5 @@ namespace Telamingo.Domain.AggregateModels.AdminAggregate;
 public class AdminRole: IdentityRole<int>
 {
     public int Role { get; set; }
+    public string Name { get; set; }
 }

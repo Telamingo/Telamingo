@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Telamingo.Domain.SeedWork;
 
-namespace Telamingo.Domain.AggregateModels.CountryAggregate
+namespace Telamingo.Domain.AggregateModels.CountryAggregate;
+
+public class PhysicalHealthInformation: Entity
 {
-    public class PhysicalHealthInformation
-    {
-        public int CountryId { get; set; }
-        public double StatusOfTheTreatmentSystemForSpecificDiseases { get; set; }
-        public double ProbabilityOfFindingTheDesiredFood { get; set; }
-        public double DoctorAccess { get; set; }
-        public double AveragePerCapitaHealthExpenditure { get; set; }
+    public int CountryId { get; set; }
+    public double StatusOfTheTreatmentSystemForSpecificDiseases { get; set; }
+    //public double ProbabilityOfFindingTheDesiredFood { get; set; }
+    public double DoctorAccess { get; set; }
+    public double AveragePerCapitaHealthExpenditure { get; set; }
 
-    }
 }

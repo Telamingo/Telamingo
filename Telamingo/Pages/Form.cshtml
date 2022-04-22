@@ -68,7 +68,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumLanguageLevel)).OfType<EnumLanguageLevel>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -93,7 +93,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumLanguageLevel)).OfType<EnumLanguageLevel>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -121,7 +121,7 @@
                   @{
                       foreach(var item in Enum.GetValues(typeof(EnumTargetCuntry)).OfType<EnumTargetCuntry>().ToArray())
                       {
-                      <option value="@((int)item)"> @item.ToString()</option>
+                      <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                       }
                   }
                   </select>  
@@ -148,7 +148,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumDoYouHaveSpecificIllness)).OfType<EnumDoYouHaveSpecificIllness>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -178,7 +178,7 @@
                 @{
                     foreach(var item in Enum.GetValues(typeof(EnumApplicantsFoodLifestyle)).OfType<EnumApplicantsFoodLifestyle>().ToArray())
                     {
-                    <option value="@((int)item)"> @item.ToString()</option>
+                    <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                     }
                 }
                 </select>  
@@ -207,7 +207,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumHowManyTimesYearDoYouOrYourFamilyUsuallySeeDoctor)).OfType<EnumHowManyTimesYearDoYouOrYourFamilyUsuallySeeDoctor>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -255,7 +255,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumWhichOfTheFollowingDisordersDoYouHaveHistoryOf)).OfType<EnumWhichOfTheFollowingDisordersDoYouHaveHistoryOf>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -282,7 +282,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumHowManyTimesWeekDoYouVisitYourFamily)).OfType<EnumHowManyTimesWeekDoYouVisitYourFamily>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -350,7 +350,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumWhatIsYourJobOrSkillNow)).OfType<EnumWhatIsYourJobOrSkillNow>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -377,7 +377,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumWhatIsYourJobOrSkillNow)).OfType<EnumWhatIsYourJobOrSkillNow>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -404,7 +404,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumHowCommittedAreYouToReligiousIssues)).OfType<EnumHowCommittedAreYouToReligiousIssues>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -430,7 +430,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumHowImportantIsTheFutureOfIranForYou)).OfType<EnumHowImportantIsTheFutureOfIranForYou>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>
@@ -456,7 +456,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumHowImportantIsTheImmigrationOfTheDestinationCommunityToYou)).OfType<EnumHowImportantIsTheImmigrationOfTheDestinationCommunityToYou>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -482,7 +482,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumSimilarityOfTheCulture)).OfType<EnumSimilarityOfTheCulture>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -508,7 +508,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumWhatIsYourUnfavorableWeather)).OfType<EnumWhatIsYourUnfavorableWeather>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -534,7 +534,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumProblemsWithDayAndNightHours)).OfType<EnumProblemsWithDayAndNightHours>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -578,7 +578,7 @@
               @{
                   foreach(var item in Enum.GetValues(typeof(EnumAcademicResume)).OfType<EnumAcademicResume>().ToArray())
                   {
-                  <option value="@((int)item)"> @item.ToString()</option>
+                  <option value="@((int)item)"> @item.ToString().Replace("_", " ")</option>
                   }
               }
               </select>  
@@ -962,7 +962,8 @@
 }
 
 .select-selected {
-  background-image: linear-gradient(310deg, #ff57b1 0%, #FF0080 100%);
+/*  background-image: linear-gradient(310deg, #ff57b1 0%, #ffffff 100%);*/
+  background-color: #ffe3f2;
 }
 
 /*style the arrow inside the select element:*/
@@ -985,21 +986,21 @@
 
 /*style the items (options), including the selected item:*/
 .select-items div,.select-selected {
-  color: #ffffff;
+  color: #000000;
   padding: 8px 16px;
-  border: 1px solid transparent;
+  border: 1px solid #ffe3f2 ;
   cursor: pointer;
   user-select: none;
   font-size: 0.875rem;
   border-radius: 3px;
-  box-shadow: 0 4px 7px -1px rgb(0 0 0 / 11%), 0 2px 4px -1px rgb(0 0 0 / 7%);
-  
+/*  box-shadow: 0 4px 7px -1px rgb(0 0 0 / 11%), 0 2px 4px -1px rgb(0 0 0 / 7%);
+*/  
 }
 
 /*style items (options):*/
 .select-items {
   position: absolute;
-  background-color: #f881da;
+  background-color: #ffeefb;
   box-shadow: 0 4px 7px -1px rgb(0 0 0 / 11%), 0 2px 4px -1px rgb(0 0 0 / 7%);
   top: 100%;
   left: 0;

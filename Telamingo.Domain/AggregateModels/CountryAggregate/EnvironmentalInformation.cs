@@ -1,7 +1,8 @@
-﻿
+﻿using Telamingo.Domain.SeedWork;
+
 namespace Telamingo.Domain.AggregateModels.CountryAggregate
 {
-    public class EnvironmentalInformation
+    public class EnvironmentalInformation: Entity
     {
         public int CountryId { get; set; }
         public double ReligiousIssues { get; set; }
