@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Telamingo.Domain.Enums;
+﻿namespace Telamingo.Domain.Enums;
 #region    PersonalInfo
 public enum EnumCurentCuntry
 {
