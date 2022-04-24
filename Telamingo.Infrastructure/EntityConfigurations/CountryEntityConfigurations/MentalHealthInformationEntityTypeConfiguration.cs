@@ -1,12 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Telamingo.Domain.AggregateModels.CountryAggregate;
 
-namespace Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations
+namespace Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
+
+public class MentalHealthInformationEntityTypeConfiguration : IEntityTypeConfiguration<MentalHealthInformation>
 {
-    internal class MentalHealthInformationEntityTypeConfiguration
+    public void Configure(EntityTypeBuilder<MentalHealthInformation> userConfiguration)
     {
+        userConfiguration.ToTable("MentalHealthInformation", TelamingoDbContext.DEFAULT_SCHEMA);
+
+        userConfiguration.HasKey(ct => ct.Id);
+
+        userConfiguration
+            .Property(ct => ct.Id)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("Id")
+            .HasColumnType("int")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.CountryId)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("CountryId")
+            .HasColumnType("int")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.PossibilityOfExacerbationOfTheDisorder)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("PossibilityOfExacerbationOfTheDisorder")
+            .HasColumnType("double")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.AbilityToVisitFamily)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("AbilityToVisitFamily")
+            .HasColumnType("double")
+            .IsRequired();
     }
 }

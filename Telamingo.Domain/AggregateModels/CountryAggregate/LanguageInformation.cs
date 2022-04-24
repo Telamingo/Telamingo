@@ -1,8 +1,10 @@
-﻿namespace Telamingo.Domain.AggregateModels.CountryAggregate;
+﻿using Telamingo.Domain.SeedWork;
 
-public class LanguageInformation
+namespace Telamingo.Domain.AggregateModels.CountryAggregate;
+
+public class LanguageInformation: Entity
 {
     public int CountryId { get; set; }
-    public double LanguageName { get; set; }
+    public string LanguageName { get; set; }
     public double LanguageEpidemicRates { get; set; }
 }
