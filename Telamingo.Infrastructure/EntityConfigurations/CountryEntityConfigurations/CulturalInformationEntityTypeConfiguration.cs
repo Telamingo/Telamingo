@@ -26,18 +26,18 @@ public class CulturalInformationEntityTypeConfiguration : IEntityTypeConfigurati
             .HasColumnType("int")
             .IsRequired();
 
-        userConfiguration
-            .Property(ct => ct.WeatherName)
-            .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("WeatherName")
-            .HasColumnType("double")
-            .IsRequired();
+        //userConfiguration
+        //    .Property(ct => ct.WeatherName)
+        //    .UsePropertyAccessMode(PropertyAccessMode.Field)
+        //    .HasColumnName("WeatherName")
+        //    .HasColumnType("double")
+        //    .IsRequired();
 
-        userConfiguration
-            .Property(ct => ct.WeatherRate)
-            .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("WeatherRate")
-            .HasColumnType("double")
-            .IsRequired();
+        //userConfiguration
+        //    .Property(ct => ct.WeatherRate)
+        //    .UsePropertyAccessMode(PropertyAccessMode.Field)
+        //    .HasColumnName("WeatherRate")
+        //    .HasColumnType("double")
+        //    .IsRequired();
     }
 }

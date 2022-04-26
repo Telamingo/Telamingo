@@ -2,9 +2,10 @@
 
 namespace Telamingo.Domain.AggregateModels.CountryAggregate;
 
-public class PossibilityOfExacerbationOfTheDisorder: Entity
+public class MentalHealthPossibilityOfExacerbationOfTheDisorder: Entity
 {
-    public int DisorderId { get; set; }
     public int MentalHealthInformationId { get; set; }
+    public int DisorderId { get; set; }
     public double Possibility { get; set; }
+
 }

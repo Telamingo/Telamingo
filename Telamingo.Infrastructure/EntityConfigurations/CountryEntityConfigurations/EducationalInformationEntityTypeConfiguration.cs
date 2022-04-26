@@ -1,26 +1,29 @@
-﻿namespace Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Telamingo.Domain.AggregateModels.CountryAggregate;
 
-//public class EducationalInformationEntityTypeConfiguration : IEntityTypeConfiguration<Country>
-//{
-//    public void Configure(EntityTypeBuilder<Country> userConfiguration)
-//    {
-//        userConfiguration.ToTable("Country", TelamingoDbContext.DEFAULT_SCHEMA);
+namespace Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
 
-//        userConfiguration.HasKey(ct => ct.Id);
+public class EducationalInformationEntityTypeConfiguration : IEntityTypeConfiguration<EducationalInformation>
+{
+    public void Configure(EntityTypeBuilder<EducationalInformation> userConfiguration)
+    {
+        userConfiguration.ToTable("EducationalInformation", TelamingoDbContext.DEFAULT_SCHEMA);
 
-//        userConfiguration
-//            .Property(ct => ct.Id)
-//            .UsePropertyAccessMode(PropertyAccessMode.Field)
-//            .HasColumnName("Id")
-//            .HasColumnType("int")
-//            .IsRequired();
+        userConfiguration.HasKey(ct => ct.Id);
 
-//        userConfiguration
-//            .Property(ct => ct.Name)
-//            .UsePropertyAccessMode(PropertyAccessMode.Field)
-//            .HasColumnName("Name")
-//            .HasColumnType("nvarchar")
-//            .HasMaxLength(250)
-//            .IsRequired();
-//    }
-//}
+        userConfiguration
+            .Property(ct => ct.Id)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("Id")
+            .HasColumnType("int")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.CountryId)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("CountryId")
+            .HasColumnType("int")
+            .IsRequired();
+    }
+}

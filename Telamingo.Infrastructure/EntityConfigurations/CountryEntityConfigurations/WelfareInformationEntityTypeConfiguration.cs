@@ -8,7 +8,7 @@ public class WelfareInformationEntityTypeConfiguration : IEntityTypeConfiguratio
 {
     public void Configure(EntityTypeBuilder<WelfareInformation> userConfiguration)
     {
-        userConfiguration.ToTable("Country", TelamingoDbContext.DEFAULT_SCHEMA);
+        userConfiguration.ToTable("WelfareInformation", TelamingoDbContext.DEFAULT_SCHEMA);
 
         userConfiguration.HasKey(ct => ct.Id);
 

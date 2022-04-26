@@ -6,8 +6,6 @@ public class PhysicalHealthInformation: Entity
 {
     public int CountryId { get; set; }
     public double StatusOfTheTreatmentSystemForSpecificDiseases { get; set; }
-    //public double ProbabilityOfFindingTheDesiredFood { get; set; }
-    public double DoctorAccess { get; set; }
+    public int DoctorAccess { get; set; }
     public double AveragePerCapitaHealthExpenditure { get; set; }
-
 }

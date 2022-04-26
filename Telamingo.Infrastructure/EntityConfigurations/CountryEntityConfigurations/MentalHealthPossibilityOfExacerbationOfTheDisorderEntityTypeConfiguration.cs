@@ -4,18 +4,18 @@ using Telamingo.Domain.AggregateModels.CountryAggregate;
 
 namespace Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
 
-public class PossibilityOfExacerbationOfDisorderEntityTypeConfiguration : IEntityTypeConfiguration<PossibilityOfExacerbationOfTheDisorder>
+public class MentalHealthPossibilityOfExacerbationOfTheDisorderEntityTypeConfiguration : IEntityTypeConfiguration<MentalHealthPossibilityOfExacerbationOfTheDisorder>
 {
-    public void Configure(EntityTypeBuilder<PossibilityOfExacerbationOfTheDisorder> userConfiguration)
+    public void Configure(EntityTypeBuilder<MentalHealthPossibilityOfExacerbationOfTheDisorder> userConfiguration)
     {
-        userConfiguration.ToTable("PossibilityOfExacerbationOfTheDisorder", TelamingoDbContext.DEFAULT_SCHEMA);
+        userConfiguration.ToTable("MentalHealthPossibilityOfExacerbationOfTheDisorder", TelamingoDbContext.DEFAULT_SCHEMA);
 
         userConfiguration.HasKey(ct => ct.Id);
 
         userConfiguration
-            .Property(ct => ct.DisorderId)
+            .Property(ct => ct.Id)
             .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("DisorderId")
+            .HasColumnName("Id")
             .HasColumnType("int")
             .IsRequired();
 
@@ -23,6 +23,13 @@ public class PossibilityOfExacerbationOfDisorderEntityTypeConfiguration : IEntit
             .Property(ct => ct.MentalHealthInformationId)
             .UsePropertyAccessMode(PropertyAccessMode.Field)
             .HasColumnName("MentalHealthInformationId")
+            .HasColumnType("int")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.DisorderId)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("DisorderId")
             .HasColumnType("int")
             .IsRequired();
 
