@@ -27,12 +27,12 @@ builder.Services.AddMvc().AddRazorPagesOptions(options =>
 //builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddMvc()
-    .AddSessionStateTempDataProvider();
-builder.Services.AddHttpClient("AccountClient", c => //Named Http Client
-            {
-    c.DefaultRequestHeaders.Add("X-Custom-Env", "TEST");
-});
+//builder.Services.AddMvc()
+//    .AddSessionStateTempDataProvider();
+//builder.Services.AddHttpClient("AccountClient", c => //Named Http Client
+//            {
+//    c.DefaultRequestHeaders.Add("X-Custom-Env", "TEST");
+//});
 
 //builder.Services.AddAuthentication(x =>
 //{
@@ -158,14 +158,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
-{
-    app.UseExceptionHandler("./Error");
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseDeveloperExceptionPage();
+//}
+//else
+//{
+//    app.UseExceptionHandler("./Error");
+//}
 
 // Authentication & Authorization
 app.UseAuthentication();
@@ -173,21 +173,14 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.UseEndpoints(endpoints =>
-{
-    //endpoints.MapControllers();
-    endpoints.MapRazorPages();
-});
+//app.UseEndpoints(endpoints =>
+//{
+//    //endpoints.MapControllers();
+//    endpoints.MapRazorPages();
+//});
 //app.UseMvc();
 
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
 
 //if (app.Environment.IsDevelopment())
 //{
@@ -204,15 +197,6 @@ if (!app.Environment.IsDevelopment())
 //    options.RoutePrefix = string.Empty;
 //});
 
-app.Use(async (context, next) =>
-{
-    context.Response.Headers.Add("Authentication4", "Satinder singh");
-
-    await next.Invoke();
-
-});
-
-app.UseCors(myCorsPolicy);
 
 app.MapRazorPages();
 
