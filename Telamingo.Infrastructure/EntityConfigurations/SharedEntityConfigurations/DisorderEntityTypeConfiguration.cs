@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Telamingo.Domain.AggregateModels.CountryAggregate;
+using Telamingo.Domain.AggregateModels.SharedAggregate;
 
 namespace Telamingo.Infrastructure.EntityConfigurations.SharedEntityConfigurations;
 

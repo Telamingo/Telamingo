@@ -26,6 +26,14 @@ public class CulturalInformationEntityTypeConfiguration : IEntityTypeConfigurati
             .HasColumnType("int")
             .IsRequired();
 
+        userConfiguration
+            .HasOne(a => a.Country)
+            .WithMany(a => a.culturalInformation)
+            .HasForeignKey(a => a.CountryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+
         //userConfiguration
         //    .Property(ct => ct.WeatherName)
         //    .UsePropertyAccessMode(PropertyAccessMode.Field)

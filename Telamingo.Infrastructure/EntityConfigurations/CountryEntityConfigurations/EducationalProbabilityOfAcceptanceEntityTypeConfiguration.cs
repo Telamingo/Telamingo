@@ -39,5 +39,19 @@ public class EducationalProbabilityOfAcceptanceEntityTypeConfiguration : IEntity
             .HasColumnName("Rate")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.EducationalInformation)
+            .WithMany(a => a.educationalProbabilityOfAcceptances)
+            .HasForeignKey(a => a.EducationalInformationId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        userConfiguration
+            .HasOne(a => a.FildOfStudy)
+            .WithMany(a => a.educationalProbabilityOfAcceptances)
+            .HasForeignKey(a => a.FildOfStudyId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

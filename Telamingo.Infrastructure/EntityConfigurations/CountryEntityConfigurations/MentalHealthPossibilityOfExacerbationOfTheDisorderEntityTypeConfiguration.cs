@@ -39,5 +39,19 @@ public class MentalHealthPossibilityOfExacerbationOfTheDisorderEntityTypeConfigu
             .HasColumnName("Possibility")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.MentalHealthInformation)
+            .WithMany(a => a.mentalHealthPossibilityOfExacerbationOfTheDisorders)
+            .HasForeignKey(a => a.MentalHealthInformationId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        userConfiguration
+            .HasOne(a => a.Disorder)
+            .WithMany(a => a.mentalHealthPossibilityOfExacerbationOfTheDisorders)
+            .HasForeignKey(a => a.DisorderId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

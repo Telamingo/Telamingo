@@ -39,5 +39,20 @@ public class EnvironmentalLanguageInformationEntityTypeConfiguration : IEntityTy
             .HasColumnName("Rate")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.EnvironmentalInformation)
+            .WithMany(a => a.environmentalLanguageInformation)
+            .HasForeignKey(a => a.EnvironmentalInformationId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        userConfiguration
+            .HasOne(a => a.Language)
+            .WithMany(a => a.environmentalLanguageInformation)
+            .HasForeignKey(a => a.LanguageId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
     }
 }

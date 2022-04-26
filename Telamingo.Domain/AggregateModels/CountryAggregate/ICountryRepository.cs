@@ -1,5 +1,8 @@
-﻿namespace Telamingo.Domain.AggregateModels.CountryAggregate;
+﻿using Telamingo.Domain.Dtos.AddCountry;
 
-public class ICountryRepository
+namespace Telamingo.Domain.AggregateModels.CountryAggregate;
+
+public interface ICountryRepository
 {
+    Task<List<Country>> GetAllAsync();
 }

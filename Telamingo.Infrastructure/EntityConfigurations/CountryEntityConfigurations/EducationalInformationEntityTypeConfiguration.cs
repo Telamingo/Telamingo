@@ -25,5 +25,12 @@ public class EducationalInformationEntityTypeConfiguration : IEntityTypeConfigur
             .HasColumnName("CountryId")
             .HasColumnType("int")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Country)
+            .WithMany(a => a.educationalInformation)
+            .HasForeignKey(a => a.CountryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

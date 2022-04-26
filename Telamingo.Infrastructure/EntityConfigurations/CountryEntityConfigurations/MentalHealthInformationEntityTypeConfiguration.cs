@@ -32,5 +32,12 @@ public class MentalHealthInformationEntityTypeConfiguration : IEntityTypeConfigu
             .HasColumnName("AbilityToVisitFamily")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Country)
+            .WithMany(a => a.mentalHealthInformation)
+            .HasForeignKey(a => a.CountryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

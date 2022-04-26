@@ -46,5 +46,12 @@ public class PhysicalHealthInformationEntityTypeConfiguration : IEntityTypeConfi
             .HasColumnName("AveragePerCapitaHealthExpenditure")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Country)
+            .WithMany(a => a.PhysicalHealthInformation)
+            .HasForeignKey(a => a.CountryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

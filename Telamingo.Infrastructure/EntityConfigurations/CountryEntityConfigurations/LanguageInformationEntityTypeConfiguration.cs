@@ -40,5 +40,13 @@ public class LanguageInformationEntityTypeConfiguration : IEntityTypeConfigurati
             .HasColumnName("LanguageEpidemicRates")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Country)
+            .WithMany(a => a.languageInformation)
+            .HasForeignKey(a => a.CountryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
     }
 }

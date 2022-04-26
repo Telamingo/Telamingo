@@ -39,5 +39,20 @@ public class CulturalClimateInformationEntityTypeConfiguration : IEntityTypeConf
             .HasColumnName("Rate")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Climate)
+            .WithMany(a => a.culturalClimateInformation)
+            .HasForeignKey(a => a.ClimateId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        userConfiguration
+            .HasOne(a => a.CulturalInformation)
+            .WithMany(a => a.culturalClimateInformation)
+            .HasForeignKey(a => a.CulturalInformationId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
     }
 }

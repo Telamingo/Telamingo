@@ -46,5 +46,12 @@ public class EnvironmantalInformationEntityTypeConfiguration : IEntityTypeConfig
             .HasColumnName("SocialRelationshipMatching")
             .HasColumnType("int")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Country)
+            .WithMany(a => a.environmentalInformation)
+            .HasForeignKey(a => a.CountryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
