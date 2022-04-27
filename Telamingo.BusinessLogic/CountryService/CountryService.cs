@@ -11,11 +11,9 @@ public class CountryService : ICountryService
     {
         this.countryRepository = countryRepository;
     }
-    public async Task<AddCountryDto> GetAsync()
+    public async Task<Country> GetAsync(int Id)
     {
-        var country = new AddCountryDto();
-
-        return country;
+        return await countryRepository.GetAsync(Id);
     }
     public async Task<List<Country>> GetAllAsync()
     {

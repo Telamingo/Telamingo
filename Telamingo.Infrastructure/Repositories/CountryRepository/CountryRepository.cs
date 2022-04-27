@@ -21,19 +21,60 @@ public class CountryRepository : ICountryRepository
         _context = context ?? throw new ArgumentNullException(nameof(context));
 
     }
-    public async Task<AddCountryDto> GetAsync()
+    public async Task<Country> GetAsync(int Id)
     {
-        Country country = await _context.Countries.Where(x => x.Id == 1).FirstOrDefaultAsync();
+        Country country = await _context.Countries.Where(z => z.Id == Id)
+            .Include(x => x.educationalInformation)
+            //.ThenInclude(a => a.educationalInformationTuitions)
+            
+            .Include(x => x.educationalInformation)
+            //.ThenInclude(a => a.educationalProbabilityOfAcceptances)
+            
+            .Include(x => x.environmentalInformation)
+            //.ThenInclude(a => a.environmentalLanguageInformation)
+            
+            .Include(x => x.mentalHealthInformation)
+            //.ThenInclude(a => a.mentalHealthPossibilityOfExacerbationOfTheDisorders)
+            
+            .Include(x => x.PhysicalHealthInformation)
+            .ThenInclude(a => a.physicalHealthDesiredFoods)
+            
+            .Include(x => x.welfareInformation)
+            
+            .Include(x => x.culturalInformation)
+            .ThenInclude(a => a.culturalClimateInformation)
+            .ThenInclude(d => d.Climate)
+            
+            .Include(x => x.culturalInformation)
+            .ThenInclude(a => a.culturalweatherInformation)
+            .FirstAsync();
+
         if (country == null)
         {
             throw new Exception("Null");
         }
-
-        return new AddCountryDto();
+        return country;
     }
     public async Task<List<Country>> GetAllAsync()
     {
-        List<Country> countrys = await _context.Countries.ToListAsync();
+        List<Country> countrys = await _context.Countries
+            //.Include(x => x.educationalInformation)
+            //.ThenInclude(a => a.educationalInformationTuitions)
+            //.Include(x => x.educationalInformation)
+            //.ThenInclude(a => a.educationalProbabilityOfAcceptances)
+            //.Include(x => x.environmentalInformation)
+            //.ThenInclude(a => a.environmentalLanguageInformation)
+            //.Include(x => x.mentalHealthInformation)
+            //.ThenInclude(a => a.mentalHealthPossibilityOfExacerbationOfTheDisorders)
+            //.Include(x => x.PhysicalHealthInformation)
+            //.ThenInclude(a => a.physicalHealthDesiredFoods)
+            //.Include(x => x.welfareInformation)
+            //.Include(x => x.culturalInformation)
+            //.ThenInclude(a => a.culturalClimateInformation)
+            //.Include(x => x.culturalInformation)
+            //.ThenInclude(a => a.culturalweatherInformation)
+            .ToListAsync();
+
         if (countrys == null)
         {
             throw new Exception("Null");

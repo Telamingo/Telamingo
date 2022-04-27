@@ -4,13 +4,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Telamingo.BusinessLogic.AdminService;
+using Telamingo.BusinessLogic.CountryService;
 using Telamingo.BusinessLogic.Identity.GenerateToken;
 using Telamingo.BusinessLogic.Identity.VerifyToken;
 using Telamingo.BusinessLogic.Login;
 using Telamingo.Domain.AggregateModels.AdminAggregate;
+using Telamingo.Domain.AggregateModels.CountryAggregate;
 using Telamingo.Domain.AggregateModels.UserAggregate;
 using Telamingo.Infrastructure;
 using Telamingo.Infrastructure.Repositories.AdminRepository;
+using Telamingo.Infrastructure.Repositories.CountryRepository;
 using Telamingo.Infrastructure.Repositories.UserRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -139,6 +142,9 @@ builder.Services.AddTransient<IVerifyTokenService, VerifyTokenService>();
 builder.Services.AddTransient<IGenerateTokenService, GenerateTokenService>();
 builder.Services.AddTransient<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IAdminService, AdminService>();
+
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+builder.Services.AddScoped<ICountryService, CountryService>();
 
 
 builder.Services.AddControllers();

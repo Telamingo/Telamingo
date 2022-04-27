@@ -5,6 +5,6 @@ namespace Telamingo.BusinessLogic.CountryService;
 
 public interface ICountryService
 {
-    Task<AddCountryDto> GetAsync();
+    Task<Country> GetAsync(int Id);
     Task<List<Country>> GetAllAsync();
 }
