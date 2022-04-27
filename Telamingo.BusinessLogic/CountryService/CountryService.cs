@@ -20,10 +20,10 @@ public class CountryService : ICountryService
         
         return await countryRepository.GetAllAsync();
     }
-    public async Task AddAsync()
+    public async Task AddAsync(AddCountryDto model)
     {
         
-        await countryRepository.ad();
+        await countryRepository.AddAsync(model);
     }
 
 }
