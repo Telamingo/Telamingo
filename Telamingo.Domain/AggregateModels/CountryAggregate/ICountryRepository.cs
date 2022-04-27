@@ -6,4 +6,5 @@ public interface ICountryRepository
 {
     Task<Country> GetAsync(int Id);
     Task<List<Country>> GetAllAsync();
+    Task AddAsync(AddCountryDto model);
 }

@@ -11,7 +11,8 @@ public class Country : Entity
     }
     public Country(AddCountryDto model)
     {
-
+        Name = model.CountryName;
+        //_welfareInformation.AddRange(model.Welfare);
     }
     public string Name { get; set; }
 

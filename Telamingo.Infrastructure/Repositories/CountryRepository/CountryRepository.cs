@@ -136,15 +136,11 @@ public class CountryRepository : ICountryRepository
     //    List<AddCountryDto>
     //    return countrys;
     //}
-    public async Task<List<AddCountryDto>> AddAsync(AddCountryDto model)
+    public async Task AddAsync(AddCountryDto model)
     {
-        Country country = await _context.Countries.Where(x => x.Id == 1).FirstOrDefaultAsync();
-        if (country == null)
-        {
-            throw new Exception("Null");
-        }
+        Country newCountry = new Country(model);
 
-        return new List<AddCountryDto>();
+        await UnitOfWork.SaveChangesAsync();
     }
     public async Task<List<AddCountryDto>> UpdateAsync(AddCountryDto model)
     {

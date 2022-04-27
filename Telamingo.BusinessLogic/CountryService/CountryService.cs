@@ -20,6 +20,11 @@ public class CountryService : ICountryService
         
         return await countryRepository.GetAllAsync();
     }
+    public async Task AddAsync()
+    {
+        
+        await countryRepository.ad();
+    }
 
 }
 public class CountryListDto
