@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using Telamingo.BusinessLogic.AdminService;
@@ -24,6 +25,20 @@ namespace Telamingo.AdminPanel.Pages
         public void OnGet([FromServices] IVerifyTokenService verifyTokenService)
         {
             string? authentication = Request.Headers["Authentication"];
+            string? token = HttpContext.Request.Cookies["Authentication"];
+            if (!string.IsNullOrEmpty(token))
+            {
+                var handler = new JwtSecurityTokenHandler();
+                var jwtToken = handler.ReadJwtToken(token);
+
+                var adminId = jwtToken.Claims.Where(x => x.Type == "AdminId").First().Value;
+                if (adminId != null)
+                {
+                    Response.Redirect("./Dashboard");
+                }
+            }
+
+
             if (authentication != null)
             {
                 ClaimsPrincipal? claims = verifyTokenService.VerifyToken(authentication);

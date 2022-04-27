@@ -27,17 +27,17 @@ public class MentalHealthInformationEntityTypeConfiguration : IEntityTypeConfigu
             .IsRequired();
 
         userConfiguration
-            .Property(ct => ct.PossibilityOfExacerbationOfTheDisorder)
-            .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("PossibilityOfExacerbationOfTheDisorder")
-            .HasColumnType("double")
-            .IsRequired();
-
-        userConfiguration
             .Property(ct => ct.AbilityToVisitFamily)
             .UsePropertyAccessMode(PropertyAccessMode.Field)
             .HasColumnName("AbilityToVisitFamily")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Country)
+            .WithMany(a => a.mentalHealthInformation)
+            .HasForeignKey(a => a.CountryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

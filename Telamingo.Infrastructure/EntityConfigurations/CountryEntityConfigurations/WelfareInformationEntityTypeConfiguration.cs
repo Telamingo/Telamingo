@@ -8,7 +8,7 @@ public class WelfareInformationEntityTypeConfiguration : IEntityTypeConfiguratio
 {
     public void Configure(EntityTypeBuilder<WelfareInformation> userConfiguration)
     {
-        userConfiguration.ToTable("Country", TelamingoDbContext.DEFAULT_SCHEMA);
+        userConfiguration.ToTable("WelfareInformation", TelamingoDbContext.DEFAULT_SCHEMA);
 
         userConfiguration.HasKey(ct => ct.Id);
 
@@ -46,5 +46,19 @@ public class WelfareInformationEntityTypeConfiguration : IEntityTypeConfiguratio
             .HasColumnName("double")
             .HasColumnType("RequiredSpecialization")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Country)
+            .WithMany(a => a.welfareInformation)
+            .HasForeignKey(a => a.CountryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        userConfiguration
+            .HasOne(a => a.Job)
+            .WithMany(a => a.welfareInformation)
+            .HasForeignKey(a => a.JobId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

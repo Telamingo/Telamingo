@@ -39,5 +39,19 @@ public class PhysicalHealthDesiredFoodEntityTypeConfiguration : IEntityTypeConfi
             .HasColumnName("Rate")
             .HasColumnType("double")
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.Food)
+            .WithMany(a => a.physicalHealthDesiredFoods)
+            .HasForeignKey(a => a.FoodId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        userConfiguration
+            .HasOne(a => a.PhysicalHealthInformation)
+            .WithMany(a => a.physicalHealthDesiredFoods)
+            .HasForeignKey(a => a.PhysicalHealthInformationId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

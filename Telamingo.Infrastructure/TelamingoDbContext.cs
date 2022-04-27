@@ -8,6 +8,8 @@ using Telamingo.Domain.AggregateModels.AdminAggregate;
 using Microsoft.EntityFrameworkCore;
 using Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations;
 using Telamingo.Infrastructure.EntityConfigurations.AdminEntityConfigurations;
+using Telamingo.Domain.AggregateModels.CountryAggregate;
+using Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
 
 namespace Telamingo.Infrastructure;
 
@@ -20,6 +22,7 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
     public DbSet<User> Users { get; set; }
     public DbSet<Admin> Admins { get; set; }
     public DbSet<AdminRole> AdminRoles { get; set; }
+    public DbSet<Country> Countries { get; set; }
 
     #endregion
 
@@ -43,6 +46,7 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
         modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new AdminEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new AdminRoleEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CountryEntityTypeConfiguration());
     }
     public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))
     {

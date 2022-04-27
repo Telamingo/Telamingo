@@ -4,13 +4,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Telamingo.BusinessLogic.AdminService;
+using Telamingo.BusinessLogic.CountryService;
 using Telamingo.BusinessLogic.Identity.GenerateToken;
 using Telamingo.BusinessLogic.Identity.VerifyToken;
 using Telamingo.BusinessLogic.Login;
 using Telamingo.Domain.AggregateModels.AdminAggregate;
+using Telamingo.Domain.AggregateModels.CountryAggregate;
 using Telamingo.Domain.AggregateModels.UserAggregate;
 using Telamingo.Infrastructure;
 using Telamingo.Infrastructure.Repositories.AdminRepository;
+using Telamingo.Infrastructure.Repositories.CountryRepository;
 using Telamingo.Infrastructure.Repositories.UserRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,12 +30,12 @@ builder.Services.AddMvc().AddRazorPagesOptions(options =>
 //builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddMvc()
-    .AddSessionStateTempDataProvider();
-builder.Services.AddHttpClient("AccountClient", c => //Named Http Client
-            {
-    c.DefaultRequestHeaders.Add("X-Custom-Env", "TEST");
-});
+//builder.Services.AddMvc()
+//    .AddSessionStateTempDataProvider();
+//builder.Services.AddHttpClient("AccountClient", c => //Named Http Client
+//            {
+//    c.DefaultRequestHeaders.Add("X-Custom-Env", "TEST");
+//});
 
 //builder.Services.AddAuthentication(x =>
 //{
@@ -140,6 +143,9 @@ builder.Services.AddTransient<IGenerateTokenService, GenerateTokenService>();
 builder.Services.AddTransient<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 
+builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+builder.Services.AddScoped<ICountryService, CountryService>();
+
 
 builder.Services.AddControllers();
 
@@ -153,19 +159,22 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseDeveloperExceptionPage();
+app.UseDatabaseErrorPage();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
-{
-    app.UseExceptionHandler("./Error");
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseDeveloperExceptionPage();
+//}
+//else
+//{
+//    app.UseExceptionHandler("./Error");
+//}
 
 // Authentication & Authorization
 app.UseAuthentication();
@@ -173,21 +182,14 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.UseEndpoints(endpoints =>
-{
-    //endpoints.MapControllers();
-    endpoints.MapRazorPages();
-});
+//app.UseEndpoints(endpoints =>
+//{
+//    //endpoints.MapControllers();
+//    endpoints.MapRazorPages();
+//});
 //app.UseMvc();
 
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
 
 //if (app.Environment.IsDevelopment())
 //{
@@ -204,15 +206,6 @@ if (!app.Environment.IsDevelopment())
 //    options.RoutePrefix = string.Empty;
 //});
 
-app.Use(async (context, next) =>
-{
-    context.Response.Headers.Add("Authentication4", "Satinder singh");
-
-    await next.Invoke();
-
-});
-
-app.UseCors(myCorsPolicy);
 
 app.MapRazorPages();
 

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telamingo.Infrastructure", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telamingo.AdminPanel", "Telamingo.AdminPanel\Telamingo.AdminPanel.csproj", "{9254B19F-43A0-4884-A0B4-AB79E5D330ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telamingo.React", "Telamingo.React\Telamingo.React.csproj", "{497305B2-31D3-45C7-9140-EC11D59092D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telamingo.React", "Telamingo.React\Telamingo.React.csproj", "{497305B2-31D3-45C7-9140-EC11D59092D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

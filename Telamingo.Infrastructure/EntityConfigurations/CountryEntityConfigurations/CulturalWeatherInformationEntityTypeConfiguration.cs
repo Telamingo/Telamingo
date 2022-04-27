@@ -1,26 +1,58 @@
-﻿namespace Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Telamingo.Domain.AggregateModels.CountryAggregate;
 
-//public class CulturalWeatherInformationEntityTypeConfiguration : IEntityTypeConfiguration<Country>
-//{
-//    public void Configure(EntityTypeBuilder<Country> userConfiguration)
-//    {
-//        userConfiguration.ToTable("Country", TelamingoDbContext.DEFAULT_SCHEMA);
+namespace Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
 
-//        userConfiguration.HasKey(ct => ct.Id);
+public class CulturalWeatherInformationEntityTypeConfiguration : IEntityTypeConfiguration<CulturalweatherInformation>
+{
+    public void Configure(EntityTypeBuilder<CulturalweatherInformation> userConfiguration)
+    {
+        userConfiguration.ToTable("CulturalweatherInformation", TelamingoDbContext.DEFAULT_SCHEMA);
 
-//        userConfiguration
-//            .Property(ct => ct.Id)
-//            .UsePropertyAccessMode(PropertyAccessMode.Field)
-//            .HasColumnName("Id")
-//            .HasColumnType("int")
-//            .IsRequired();
+        userConfiguration.HasKey(ct => ct.Id);
 
-//        userConfiguration
-//            .Property(ct => ct.Name)
-//            .UsePropertyAccessMode(PropertyAccessMode.Field)
-//            .HasColumnName("Name")
-//            .HasColumnType("nvarchar")
-//            .HasMaxLength(250)
-//            .IsRequired();
-//    }
-//}
+        userConfiguration
+            .Property(ct => ct.Id)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("Id")
+            .HasColumnType("int")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.CulturalInformationId)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("CulturalInformationId")
+            .HasColumnType("int")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.WeatherId)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("WeatherId")
+            .HasColumnType("int")
+            .IsRequired();
+
+        userConfiguration
+            .Property(ct => ct.Rate)
+            .UsePropertyAccessMode(PropertyAccessMode.Field)
+            .HasColumnName("Rate")
+            .HasColumnType("double")
+            .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.CulturalInformation)
+            .WithMany(a => a.culturalweatherInformation)
+            .HasForeignKey(a => a.CulturalInformationId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        userConfiguration
+            .HasOne(a => a.Weather)
+            .WithMany(a => a.culturalweatherInformation)
+            .HasForeignKey(a => a.WeatherId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+    }
+}
