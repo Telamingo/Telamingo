@@ -25,29 +25,74 @@ public class CountryRepository : ICountryRepository
     {
         Country country = await _context.Countries.Where(z => z.Id == Id)
             .Include(x => x.educationalInformation)
-            //.ThenInclude(a => a.educationalInformationTuitions)
+            .ThenInclude(a => a.educationalInformationTuitions)
+            .ThenInclude(d => d.FildOfStudy)
             
             .Include(x => x.educationalInformation)
-            //.ThenInclude(a => a.educationalProbabilityOfAcceptances)
-            
+            .ThenInclude(a => a.educationalProbabilityOfAcceptances)
+            .ThenInclude(d => d.FildOfStudy)
+
             .Include(x => x.environmentalInformation)
-            //.ThenInclude(a => a.environmentalLanguageInformation)
+            .ThenInclude(a => a.environmentalLanguageInformation)
+            .ThenInclude(d => d.Language)
             
             .Include(x => x.mentalHealthInformation)
-            //.ThenInclude(a => a.mentalHealthPossibilityOfExacerbationOfTheDisorders)
-            
+            .ThenInclude(a => a.mentalHealthPossibilityOfExacerbationOfTheDisorders)
+            .ThenInclude(d => d.Disorder)
+            .FirstAsync();
+
+
+        country = await _context.Countries.Where(z => z.Id == Id)
             .Include(x => x.PhysicalHealthInformation)
             .ThenInclude(a => a.physicalHealthDesiredFoods)
+            .ThenInclude(d => d.Food)
             
             .Include(x => x.welfareInformation)
-            
+            .ThenInclude(d => d.Job)
+            .FirstAsync();
+
+
+        country = await _context.Countries.Where(z => z.Id == Id)
             .Include(x => x.culturalInformation)
             .ThenInclude(a => a.culturalClimateInformation)
             .ThenInclude(d => d.Climate)
             
             .Include(x => x.culturalInformation)
             .ThenInclude(a => a.culturalweatherInformation)
+            .ThenInclude(d => d.Weather)
             .FirstAsync();
+
+        //Country country = await _context.Countries.Where(z => z.Id == Id)
+        //    .Include(x => x.educationalInformation)
+        //    .ThenInclude(a => a.educationalInformationTuitions)
+        //    .ThenInclude(d => d.FildOfStudy)
+            
+        //    .Include(x => x.educationalInformation)
+        //    .ThenInclude(a => a.educationalProbabilityOfAcceptances)
+        //    .ThenInclude(d => d.FildOfStudy)
+
+        //    .Include(x => x.environmentalInformation)
+        //    .ThenInclude(a => a.environmentalLanguageInformation)
+        //    .ThenInclude(d => d.Language)
+            
+        //    .Include(x => x.mentalHealthInformation)
+        //    .ThenInclude(a => a.mentalHealthPossibilityOfExacerbationOfTheDisorders)
+        //    .ThenInclude(d => d.Disorder)
+            
+        //    .Include(x => x.PhysicalHealthInformation)
+        //    .ThenInclude(a => a.physicalHealthDesiredFoods)
+        //    .ThenInclude(d => d.Food)
+            
+        //    .Include(x => x.welfareInformation)
+            
+        //    .Include(x => x.culturalInformation)
+        //    .ThenInclude(a => a.culturalClimateInformation)
+        //    .ThenInclude(d => d.Climate)
+            
+        //    .Include(x => x.culturalInformation)
+        //    .ThenInclude(a => a.culturalweatherInformation)
+        //    .ThenInclude(d => d.Weather)
+        //    .FirstAsync();
 
         if (country == null)
         {

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Telamingo.BusinessLogic.CountryService;
 using Telamingo.BusinessLogic.Identity.VerifyToken;
@@ -10,9 +11,7 @@ namespace Telamingo.AdminPanel.Pages
 {
     public class CountrysModel : PageModel
     {
-        public int Id { get; set; }
-        public string CountryName { get; set; }
-        public List<AddCountryDto> Result { get; set; }
+        public List<CountryListDto> Result { get; set; } = new List<CountryListDto>();
 
 
         private readonly IVerifyTokenService verifyTokenService;
@@ -38,9 +37,31 @@ namespace Telamingo.AdminPanel.Pages
             //    RedirectToAction("Sign_in");
             //}
 
+            string? authentication = Request.Headers["Authentication"];
+
+            string? token = HttpContext.Request.Cookies["Authentication"];
+            if (string.IsNullOrEmpty(token))
+            {
+                RedirectToAction("Sign_in");
+            }
+
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+
+            var adminId = jwtToken.Claims.Where(x => x.Type == "AdminId").First().Value;
+            if (adminId == null)
+            {
+                RedirectToAction("Sign_in");
+            }
+
             List<Country> country = await countryService.GetAllAsync();
-            this.Id = country.FirstOrDefault().Id;
-            this.CountryName = country.FirstOrDefault().Name;
+            foreach (var item in country)
+            {
+                CountryListDto result = new();
+                result.Id = country.First().Id;
+                result.Name = country.First().Name;
+                Result.Add(result);
+            }
         }
     }
 }
