@@ -10,6 +10,8 @@ using Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations;
 using Telamingo.Infrastructure.EntityConfigurations.AdminEntityConfigurations;
 using Telamingo.Domain.AggregateModels.CountryAggregate;
 using Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
+using Telamingo.Domain.AggregateModels.SharedAggregate;
+using Telamingo.Infrastructure.EntityConfigurations.SharedEntityConfigurations;
 
 namespace Telamingo.Infrastructure;
 
@@ -23,6 +25,27 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
     public DbSet<Admin> Admins { get; set; }
     public DbSet<AdminRole> AdminRoles { get; set; }
     public DbSet<Country> Countries { get; set; }
+    public DbSet<CulturalClimateInformation> CulturalClimateInformations { get; set; }
+    public DbSet<CulturalInformation> CulturalInformations { get; set; }
+    public DbSet<CulturalweatherInformation> CulturalweatherInformations { get; set; }
+    public DbSet<EducationalInformation> EducationalInformations { get; set; }
+    public DbSet<EducationalInformationTuition> EducationalInformationTuitions { get; set; }
+    public DbSet<EducationalProbabilityOfAcceptance> EducationalProbabilityOfAcceptances { get; set; }
+    public DbSet<EnvironmentalInformation> EnvironmentalInformations { get; set; }
+    public DbSet<EnvironmentalLanguageInformation> EnvironmentalLanguageInformations { get; set; }
+    public DbSet<LanguageInformation> LanguageInformations { get; set; }
+    public DbSet<MentalHealthInformation> MentalHealthInformations { get; set; }
+    public DbSet<MentalHealthPossibilityOfExacerbationOfTheDisorder> MentalHealthPossibilityOfExacerbationOfTheDisorders { get; set; }
+    public DbSet<PhysicalHealthDesiredFood> PhysicalHealthDesiredFoods { get; set; }
+    public DbSet<PhysicalHealthInformation> PhysicalHealthInformations { get; set; }
+    public DbSet<WelfareInformation> WelfareInformation { get; set; }
+    public DbSet<Climate> Climates { get; set; }
+    public DbSet<Disorder> Disorders { get; set; }
+    public DbSet<FildOfStudy> FildOfStudies { get; set; }
+    public DbSet<Food> Foods { get; set; }
+    public DbSet<Job> Jobs { get; set; }
+    public DbSet<Language> Languages { get; set; }
+    public DbSet<Weather> Weathers { get; set; }
 
     #endregion
 
@@ -47,8 +70,30 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
         modelBuilder.ApplyConfiguration(new AdminEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new AdminRoleEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CountryEntityTypeConfiguration());
-    }
-    public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        modelBuilder.ApplyConfiguration(new CulturalClimateInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CulturalInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CulturalWeatherInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new EducationalInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new EducationalInformationTuitionEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new EducationalProbabilityOfAcceptanceEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new EnvironmantalInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new EnvironmentalLanguageInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new LanguageInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new MentalHealthInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new MentalHealthPossibilityOfExacerbationOfTheDisorderEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new PhysicalHealthDesiredFoodEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new PhysicalHealthInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new WelfareInformationEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new ClimateEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new DisorderEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new FildOfStudyEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new FoodEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new JobEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new LanguageEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new WeatherEntityTypeConfiguration());
+
+}
+public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))
     {
         // Dispatch Domain Events collection. 
         // Choices:
