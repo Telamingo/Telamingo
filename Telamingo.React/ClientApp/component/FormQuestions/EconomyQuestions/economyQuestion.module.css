@@ -1,0 +1,137 @@
+.questionHeader{
+    color: grey;
+}
+.questionHeader i{
+    margin:20px 5px;
+}
+.questionBody{
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    /*height: 30rem;*/
+}
+.questionContent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 55%;
+    padding: 0 20px;
+    font-size: 20px;
+    color: black;
+}
+.questionDsc{
+    font-size: 18px;
+    color: grey;
+}
+.active{
+    height: 25px;
+    width: 25px;
+    background-color: orange;
+    border-radius: 50%;
+    display: inline-block;
+}
+.deActive{
+    height: 25px;
+    width: 25px;
+    background-color: grey;
+    border-radius: 50%;
+    display: inline-block;
+}
+.nextQuestionButtonDeActive{
+    color: white;
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+.nextQuestionButtonActive{
+    color: white;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+.nextQuestionButtonActive:hover{
+    background-color: orangered;;
+}
+.chooseJob{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.chooseJob select{
+    padding: 0 15px;
+    margin-right: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    outline: none;
+}
+.jobPosition{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.jobPosition div{
+    border-radius: 10px;
+    border: 1px solid orange;
+    width: 200px;
+    height: 100px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.jobPosition button{
+    background-color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.jobPosition button:hover{
+    background-color: orange;
+    color: white;
+}
+.jobPosition div:hover{
+    background-color: orange;
+    color: white;
+}
+
+.jobPositionM{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.jobPositionM div{
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid orange;
+    width: 100%;
+    height: 100px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.jobPositionM button{
+    background-color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.jobPositionM button:hover{
+    background-color: orange;
+    color: white;
+}
+.jobPositionM div:hover{
+    background-color: orange;
+    color: white;
+}
+.mobileButton{
+    width: 100%;
+    text-align: center;
+}

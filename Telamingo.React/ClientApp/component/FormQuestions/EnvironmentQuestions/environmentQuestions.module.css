@@ -1,0 +1,93 @@
+.questionHeader{
+    color: grey;
+}
+.questionHeader i{
+    margin:20px 5px;
+}
+.questionTitle{
+    text-align: right;
+}
+.questionBody{
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    /*height: 30rem;*/
+}
+.questionContent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 55%;
+    padding: 0 20px;
+    font-size: 20px;
+    color: black;
+}
+.questionDsc{
+    font-size: 18px;
+    color: grey;
+    text-align: right;
+}
+.active{
+    height: 25px;
+    width: 25px;
+    background-color: orange;
+    border-radius: 50%;
+    display: inline-block;
+}
+.deActive{
+    height: 25px;
+    width: 25px;
+    background-color: grey;
+    border-radius: 50%;
+    display: inline-block;
+}
+.nextQuestionButtonDeActive{
+    color: white;
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+.nextQuestionButtonActive{
+    color: white;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+.nextQuestionButtonActive:hover{
+    background-color: orangered;;
+}
+.environmentHoby input{
+    border: 1px solid orange;
+    margin-right: 15px;
+    border-radius: 10px;
+    outline: none;
+}
+.environmentHobyM input{
+    border: 1px solid orange;
+    margin-right: 15px;
+    border-radius: 10px;
+    outline: none;
+}
+.environmentHobyM{
+    text-align: right;
+    font-size: 17px;
+}
+.finalAnswer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.finalAnswerM{
+display: flex;
+flex-direction: column;
+}
+.finalAnswerM label{
+   text-align: right;
+}
+.mobileButton{
+    width: 100%;
+    text-align: center;
+}
