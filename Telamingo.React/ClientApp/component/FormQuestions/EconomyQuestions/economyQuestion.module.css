@@ -133,5 +133,9 @@
 }
 .mobileButton{
     width: 100%;
+    text-align: left;
+}
+.mobileButtonM{
+    width: 100%;
     text-align: center;
 }

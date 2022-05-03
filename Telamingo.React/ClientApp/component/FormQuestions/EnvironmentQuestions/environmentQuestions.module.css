@@ -89,5 +89,29 @@ flex-direction: column;
 }
 .mobileButton{
     width: 100%;
+    text-align: left;
+}
+.mobileButtonM{
+    width: 100%;
     text-align: center;
+}
+.FinalHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.FinalHeader h3{
+    color: grey;
+}
+.FinalHeader span{
+    color: orange;
+    font-size: 24px;
+    font-weight: bold;
+}
+.resultDsc{
+    text-align: left;
+}
+.resultDsc p:nth-child(1){
+    color: orange;
 }

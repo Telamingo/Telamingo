@@ -115,14 +115,14 @@ const EnvironmentQuestions = (props) => {
                                         </div>
                                         {
                                             firstEnvironmentRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
                                                         بعدی
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                         onClick={() => setSecondQuestion(true)}>سوال
@@ -130,6 +130,11 @@ const EnvironmentQuestions = (props) => {
                                                     </button>
                                                 </div>
                                         }
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ) : null
                             }
@@ -261,11 +266,82 @@ const EnvironmentQuestions = (props) => {
                                     </div>
                                 </React.Fragment>
                                 :
-                                <>
-                                    <h1>
-                                        end
-                                    </h1>
-                                </>
+                                <React.Fragment>
+                                    <div className={` col-lg-12 ${style.questionBody}`}>
+                                        <div className={`${style.FinalHeader} mt-3`}>
+                                            <h3>
+                                                :احتمالا موفقیت شما در این اقدام
+                                            </h3>
+                                            <span>70%</span>
+                                        </div>
+                                        <div className={`${style.questionContent} mt-5`} dir='ltr'>
+                                            <div className={`mt-5 ${style.resultDsc}`}>
+                                                <p>
+                                                    Introduction
+                                                </p>
+                                                <p>
+                                                    According to studies, the decision to immigrate is one of the most difficult decisions a person can face in their lifetime. Regardless of the fact that living in any community different from one's own homeland is always fraught with challenges, choosing the right destination for immigration is of particular importance.
+                                                </p>
+                                            </div>
+                                            <div className={`mt-5 ${style.resultDsc}`}>
+                                                <p>
+                                                    Economy-Welfare
+                                                </p>
+                                                <p>
+                                                    From an economic point of view, various factors are effective in choosing a country as a destination for migration; Inflation, unemployment and GDP are among the most important of these factors. The results of the analysis based on statistical data, the experiences of people with similar conditions to you, the general economic situation in the UK as well as the labor market conditions related to the medical profession show that your economic situation will not necessarily improve with immigration to the UK.
+                                                </p>
+                                            </div>
+                                            <div className={`mt-5 ${style.resultDsc}`}>
+                                                <p>
+                                                    Culture and society
+                                                </p>
+                                                <p>
+                                                    The issue of cultural compatibility and the type of social relations of the country of origin and destination, language, the possibility of adhering to traditions and personal values and beliefs, is one of the most important and perhaps the most influential factors affecting the quality of life after migration, sometimes due to emphasis on other issues.
+                                                </p>
+                                            </div>
+                                            <div className={`mt-5 ${style.resultDsc}`}>
+                                                <p>
+                                                    Physical health
+                                                </p>
+                                                <p>
+                                                    The issue of physical health may vary in importance for healthy and unhealthy people, but in reality enjoying the blessings of physical health is an inevitable necessity for any other activity. The emergence of a complication or disease for humans is always unpleasant to worry if If it happens in a foreign country, the resulting problems will be twofold. Absolute opinion that you will be better or worse in the UK in terms of physical health is impossible or at least very difficult because, given the structure of the health system in the UK, the role of individuals in physical health is much greater than in Iran. In the UK, health is based more on self-care and prevention than treatment.
+                                                </p>
+                                            </div>
+                                            <div className={`mt-5 ${style.resultDsc}`}>
+                                                <p>
+                                                    Mental health
+                                                </p>
+                                                <p>
+                                                    Nostalgia, loneliness, the need for social support, and other challenges related to being away from family, friends, and the environment in which we grew up are some of the things we will definitely experience as an immigrant. On the other hand, issues due to cultural, environmental, etc. differences, which are described in the relevant section, may affect your mental health. Obviously, being aware of the ups and downs of the road ahead, as well as ways to overcome such problems,
+                                                </p>
+                                            </div>
+                                            <div className={`mt-5 ${style.resultDsc}`}>
+                                                <p>
+                                                    The environment
+                                                </p>
+                                                <p>
+                                                    The issue of the environment and the climate can have direct and indirect effects on other factors such as the physical, mental and even the culture of a community.
+                                                </p>
+                                            </div>
+                                            <div className={`mt-5 ${style.resultDsc}`}>
+                                                <p>
+                                                    Education and employment
+                                                </p>
+                                                <p>
+                                                    According to your background in water engineering, it is possible for you to continue your studies in the UK for a doctorate. Your work experience in water and also the need for people with water engineering expertise in 2022 will give you a chance to find work in England shows up.
+                                                </p>
+                                            </div>
+                                            <div className={`mt-5 ${style.resultDsc}`}>
+                                                <p>
+                                                    Conclusion
+                                                </p>
+                                                <p>
+                                                    We must be realistic! Emigration to a foreign country and living in exile are challenging. Sometimes we have to meet certain challenges, and sometimes we need to keep ourselves and our families away from the challenge. To make big decisions, it is always better to draw on the experiences of people who have already come our way.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </React.Fragment>
                         }
                     </>
             }

@@ -49,14 +49,14 @@ const CultureQuestions = (props) =>{
                                         </div>
                                         {
                                             firstQuestionRate == "عدد مدنظر خود را مشخص کنید" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
                                                         بعدی
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                         onClick={() => setFirstQuestion(true)}>سوال
@@ -85,14 +85,14 @@ const CultureQuestions = (props) =>{
                                         </div>
                                         {
                                             secondQuestionRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
                                                         بعدی
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                         onClick={() => setSecondQuestion(true)}>سوال
@@ -100,6 +100,11 @@ const CultureQuestions = (props) =>{
                                                     </button>
                                                 </div>
                                         }
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ): !thirdQuestion ? (
                                     <React.Fragment>
@@ -124,14 +129,14 @@ const CultureQuestions = (props) =>{
                                         </div>
                                         {
                                             ThirdQuestionRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
                                                         بعدی
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                         onClick={() => setThirdQuestion(true)}>سوال
@@ -139,6 +144,11 @@ const CultureQuestions = (props) =>{
                                                     </button>
                                                 </div>
                                         }
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setSecondQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
                                     <React.Fragment>
@@ -163,14 +173,14 @@ const CultureQuestions = (props) =>{
                                         </div>
                                         {
                                             ForthQuestionRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
                                                         بعدی
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                         onClick={() => setForthQuestion(true)}>سوال
@@ -178,6 +188,11 @@ const CultureQuestions = (props) =>{
                                                     </button>
                                                 </div>
                                         }
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setThirdQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ): null
                             }

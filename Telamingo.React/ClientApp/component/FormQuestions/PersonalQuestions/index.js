@@ -140,9 +140,11 @@ console.log(props)
                                                 <button onClick={() => setSecondQuestion(true)}> زیر 18 سال</button>
                                             </div>
                                         </div>
-                                        {/*<div>*/}
-                                        {/*    <button className={`mt-5 mb-3 ${style.nextQuestionButton}`} onClick={()=>setSecondQuestion(true)}>سوال بعدی</button>*/}
-                                        {/*</div>*/}
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ) : !thirdQuestion ? (
                                     <React.Fragment>
@@ -161,6 +163,11 @@ console.log(props)
                                             <div>
                                                 <button onClick={() => setThirdQuestion(true)}> سایر</button>
                                             </div>
+                                        </div>
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setSecondQuestion(false)}>سوال قبلی
+                                            </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
@@ -187,9 +194,11 @@ console.log(props)
                                                 <button onClick={() => setForthQuestion(true)}> سایر</button>
                                             </div>
                                         </div>
-                                        {/*<div>*/}
-                                        {/*    <button className={`mt-5 mb-3 ${style.nextQuestionButton}`} onClick={()=>setForthQuestion(true)}>سوال بعدی</button>*/}
-                                        {/*</div>*/}
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setThirdQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ) : !fifthQuestion ? (
                                     <React.Fragment>
@@ -237,17 +246,22 @@ console.log(props)
                                         </div>
                                         {
                                             firstLanLevel == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال بعدی
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                             onClick={() => setFifthQuestion(true)}>سوال بعدی
                                                     </button>
                                                 </div>
                                         }
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setForthQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ) : !sixQuestion ? (
                                     <React.Fragment>
@@ -259,13 +273,18 @@ console.log(props)
                                                             آیا قصد دارید به تنهایی مهاجرت کنید؟
                                                         </p>
                                                     </div>
-                                                    <div className={` ${style.chooseCount} mt-5 mb-5`}>
+                                                    <div className={` ${!props.isMobile ? style.chooseCount : style.chooseCountM} mt-5 mb-5`}>
                                                         <div>
                                                             <button onClick={() => setSixQuestion(true)}> بله</button>
                                                         </div>
                                                         <div>
                                                             <button onClick={() => setHaveFollower(true)}> خیر</button>
                                                         </div>
+                                                    </div>
+                                                    <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                                        <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                onClick={() => setFifthQuestion(false)}>سوال قبلی
+                                                        </button>
                                                     </div>
                                                 </React.Fragment>
                                             ) : (
@@ -278,7 +297,7 @@ console.log(props)
                                                                         چند نفر در زمان مهاجرت همراه شما خواهند بود؟
                                                                     </p>
                                                                 </div>
-                                                                <div className={` ${style.chooseCount} mt-5 mb-5`}>
+                                                                <div className={`${!props.isMobile ? style.chooseCount : style.chooseCountM} mt-5 mb-5`}>
                                                                     <div>
                                                                         <button
                                                                             onClick={() => setCountOfFollowers(true)}>1

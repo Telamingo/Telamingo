@@ -94,6 +94,11 @@ const EconomyQuestions = (props) => {
                                                 </button>
                                             </div>
                                         </div>
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ) : !thirdQuestion ? (
                                     <React.Fragment>
@@ -125,6 +130,11 @@ const EconomyQuestions = (props) => {
                                                 <button onClick={() => setThirdQuestion(true)}>زیر 5 هزار دلار (1)
                                                 </button>
                                             </div>
+                                        </div>
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setSecondQuestion(false)}>سوال قبلی
+                                            </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
@@ -158,6 +168,11 @@ const EconomyQuestions = (props) => {
                                                 </button>
                                             </div>
                                         </div>
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setThirdQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ) : !fifthQuestion ? (
                                     <React.Fragment>
@@ -190,6 +205,11 @@ const EconomyQuestions = (props) => {
                                                 <button onClick={() => setFifthQuestion(true)}>زیر 5 هزار دلار (1)
                                                 </button>
                                             </div>
+                                        </div>
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setForthQuestion(false)}>سوال قبلی
+                                            </button>
                                         </div>
                                     </React.Fragment>
                                 ) : null

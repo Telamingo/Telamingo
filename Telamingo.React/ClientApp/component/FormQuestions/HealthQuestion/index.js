@@ -93,6 +93,11 @@ const HealthQuestion = (props) => {
                                                             <button onClick={() => setHaveASick(true)}>بله</button>
                                                         </div>
                                                     </div>
+                                                    <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                                        <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                                        </button>
+                                                    </div>
                                                 </React.Fragment>
                                             ) : (
                                                 <React.Fragment>
@@ -109,14 +114,14 @@ const HealthQuestion = (props) => {
                                                     </div>
                                                     {
                                                         sick == "" ?
-                                                            <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                            <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
                                                                     بعدی
                                                                 </button>
                                                             </div>
                                                             :
-                                                            <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                            <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                                     onClick={() => setSecondQuestion(true)}>سوال
@@ -124,6 +129,11 @@ const HealthQuestion = (props) => {
                                                                 </button>
                                                             </div>
                                                     }
+                                                    <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                                        <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                                        </button>
+                                                    </div>
                                                 </React.Fragment>
                                             )
                                         }
@@ -156,6 +166,11 @@ const HealthQuestion = (props) => {
                                                 <button onClick={() => setThirdQuestion(true)}>کمتر از 10 درصد
                                                 </button>
                                             </div>
+                                        </div>
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setSecondQuestion(false)}>سوال قبلی
+                                            </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
@@ -193,14 +208,14 @@ const HealthQuestion = (props) => {
                                         </div>
                                         {
                                             firstMealRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
                                                         بعدی
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                         onClick={() => setForthQuestion(true)}>سوال
@@ -208,6 +223,11 @@ const HealthQuestion = (props) => {
                                                     </button>
                                                 </div>
                                         }
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setThirdQuestion(false)}>سوال قبلی
+                                            </button>
+                                        </div>
                                     </React.Fragment>
                                 ) : null
                             }

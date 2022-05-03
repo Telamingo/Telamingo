@@ -93,14 +93,14 @@ const MentalHealth = (props) => {
                                                     </div>
                                                     {
                                                         mentalProblem == "" ? (
-                                                            <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                            <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
                                                                     بعدی
                                                                 </button>
                                                             </div>
                                                         ) : (
-                                                            <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                            <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                                     onClick={() => setFirstQuestion(true)}>سوال
@@ -159,6 +159,11 @@ const MentalHealth = (props) => {
                                                     والدینم فوت شده اند یا آن ها را اصلا نمیبینم (5)
                                                 </button>
                                             </div>
+                                        </div>
+                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                            </button>
                                         </div>
                                     </React.Fragment>
                                 ) : null
