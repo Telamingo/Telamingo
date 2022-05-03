@@ -36,15 +36,15 @@ public class WelfareInformationEntityTypeConfiguration : IEntityTypeConfiguratio
         userConfiguration
             .Property(ct => ct.AnnualSavingsRates)
             .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("double")
-            .HasColumnType("AnnualSavingsRates")
+            .HasColumnName("AnnualSavingsRates")
+            .HasColumnType("double")
             .IsRequired();
 
         userConfiguration
             .Property(ct => ct.RequiredSpecialization)
             .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("double")
-            .HasColumnType("RequiredSpecialization")
+            .HasColumnName("RequiredSpecialization")
+            .HasColumnType("double")
             .IsRequired();
 
         userConfiguration

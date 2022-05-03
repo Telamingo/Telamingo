@@ -8,7 +8,7 @@ public class DisorderEntityTypeConfiguration : IEntityTypeConfiguration<Disorder
 {
     public void Configure(EntityTypeBuilder<Disorder> userConfiguration)
     {
-        userConfiguration.ToTable("Admin", TelamingoDbContext.DEFAULT_SCHEMA);
+        userConfiguration.ToTable("Disorder", TelamingoDbContext.DEFAULT_SCHEMA);
 
         userConfiguration.HasKey(ct => ct.Id);
 

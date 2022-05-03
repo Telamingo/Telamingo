@@ -49,5 +49,13 @@ public class AdminEntityTypeConfiguration : IEntityTypeConfiguration<Admin>
             .HasColumnType("nvarchar")
             .HasMaxLength(20)
             .IsRequired();
+
+        userConfiguration
+            .HasOne(a => a.AdminRole)
+            .WithMany(a => a.Admins)
+            .HasForeignKey(a => a.RoleId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
     }
 }

@@ -24,6 +24,7 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
     public DbSet<User> Users { get; set; }
     public DbSet<Admin> Admins { get; set; }
     public DbSet<AdminRole> AdminRoles { get; set; }
+
     public DbSet<Country> Countries { get; set; }
     public DbSet<CulturalClimateInformation> CulturalClimateInformations { get; set; }
     public DbSet<CulturalInformation> CulturalInformations { get; set; }
@@ -66,9 +67,10 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new AdminEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new AdminRoleEntityTypeConfiguration());
+
+        modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CountryEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CulturalClimateInformationEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new CulturalInformationEntityTypeConfiguration());

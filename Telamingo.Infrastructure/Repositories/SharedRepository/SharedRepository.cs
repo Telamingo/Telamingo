@@ -29,6 +29,7 @@ public class SharedRepository : ISharedRepository
     public async Task AddJobAsync(JobDto model)
     {
         Job job = new Job(model.Id , model.Name);
+        _context.Jobs.Add(job);
         await UnitOfWork.SaveChangesAsync();
     }
     public async Task EditJobAsync(JobDto model)
@@ -41,6 +42,7 @@ public class SharedRepository : ISharedRepository
     public async Task DeleteJobAsync(int Id)
     {
         Job job = await _context.Jobs.Where(a => a.Id == Id).FirstOrDefaultAsync();
-
+        _context.Jobs.Remove(job);
+        await UnitOfWork.SaveChangesAsync();
     }
 }

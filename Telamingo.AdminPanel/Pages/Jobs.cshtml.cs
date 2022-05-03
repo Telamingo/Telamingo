@@ -15,14 +15,22 @@ namespace Telamingo.AdminPanel.Pages
         {
             this.jobService = jobService;
         }
-        public async void OnGet()
+        public async Task OnGet()
         {
              Result = await jobService.GetAllAsync();
         }
-        public async void OnPost(JobDto job)
+        public async Task OnPost(JobDto job)
         {
-             await jobService.AddAsync(job);
-
+            await jobService.AddAsync(job);
+            Result = await jobService.GetAllAsync();
+        }
+        public async Task OnPostEdit(JobDto job)
+        {
+            await jobService.AddAsync(job);
+        }
+        public async Task OnPostDelete(int Id)
+        {
+            await jobService.DeleteAsync(Id);
         }
     }
 }

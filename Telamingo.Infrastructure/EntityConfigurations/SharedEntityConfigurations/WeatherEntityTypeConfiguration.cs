@@ -8,7 +8,7 @@ public class WeatherEntityTypeConfiguration : IEntityTypeConfiguration<Weather>
 {
     public void Configure(EntityTypeBuilder<Weather> userConfiguration)
     {
-        userConfiguration.ToTable("Admin", TelamingoDbContext.DEFAULT_SCHEMA);
+        userConfiguration.ToTable("Weather", TelamingoDbContext.DEFAULT_SCHEMA);
 
         userConfiguration.HasKey(ct => ct.Id);
 

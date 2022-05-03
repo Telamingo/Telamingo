@@ -8,7 +8,7 @@ public class FildOfStudyEntityTypeConfiguration : IEntityTypeConfiguration<FildO
 {
     public void Configure(EntityTypeBuilder<FildOfStudy> userConfiguration)
     {
-        userConfiguration.ToTable("Admin", TelamingoDbContext.DEFAULT_SCHEMA);
+        userConfiguration.ToTable("FildOfStudy", TelamingoDbContext.DEFAULT_SCHEMA);
 
         userConfiguration.HasKey(ct => ct.Id);
 
