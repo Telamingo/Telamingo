@@ -25,6 +25,14 @@ public class CountryService : ICountryService
         
         await countryRepository.AddAsync(model);
     }
+    public async Task DeleteAsync(int countryId)
+    {
+        await countryRepository.DeleteCountryAsync(countryId);
+    }
+    public async Task EditAsync(AddCountryDto countryDto)
+    {
+        await countryRepository.EditAsync(countryDto);
+    }
 
 }
 public class CountryListDto

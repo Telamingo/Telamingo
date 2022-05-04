@@ -8,7 +8,7 @@ public class EnvironmantalInformationEntityTypeConfiguration : IEntityTypeConfig
 {
     public void Configure(EntityTypeBuilder<EnvironmentalInformation> userConfiguration)
     {
-        userConfiguration.ToTable("EnvironmantalInformation", TelamingoDbContext.DEFAULT_SCHEMA);
+        userConfiguration.ToTable("EnvironmentalInformation", TelamingoDbContext.DEFAULT_SCHEMA);
 
         userConfiguration.HasKey(ct => ct.Id);
 

@@ -152,15 +152,18 @@ public class CountryRepository : ICountryRepository
 
         return new List<AddCountryDto>();
     }
-    public async Task<bool> DeleteAsync(int id)
+    public async Task DeleteCountryAsync(int countryId)
     {
-        Country country = await _context.Countries.Where(x => x.Id == 1).FirstOrDefaultAsync();
-        if (country == null)
-        {
-            throw new Exception("Null");
-        }
+        Country country = await _context.Countries.Where(x => x.Id == countryId).FirstAsync();
+        _context.Countries.Remove(country);
+        await UnitOfWork.SaveChangesAsync();
+    }
+    public async Task EditAsync(AddCountryDto countryDto)
+    {
+        Country country = await _context.Countries.Where(x => x.Id == countryDto.Id).FirstAsync();
 
-        return false;
+
+        await UnitOfWork.SaveChangesAsync();
     }
 }
 

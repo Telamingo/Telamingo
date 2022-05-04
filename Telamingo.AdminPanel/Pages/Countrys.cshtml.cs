@@ -63,5 +63,33 @@ namespace Telamingo.AdminPanel.Pages
                 Result.Add(result);
             }
         }
+        //public async Task OnPost(int Id)
+        //{
+        //    string? authentication = Request.Headers["Authentication"];
+
+        //    string? token = HttpContext.Request.Cookies["Authentication"];
+        //    if (string.IsNullOrEmpty(token))
+        //    {
+        //        RedirectToAction("Sign_in");
+        //    }
+
+        //    var handler = new JwtSecurityTokenHandler();
+        //    var jwtToken = handler.ReadJwtToken(token);
+
+        //    var adminId = jwtToken.Claims.Where(x => x.Type == "AdminId").First().Value;
+        //    if (adminId == null)
+        //    {
+        //        RedirectToAction("Sign_in");
+        //    }
+
+        //    List<Country> country = await countryService.GetAllAsync();
+        //    foreach (var item in country)
+        //    {
+        //        CountryListDto result = new();
+        //        result.Id = country.First().Id;
+        //        result.Name = country.First().Name;
+        //        Result.Add(result);
+        //    }
+        //}
     }
 }
