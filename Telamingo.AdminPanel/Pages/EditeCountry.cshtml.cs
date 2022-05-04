@@ -96,7 +96,7 @@ namespace Telamingo.AdminPanel.Pages
         }
         public async Task<ActionResult> OnPost(AddCountryDto c)
         {
-            await countryService.EditAsync(c);
+            //await countryService.EditAsync(c);
             return RedirectToPage("./Countrys");
         }
     }

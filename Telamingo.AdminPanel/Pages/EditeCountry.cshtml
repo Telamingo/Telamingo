@@ -123,9 +123,11 @@
       <div class="row">
         <div class="col-md-7 mt-4">
           <div class="card">
+            <form asp-page-handler="post" method="post">
             <div class="card-header pb-0 px-3">
               <h6 class="mb-0">@Model.Result.CountryName:</h6>
-              <input type="text" name="c.CountryName" value="@Model.Result.CountryName" />
+              <input type="text" class="form-control" name="c.CountryName" value="@Model.Result.CountryName">
+              <input type="hidden" class="form-control" name="c.Id" value="@Model.Result.Id">
             </div>
             <div class="card-body pt-4 p-3">
               <ul class="list-group">
@@ -140,7 +142,7 @@
                         foreach (var item in @Model.Result.Cultural.CulturalClimate)
                         {
                             <span class="mb-2 text-xs">@item.Climate.Name: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="c.Cultural.CulturalClimate.Climate.Name" value="@item.Rate" />
+                            <input type="text" class="form-control" name="c.Cultural.CulturalClimate.Climate.Name" value="@item.Rate" />
                             </span></span>
                         }
                     }
@@ -150,7 +152,7 @@
                         foreach (var item in @Model.Result.Cultural.CulturalWeather)
                         {
                             <span class="mb-2 text-xs">@item.Weather.Name: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="c.Cultural.CulturalWeather.Weather.Name" value="@item.Rate" />
+                            <input type="text" class="form-control" name="c.Cultural.CulturalWeather.Weather.Name" value="@item.Rate" />
                             </span></span>
                         }
                     }
@@ -159,23 +161,31 @@
                     <h6 class="mb-3 text-sm">PhysicalHealt</h6>
                     <span class="mb-2 text-xs">StatusOfTheTreatmentSystemForSpecificDiseases: 
                         <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="c.PhysicalHealth.StatusOfTheTreatmentSystemForSpecificDiseases"
+                            <input class="form-control" type="text" name="c.PhysicalHealth.StatusOfTheTreatmentSystemForSpecificDiseases"
                             value="@Model.Result.PhysicalHealth.StatusOfTheTreatmentSystemForSpecificDiseases" />
                         </span>
                     </span>
                         @*<span class="text-dark font-weight-bold ms-sm-2">@Model.Result.PhysicalHealth.StatusOfTheTreatmentSystemForSpecificDiseases
                         </span></span>*@
                     <span class="mb-2 text-xs">DoctorAccess: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.PhysicalHealth.DoctorAccess</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">
+                            <input class="form-control" type="text" name="c.PhysicalHealth.DoctorAccess"
+                            value="@Model.Result.PhysicalHealth.DoctorAccess" />
+                        </span>
+                    </span>
                     <span class="mb-2 text-xs">AveragePerCapitaHealthExpenditure: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.PhysicalHealth.AveragePerCapitaHealthExpenditure</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">
+                            <input class="form-control" type="text" name="c.PhysicalHealth.AveragePerCapitaHealthExpenditure"
+                            value="@Model.Result.PhysicalHealth.AveragePerCapitaHealthExpenditure" />
+                        </span>
+                    </span>
                     <span class="mb-2 text-xs">PhysicalHealthDesiredFood<span class="text-dark font-weight-bold ms-sm-2">
                     </span></span>
                     @{
                         foreach (var item in @Model.Result.PhysicalHealth.PhysicalHealthDesiredFood)
                         {
                             <span class="mb-2 text-xs">@item.Food.Name: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="" value="@item.Rate" />
+                            <input class="form-control" type="text" name="c.PhysicalHealth.PhysicalHealthDesiredFood.Food.Name" value="@item.Rate" />
                             </span></span>
                         }
                     }
@@ -183,7 +193,11 @@
                     <hr/>
                     <h6 class="mb-3 text-sm">MentalHealth</h6>
                     <span class="mb-2 text-xs">AbilityToVisitFamily: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.MentalHealth.AbilityToVisitFamily</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">
+                            <input class="form-control" type="text" name="c.MentalHealth.AbilityToVisitFamily"
+                            value="@Model.Result.MentalHealth.AbilityToVisitFamily" />
+                        </span>
+                    </span>
 
                     <span class="mb-2 text-xs">mentalHealthPossibilityOfExacerbationOfTheDisorder<span class="text-dark font-weight-bold ms-sm-2">
                     </span></span>
@@ -191,7 +205,9 @@
                         foreach (var item in @Model.Result.MentalHealth.mentalHealthPossibilityOfExacerbationOfTheDisorder)
                         {
                             <span class="mb-2 text-xs">@item.Disorder.Name: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="" value="@item.Possibility" />
+                            <input class="form-control" type="text"
+                            name="c.MentalHealth.mentalHealthPossibilityOfExacerbationOfTheDisorder.Disorder.Name"
+                            value="@item.Possibility" />
                             </span></span>
                         }
                     }
@@ -199,11 +215,23 @@
                     <hr/>
                     <h6 class="mb-3 text-sm">Environmental</h6>
                     <span class="mb-2 text-xs">ReligiousIssues: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.ReligiousIssues</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">
+                            <input class="form-control" type="text" name="c.Environmental.ReligiousIssues"
+                            value="@Model.Result.Environmental.ReligiousIssues" />
+                        </span>
+                    </span>
                     <span class="mb-2 text-xs">Immigration: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.Immigration</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">
+                            <input class="form-control" type="text" name="c.Environmental.Immigration"
+                            value="@Model.Result.Environmental.Immigration" />
+                        </span>
+                    </span>
                     <span class="mb-2 text-xs">SocialRelationshipMatching: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.SocialRelationshipMatching</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">
+                            <input class="form-control" type="text" name="c.Environmental.SocialRelationshipMatching"
+                            value="@Model.Result.Environmental.SocialRelationshipMatching" />
+                        </span>
+                    </span>
 
                     <span class="mb-2 text-xs">environmentalLanguageInformation<span class="text-dark font-weight-bold ms-sm-2">
                     </span></span>
@@ -211,7 +239,8 @@
                         foreach (var item in @Model.Result.Environmental.environmentalLanguageInformation)
                         {
                             <span class="mb-2 text-xs">@item.EnvironmentLanguage.Name: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="" value="@item.Rate" />
+                            <input class="form-control" type="text" 
+                            name="c.Environmental.environmentalLanguageInformation.EnvironmentLanguage.Name" value="@item.Rate" />
                             </span></span>
                         }
                     }
@@ -225,7 +254,7 @@
                         foreach (var item in @Model.Result.Educational.Tuition)
                         {
                             <span class="mb-2 text-xs">@item.FildOfStudy.Name: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="" value="@item.Price" />
+                            <input class="form-control" type="text" name="c.Educational.Tuition.FildOfStudy.Name" value="@item.Price" />
                             </span></span>
                         }
                     }
@@ -235,7 +264,7 @@
                         foreach (var item in @Model.Result.Educational.ProbabilityOfAcceptance)
                         {
                             <span class="mb-2 text-xs">@item.FildOfStudy.Name: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="" value="@item.Rate" />
+                            <input class="form-control" type="text" name="c.Educational.ProbabilityOfAcceptance.FildOfStudy.Name" value="@item.Rate" />
                             </span></span>
                         }
                     }
@@ -245,28 +274,48 @@
 
                     <span class="mb-2 text-xs">Welfare:<span class="text-dark font-weight-bold ms-sm-2">
                     </span></span>
-                    @{
+@*                    @{
                         foreach (var item in @Model.Result.Welfare)
                         {
+                            <input class="form-control" type="hidden" name="Welfare.Id" value="@item.Id" />
+                            <input class="form-control" type="hidden" name="Welfare.CountryId" value="@item.CountryId" />
+                            <input class="form-control" type="hidden" name="Welfare.JobId" value="@item.JobId" />
+
                             <span class="mb-2 text-xs">JobName: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="" value="@item.JobName" />
+                            <input class="form-control" type="text" name="Welfare.JobName" value="@item.JobName" />
                             </span></span>
                             <span class="mb-2 text-xs">AnnualSavingsRates: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="" value="@item.AnnualSavingsRates" />
+                            <input class="form-control" type="text" name="Welfare.AnnualSavingsRates" value="@item.AnnualSavingsRates" />
                             </span></span>
                             <span class="mb-2 text-xs">RequiredSpecialization: <span class="text-dark font-weight-bold ms-sm-2">
-                            <input type="text" name="" value="@item.RequiredSpecialization" />
+                            <input class="form-control" type="text" name="Welfare.RequiredSpecialization" value="@item.RequiredSpecialization" />
                             </span></span>
                         }
                     }
+*@                    @for (var i = 0; i < @Model.Result.Welfare.Count(); i++)
+                    {
+                        <div class="form-group">
+                            <label asp-for="Result.Welfare[i].JobName" class="control-label">Result.Welfare[@i].JobName</label>
+                            <input asp-for="Result.Welfare[i].JobName" class="form-control" value="Result.Welfare[@i].JobName" />
+                            <span asp-validation-for="Result.Welfare[i].JobName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Result.Welfare[i].AnnualSavingsRates" class="control-label">Result.Welfare[@i].AnnualSavingsRates</label>
+                            <input asp-for="Result.Welfare[i].AnnualSavingsRates" class="form-control" />
+                            <span asp-validation-for="Result.Welfare[i].AnnualSavingsRates" class="text-danger"></span>
+                        </div>
+                    }
                   </div>
                   <div class="ms-auto text-end">
-                    <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Delete</a>
-                    <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <button class="btn btn-link text-dark px-3 mb-0" type="submit">
+                        <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>
+                        Edit
+                    </button>
                   </div>
                 </li>
               </ul>
             </div>
+            </form>
           </div>
         </div>
       </div>

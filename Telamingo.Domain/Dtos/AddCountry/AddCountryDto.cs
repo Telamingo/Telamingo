@@ -9,7 +9,7 @@ public class AddCountryDto
     public MentalHealthDto MentalHealth { get; set; } = new MentalHealthDto();
     public EnvironmentalDto Environmental { get; set; } = new EnvironmentalDto();
     public EducationalDto Educational { get; set; } = new EducationalDto();
-    public List<LanguageDto> Language { get; set; } = new List<LanguageDto> { };
+    //public List<LanguageDto> Language { get; set; } = new List<LanguageDto> { };
     public List<WelfareDto> Welfare { get; set; } = new List<WelfareDto>();
 
 }
