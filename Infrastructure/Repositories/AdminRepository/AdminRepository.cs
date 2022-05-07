@@ -4,6 +4,8 @@ using Domain.Dtos.AdminDtos;
 using Domain.SeedWork;
 using System;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.AdminRepository
 {

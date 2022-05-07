@@ -93,6 +93,8 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("Admin", "dbo");
                 });
 
@@ -150,18 +152,22 @@ namespace Telamingo.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("ClimateId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ClimateId");
 
                     b.Property<int>("CulturalInformationId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CulturalInformationId");
 
                     b.Property<double>("Rate")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("Rate");
 
                     b.HasKey("Id");
 
@@ -169,43 +175,49 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasIndex("CulturalInformationId");
 
-                    b.ToTable("CulturalClimateInformation");
+                    b.ToTable("CulturalClimateInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.CulturalInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CountryId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("CulturalInformation");
+                    b.ToTable("CulturalInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.CulturalweatherInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CulturalInformationId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CulturalInformationId");
 
                     b.Property<double>("Rate")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("Rate");
 
                     b.Property<int>("WeatherId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("WeatherId");
 
                     b.HasKey("Id");
 
@@ -213,43 +225,49 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasIndex("WeatherId");
 
-                    b.ToTable("CulturalweatherInformation");
+                    b.ToTable("CulturalweatherInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.EducationalInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CountryId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("EducationalInformation");
+                    b.ToTable("EducationalInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.EducationalInformationTuition", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("EducationalInformationId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("EducationalInformationId");
 
                     b.Property<int>("FildOfStudyId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("FildOfStudyId");
 
                     b.Property<double>("Price")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("Price");
 
                     b.HasKey("Id");
 
@@ -257,25 +275,29 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasIndex("FildOfStudyId");
 
-                    b.ToTable("EducationalInformationTuition");
+                    b.ToTable("EducationalInformationTuition", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.EducationalProbabilityOfAcceptance", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("EducationalInformationId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("EducationalInformationId");
 
                     b.Property<int>("FildOfStudyId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("FildOfStudyId");
 
                     b.Property<double>("Rate")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("Rate");
 
                     b.HasKey("Id");
 
@@ -283,52 +305,61 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasIndex("FildOfStudyId");
 
-                    b.ToTable("EducationalProbabilityOfAcceptance");
+                    b.ToTable("EducationalProbabilityOfAcceptance", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.EnvironmentalInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CountryId");
 
                     b.Property<int>("Immigration")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Immigration");
 
                     b.Property<int>("ReligiousIssues")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ReligiousIssues");
 
                     b.Property<int>("SocialRelationshipMatching")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("SocialRelationshipMatching");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("EnvironmentalInformation");
+                    b.ToTable("EnvironmentalInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.EnvironmentalLanguageInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("EnvironmentalInformationId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("EnvironmentalInformationId");
 
                     b.Property<int>("LanguageId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("LanguageId");
 
                     b.Property<double>("Rate")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("Rate");
 
                     b.HasKey("Id");
 
@@ -336,71 +367,83 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasIndex("LanguageId");
 
-                    b.ToTable("EnvironmentalLanguageInformation");
+                    b.ToTable("EnvironmentalLanguageInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.LanguageInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CountryId");
 
                     b.Property<double>("LanguageEpidemicRates")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("LanguageEpidemicRates");
 
                     b.Property<string>("LanguageName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("LanguageName");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("LanguageInformation");
+                    b.ToTable("LanguageInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.MentalHealthInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AbilityToVisitFamily")
-                        .HasColumnType("int");
+                        .HasColumnType("double")
+                        .HasColumnName("AbilityToVisitFamily");
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CountryId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("MentalHealthInformation");
+                    b.ToTable("MentalHealthInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.MentalHealthPossibilityOfExacerbationOfTheDisorder", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("DisorderId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("DisorderId");
 
                     b.Property<int>("MentalHealthInformationId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("MentalHealthInformationId");
 
                     b.Property<double>("Possibility")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("Possibility");
 
                     b.HasKey("Id");
 
@@ -408,25 +451,29 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasIndex("MentalHealthInformationId");
 
-                    b.ToTable("MentalHealthPossibilityOfExacerbationOfTheDisorder");
+                    b.ToTable("MentalHealthPossibilityOfExacerbationOfTheDisorder", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.PhysicalHealthDesiredFood", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("FoodId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("FoodId");
 
                     b.Property<int>("PhysicalHealthInformationId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("PhysicalHealthInformationId");
 
                     b.Property<double>("Rate")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("Rate");
 
                     b.HasKey("Id");
 
@@ -434,55 +481,65 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasIndex("PhysicalHealthInformationId");
 
-                    b.ToTable("PhysicalHealthDesiredFood");
+                    b.ToTable("PhysicalHealthDesiredFood", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.PhysicalHealthInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<double>("AveragePerCapitaHealthExpenditure")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("AveragePerCapitaHealthExpenditure");
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CountryId");
 
                     b.Property<int>("DoctorAccess")
-                        .HasColumnType("int");
+                        .HasColumnType("double")
+                        .HasColumnName("DoctorAccess");
 
                     b.Property<double>("StatusOfTheTreatmentSystemForSpecificDiseases")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("StatusOfTheTreatmentSystemForSpecificDiseases");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("PhysicalHealthInformation");
+                    b.ToTable("PhysicalHealthInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.WelfareInformation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<double>("AnnualSavingsRates")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("AnnualSavingsRates");
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CountryId");
 
                     b.Property<int>("JobId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("JobId");
 
                     b.Property<double>("RequiredSpecialization")
-                        .HasColumnType("float");
+                        .HasColumnType("double")
+                        .HasColumnName("RequiredSpecialization");
 
                     b.HasKey("Id");
 
@@ -490,126 +547,210 @@ namespace Telamingo.Infrastructure.Migrations
 
                     b.HasIndex("JobId");
 
-                    b.ToTable("WelfareInformation");
+                    b.ToTable("WelfareInformation", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.QuestionAggregate.Answer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int")
+                        .HasColumnName("QuestionId");
+
+                    b.Property<string>("TextEn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("TextEn");
+
+                    b.Property<string>("TextFa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("TextFa");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("Answer", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.QuestionAggregate.Question", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AnswerType")
+                        .HasColumnType("int")
+                        .HasColumnName("AnswerType");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int")
+                        .HasColumnName("CategoryId");
+
+                    b.Property<string>("ContextEn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("ContextEn");
+
+                    b.Property<string>("ContextFa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("ContextFa");
+
+                    b.Property<bool>("MultiSelect")
+                        .HasColumnType("bit")
+                        .HasColumnName("MultiSelect");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Question", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.Climate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Climate");
+                    b.ToTable("Climate", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.Disorder", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Disorder");
+                    b.ToTable("Disorder", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.FildOfStudy", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("FildOfStudy");
+                    b.ToTable("FildOfStudy", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.Food", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Food");
+                    b.ToTable("Food", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.Job", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Job");
+                    b.ToTable("Job", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.Language", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Language");
+                    b.ToTable("Language", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.Weather", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Weather");
+                    b.ToTable("Weather", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.User", b =>
@@ -634,6 +775,17 @@ namespace Telamingo.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.AdminAggregate.Admin", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.AdminAggregate.AdminRole", "AdminRole")
+                        .WithMany("Admins")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AdminRole");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.CulturalClimateInformation", b =>
@@ -854,6 +1006,22 @@ namespace Telamingo.Infrastructure.Migrations
                     b.Navigation("Job");
                 });
 
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.QuestionAggregate.Answer", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.QuestionAggregate.Question", "Question")
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.AdminAggregate.AdminRole", b =>
+                {
+                    b.Navigation("Admins");
+                });
+
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.Country", b =>
                 {
                     b.Navigation("PhysicalHealthInformation");
@@ -898,6 +1066,11 @@ namespace Telamingo.Infrastructure.Migrations
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.CountryAggregate.PhysicalHealthInformation", b =>
                 {
                     b.Navigation("physicalHealthDesiredFoods");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.QuestionAggregate.Question", b =>
+                {
+                    b.Navigation("Answers");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.Climate", b =>

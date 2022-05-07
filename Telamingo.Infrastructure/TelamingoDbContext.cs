@@ -12,6 +12,8 @@ using Telamingo.Domain.AggregateModels.CountryAggregate;
 using Telamingo.Infrastructure.EntityConfigurations.CountryEntityConfigurations;
 using Telamingo.Domain.AggregateModels.SharedAggregate;
 using Telamingo.Infrastructure.EntityConfigurations.SharedEntityConfigurations;
+using Telamingo.Domain.AggregateModels.QuestionAggregate;
+using Telamingo.Infrastructure.EntityConfigurations.QuestionEntityConfigurations;
 
 namespace Telamingo.Infrastructure;
 
@@ -47,6 +49,8 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
     public DbSet<Job> Jobs { get; set; }
     public DbSet<Language> Languages { get; set; }
     public DbSet<Weather> Weathers { get; set; }
+    public DbSet<Question> Questions{ get; set; }
+    public DbSet<Answer> Answers { get; set; }
 
     #endregion
 
@@ -93,6 +97,9 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
         modelBuilder.ApplyConfiguration(new JobEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new LanguageEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new WeatherEntityTypeConfiguration());
+
+        modelBuilder.ApplyConfiguration(new AnswerEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new QuestionEntityTypeConfiguration());
 
 }
 public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))

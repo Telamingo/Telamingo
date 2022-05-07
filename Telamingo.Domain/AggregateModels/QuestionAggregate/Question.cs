@@ -1,9 +1,9 @@
-﻿using Domain.SeedWork;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Telamingo.Domain.SeedWork;
 
-namespace Domain.AggregateModels.QuestionAggregate
+namespace Telamingo.Domain.AggregateModels.QuestionAggregate
 {
-    public class Question: Entity
+    public class Question : Entity
     {
         public string ContextEn { get; set; }
         public string ContextFa { get; set; }

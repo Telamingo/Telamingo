@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EntityConfigurations\QuestionEntityConfigurations\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
