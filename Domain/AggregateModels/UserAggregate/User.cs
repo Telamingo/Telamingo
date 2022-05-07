@@ -1,13 +1,14 @@
-﻿namespace Domain.AggregateModels.UserAggregate;
-
-public class User
+﻿namespace Domain.AggregateModels.UserAggregate
 {
-    public User(string email, string password)
+    public class User
     {
-        Email = email;
-        Password = password;
+        public User(string email, string password)
+        {
+            Email = email;
+            Password = password;
+        }
+        public int Id { get; set; }
+        public string Password { get; private set; }
+        public string Email { get; private set; }
     }
-    public int Id { get; set; }
-    public string Password { get; private set; }
-    public string Email { get; private set; }
 }

@@ -1,12 +1,13 @@
 ﻿using Domain.SeedWork;
 
-namespace Domain.AggregateModels.CountryAggregate;
-
-public class LanguageInformation : Entity
+namespace Domain.AggregateModels.CountryAggregate
 {
-    public int CountryId { get; set; }
-    public virtual Country Country { get; set; }
+    public class LanguageInformation : Entity
+    {
+        public int CountryId { get; set; }
+        public virtual Country Country { get; set; }
 
-    public string LanguageName { get; set; }
-    public double LanguageEpidemicRates { get; set; }
+        public string LanguageName { get; set; }
+        public double LanguageEpidemicRates { get; set; }
+    }
 }

@@ -1,42 +1,45 @@
-﻿using Telamingo.Domain.AggregateModels.SharedAggregate;
-using Telamingo.Domain.Dtos.AddCountry;
+﻿using Domain.AggregateModels.SharedAggregate;
+using Domain.Dtos.AddCountry;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace BusinessLogic.JobService;
-
-public class JobService : IJobService
+namespace BusinessLogic.JobService
 {
-    private readonly ISharedRepository sharedRepository;
-
-    public JobService(ISharedRepository sharedRepository)
+    public class JobService : IJobService
     {
-        this.sharedRepository = sharedRepository;
-    }
-    public async Task AddAsync(JobDto model)
-    {
-        await sharedRepository.AddJobAsync(model);
-    }
+        private readonly ISharedRepository sharedRepository;
 
-    public async Task DeleteAsync(int jobId)
-    {
-        await sharedRepository.DeleteJobAsync(jobId);
-    }
-
-    public async Task EditAsync(JobDto model)
-    {
-        await sharedRepository.EditJobAsync(model);
-    }
-
-    public async Task<List<JobDto>> GetAllAsync()
-    {
-        List<Job> jobs = await sharedRepository.GetAllJobsAsync();
-        List<JobDto> jobDtos = new List<JobDto>();
-
-        foreach (var item in jobs)
+        public JobService(ISharedRepository sharedRepository)
         {
-            JobDto job = new JobDto(item);
-            jobDtos.Add(job);
+            this.sharedRepository = sharedRepository;
+        }
+        public async Task AddAsync(JobDto model)
+        {
+            await sharedRepository.AddJobAsync(model);
         }
 
-        return jobDtos;
+        public async Task DeleteAsync(int jobId)
+        {
+            await sharedRepository.DeleteJobAsync(jobId);
+        }
+
+        public async Task EditAsync(JobDto model)
+        {
+            await sharedRepository.EditJobAsync(model);
+        }
+
+        public async Task<List<JobDto>> GetAllAsync()
+        {
+            List<Job> jobs = await sharedRepository.GetAllJobsAsync();
+            List<JobDto> jobDtos = new List<JobDto>();
+
+            foreach (var item in jobs)
+            {
+                JobDto job = new JobDto(item);
+                jobDtos.Add(job);
+            }
+
+            return jobDtos;
+        }
     }
 }

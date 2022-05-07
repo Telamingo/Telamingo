@@ -1,8 +1,10 @@
-﻿using Telamingo.Domain.Dtos.AdminDtos;
+﻿using Domain.Dtos.AdminDtos;
+using System.Threading.Tasks;
 
-namespace BusinessLogic.AdminService;
-
-public interface IAdminService
+namespace BusinessLogic.AdminService
 {
-    Task<string> AdminLogin(AdminDto model);
+    public interface IAdminService
+    {
+        Task<string> AdminLogin(AdminDto model);
+    }
 }

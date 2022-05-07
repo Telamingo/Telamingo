@@ -1,11 +1,14 @@
-﻿using Telamingo.Domain.Dtos.AddCountry;
+﻿using Domain.Dtos.AddCountry;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace BusinessLogic.JobService;
-
-public interface IJobService
+namespace BusinessLogic.JobService
 {
-    Task<List<JobDto>> GetAllAsync();
-    Task AddAsync(JobDto model);
-    Task EditAsync(JobDto model);
-    Task DeleteAsync(int jobId);
+    public interface IJobService
+    {
+        Task<List<JobDto>> GetAllAsync();
+        Task AddAsync(JobDto model);
+        Task EditAsync(JobDto model);
+        Task DeleteAsync(int jobId);
+    }
 }

@@ -1,12 +1,13 @@
-﻿namespace BusinessLogic.Login.Dto;
-
-public class LoginDto
+﻿namespace BusinessLogic.Login.Dto
 {
-    public LoginDto(string email, string password)
+    public class LoginDto
     {
-        Email = email;
-        Password = password;
+        public LoginDto(string email, string password)
+        {
+            Email = email;
+            Password = password;
+        }
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
-    public string Email { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
 }

@@ -1,43 +1,44 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Telamingo.Domain.AggregateModels.CountryAggregate;
+using Domain.AggregateModels.CountryAggregate;
 
-namespace Infrastructure.EntityConfigurations.CountryEntityConfigurations;
-
-public class MentalHealthInformationEntityTypeConfiguration : IEntityTypeConfiguration<MentalHealthInformation>
+namespace Infrastructure.EntityConfigurations.CountryEntityConfigurations
 {
-    public void Configure(EntityTypeBuilder<MentalHealthInformation> userConfiguration)
+    public class MentalHealthInformationEntityTypeConfiguration : IEntityTypeConfiguration<MentalHealthInformation>
     {
-        userConfiguration.ToTable("MentalHealthInformation", TelamingoDbContext.DEFAULT_SCHEMA);
+        public void Configure(EntityTypeBuilder<MentalHealthInformation> userConfiguration)
+        {
+            userConfiguration.ToTable("MentalHealthInformation", TelamingoDbContext.DEFAULT_SCHEMA);
 
-        userConfiguration.HasKey(ct => ct.Id);
+            userConfiguration.HasKey(ct => ct.Id);
 
-        userConfiguration
-            .Property(ct => ct.Id)
-            .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("Id")
-            .HasColumnType("int")
-            .IsRequired();
+            userConfiguration
+                .Property(ct => ct.Id)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("Id")
+                .HasColumnType("int")
+                .IsRequired();
 
-        userConfiguration
-            .Property(ct => ct.CountryId)
-            .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("CountryId")
-            .HasColumnType("int")
-            .IsRequired();
+            userConfiguration
+                .Property(ct => ct.CountryId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("CountryId")
+                .HasColumnType("int")
+                .IsRequired();
 
-        userConfiguration
-            .Property(ct => ct.AbilityToVisitFamily)
-            .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("AbilityToVisitFamily")
-            .HasColumnType("double")
-            .IsRequired();
+            userConfiguration
+                .Property(ct => ct.AbilityToVisitFamily)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("AbilityToVisitFamily")
+                .HasColumnType("double")
+                .IsRequired();
 
-        userConfiguration
-            .HasOne(a => a.Country)
-            .WithMany(a => a.mentalHealthInformation)
-            .HasForeignKey(a => a.CountryId)
-            .IsRequired()
-            .OnDelete(DeleteBehavior.Cascade);
+            userConfiguration
+                .HasOne(a => a.Country)
+                .WithMany(a => a.mentalHealthInformation)
+                .HasForeignKey(a => a.CountryId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

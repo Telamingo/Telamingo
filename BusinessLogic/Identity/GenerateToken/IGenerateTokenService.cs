@@ -1,10 +1,11 @@
-﻿using Telamingo.Domain.Dtos.AdminDtos;
-using Telamingo.Domain.Dtos.User;
+﻿using Domain.Dtos.AdminDtos;
+using Domain.Dtos.User;
 
-namespace BusinessLogic.Identity.GenerateToken;
-
-public interface IGenerateTokenService
+namespace BusinessLogic.Identity.GenerateToken
 {
-    string Authenticate(UserDto user);
-    string AdminAuthentication(AdminDto admin);
+    public interface IGenerateTokenService
+    {
+        string Authenticate(UserDto user);
+        string AdminAuthentication(AdminDto admin);
+    }
 }

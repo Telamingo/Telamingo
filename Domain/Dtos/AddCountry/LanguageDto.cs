@@ -1,9 +1,10 @@
-﻿namespace Domain.Dtos.AddCountry;
-
-public class LanguageDto
+﻿namespace Domain.Dtos.AddCountry
 {
-    public int Id { get; set; }
-    public int CountryId { get; set; }
-    public string LanguageName { get; set; }
-    public double LanguageEpidemicRates { get; set; }
+    public class LanguageDto
+    {
+        public int Id { get; set; }
+        public int CountryId { get; set; }
+        public string LanguageName { get; set; }
+        public double LanguageEpidemicRates { get; set; }
+    }
 }

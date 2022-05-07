@@ -1,30 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Telamingo.Domain.AggregateModels.CountryAggregate;
+using Domain.AggregateModels.CountryAggregate;
 
-namespace Infrastructure.EntityConfigurations.CountryEntityConfigurations;
-
-public class CountryEntityTypeConfiguration : IEntityTypeConfiguration<Country>
+namespace Infrastructure.EntityConfigurations.CountryEntityConfigurations
 {
-    public void Configure(EntityTypeBuilder<Country> userConfiguration)
+    public class CountryEntityTypeConfiguration : IEntityTypeConfiguration<Country>
     {
-        userConfiguration.ToTable("Country", TelamingoDbContext.DEFAULT_SCHEMA);
+        public void Configure(EntityTypeBuilder<Country> userConfiguration)
+        {
+            userConfiguration.ToTable("Country", TelamingoDbContext.DEFAULT_SCHEMA);
 
-        userConfiguration.HasKey(ct => ct.Id);
+            userConfiguration.HasKey(ct => ct.Id);
 
-        userConfiguration
-            .Property(ct => ct.Id)
-            .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("Id")
-            .HasColumnType("int")
-            .IsRequired();
+            userConfiguration
+                .Property(ct => ct.Id)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("Id")
+                .HasColumnType("int")
+                .IsRequired();
 
-        userConfiguration
-            .Property(ct => ct.Name)
-            .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("Name")
-            .HasColumnType("nvarchar")
-            .HasMaxLength(250)
-            .IsRequired();
+            userConfiguration
+                .Property(ct => ct.Name)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("Name")
+                .HasColumnType("nvarchar")
+                .HasMaxLength(250)
+                .IsRequired();
+        }
     }
 }

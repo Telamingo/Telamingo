@@ -1,8 +1,11 @@
 ﻿using Domain.Dtos.User;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace Domain.AggregateModels.UserAggregate;
-
-public interface IUserRepository
+namespace Domain.AggregateModels.UserAggregate
 {
-    Task<UserDto> GetUserByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken);
+    public interface IUserRepository
+    {
+        Task<UserDto> GetUserByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken);
+    }
 }

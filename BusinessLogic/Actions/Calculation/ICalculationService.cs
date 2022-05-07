@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static BusinessLogic.Actions.Calculation.CalculationService;
-using Telamingo.Domain.Dtos.User;
+﻿using Domain.Dtos.User;
+using System.Threading;
 
 namespace BusinessLogic.Actions.Calculation
 {

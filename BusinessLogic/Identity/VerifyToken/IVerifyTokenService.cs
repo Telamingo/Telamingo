@@ -1,8 +1,9 @@
 ﻿using System.Security.Claims;
 
-namespace BusinessLogic.Identity.VerifyToken;
-
-public interface IVerifyTokenService
+namespace BusinessLogic.Identity.VerifyToken
 {
-    ClaimsPrincipal VerifyToken(string token);
+    public interface IVerifyTokenService
+    {
+        ClaimsPrincipal VerifyToken(string token);
+    }
 }

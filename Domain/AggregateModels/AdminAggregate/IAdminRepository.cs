@@ -1,8 +1,10 @@
 ﻿using Domain.Dtos.AdminDtos;
+using System.Threading.Tasks;
 
-namespace Domain.AggregateModels.AdminAggregate;
-
-public interface IAdminRepository
+namespace Domain.AggregateModels.AdminAggregate
 {
-    Task<AdminDto> GetAdminAsync(AdminDto model);
+    public interface IAdminRepository
+    {
+        Task<AdminDto> GetAdminAsync(AdminDto model);
+    }
 }

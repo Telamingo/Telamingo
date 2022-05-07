@@ -1,5 +1,6 @@
-﻿namespace Domain.AggregateModels.UserAggregate;
-
-internal class UserInformation
+﻿namespace Domain.AggregateModels.UserAggregate
 {
+    internal class UserInformation
+    {
+    }
 }

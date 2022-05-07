@@ -1,4 +1,5 @@
 ﻿using Domain.SeedWork;
+using System.Collections.Generic;
 
 namespace Domain.AggregateModels.CountryAggregate
 {

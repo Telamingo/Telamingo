@@ -1,40 +1,42 @@
 ﻿using Infrastructure;
-using Microsoft.EntityFrameworkCore;
-using Telamingo.Domain.AggregateModels.AdminAggregate;
-using Telamingo.Domain.Dtos.AdminDtos;
-using Telamingo.Domain.SeedWork;
+using Domain.AggregateModels.AdminAggregate;
+using Domain.Dtos.AdminDtos;
+using Domain.SeedWork;
+using System;
+using System.Threading.Tasks;
 
-namespace Infrastructure.Repositories.AdminRepository;
-
-public class AdminRepository : IAdminRepository
+namespace Infrastructure.Repositories.AdminRepository
 {
-    private readonly TelamingoDbContext _context;
-    public IUnitOfWork UnitOfWork
+    public class AdminRepository : IAdminRepository
     {
-        get
+        private readonly TelamingoDbContext _context;
+        public IUnitOfWork UnitOfWork
         {
-            return _context;
-        }
-    }
-
-    public AdminRepository(TelamingoDbContext context)
-    {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
-
-    }
-    public async Task<AdminDto> GetAdminAsync(AdminDto model)
-    {
-        Admin? admin = await _context.Admins.Where(x => x.UserName == model.UserName && x.Password == model.Password).FirstOrDefaultAsync();
-        if (admin == null)
-        {
-            throw new UnauthorizedAccessException("Unauthorized");
+            get
+            {
+                return _context;
+            }
         }
 
-        return new AdminDto
+        public AdminRepository(TelamingoDbContext context)
         {
-            Id = admin.Id,
-            UserName = admin.UserName,
-            Password = admin.Password,
-        };
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+
+        }
+        public async Task<AdminDto> GetAdminAsync(AdminDto model)
+        {
+            Admin? admin = await _context.Admins.Where(x => x.UserName == model.UserName && x.Password == model.Password).FirstOrDefaultAsync();
+            if (admin == null)
+            {
+                throw new UnauthorizedAccessException("Unauthorized");
+            }
+
+            return new AdminDto
+            {
+                Id = admin.Id,
+                UserName = admin.UserName,
+                Password = admin.Password,
+            };
+        }
     }
 }

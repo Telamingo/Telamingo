@@ -1,11 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Infrastructure;
-
-public static class DbConfig
+namespace Infrastructure
 {
-    public static string TelamingoContextConnectionString(this IConfiguration config)
+    public static class DbConfig
     {
-        return config.GetConnectionString("TelamingoContext");
+        public static string TelamingoContextConnectionString(this IConfiguration config)
+        {
+            return config.GetConnectionString("TelamingoContext");
+        }
     }
 }
