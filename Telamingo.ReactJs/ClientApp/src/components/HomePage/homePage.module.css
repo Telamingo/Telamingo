@@ -1,0 +1,79 @@
+.homePage{
+    padding: 0 25px;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.homePagePic{
+    display: flex;
+    justify-content: flex-end;
+}
+.homePagePicM{
+    display: flex;
+    justify-content: center;
+}
+.content div:nth-child(2) img{
+    width: 80%;
+    height: 80%;
+}
+.content_title{
+    color: purple;
+}
+.content_titleM{
+    color: purple;
+    text-align: center;
+}
+.content_dsc{
+    color: black;
+    font-size: 24px;
+    margin-right: 8rem;
+}
+.content_dscM{
+    color: black;
+    font-size: 24px;
+    /*margin-right: 8rem;*/
+    text-align: center;
+}
+.selectCountry{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border: 1px solid lightgrey;
+    border-radius: 28px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    padding: 0 35px;
+}
+.selectCountry input{
+    border: none;
+    outline: none;
+}
+.selectCountryButton{
+    background-color: orange;
+    border: none;
+    border-radius: 35px;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selectCountryButtonM{
+    background-color: orange;
+    border: none;
+    border-radius: 35px;
+    margin: 5px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

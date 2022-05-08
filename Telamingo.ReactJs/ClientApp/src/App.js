@@ -1,22 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import Layout from "./components/layout/index"
+import HomePage from "./components/HomePage";
 
 import './custom.css'
+import FormQuestions from "./components/FormQuestions";
 
-export default class App extends Component {
-  static displayName = App.name;
 
-  render () {
+const App = () => {
+
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize)
+    })
+
+    const handleResize = () => {
+        if (window.innerWidth < 720) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false)
+        }
+    }
     return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-      </Layout>
+        <Layout isMobile={isMobile}>
+            <Route path='/form'><FormQuestions isMobile={isMobile} /></Route>
+            <Route exact path='/'> <HomePage isMobile={isMobile}/> </Route>
+        </Layout>
     );
-  }
 }
+export default App;

@@ -1,0 +1,90 @@
+.header{
+    border: 1px solid lightgrey;
+    border-radius: 45px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    height: 5rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.headerM{
+    border: 1px solid lightgrey;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    height: 5rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.headerM div:nth-child(2){
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+.headerM div:nth-child(2) span{
+    color: orange;
+    border: 1px solid orangered;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 30px;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+.header_leftSide{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header_leftSide > span {
+    color: grey;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.header_leftSide > span:hover{
+    color: orange;
+}
+
+.header_rightSide{
+    display: flex;
+    justify-content: center;
+}
+.header_rightSide > span {
+    color: orange;
+    border: 1px solid orangered;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 30px;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+.header_rightSide > span:hover{
+    background-color: orangered;
+    color: white;
+}
+.menu{
+    padding: 5px 25px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    position: absolute;
+    border-radius: 10px;
+    width: 100%;
+}
+.menu ul li{
+    list-style: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 3rem;
+}
+.menu ul li:hover{
+    color: white;
+}
+.exploreButton{
+    color: white;
+    background-color: orange;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+}
