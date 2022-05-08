@@ -15,6 +15,8 @@ using Infrastructure.EntityConfigurations.SharedEntityConfigurations;
 using System;
 using System.Threading.Tasks;
 using System.Threading;
+using Domain.AggregateModels.QuestionAggregate;
+using Infrastructure.EntityConfigurations.QuestionEntityConfigurations;
 
 namespace Infrastructure
 {
@@ -50,6 +52,9 @@ namespace Infrastructure
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Weather> Weathers { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+
 
         #endregion
 
@@ -96,6 +101,9 @@ namespace Infrastructure
             modelBuilder.ApplyConfiguration(new JobEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new LanguageEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new WeatherEntityTypeConfiguration());
+
+            modelBuilder.ApplyConfiguration(new AnswerEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new QuestionEntityTypeConfiguration());
 
         }
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
