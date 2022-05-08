@@ -6,7 +6,7 @@ const HomePage = (props) =>{
 
     const {isMobile} = props
     return(
-        <div className={`container col-lg-12 mt-5 ${style.homePage}`}>
+        <div className={`container col-lg-10 mt-5 ${style.homePage}`}>
             <div className={`row ${style.content}`}>
                 <div className={`col-lg-6`}>
                     <h1 className={`${ !isMobile ? style.content_title : style.content_titleM}`}>set aside the ambiguities with the most reliable rout</h1>
@@ -17,7 +17,9 @@ const HomePage = (props) =>{
                     <div className={`col-lg-12 mt-5`}>
                         <div className={style.selectCountry}>
                             <input className={`col-lg-8`} placeholder="Where do you want to go?"/>
-                            <Link to="/form">Explore</Link>
+                            <Link to="/form" className={`${!isMobile ? style.selectCountryButton:style.selectCountryButtonM}`}>
+                                Explore
+                            </Link>
                         </div>
                     </div>
                 </div>

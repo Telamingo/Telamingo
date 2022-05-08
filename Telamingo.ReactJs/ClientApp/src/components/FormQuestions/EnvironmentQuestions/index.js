@@ -30,13 +30,13 @@ const EnvironmentQuestions = (props) => {
             {
                 !secondQuestion ?
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        <div className={`${style.questionHeader} mt-3`}>
-                            <h3>
-                                محیط زیست (۲ سوال)
-                            </h3>
-                            <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>
-                        </div>
+                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
+                        {/*    <h3>*/}
+                        {/*        محیط زیست (۲ سوال)*/}
+                        {/*    </h3>*/}
+                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*</div>*/}
                         <div className={`${style.questionContent} mt-5`} dir='rtl'>
                             {
                                 !firstQuestion ? (

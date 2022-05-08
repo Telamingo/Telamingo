@@ -20,16 +20,16 @@ const EconomyQuestions = (props) => {
             {
                 !fifthQuestion ? (
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        <div className={`${style.questionHeader} mt-3`}>
-                            <h3>
-                                اقتصاد (۵ سوال)
-                            </h3>
-                            <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${fifthQuestion ? style.active : style.deActive}`}> </i>
-                        </div>
+                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
+                        {/*    <h3>*/}
+                        {/*        اقتصاد (۵ سوال)*/}
+                        {/*    </h3>*/}
+                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${fifthQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*</div>*/}
                         <div className={`${style.questionContent} mt-5`} dir='rtl'>
                             {
                                 !firstQuestion ? (

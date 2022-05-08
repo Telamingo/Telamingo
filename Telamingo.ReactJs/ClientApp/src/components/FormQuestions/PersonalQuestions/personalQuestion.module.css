@@ -19,10 +19,9 @@
     display: inline-block;
 }
 .questionBody{
-    border: 1px solid lightgrey;
+    /*border: 1px solid lightgrey;*/
     border-radius: 20px;
-    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
-    /*height: 30rem;*/
+    /*box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);*/
 }
 .questionContent{
     display: flex;
@@ -34,6 +33,12 @@
     font-size: 20px;
     color: black;
 }
+.question{
+    font-weight: bold;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
 .questionDsc{
     font-size: 18px;
     color: grey;
@@ -43,8 +48,15 @@
     display: flex;
     justify-content: space-around;
 }
+.chooseCountryLabel{
+    width: 100%;
+    text-align: center;
+}
+.chooseCountrySelect{
+    width: 50%;
+}
 .chooseCountry select{
-    padding: 0 15px;
+    padding: 10px 15px;
     margin-right: 10px;
     border: 1px solid lightgrey;
     border-radius: 10px;
@@ -79,16 +91,16 @@
     padding: 5px 20px;
 }
 .nextQuestionButtonActive:hover{
-    background-color: orangered;;
+    background-color: rgba(231,78,11,0.89);
 }
 .chooseAge{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content:  space-evenly;
 }
 .chooseAge div{
     border-radius: 10px;
-    border: 1px solid orange;
+    border: 1px solid lightgrey;
     width: 200px;
     height: 100px;
     box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -105,12 +117,11 @@
     border-radius: 10px;
 }
 .chooseAge button:hover{
-    background-color: orange;
-    color: white;
+    border: 1px solid orange;
+    color: black;
 }
 .chooseAge div:hover{
-    background-color: orange;
-    color: white;
+    color: black;
 }
 .chooseAgeM{
     width: 100%;
@@ -148,7 +159,7 @@
 .chooseCount{
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 }
 .chooseCount button{
     background-color: white;
@@ -241,7 +252,7 @@
     cursor: pointer;
 }
 .moreLang:hover{
-    background-color: orangered;
+    background-color: rgba(231,78,11,0.89);
 }
 .moreLangM{
     font-size: 17px;
@@ -252,7 +263,7 @@
     cursor: pointer;
 }
 .moreLangM:hover{
-    background-color: orangered;
+    background-color: rgba(231,78,11,0.89);
 }
 .followers{
     width: 100%;
@@ -291,11 +302,22 @@
     border-bottom: 1px solid lightgrey;
     margin-bottom: 14px;
 }
-.mobileButton{
+.nextButton{
+    width: 100%;
+    text-align: right;
+}
+.nextButtonM{
+    width: 100%;
+    text-align: center;
+}
+.previousButton{
     width: 100%;
     text-align: left;
 }
-.mobileButtonM{
+.previousButtonM{
     width: 100%;
     text-align: center;
+}
+.buttons{
+    display: flex;
 }

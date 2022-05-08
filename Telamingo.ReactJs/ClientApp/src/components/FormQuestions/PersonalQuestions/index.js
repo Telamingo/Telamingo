@@ -29,85 +29,52 @@ console.log(props)
             {
                 !sixQuestion ? (
                     <div className={` col-lg-12 container ${style.questionBody}`}>
-                        <div className={`${style.questionHeader} mt-3`}>
-                            <h3>
-                                اطلاعات فردی و عمومی (6 سوال)
-                            </h3>
-                            <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${fifthQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${sixQuestion ? style.active : style.deActive}`}> </i>
-                        </div>
-                        <div className={`${style.questionContent} mt-5`} dir='rtl'>
+                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
+                        {/*    <h3>*/}
+                        {/*        اطلاعات فردی و عمومی (6 سوال)*/}
+                        {/*    </h3>*/}
+                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${fifthQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${sixQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*</div>*/}
+                        <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 col-12 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                به کدام کشور قصد مهاجرت دارید؟
+                                                Which country are you going to immigrate to?
                                             </p>
                                             <p className={`${style.questionDsc}`}>
-                                                (به ترتیب الویت وارد کنید)
+                                                (States and provinces of Canada and the United States must also be specified)
                                             </p>
                                         </div>
-                                        <div className={`${ !props.isMobile ? style.chooseCountry : `row ${style.chooseCountryM}`} mt-5 mb-5`}>
-                                            <label>
-                                                کشور اول:
-                                                <select value={firstCountry}
+                                        <div className={`${ !props.isMobile ? `col-12 ${style.chooseCountry}` : `row ${style.chooseCountryM}`} mt-5 mb-5`}>
+                                            <label className={style.chooseCountryLabel}>
+                                                <select value={firstCountry} className={style.chooseCountrySelect}
                                                         onChange={(event) => setFirstCountry(event.target.value)} required>
-                                                    <option value="انتخاب کشوراول" selected>انتخاب کشوراول</option>
+                                                    <option value="انتخاب کشوراول" selected>choose your country</option>
                                                     {
-                                                        country.map(item => secondCountry && item == secondCountry ?
-                                                            <option value={item}>کشور
-                                                                دوم</option> : thirdCountry && item == thirdCountry ?
-                                                                <option value={item}>کشور سوم</option> :
-                                                                <option value={item}>{item}</option>)
-                                                    }
-                                                </select>
-                                            </label>
-                                            <label>
-                                                کشور دوم:
-                                                <select value={secondCountry}
-                                                        onChange={(event) => setSecondCountry(event.target.value)} required>
-                                                    <option value="انتخاب کشوراول" selected>انتخاب کشور دوم</option>
-                                                    {
-                                                        country.map(item => item == firstCountry ?
-                                                            <option value={item}>کشور
-                                                                اول</option> : item == thirdCountry ?
-                                                                <option value={item}>کشور سوم</option> :
-                                                                <option value={item}>{item}</option>)
-                                                    }
-                                                </select>
-                                            </label>
-                                            <label>
-                                                کشور سوم:
-                                                <select value={thirdCountry}
-                                                        onChange={(event) => setThirdCountry(event.target.value)} required>
-                                                    <option value="انتخاب کشوراول" selected>انتخاب کشور سوم</option>
-                                                    {
-                                                        country.map(item => item == firstCountry ?
-                                                            <option value={item}>کشور
-                                                                اول</option> : item == secondCountry ?
-                                                                <option value={item}>کشور دوم</option> :
-                                                                <option value={item}>{item}</option>)
+                                                        country.map(item => <option value={item}>{item}</option>)
                                                     }
                                                 </select>
                                             </label>
                                         </div>
                                         {
                                             firstCountry == "" ? (
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                     <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                        بعدی
+                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>
+                                                        next
                                                     </button>
                                                 </div>
                                             ) : (
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                     <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                            onClick={() => setFirstQuestion(true)}>سوال بعدی
+                                                            onClick={() => setFirstQuestion(true)}>next
                                                     </button>
                                                 </div>
                                             )
@@ -115,152 +82,157 @@ console.log(props)
                                     </React.Fragment>
                                 ) : !secondQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                بازه سنی خود را وارد کنید:
+                                                How old are you?
                                             </p>
                                         </div>
                                         <div className={` ${!props.isMobile ? style.chooseAge : style.chooseAgeM} mt-5 mb-5`}>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}>بالای 50 سال</button>
+                                                <button onClick={() => setSecondQuestion(true)}>Over 50 years</button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}> بین 35 تا 50 سال
+                                                <button onClick={() => setSecondQuestion(true)}>Between 35 and 49 years
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}> بین 25 تا 35 سال
+                                                <button onClick={() => setSecondQuestion(true)}>Between 25 and 34 years
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}> بین 18 تا 25 سال
+                                                <button onClick={() => setSecondQuestion(true)}> Between 18 and 24 years
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}> زیر 18 سال</button>
+                                                <button onClick={() => setSecondQuestion(true)}>Under 18 years</button>
                                             </div>
                                         </div>
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                             <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                                    onClick={() => setFirstQuestion(false)}>previous
                                             </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !thirdQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3  ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                جنسیت:
+                                                What is your Sex?
                                             </p>
                                         </div>
                                         <div className={`${!props.isMobile ? style.chooseAge : style.chooseAgeM} mt-5 mb-5`}>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>زن</button>
+                                                <button onClick={() => setThirdQuestion(true)}>Man</button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}> مرد</button>
+                                                <button onClick={() => setThirdQuestion(true)}>Woman</button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}> سایر</button>
+                                                <button onClick={() => setThirdQuestion(true)}>Other</button>
                                             </div>
                                         </div>
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                             <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setSecondQuestion(false)}>سوال قبلی
+                                                    onClick={() => setSecondQuestion(false)}>previous
                                             </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                وضعیت تاهل:
+                                                Marital Status:
                                             </p>
                                         </div>
                                         <div className={`${!props.isMobile ? style.chooseAge : style.chooseAgeM} mt-5 mb-5`}>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>مجرد</button>
+                                                <button onClick={() => setForthQuestion(true)}>Single</button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}> متاهل</button>
+                                                <button onClick={() => setForthQuestion(true)}>Married</button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}> طلاق</button>
+                                                <button onClick={() => setForthQuestion(true)}>Seperated</button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}> بیوه</button>
+                                                <button onClick={() => setForthQuestion(true)}>Divorced</button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}> سایر</button>
+                                                <button onClick={() => setForthQuestion(true)}>Widow</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>Other</button>
                                             </div>
                                         </div>
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                             <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setThirdQuestion(false)}>سوال قبلی
+                                                    onClick={() => setThirdQuestion(false)}>previous
                                             </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !fifthQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                وضعیت زبان:
+                                                Language Status:
                                             </p>
                                         </div>
                                         <div className={`${!props.isMobile ? style.language : style.languageM}`}>
                                             <label>
-                                                زبان اول:
+                                               first language:
                                                 <select onChange={(event)=>setFirstLanLevel(event.target.value)}>
-                                                    <option selected>انتخاب سطح</option>
-                                                    <option>عالی</option>
-                                                    <option>متوسط</option>
-                                                    <option>ضعیف</option>
+                                                    <option selected>choose your level</option>
+                                                    <option>Advance</option>
+                                                    <option>Intermediate</option>
+                                                    <option>Beginner</option>
                                                 </select>
                                             </label>
                                             <label>
-                                                زبان دوم:
+                                                second language:
                                                 <select>
-                                                    <option selected>انتخاب سطح</option>
-                                                    <option>عالی</option>
-                                                    <option>متوسط</option>
-                                                    <option>ضعیف</option>
+                                                    <option selected>choose your level</option>
+                                                    <option>Advance</option>
+                                                    <option>Intermediate</option>
+                                                    <option>Beginner</option>
                                                 </select>
                                             </label>
                                             {
                                                 thirdLang ? (
                                                     <label>
-                                                        زبان سوم:
+                                                       third language:
                                                         <select>
-                                                            <option selected>انتخاب سطح</option>
-                                                            <option>عالی</option>
-                                                            <option>متوسط</option>
-                                                            <option>ضعیف</option>
+                                                            <option selected>choose your level</option>
+                                                            <option>Advance</option>
+                                                            <option>Intermediate</option>
+                                                            <option>Beginner</option>
                                                         </select>
                                                     </label>
                                                 ) : null
                                             }
                                             <span className={`${!props.isMobile ? style.moreLang : style.moreLangM} mt-5`}
                                                   onClick={() => setThirdLang(true)}>
-                                                       درصورت تسلط به زبانی دیگر، کلیک کنید
+                                                      Do you know any more question?
                                             </span>
                                         </div>
-                                        {
-                                            firstLanLevel == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال بعدی
-                                                    </button>
-                                                </div>
-                                                :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                            onClick={() => setFifthQuestion(true)}>سوال بعدی
-                                                    </button>
-                                                </div>
-                                        }
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
-                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setForthQuestion(false)}>سوال قبلی
-                                            </button>
+                                        <div className={`col-12 ${style.buttons}`}>
+                                            <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
+                                                <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                        onClick={() => setSecondQuestion(false)}>previous
+                                                </button>
+                                            </div>
+                                            {
+                                                firstLanLevel == "" ?
+                                                    <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
+                                                        <button className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
+                                                        </button>
+                                                    </div>
+                                                    :
+                                                    <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
+                                                        <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                onClick={() => setFifthQuestion(true)}>next
+                                                        </button>
+                                                    </div>
+                                            }
                                         </div>
                                     </React.Fragment>
                                 ) : !sixQuestion ? (
@@ -268,22 +240,22 @@ console.log(props)
                                         {
                                             !haveFollower ? (
                                                 <React.Fragment>
-                                                    <div className={`mb-3`}>
+                                                    <div className={`mb-3 ${style.question}`}>
                                                         <p className={`mt-3`}>
-                                                            آیا قصد دارید به تنهایی مهاجرت کنید؟
+                                                            Are you planning to immigrate alone?
                                                         </p>
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.chooseCount : style.chooseCountM} mt-5 mb-5`}>
                                                         <div>
-                                                            <button onClick={() => setSixQuestion(true)}> بله</button>
+                                                            <button onClick={() => setSixQuestion(true)}>Yes</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setHaveFollower(true)}> خیر</button>
+                                                            <button onClick={() => setHaveFollower(true)}>No</button>
                                                         </div>
                                                     </div>
-                                                    <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                                    <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                                         <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                onClick={() => setFifthQuestion(false)}>سوال قبلی
+                                                                onClick={() => setFifthQuestion(false)}>previous
                                                         </button>
                                                     </div>
                                                 </React.Fragment>
@@ -292,9 +264,9 @@ console.log(props)
                                                     {
                                                         !countOfFollowers ? (
                                                             <React.Fragment>
-                                                                <div className={`mb-3`}>
+                                                                <div className={`mb-3 ${style.question}`}>
                                                                     <p className={`mt-3`}>
-                                                                        چند نفر در زمان مهاجرت همراه شما خواهند بود؟
+                                                                        How many person are be with you?
                                                                     </p>
                                                                 </div>
                                                                 <div className={`${!props.isMobile ? style.chooseCount : style.chooseCountM} mt-5 mb-5`}>
@@ -322,7 +294,7 @@ console.log(props)
                                                             </React.Fragment>
                                                         ) : (
                                                             <React.Fragment>
-                                                                <div className={`mb-3`}>
+                                                                <div className={`mb-3 ${style.question}`}>
                                                                     <p className={`mt-3`}>
                                                                         همراه اول چه نسبتی با شما دارد؟
                                                                     </p>
