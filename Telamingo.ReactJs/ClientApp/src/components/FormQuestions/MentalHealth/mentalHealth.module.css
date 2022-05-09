@@ -58,7 +58,7 @@
     padding: 5px 20px;
 }
 .nextQuestionButtonActive:hover{
-    background-color: orangered;;
+    background-color: rgba(231,78,11,0.89);
 }
 .haveMentalSick{
     width: 100%;

@@ -21,7 +21,8 @@ const EnvironmentQuestions = (props) => {
 
     function checkFinalAnswer(event) {
 
-        setFinalAnswer((mentalProblem) => [...mentalProblem, event.target.value])
+        // setFinalAnswer((mentalProblem) => [...mentalProblem, event.target.value])
+        setFinalAnswer( event.target.value)
         console.log(finalAnswer);
     }
 
@@ -37,103 +38,102 @@ const EnvironmentQuestions = (props) => {
                         {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
                         {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
                         {/*</div>*/}
-                        <div className={`${style.questionContent} mt-5`} dir='rtl'>
+                        <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
                                     <React.Fragment>
-                                        <div>
-                                            <p className={`${style.questionTitle}`}>
-                                                میزان سازگاری شما با هر یک از شرایط آب و هوایی زیر چگونه است؟
+                                        <div className={`mb-3 ${style.question}`}>
+                                            <p>
+                                                How compatible are you with any of the following weather conditions?
                                             </p>
                                         </div>
                                         <div className={`mt-3 ${style.environmentHoby}`}>
-                                            <label>اغلب ابری و بارانی (1 تا 10)</label>
+                                            <label>Mostly cloudy and rainy</label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setFirstEnvironmentRate(event.target.value)}/>
                                         </div>
                                         <div className={`mt-3 ${style.environmentHoby}`}>
-                                            <label>اغلب برفی (1 تا 10)</label>
+                                            <label>Mostly snowy </label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setThirdEnvironmentRate(event.target.value)}/>
                                         </div>
                                         <div className={`mt-3 ${style.environmentHoby}`}>
-                                            <label>اغلب آفتابی (1 تا 10)</label>
+                                            <label>Mostly Sunny</label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setThirdEnvironmentRate(event.target.value)}/>
                                         </div>
                                         <div className={`mt-3 ${style.environmentHoby}`}>
-                                            <label>چهار فصل و معتدل (1 تا 10)</label>
+                                            <label>Four seasons and moderate</label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setForthEnvironmentRate(event.target.value)}/>
                                         </div>
-                                        <div className={`mt-3 ${style.environmentHoby}`}>
-                                            <label>
-                                                برایم فرقی نمیکند
-                                            </label>
-                                            <input type="number" min="1" max="10" step="1"
-                                                   onChange={(event) => setFifthEnvironmentRate(event.target.value)}/>
-                                        </div>
                                         {
                                             firstEnvironmentRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                     <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                        بعدی
+                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        onClick={() => setFirstQuestion(true)}>سوال
-                                                        بعدی
+                                                        onClick={() => setFirstQuestion(true)}>next
                                                     </button>
                                                 </div>
                                         }
                                     </React.Fragment>
                                 ) : !secondQuestion ? (
                                     <React.Fragment>
-                                        <div>
-                                            <p className={`${style.questionTitle}`}>
-                                                میزان سازگاری شما با هر یک از شرایط اقلیمی زیر چگونه است؟
+                                        <div className={`mb-3 ${style.question}`}>
+                                            <p className={`mt-3`}>
+                                                Problems with unusual day and night hours (long day or long night)?
                                             </p>
                                         </div>
-                                        <div className={`mt-3 ${!props.isMobile ? style.environmentHoby : style.environmentHobyM}`}>
-                                            <label>ساعات کم روز (شب های طولانی) (1 تا 10) </label>
-                                            <input type="number" min="1" max="10" step="1"
-                                                   onChange={(event) => setFirstEnvironmentRate(event.target.value)}/>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>0</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>1</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>2
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>3
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>4
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>5</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>6</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>7
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>8
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>9
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>10</button>
+                                            </div>
                                         </div>
-                                        <div className={`mt-3 ${!props.isMobile ? style.environmentHoby : style.environmentHobyM}`}>
-                                            <label>ساعات کم شب (روزهای طولانی) (1 تا 10)</label>
-                                            <input type="number" min="1" max="10" step="1"
-                                                   onChange={(event) => setThirdEnvironmentRate(event.target.value)}/>
-                                        </div>
-                                        <div className={`mt-3 ${!props.isMobile ? style.environmentHoby : style.environmentHobyM}`}>
-                                            <label>برایم فرقی نمیکند</label>
-                                            <input type="number" min="1" max="10" step="1"
-                                                   onChange={(event) => setThirdEnvironmentRate(event.target.value)}/>
-                                        </div>
-                                        {
-                                            firstEnvironmentRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                                :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        onClick={() => setSecondQuestion(true)}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                        }
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
-                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
-                                            </button>
+                                        <div className={`mb-5 ${style.creedRateDsc}`}>
+                                            <span>It is not tolerable for me at all</span>
+                                            <span>It does not matter to me</span>
                                         </div>
                                     </React.Fragment>
                                 ) : null
@@ -143,134 +143,72 @@ const EnvironmentQuestions = (props) => {
                     :
                     <>
                         {
-                            !forthQuestion ?
+                            !thirdQuestion ? (
                                 <React.Fragment>
                                     <div className={` col-lg-12 ${style.questionBody}`}>
-                                        <div className={`${style.questionHeader} mt-3`}>
-                                            <h3>
-                                                :دو سوال انتهایی پرسشنامه
-                                            </h3>
-                                        </div>
-                                        <div className={`${style.questionContent} mt-5`} dir='rtl'>
-                                            {
-                                                !thirdQuestion ? (
-                                                        <React.Fragment>
-                                                            <div>
-                                                                <p className={`${style.questionTitle}`}>
-                                                                    به طور کلی به نظر شما هر یک از موارد زیر چقدر در زمینه مهاجرت شما حائز اهمیت است:
-                                                                </p>
-                                                            </div>
-                                                            <div className={`mt-3 ${!props.isMobile ? style.environmentHoby : style.environmentHobyM}`}>
-                                                                <label>مسائل مالی و اقتصادی (1 تا 10)</label>
-                                                                <input type="number" min="1" max="10" step="1"
-                                                                       onChange={(event) => setFirstFinalQuestionRate(event.target.value)}/>
-                                                            </div>
-                                                            <div className={`mt-3 ${!props.isMobile ? style.environmentHoby : style.environmentHobyM}`}>
-                                                                <label>مسائل شغلی و یا تحصیلی (1 تا 10)</label>
-                                                                <input type="number" min="1" max="10" step="1"
-                                                                       onChange={(event) => setSecondFinalQuestionRate(event.target.value)}/>
-                                                            </div>
-                                                            <div className={`mt-3 ${!props.isMobile ? style.environmentHoby : style.environmentHobyM}`}>
-                                                                <label>مسائل مربوط به سلامت روحی و جسمی (1 تا 10)</label>
-                                                                <input type="number" min="1" max="10" step="1"
-                                                                       onChange={(event) => setThirdFinalQuestionRate(event.target.value)}/>
-                                                            </div>
-                                                            <div className={`mt-3 ${!props.isMobile ? style.environmentHoby : style.environmentHobyM}`}>
-                                                                <label>مسائل مربوط به آب و هوا و شرایط اقلیمی (1 تا 10)</label>
-                                                                <input type="number" min="1" max="10" step="1"
-                                                                       onChange={(event) => setForthFinalQuestionRate(event.target.value)}/>
-                                                            </div>
-                                                            <div className={`mt-3 ${!props.isMobile ? style.environmentHoby : style.environmentHobyM}`}>
-                                                                <label>تفاوت های فرهنگی-اجتماعی (1 تا 10)</label>
-                                                                <input type="number" min="1" max="10" step="1"
-                                                                       onChange={(event) => setFifthFinalQuestionRate(event.target.value)}/>
-                                                            </div>
-                                                            {
-                                                                firstFinalQuestionRate == "" ?
-                                                                    <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
-                                                                        <button
-                                                                            className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                                            بعدی
-                                                                        </button>
-                                                                    </div>
-                                                                    :
-                                                                    <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
-                                                                        <button
-                                                                            className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                            onClick={() => setThirdQuestion(true)}>سوال
-                                                                            بعدی
-                                                                        </button>
-                                                                    </div>
-                                                            }
-                                                        </React.Fragment>
-                                                    ) :
-                                                    !forthQuestion ? (
-                                                        <React.Fragment>
-                                                            <div>
-                                                                <p className={`${style.questionTitle}`}>
-                                                                    به طور کلی دوتا از مهم ترین چالش های مهاجرت از نظر شما چیست؟
-                                                                </p>
-                                                                <p className={`${style.questionDsc}`}>
-                                                                    (انتخاب دو گزینه)
-                                                                </p>
-                                                            </div>
-                                                            <div className={`${!props.isMobile?style.finalAnswer:style.finalAnswerM}`}>
-                                                                <label>
-                                                                    <input type="checkbox" value=" مسائل مالی و اقتصادی"
-                                                                           onChange={checkFinalAnswer}/>
-                                                                    مسائل مالی و اقتصادی
-                                                                </label>
-                                                                <label>
-                                                                    <input type="checkbox" value="مسائل شغلی و یا تحصیلی"
-                                                                           onChange={checkFinalAnswer}/>
-                                                                    مسائل شغلی و یا تحصیلی
-                                                                </label>
-                                                                <label>
-                                                                    <input type="checkbox" value=" مسائل مربوط به سلامت روحی و جسمی"
-                                                                           onChange={checkFinalAnswer}/>
-                                                                    مسائل مربوط به سلامت روحی و جسمی
-                                                                </label>
-                                                                <label>
-                                                                    <input type="checkbox" value="مسائل مربوط به آب و هوا و شرایط اقلیمی"
-                                                                           onChange={checkFinalAnswer}/>
-                                                                    مسائل مربوط به آب و هوا و شرایط اقلیمی
-                                                                </label>
-                                                                <label>
-                                                                    <input type="checkbox" value="تفاوت های فرهنگی-اجتماعی"
-                                                                           onChange={checkFinalAnswer}/>
-                                                                    تفاوت های فرهنگی-اجتماعی
-                                                                </label>
-                                                            </div>
-                                                            {
-                                                                finalAnswer == "" ? (
-                                                                    <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
-                                                                        <button
-                                                                            className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                                            بعدی
-                                                                        </button>
-                                                                    </div>
-                                                                ) : (
-                                                                    <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
-                                                                        <button
-                                                                            className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                            onClick={() => setForthQuestion(true)}>سوال
-                                                                            بعدی
-                                                                        </button>
-                                                                    </div>
-                                                                )
-                                                            }
-                                                        </React.Fragment>
-                                                    ) : null
-                                            }
+                                        <div className={`${style.questionContent} mt-5`} dir='ltr'>
+                                            <React.Fragment>
+                                                <div className={`mb-3 ${style.question}`}>
+                                                    <p>
+                                                        In general, what are the two most important challenges of immigration in your opinion?
+                                                    </p>
+                                                    <p className={`${style.questionDsc}`}>
+                                                        (Choose two options)
+                                                    </p>
+                                                </div>
+                                                <div className={`${!props.isMobile?style.finalAnswer:style.finalAnswerM}`}>
+                                                    <label>
+                                                        <input type="checkbox" value=" مسائل مالی و اقتصادی"
+                                                               onChange={checkFinalAnswer}/>
+                                                        Financial and economic issues
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" value="مسائل شغلی و یا تحصیلی"
+                                                               onChange={checkFinalAnswer}/>
+                                                        Occupational or educational issues
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" value=" مسائل مربوط به سلامت روحی و جسمی"
+                                                               onChange={checkFinalAnswer}/>
+                                                        Health issues (mental or physical)
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" value="مسائل مربوط به آب و هوا و شرایط اقلیمی"
+                                                               onChange={checkFinalAnswer}/>
+                                                        Socio-cultural differences
+                                                    </label>
+                                                    <label>
+                                                        <input type="checkbox" value="تفاوت های فرهنگی-اجتماعی"
+                                                               onChange={checkFinalAnswer}/>
+                                                        Weather and climate issues
+                                                    </label>
+                                                </div>
+                                                {
+                                                    finalAnswer == "" ? (
+                                                        <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
+                                                            <button
+                                                                className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
+                                                            </button>
+                                                        </div>
+                                                    ) : (
+                                                        <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
+                                                            <button
+                                                                className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                onClick={() => setThirdQuestion(true)}>next
+                                                            </button>
+                                                        </div>
+                                                    )
+                                                }
+                                            </React.Fragment>
                                         </div>
                                     </div>
                                 </React.Fragment>
-                                :
+                            ):(
                                 <React.Fragment>
                                     <div className={` col-lg-12 ${style.questionBody}`}>
-                                        <div className={`${style.FinalHeader} mt-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <h3>
-                                                :احتمالا موفقیت شما در این اقدام
+                                                Probably your success in this action :
                                             </h3>
                                             <span>70%</span>
                                         </div>
@@ -342,6 +280,7 @@ const EnvironmentQuestions = (props) => {
                                         </div>
                                     </div>
                                 </React.Fragment>
+                            )
                         }
                     </>
             }

@@ -1,4 +1,4 @@
-import PersonalQuestions from "./PersonalQuestions";
+import EnvironmentQuestions from "./EnvironmentQuestions";
 import style from "./formQuestion.module.css"
 import {useState} from "react";
 import React from "react"
@@ -16,7 +16,7 @@ const FormQuestions = (props) =>{
                         <button className={`container mt-5 ${style.startFormButton}`} onClick={()=>setIsStart(true)}>Start</button>
                     </div>
                 ) : (
-                    <PersonalQuestions isMobile={props.isMobile}/>
+                    <EnvironmentQuestions isMobile={props.isMobile}/>
                 )
             }
         </div>
