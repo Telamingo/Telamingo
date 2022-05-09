@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import style from "./economyQuestion.module.css";
-import CultureQuestion from "../CultureQuestions";
+import CultureQuestions from "../CultureQuestions";
 
 const EconomyQuestions = (props) => {
 
@@ -212,7 +212,7 @@ const EconomyQuestions = (props) => {
                         </div>
                     </div>
                 ) : (
-                   <CultureQuestion isMobile={props.isMobile}/>
+                   <CultureQuestions isMobile={props.isMobile}/>
                 )
             }
         </React.Fragment>
