@@ -18,180 +18,273 @@ const CultureQuestions = (props) =>{
             {
                 !forthQuestion ?
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        <div className={`${style.questionHeader} mt-3`}>
-                            <h3>
-                                فرهنگی (۴ سوال)
-                            </h3>
-                            <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>
-                        </div>
-                        <div className={`${style.questionContent} mt-5`} dir='rtl'>
+                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
+                        {/*    <h3>*/}
+                        {/*        فرهنگی (۴ سوال)*/}
+                        {/*    </h3>*/}
+                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*</div>*/}
+                        <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
-                                            <p className={`mt-3 ${style.questionTitle}`}>
-                                                چقدر مسائل دینی-ارزشی برای شما مهم است و به آن پایبندید؟
+                                        <div className={`mb-3 ${style.question}`}>
+                                            <p className={`mt-3`}>
+                                                How important are religious issues to you and do you adhere to them?
                                             </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)
-                                            </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)
-                                            </p>
+                                            {/*<p className={`${style.questionDsc}`}>*/}
+                                            {/*    اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)*/}
+                                            {/*</p>*/}
+                                            {/*<p className={`${style.questionDsc}`}>*/}
+                                            {/*    اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)*/}
+                                            {/*</p>*/}
                                         </div>
-                                        <div className={`${style.creedRate} mt-5 mb-5`}>
-                                            <span>0</span>
-                                            <input type="range" min="0" max="10" onChange={(event)=>setFirstQuestionRate(event.target.value)}/>
-                                            <span>{firstQuestionRate}</span>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>0</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>1</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>2
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>3
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>4
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>5</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>6</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>7
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>8
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>9
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setFirstQuestion(true)}>10</button>
+                                            </div>
                                         </div>
-                                        {
-                                            firstQuestionRate == "عدد مدنظر خود را مشخص کنید" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                                :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        onClick={() => setFirstQuestion(true)}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                        }
+                                        <div className={`mb-5 ${style.creedRateDsc}`}>
+                                            <span>I do not have religious beliefs and it does not matter to me</span>
+                                            <span>Religious beliefs and values are very important to me</span>
+                                        </div>
+                                        {/*<div className={`${style.creedRate} mt-5 mb-5`}>*/}
+                                        {/*    <span>0</span>*/}
+                                        {/*    <input type="range" min="0" max="10" onChange={(event)=>setFirstQuestionRate(event.target.value)}/>*/}
+                                        {/*    <span>{firstQuestionRate}</span>*/}
+                                        {/*</div>*/}
+                                        {/*{*/}
+                                        {/*    firstQuestionRate == "عدد مدنظر خود را مشخص کنید" ?*/}
+                                        {/*        <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>*/}
+                                        {/*            <button*/}
+                                        {/*                className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال*/}
+                                        {/*                بعدی*/}
+                                        {/*            </button>*/}
+                                        {/*        </div>*/}
+                                        {/*        :*/}
+                                        {/*        <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>*/}
+                                        {/*            <button*/}
+                                        {/*                className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}*/}
+                                        {/*                onClick={() => setFirstQuestion(true)}>سوال*/}
+                                        {/*                بعدی*/}
+                                        {/*            </button>*/}
+                                        {/*        </div>*/}
+                                        {/*}*/}
                                     </React.Fragment>
                                 ) : !secondQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
-                                            <p className={`mt-3 ${style.questionTitle}`}>
-                                                چقدر مسائل ملی برای شما مهم است و به آینده کشور خود اهمیت میدهید؟
+                                        <div className={`mb-3 ${style.question}`}>
+                                            <p className={`mt-3`}>
+                                                Are national issues such as serving your compatriots, the future of the country, etc. important to you and may prevent you from migrating?
                                             </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                مسائل ملی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در رویدادهای ملی همچون جشن ها، انتخابات و .... شرکت کنم) (10)
-                                            </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                اعتقادات وطن پرستانه ندارم و این موضوع دغدغه من نیست (0)
-                                            </p>
+                                            {/*<p className={`${style.questionDsc}`}>*/}
+                                            {/*    اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)*/}
+                                            {/*</p>*/}
+                                            {/*<p className={`${style.questionDsc}`}>*/}
+                                            {/*    اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)*/}
+                                            {/*</p>*/}
                                         </div>
-                                        <div className={`${style.creedRate} mt-5 mb-5`}>
-                                            <span>0</span>
-                                            <input type="range" name="vol" min="0" max="10" onChange={(event)=>setSecondQuestionRate(event.target.value)}/>
-                                            <span>{secondQuestionRate}</span>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>0</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>1</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>2
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>3
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>4
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>5</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>6</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>7
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>8
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>9
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setSecondQuestion(true)}>10</button>
+                                            </div>
                                         </div>
-                                        {
-                                            secondQuestionRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                                :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        onClick={() => setSecondQuestion(true)}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                        }
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
-                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
-                                            </button>
+                                        <div className={`mb-5 ${style.creedRateDsc}`}>
+                                            <span>I almost do not care</span>
+                                            <span>I almost do not care National issues are very important to me</span>
                                         </div>
                                     </React.Fragment>
                                 ): !thirdQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
-                                            <p className={`mt-3 ${style.questionTitle}`}>
-                                                چقدر اندازه جامعه مهاجرین کشور مقصد و وجود کامیونیتی های مربوط به کشور یا ملیت شما برای شما اهمیت دارد؟
+                                        <div className={`mb-3 ${style.question}`}>
+                                            <p className={`mt-3`}>
+                                                How important is the size of the immigrant community of the destination country and the existence of communities related to your country or nationality?
                                             </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                دوست دارم کشوری که میخواهم به آن مهاجرت کنم کاملا مهاجر پذیر باشد و کامیونیتی هایی از هموطنانم در آن وجود داشته باشد (10)
-                                            </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                این موضوع به هیچ وجه برایم اهمیتی ندارد و به آن اصلا فکر نمیکنم (5)
-                                            </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                دوست دارم تا از هموطنانم دور باشم و کشور مقصد نیز کاملا یکدست و با مهاجران بسیاری کمی باشد (0)
-                                            </p>
+                                            {/*<p className={`${style.questionDsc}`}>*/}
+                                            {/*    اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)*/}
+                                            {/*</p>*/}
+                                            {/*<p className={`${style.questionDsc}`}>*/}
+                                            {/*    اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)*/}
+                                            {/*</p>*/}
                                         </div>
-                                        <div className={`${style.creedRate} mt-5 mb-5`}>
-                                            <span>0</span>
-                                            <input type="range" name="vol" min="0" max="10" onChange={(event)=>setThirdQuestionRate(event.target.value)}/>
-                                            <span>{ThirdQuestionRate}</span>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>0</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>1</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>2
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>3
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>4
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>5</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>6</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>7
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>8
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>9
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setThirdQuestion(true)}>10</button>
+                                            </div>
                                         </div>
-                                        {
-                                            ThirdQuestionRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                                :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        onClick={() => setThirdQuestion(true)}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                        }
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
-                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setSecondQuestion(false)}>سوال قبلی
-                                            </button>
+                                        <div className={`mb-5 ${style.creedRateDsc}`}>
+                                            <span>I would like to be away from my compatriots</span>
+                                            <span>I would like the country I want to immigrate to to be fully immigrant</span>
                                         </div>
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
-                                            <p className={`mt-3 ${style.questionTitle}`}>
-                                                چقدر شباهت بافت جامعه، روابط اجتماعی و سایر پارامترهای فرهنگی-اجتماعی کشور مقصد با جامعه شما، برای شما اهمیت دارد؟
+                                        <div className={`mb-3 ${style.question}`}>
+                                            <p className={`mt-3`}>
+                                                How important is the similarity of the community context, social relations and other socio-cultural parameters of the destination country with your community?
                                             </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                تمایل دارم بسیار شبیه باشد (10)
-                                            </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                برایم فرقی نمیکند (5)
-                                            </p>
-                                            <p className={`${style.questionDsc}`}>
-                                                دوست دارم از نظر روابط اجتماعی و بافت فرهنگی، جامعه متفاتی را تجربه کنم (0)
-                                            </p>
+                                            {/*<p className={`${style.questionDsc}`}>*/}
+                                            {/*    اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)*/}
+                                            {/*</p>*/}
+                                            {/*<p className={`${style.questionDsc}`}>*/}
+                                            {/*    اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)*/}
+                                            {/*</p>*/}
                                         </div>
-                                        <div className={`${style.creedRate} mt-5 mb-5`}>
-                                            <span>0</span>
-                                            <input type="range" name="vol" min="0" max="10" onChange={(event)=>setForthQuestionRate(event.target.value)}/>
-                                            <span>{ForthQuestionRate}</span>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>0</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>1</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>2
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>3
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>4
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>5</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>6</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>7
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>8
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>9
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => setForthQuestion(true)}>10</button>
+                                            </div>
                                         </div>
-                                        {
-                                            ForthQuestionRate == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                                :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
-                                                    <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        onClick={() => setForthQuestion(true)}>سوال
-                                                        بعدی
-                                                    </button>
-                                                </div>
-                                        }
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
-                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setThirdQuestion(false)}>سوال قبلی
-                                            </button>
+                                        <div className={`mb-5 ${style.creedRateDsc}`}>
+                                            <span>I would like to experience a different society in terms of social relations and cultural context</span>
+                                            <span>I want it to be very similar</span>
                                         </div>
                                     </React.Fragment>
                                 ): null

@@ -11,7 +11,8 @@ const MentalHealth = (props) => {
 
     function checkMentalProblem(event) {
 
-        setMentalProblem((mentalProblem) => [...mentalProblem, event.target.value])
+        // setMentalProblem((mentalProblem) => [...mentalProblem, event.target.value])
+        setMentalProblem( event.target.value)
         console.log(mentalProblem);
     }
 
@@ -20,90 +21,82 @@ const MentalHealth = (props) => {
             {
                 !secondQuestion ?
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        <div className={`${style.questionHeader} mt-3`}>
-                            <h3>
-                                سلامت روانی (۲ سوال)
-                            </h3>
-                            <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>
-                        </div>
-                        <div className={`${style.questionContent} mt-5`} dir='rtl'>
+                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
+                        {/*    <h3>*/}
+                        {/*        سلامت روانی (۲ سوال)*/}
+                        {/*    </h3>*/}
+                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*</div>*/}
+                        <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
                                     <React.Fragment>
                                         {
                                             !haveMentalSick ? (
                                                 <React.Fragment>
-                                                    <div>
-                                                        <p className={`${style.questionTitle}`}>
-                                                            شما یا اعضای خانواده (در صورت مهاجرت به صورت خانوادگی) سابقه
-                                                            درگیری با بیماری روحی خاصی را دارید؟
+                                                    <div className={`mb-3 ${style.question}`}>
+                                                        <p>
+                                                            Do you or any of your family members have a history of mental illness?
                                                         </p>
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.haveMentalSick : style.haveMentalSickM} mt-3 ${!props.isMobile  ? " " : `row`}`}>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>خیر</button>
+                                                            <button onClick={() => setFirstQuestion(true)}>No</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setHaveMentalSick(true)}>بله</button>
+                                                            <button onClick={() => setHaveMentalSick(true)}>Yes</button>
                                                         </div>
                                                     </div>
                                                 </React.Fragment>
                                             ) : (
                                                 <React.Fragment>
-                                                    <div>
+                                                    <div className={`mb-3 ${style.question}`}>
                                                         <p className={`${style.questionTitle}`}>
-                                                            سابقه بیماری شما :
+                                                            Which one?
                                                         </p>
                                                         <p className={`${style.questionDsc}`}>
-                                                            (چند گزینه میشه انتخاب کرد، حداکثر سه مورد)
+                                                            (you can choose more than one)
                                                         </p>
                                                     </div>
                                                     <div className={`${!props.isMobile ? style.chooseMentalSick : style.chooseMentalSickM} ${!props.isMobile ? " ":`row`}`}>
                                                         <label>
                                                             <input type="checkbox" value="افسردگی مینور"
                                                                    onChange={checkMentalProblem}/>
-                                                            افسردگی مینور
+                                                            Minor depression
                                                         </label>
                                                         <label>
                                                             <input type="checkbox" value="افسردگی ماژور"
                                                                    onChange={checkMentalProblem}/>
-                                                            افسردگی ماژور
+                                                            Major depression
                                                         </label>
                                                         <label>
                                                             <input type="checkbox" value="اضطراب"
                                                                    onChange={checkMentalProblem}/>
-                                                            اضطراب
+                                                            Anxiety
                                                         </label>
                                                         <label>
                                                             <input type="checkbox" value="وسواس فکری"
                                                                    onChange={checkMentalProblem}/>
-                                                            وسواس فکری
+                                                            OCD Obsessive Compulsive Disorder
                                                         </label>
                                                         <label>
-                                                            <input type="checkbox" value="وسواس عملی"
-                                                                   onChange={checkMentalProblem}/>
-                                                            وسواس عملی
-                                                        </label>
-                                                        <label>
-                                                            سایر:
+                                                            Other:
                                                             <input type="text"/>
                                                         </label>
                                                     </div>
                                                     {
                                                         mentalProblem == "" ? (
-                                                            <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
+                                                            <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                 <button
-                                                                    className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                                    بعدی
+                                                                    className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
                                                                 </button>
                                                             </div>
                                                         ) : (
-                                                            <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>
+                                                            <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                    onClick={() => setFirstQuestion(true)}>سوال
-                                                                    بعدی
+                                                                    onClick={() => setFirstQuestion(true)}>next
                                                                 </button>
                                                             </div>
                                                         )
@@ -114,54 +107,54 @@ const MentalHealth = (props) => {
                                     </React.Fragment>
                                 ) : !secondQuestion ? (
                                     <React.Fragment>
-                                        <div>
-                                            <p className={`${style.questionTitle}`}>
-                                                چقدر با والدین خود ارتباط رو در رو دارید؟
+                                        <div className={`mb-3 ${style.question}`}>
+                                            <p>
+                                                How much contact do you have with your parents?
                                             </p>
                                             <p className={`${style.questionDsc}`}>
-                                                (به دیدار خانواده خود میروید)
+                                                (You visit your family)
                                             </p>
                                         </div>
                                         <div className={` ${style.chooseMeetingRate} mt-3`}>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>
-                                                    با خانواده زندگی میکنم و وابستگی زیادی به ایشان دارم (1)
+                                                    I live with my family and I am very dependent on them
                                                 </button>
                                             </div>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>
-                                                    با خانواده زندگی میکنم اما وابستگی زیادی به ایشان ندارم (3)
+                                                    I live with my family but I do not depend much on them
                                                 </button>
                                             </div>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>
-                                                    تقریبا هر روز به آنها سر میزنم یا هم را میبینیم (2)
+                                                    I go to them almost every day or see each other
                                                 </button>
                                             </div>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>
-                                                    هفته 3 تا 5 بار (3)
+                                                    I see or contact with them 3 to 5 times a week
                                                 </button>
                                             </div>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>
-                                                    به ندرت (ماهی 3 تا 5 بار) (4)
+                                                    I rarely get in touch with them or see them (3 to 5 times a month)
                                                 </button>
                                             </div>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>
-                                                    همین الان هم از هم فاصله زیادی داریم (سالی 2 تا 3 بار) (5)
+                                                    We are still a long way from each other (2 to 3 times a year)
                                                 </button>
                                             </div>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>
-                                                    والدینم فوت شده اند یا آن ها را اصلا نمیبینم (5)
+                                                    My parents are dead or I do not see them at all / I am not dependent on them at all
                                                 </button>
                                             </div>
                                         </div>
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                             <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                                    onClick={() => setFirstQuestion(false)}>previous
                                             </button>
                                         </div>
                                     </React.Fragment>

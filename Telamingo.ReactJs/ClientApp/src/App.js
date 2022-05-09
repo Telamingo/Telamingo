@@ -23,10 +23,12 @@ const App = () => {
         }
     }
     return (
-        <Layout isMobile={isMobile}>
-            <Route path='/form'><FormQuestions isMobile={isMobile} /></Route>
-            <Route exact path='/'> <HomePage isMobile={isMobile}/> </Route>
-        </Layout>
+        <div>
+            <Layout isMobile={isMobile}>
+                <Route path='/form'><FormQuestions isMobile={isMobile} /></Route>
+                <Route exact path='/'> <HomePage isMobile={isMobile}/> </Route>
+            </Layout>
+        </div>
     );
 }
 export default App;

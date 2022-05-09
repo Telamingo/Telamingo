@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import style from "./economyQuestion.module.css";
-import CultureQuestion from "../CultureQuestions";
+import CultureQuestions from "../CultureQuestions";
 
 const EconomyQuestions = (props) => {
 
@@ -20,30 +20,29 @@ const EconomyQuestions = (props) => {
             {
                 !fifthQuestion ? (
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        <div className={`${style.questionHeader} mt-3`}>
-                            <h3>
-                                اقتصاد (۵ سوال)
-                            </h3>
-                            <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>
-                            <i className={`${fifthQuestion ? style.active : style.deActive}`}> </i>
-                        </div>
-                        <div className={`${style.questionContent} mt-5`} dir='rtl'>
+                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
+                        {/*    <h3>*/}
+                        {/*        اقتصاد (۵ سوال)*/}
+                        {/*    </h3>*/}
+                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*    <i className={`${fifthQuestion ? style.active : style.deActive}`}> </i>*/}
+                        {/*</div>*/}
+                        <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                تخصص شما در کدام یک از حوزه های شغلی زیر می‌باشد؟
+                                                In which of the following job areas is your specialty?
                                             </p>
                                         </div>
                                         <div className={`${style.chooseJob} mt-5 mb-5`}>
-                                            شغل شما:
                                             <select value={job}
                                                     onChange={(event) => setJob(event.target.value)} required>
-                                                <option value="انتخاب کشوراول" selected>انتخاب شغل</option>
+                                                <option value="انتخاب کشوراول" selected>choose your job</option>
                                                 {
                                                     jobs.map(item => <option value={item}>{item}</option>)
                                                 }
@@ -51,164 +50,160 @@ const EconomyQuestions = (props) => {
                                         </div>
                                         {
                                             job == "" ?
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                     <button
-                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال
-                                                        بعدی
+                                                        className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
                                                     </button>
                                                 </div>
                                                 :
-                                                <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
+                                                <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                     <button
                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        onClick={() => setFirstQuestion(true)}>سوال
-                                                        بعدی
+                                                        onClick={() => setFirstQuestion(true)}>next
                                                     </button>
                                                 </div>
                                         }
                                     </React.Fragment>
                                 ) : !secondQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                بازه سنی خود را وارد کنید:
+                                                In what field do you want to work in the destination country?
                                             </p>
                                         </div>
                                         <div className={` ${!props.isMobile ? style.jobPosition : style.jobPositionM} mt-5 mb-5 ${!props.isMobile ? " ":`row`}`}>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}>در شغل و تخصصی که دارم
+                                                <button onClick={() => setSecondQuestion(true)}>Just In my job and specialization
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}>ترجیحا در شغل و تخصصی که
-                                                    دارم
+                                                <button onClick={() => setSecondQuestion(true)}> Preferably in my job and specialty
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}> فرقی نمی کند
+                                                <button onClick={() => setSecondQuestion(true)}>it does not matter
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}> در حرفه ای خاص متفاوت
-                                                    با تجربه قبلی ام
+                                                <button onClick={() => setSecondQuestion(true)}>In a particular profession different from my previous experience
                                                 </button>
                                             </div>
                                         </div>
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                             <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setFirstQuestion(false)}>سوال قبلی
+                                                    onClick={() => setFirstQuestion(false)}>previous
                                             </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !thirdQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                دوست دارید (انتظار دارید) در انتهای هر سال چقدر پس انداز کنید؟
+                                                How much do you expect to save annually?
                                             </p>
                                         </div>
-                                        <div className={` ${!props.isMobile ? style.jobPosition : style.jobPositionM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
+                                        <div className={` ${!props.isMobile ? style.salary : style.salaryM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>بیش از 50 هزار دلار (5)
+                                                <button onClick={() => setThirdQuestion(true)}>More than 50000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>بین 20 تا 50 هزار دلار
+                                                <button onClick={() => setThirdQuestion(true)}>Between 20000 and 50000 dollars
                                                     (4)
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}> بین 10 تا 20 هزار دلار
+                                                <button onClick={() => setThirdQuestion(true)}>Between 10000 and 20000 dollars
                                                     (3)
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>بین 5 تا 10 هزار دلار (2)
+                                                <button onClick={() => setThirdQuestion(true)}>Between 5000 and 10000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>زیر 5 هزار دلار (1)
+                                                <button onClick={() => setThirdQuestion(true)}>Under 5000
                                                 </button>
                                             </div>
                                         </div>
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                             <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setSecondQuestion(false)}>سوال قبلی
+                                                    onClick={() => setSecondQuestion(false)}>previous
                                             </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                در حال حاضر در کشور مبداء سالانه چقدر پس‌انداز می‌کنید؟
+                                                How much do you currently save annually in your country of origin?
                                             </p>
                                         </div>
-                                        <div className={` ${!props.isMobile ? style.jobPosition : style.jobPositionM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
+                                        <div className={` ${!props.isMobile ? style.salary : style.salaryM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>بیش از 50 هزار دلار (5)
+                                                <button onClick={() => setForthQuestion(true)}>More than 50000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>بین 20 تا 50 هزار دلار
+                                                <button onClick={() => setForthQuestion(true)}>Between 20000 and 50000 dollars
                                                     (4)
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}> بین 10 تا 20 هزار دلار
+                                                <button onClick={() => setForthQuestion(true)}>Between 10000 and 20000 dollars
                                                     (3)
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>بین 5 تا 10 هزار دلار (2)
+                                                <button onClick={() => setForthQuestion(true)}>Between 5000 and 10000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>زیر 5 هزار دلار (1)
+                                                <button onClick={() => setForthQuestion(true)}>Under 5000
                                                 </button>
                                             </div>
                                         </div>
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                             <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setThirdQuestion(false)}>سوال قبلی
+                                                    onClick={() => setThirdQuestion(false)}> previous
                                             </button>
                                         </div>
                                     </React.Fragment>
                                 ) : !fifthQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3`}>
+                                        <div className={`mb-3 ${style.question}`}>
                                             <p className={`mt-3`}>
-                                                برای انجام کارهای مهاجرت مانند ترجمه مدارک، هزینه ویزا، بلیط، هزینه
-                                                احتمالی چند ماه اول زندگی در کشور مقصد چه هزینه‌ای در نظر گرفته‌اید؟
+                                                What are the costs for immigration work such as translation of documents,
+                                                visa fee, ticket, possible cost of the first few months of living in the destination country?
                                             </p>
                                         </div>
-                                        <div className={` ${!props.isMobile ? style.jobPosition : style.jobPositionM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
+                                        <div className={` ${!props.isMobile ? style.salary : style.salaryM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>بیش از 50 هزار دلار (5)
+                                                <button onClick={() => setFifthQuestion(true)}>More than 50000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>بین 20 تا 50 هزار دلار
+                                                <button onClick={() => setFifthQuestion(true)}>Between 20000 and 50000 dollars
                                                     (4)
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}> بین 10 تا 20 هزار دلار
+                                                <button onClick={() => setFifthQuestion(true)}>Between 10000 and 20000 dollars
                                                     (3)
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>بین 5 تا 10 هزار دلار (2)
+                                                <button onClick={() => setFifthQuestion(true)}>Between 5000 and 10000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>زیر 5 هزار دلار (1)
+                                                <button onClick={() => setFifthQuestion(true)}>Under 5000
                                                 </button>
                                             </div>
                                         </div>
-                                        <div className={`${!props.isMobile ? style.mobileButton : style.mobileButtonM}`}>
+                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
                                             <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                    onClick={() => setForthQuestion(false)}>سوال قبلی
+                                                    onClick={() => setForthQuestion(false)}>previous
                                             </button>
                                         </div>
                                     </React.Fragment>
@@ -217,7 +212,7 @@ const EconomyQuestions = (props) => {
                         </div>
                     </div>
                 ) : (
-                   <CultureQuestion isMobile={props.isMobile}/>
+                   <CultureQuestions isMobile={props.isMobile}/>
                 )
             }
         </React.Fragment>
