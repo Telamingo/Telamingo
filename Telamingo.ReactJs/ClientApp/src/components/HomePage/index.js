@@ -1,13 +1,22 @@
 import style from "./homePage.module.css";
 import React from "react";
 import {Link} from "react-router-dom";
+import {useState} from "react"
 
 const HomePage = (props) =>{
+
+    const countrys = [
+        "Canada",
+        "Us",
+        "Italy",
+        "France"
+    ];
+    const [country, setCountry]=useState()
 
     const {isMobile} = props
     return(
         <div className={`container col-lg-10 mt-5 ${style.homePage}`}>
-            <div className={`row ${style.content}`}>
+            <div className={`row  ${style.content}`}>
                 <div className={`col-lg-6`}>
                     <h1 className={`${ !isMobile ? style.content_title : style.content_titleM}`}>set aside the ambiguities with the most reliable rout</h1>
                     <p className={`mt-4 ${!isMobile ? style.content_dsc : style.content_dscM}`}>Telamingo helps you to set aside the ambiguities with
@@ -16,7 +25,15 @@ const HomePage = (props) =>{
                     </p>
                     <div className={`col-lg-12 mt-5`}>
                         <div className={style.selectCountry}>
-                            <input className={`col-lg-8`} placeholder="Where do you want to go?"/>
+                            <label className={style.chooseCountryLabel}>
+                                <select value={country} className={style.chooseCountrySelect}
+                                        onChange={(event) => setCountry(event.target.value)} required>
+                                    <option value="انتخاب کشوراول" selected>choose your country</option>
+                                    {
+                                        countrys.map(item => <option value={item}>{item}</option>)
+                                    }
+                                </select>
+                            </label>
                             <Link to="/form" className={`${!isMobile ? style.selectCountryButton:style.selectCountryButtonM}`}>
                                 Explore
                             </Link>

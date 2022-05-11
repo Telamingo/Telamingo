@@ -168,5 +168,17 @@ flex-direction: column;
 .creedRateDsc{
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:  space-between;
+}
+.previousButton button {
+    width: 115px;
+}
+.nextButton button{
+    width: 115px;
+}
+.emailInput{
+    width: 50%;
+    border: 1px solid lightgrey;
+    outline: none;
+    border-radius: 5px;
 }

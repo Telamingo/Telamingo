@@ -15,3 +15,12 @@
 .startFormButton:hover{
     background-color:  rgba(231,78,11,0.89);
 }
+.startPagePic{
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
+}
+.startPagePicM{
+    width: 100%;
+    /*display: flex;*/
+    /*justify-content: center;*/
+}

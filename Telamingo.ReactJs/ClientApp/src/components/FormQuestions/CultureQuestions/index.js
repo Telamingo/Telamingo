@@ -8,10 +8,10 @@ const CultureQuestions = (props) =>{
     const [secondQuestion, setSecondQuestion] = useState(false);
     const [thirdQuestion, setThirdQuestion] = useState(false);
     const [forthQuestion, setForthQuestion] = useState(false);
-    const [firstQuestionRate, setFirstQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
-    const [secondQuestionRate, setSecondQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
-    const [ThirdQuestionRate, setThirdQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
-    const [ForthQuestionRate, setForthQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
+    // const [firstQuestionRate, setFirstQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
+    // const [secondQuestionRate, setSecondQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
+    // const [ThirdQuestionRate, setThirdQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
+    // const [ForthQuestionRate, setForthQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
 
     return(
         <React.Fragment>
@@ -84,8 +84,20 @@ const CultureQuestions = (props) =>{
                                             </div>
                                         </div>
                                         <div className={`mb-5 ${style.creedRateDsc}`}>
-                                            <span>I do not have religious beliefs and it does not matter to me</span>
-                                            <span>Religious beliefs and values are very important to me</span>
+                                            <span>
+                                                <p>
+                                                    I do not have religious beliefs
+                                                </p>
+                                                <p>and it does not matter to me</p>
+                                            </span>
+                                            <span>
+                                                <p>
+                                                    Religious beliefs and values
+                                                </p>
+                                                <p>
+                                                    are very important to me
+                                                </p>
+                                                </span>
                                         </div>
                                         {/*<div className={`${style.creedRate} mt-5 mb-5`}>*/}
                                         {/*    <span>0</span>*/}
@@ -166,7 +178,14 @@ const CultureQuestions = (props) =>{
                                         </div>
                                         <div className={`mb-5 ${style.creedRateDsc}`}>
                                             <span>I almost do not care</span>
-                                            <span>I almost do not care National issues are very important to me</span>
+                                            <span>
+                                                <p>
+                                                    I almost do not care National
+                                                </p>
+                                                <p>
+                                                    issues are very important to me
+                                                </p>
+                                            </span>
                                         </div>
                                     </React.Fragment>
                                 ): !thirdQuestion ? (
@@ -225,7 +244,14 @@ const CultureQuestions = (props) =>{
                                         </div>
                                         <div className={`mb-5 ${style.creedRateDsc}`}>
                                             <span>I would like to be away from my compatriots</span>
-                                            <span>I would like the country I want to immigrate to to be fully immigrant</span>
+                                            <span>
+                                                <p>
+                                                    I would like the country
+                                                </p>
+                                                <p>
+                                                     I want to immigrate to to be fully immigrant
+                                                </p>
+                                            </span>
                                         </div>
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
@@ -283,7 +309,14 @@ const CultureQuestions = (props) =>{
                                             </div>
                                         </div>
                                         <div className={`mb-5 ${style.creedRateDsc}`}>
-                                            <span>I would like to experience a different society in terms of social relations and cultural context</span>
+                                            <span>
+                                                <p>
+                                                    I would like to experience a different society in
+                                                </p>
+                                                <p>
+                                                      terms of social relations and cultural context
+                                                </p>
+                                              </span>
                                             <span>I want it to be very similar</span>
                                         </div>
                                     </React.Fragment>

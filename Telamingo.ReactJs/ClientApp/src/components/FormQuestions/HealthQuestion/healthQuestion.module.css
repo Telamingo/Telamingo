@@ -207,3 +207,9 @@
     width: 100%;
     text-align: center;
 }
+.previousButton button {
+    width: 115px;
+}
+.nextButton button{
+    width: 115px;
+}

@@ -13,12 +13,13 @@ const HealthQuestion = (props) => {
     const [firstMealRate, setFirstMealRate] = useState("");
     const [secondMealRate, setSecondMealRate] = useState("");
     const [thirdMealRate, setThirdMealRate] = useState("");
-    const [forthMealRate, setForthMealRate] = useState("");
-    const [fifthMealRate, setFifthMealRate] = useState("");
+    // const [forthMealRate, setForthMealRate] = useState("");
+    // const [fifthMealRate, setFifthMealRate] = useState("");
 
     const sicks = [
         "sick a", "sick b", "sick c"
     ]
+    console.log(secondMealRate,thirdMealRate)
     return (
         <React.Fragment>
             {
@@ -114,7 +115,7 @@ const HealthQuestion = (props) => {
                                                             </button>
                                                         </div>
                                                         {
-                                                            sick == "" ?
+                                                            sick === "" ?
                                                                 <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                     <button
                                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
@@ -197,7 +198,7 @@ const HealthQuestion = (props) => {
                                                 </button>
                                             </div>
                                             {
-                                                firstMealRate == "" ?
+                                                firstMealRate === "" ?
                                                     <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                         <button
                                                             className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next

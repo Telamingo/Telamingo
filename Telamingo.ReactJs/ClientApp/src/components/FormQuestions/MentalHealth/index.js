@@ -86,7 +86,7 @@ const MentalHealth = (props) => {
                                                         </label>
                                                     </div>
                                                     {
-                                                        mentalProblem == "" ? (
+                                                        mentalProblem === "" ? (
                                                             <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next

@@ -204,3 +204,9 @@
 .buttons{
     display: flex;
 }
+.previousButton button {
+    width: 115px;
+}
+.nextButton button{
+    width: 115px;
+}
