@@ -67,7 +67,7 @@
 }
 .environmentHobyM input{
     border: 1px solid orange;
-    margin-right: 15px;
+    margin-left: 15px;
     border-radius: 10px;
     outline: none;
 }
@@ -81,8 +81,10 @@
     align-items: flex-start;
 }
 .finalAnswerM{
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 17px;
 }
 .finalAnswerM label{
    text-align: right;
@@ -163,12 +165,46 @@ flex-direction: column;
     color: black;
 }
 .creedRateM{
-
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.creedRateM div{
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    width: 100px;
+    height: 50px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.creedRateM button{
+    background-color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.creedRateM button:hover{
+    border: 1px solid orange;
+    color: black;
+}
+.creedRateM div:hover{
+    color: black;
 }
 .creedRateDsc{
     width: 100%;
     display: flex;
     justify-content:  space-between;
+}
+.creedRateDscM{
+    width: 100%;
+    display: flex;
+    justify-content:  center;
 }
 .previousButton button {
     width: 115px;
@@ -176,11 +212,27 @@ flex-direction: column;
 .nextButton button{
     width: 115px;
 }
+.previousButtonM button {
+    width: 115px;
+}
+.nextButtonM button{
+    width: 115px;
+}
 .information{
  width: 100%;
 }
 .information input{
     width: 30%;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.informationM{
+ width: 100%;
+    text-align: initial;
+}
+.informationM input{
+    width: 50%;
     border: 1px solid lightgrey;
     border-radius: 5px;
     margin-left: 10px;

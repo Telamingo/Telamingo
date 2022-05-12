@@ -25,13 +25,6 @@ const EnvironmentQuestions = (props) => {
             {
                 !secondQuestion ?
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
-                        {/*    <h3>*/}
-                        {/*        محیط زیست (۲ سوال)*/}
-                        {/*    </h3>*/}
-                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*</div>*/}
                         <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
@@ -41,22 +34,22 @@ const EnvironmentQuestions = (props) => {
                                                 How compatible are you with any of the following weather conditions?
                                             </p>
                                         </div>
-                                        <div className={`mt-3 ${style.environmentHoby}`}>
+                                        <div className={`mt-3 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
                                             <label>Mostly cloudy and rainy</label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setFirstEnvironmentRate(event.target.value)}/>
                                         </div>
-                                        <div className={`mt-3 ${style.environmentHoby}`}>
+                                        <div className={`mt-3 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
                                             <label>Mostly snowy </label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setThirdEnvironmentRate(event.target.value)}/>
                                         </div>
-                                        <div className={`mt-3 ${style.environmentHoby}`}>
+                                        <div className={`mt-3 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
                                             <label>Mostly Sunny</label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setThirdEnvironmentRate(event.target.value)}/>
                                         </div>
-                                        <div className={`mt-3 ${style.environmentHoby}`}>
+                                        <div className={`mt-3 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
                                             <label>Four seasons and moderate</label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setForthEnvironmentRate(event.target.value)}/>
@@ -86,8 +79,11 @@ const EnvironmentQuestions = (props) => {
                                                 Problems with unusual day and night hours (long day or long night)?
                                             </p>
                                         </div>
+                                        <div className={`${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
+                                            <span>It is not tolerable for me at all</span>
+                                        </div>
                                         <div
-                                            className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                            className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>0</button>
                                             </div>
@@ -128,8 +124,7 @@ const EnvironmentQuestions = (props) => {
                                                 <button onClick={() => setSecondQuestion(true)}>10</button>
                                             </div>
                                         </div>
-                                        <div className={`mb-5 ${style.creedRateDsc}`}>
-                                            <span>It is not tolerable for me at all</span>
+                                        <div className={`mb-5 ${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
                                             <span>It does not matter to me</span>
                                         </div>
                                     </React.Fragment>
@@ -216,15 +211,15 @@ const EnvironmentQuestions = (props) => {
                                                             please enter your
                                                             specification below:
                                                         </h3>
-                                                        <div className={`${style.information} mt-3 mb-3`}>
+                                                        <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
                                                             <label htmlFor="name">name: </label>
                                                             <input id="name" name="name" required/><br/>
                                                         </div>
-                                                        <div className={`${style.information} mt-3 mb-3`}>
+                                                        <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
                                                             <label htmlFor="email">email: </label>
                                                             <input type="email" id="email" name="email" required/>
                                                         </div>
-                                                        <div className={`${style.information} mt-3 mb-3`}>
+                                                        <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
                                                             <label htmlFor="email">phone number: </label>
                                                             <input type="number" id="email" name="email" required/>
                                                         </div>

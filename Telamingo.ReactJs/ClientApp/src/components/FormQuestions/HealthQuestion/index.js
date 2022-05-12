@@ -25,15 +25,6 @@ const HealthQuestion = (props) => {
             {
                 !forthQuestion ? (
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
-                        {/*    <h3>*/}
-                        {/*        سلامت جسمانی (۴ سوال)*/}
-                        {/*    </h3>*/}
-                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*</div>*/}
                         <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
@@ -93,7 +84,7 @@ const HealthQuestion = (props) => {
                                                 </React.Fragment>
                                             ) : (
                                                 <React.Fragment>
-                                                    <div className={`${style.chooseSick} mt-5 mb-5`}>
+                                                    <div className={`${!props.isMobile ? style.chooseSick:style.chooseSickM} mt-5 mb-5`}>
                                                         <div className={`mb-3 ${style.question}`}>
                                                             <p>
                                                                your illness :
@@ -176,7 +167,7 @@ const HealthQuestion = (props) => {
                                                 Do you follow a certain food lifestyle?(Rate from 1 to 10 below)
                                             </p>
                                         </div>
-                                        <div className={`mt-3 ${style.mealHoby}`}>
+                                        <div className={`mt-3 ${!props.isMobile?style.mealHoby:style.mealHobyM}`}>
                                             <label>Traditional dishes of my country</label>
                                             <input type="number" min="1" max="10" step="1"
                                                    onChange={(event) => setFirstMealRate(event.target.value)}/>

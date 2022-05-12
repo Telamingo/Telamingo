@@ -7,7 +7,7 @@ import React from "react"
 const FormQuestions = (props) =>{
     const [isStart, setIsStart] = useState(false);
     return(
-        <div className={`container col-10 mt-5 `}>
+        <div className={`container col-12 mt-5 `}>
             {
                 !isStart ? (
                     <div className={`row ${style.startForm}`}>

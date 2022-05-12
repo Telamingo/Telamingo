@@ -8,25 +8,12 @@ const CultureQuestions = (props) =>{
     const [secondQuestion, setSecondQuestion] = useState(false);
     const [thirdQuestion, setThirdQuestion] = useState(false);
     const [forthQuestion, setForthQuestion] = useState(false);
-    // const [firstQuestionRate, setFirstQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
-    // const [secondQuestionRate, setSecondQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
-    // const [ThirdQuestionRate, setThirdQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
-    // const [ForthQuestionRate, setForthQuestionRate]=useState("عدد مدنظر خود را مشخص کنید");
 
     return(
         <React.Fragment>
             {
                 !forthQuestion ?
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
-                        {/*    <h3>*/}
-                        {/*        فرهنگی (۴ سوال)*/}
-                        {/*    </h3>*/}
-                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*</div>*/}
                         <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
@@ -35,14 +22,16 @@ const CultureQuestions = (props) =>{
                                             <p className={`mt-3`}>
                                                 How important are religious issues to you and do you adhere to them?
                                             </p>
-                                            {/*<p className={`${style.questionDsc}`}>*/}
-                                            {/*    اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)*/}
-                                            {/*</p>*/}
-                                            {/*<p className={`${style.questionDsc}`}>*/}
-                                            {/*    اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)*/}
-                                            {/*</p>*/}
                                         </div>
-                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                        <div  className={`${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
+                                             <span>
+                                                <p>
+                                                    I do not have religious beliefs
+                                                </p>
+                                                <p>and it does not matter to me</p>
+                                            </span>
+                                        </div>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                             <div>
                                                 <button onClick={() => setFirstQuestion(true)}>0</button>
                                             </div>
@@ -83,13 +72,7 @@ const CultureQuestions = (props) =>{
                                                 <button onClick={() => setFirstQuestion(true)}>10</button>
                                             </div>
                                         </div>
-                                        <div className={`mb-5 ${style.creedRateDsc}`}>
-                                            <span>
-                                                <p>
-                                                    I do not have religious beliefs
-                                                </p>
-                                                <p>and it does not matter to me</p>
-                                            </span>
+                                        <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
                                             <span>
                                                 <p>
                                                     Religious beliefs and values
@@ -99,28 +82,6 @@ const CultureQuestions = (props) =>{
                                                 </p>
                                                 </span>
                                         </div>
-                                        {/*<div className={`${style.creedRate} mt-5 mb-5`}>*/}
-                                        {/*    <span>0</span>*/}
-                                        {/*    <input type="range" min="0" max="10" onChange={(event)=>setFirstQuestionRate(event.target.value)}/>*/}
-                                        {/*    <span>{firstQuestionRate}</span>*/}
-                                        {/*</div>*/}
-                                        {/*{*/}
-                                        {/*    firstQuestionRate == "عدد مدنظر خود را مشخص کنید" ?*/}
-                                        {/*        <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>*/}
-                                        {/*            <button*/}
-                                        {/*                className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>سوال*/}
-                                        {/*                بعدی*/}
-                                        {/*            </button>*/}
-                                        {/*        </div>*/}
-                                        {/*        :*/}
-                                        {/*        <div className={`${!props.isMobile ? "" : style.mobileButtonM}`}>*/}
-                                        {/*            <button*/}
-                                        {/*                className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}*/}
-                                        {/*                onClick={() => setFirstQuestion(true)}>سوال*/}
-                                        {/*                بعدی*/}
-                                        {/*            </button>*/}
-                                        {/*        </div>*/}
-                                        {/*}*/}
                                     </React.Fragment>
                                 ) : !secondQuestion ? (
                                     <React.Fragment>
@@ -128,14 +89,11 @@ const CultureQuestions = (props) =>{
                                             <p className={`mt-3`}>
                                                 Are national issues such as serving your compatriots, the future of the country, etc. important to you and may prevent you from migrating?
                                             </p>
-                                            {/*<p className={`${style.questionDsc}`}>*/}
-                                            {/*    اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)*/}
-                                            {/*</p>*/}
-                                            {/*<p className={`${style.questionDsc}`}>*/}
-                                            {/*    اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)*/}
-                                            {/*</p>*/}
                                         </div>
-                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                        <div className={`${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
+                                            <span>I almost do not care</span>
+                                        </div>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                             <div>
                                                 <button onClick={() => setSecondQuestion(true)}>0</button>
                                             </div>
@@ -176,8 +134,7 @@ const CultureQuestions = (props) =>{
                                                 <button onClick={() => setSecondQuestion(true)}>10</button>
                                             </div>
                                         </div>
-                                        <div className={`mb-5 ${style.creedRateDsc}`}>
-                                            <span>I almost do not care</span>
+                                        <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
                                             <span>
                                                 <p>
                                                     I almost do not care National
@@ -194,14 +151,11 @@ const CultureQuestions = (props) =>{
                                             <p className={`mt-3`}>
                                                 How important is the size of the immigrant community of the destination country and the existence of communities related to your country or nationality?
                                             </p>
-                                            {/*<p className={`${style.questionDsc}`}>*/}
-                                            {/*    اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)*/}
-                                            {/*</p>*/}
-                                            {/*<p className={`${style.questionDsc}`}>*/}
-                                            {/*    اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)*/}
-                                            {/*</p>*/}
                                         </div>
-                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                        <div className={`${style.creedRateDsc}`}>
+                                            <span>I would like to be away from my compatriots</span>
+                                        </div>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                             <div>
                                                 <button onClick={() => setThirdQuestion(true)}>0</button>
                                             </div>
@@ -242,8 +196,7 @@ const CultureQuestions = (props) =>{
                                                 <button onClick={() => setThirdQuestion(true)}>10</button>
                                             </div>
                                         </div>
-                                        <div className={`mb-5 ${style.creedRateDsc}`}>
-                                            <span>I would like to be away from my compatriots</span>
+                                        <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
                                             <span>
                                                 <p>
                                                     I would like the country
@@ -260,14 +213,18 @@ const CultureQuestions = (props) =>{
                                             <p className={`mt-3`}>
                                                 How important is the similarity of the community context, social relations and other socio-cultural parameters of the destination country with your community?
                                             </p>
-                                            {/*<p className={`${style.questionDsc}`}>*/}
-                                            {/*    اعتقادات و ارزش های مذهبی بسیار برایم اهمیت دارد (به طور مثال برایم مهم است که بتوانم در مراسم های مذهبی همچون عزاداری ها، جشن ها و .... به صورت جمعی شرکت کنم) (10)*/}
-                                            {/*</p>*/}
-                                            {/*<p className={`${style.questionDsc}`}>*/}
-                                            {/*    اعتقادات مذهبی ندارم و برایم اعتقادات دیگران نیز اهمیتی ندارد (0)*/}
-                                            {/*</p>*/}
                                         </div>
-                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM} mt-5`}>
+                                        <div className={`${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
+                                            <span>
+                                                <p>
+                                                    I would like to experience a different society in
+                                                </p>
+                                                <p>
+                                                      terms of social relations and cultural context
+                                                </p>
+                                              </span>
+                                        </div>
+                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                             <div>
                                                 <button onClick={() => setForthQuestion(true)}>0</button>
                                             </div>
@@ -308,15 +265,7 @@ const CultureQuestions = (props) =>{
                                                 <button onClick={() => setForthQuestion(true)}>10</button>
                                             </div>
                                         </div>
-                                        <div className={`mb-5 ${style.creedRateDsc}`}>
-                                            <span>
-                                                <p>
-                                                    I would like to experience a different society in
-                                                </p>
-                                                <p>
-                                                      terms of social relations and cultural context
-                                                </p>
-                                              </span>
+                                        <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
                                             <span>I want it to be very similar</span>
                                         </div>
                                     </React.Fragment>

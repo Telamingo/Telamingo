@@ -51,6 +51,7 @@
     padding: 5px 20px;
 }
 .nextQuestionButtonActive{
+    width: 115px;
     color: white;
     background-color: orange;
     border: 1px solid orange;
@@ -136,9 +137,10 @@
 }
 .chooseMentalSickM{
     display: flex;
-    /*flex-direction: column;*/
-    /*align-items: flex-start;*/
     width: 100%;
+    flex-direction: column;
+    font-size: 16px;
+    align-items: flex-start;
 }
 .chooseMentalSickM label{
     text-align: right;

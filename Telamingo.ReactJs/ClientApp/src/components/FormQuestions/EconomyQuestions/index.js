@@ -20,16 +20,6 @@ const EconomyQuestions = (props) => {
             {
                 !fifthQuestion ? (
                     <div className={` col-lg-12 ${style.questionBody}`}>
-                        {/*<div className={`${style.questionHeader} mt-3`}>*/}
-                        {/*    <h3>*/}
-                        {/*        اقتصاد (۵ سوال)*/}
-                        {/*    </h3>*/}
-                        {/*    <i className={`${firstQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${secondQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${thirdQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${forthQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*    <i className={`${fifthQuestion ? style.active : style.deActive}`}> </i>*/}
-                        {/*</div>*/}
                         <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
                                 !firstQuestion ? (
@@ -39,7 +29,7 @@ const EconomyQuestions = (props) => {
                                                 In which of the following job areas is your specialty?
                                             </p>
                                         </div>
-                                        <div className={`${style.chooseJob} mt-5 mb-5`}>
+                                        <div className={`${!props.isMobile ? style.chooseJob:style.chooseJobM} mt-5 mb-5`}>
                                             <select value={job}
                                                     onChange={(event) => setJob(event.target.value)} required>
                                                 <option value="انتخاب کشوراول" selected>choose your job</option>

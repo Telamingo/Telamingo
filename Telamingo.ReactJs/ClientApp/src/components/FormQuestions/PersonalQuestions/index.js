@@ -8,19 +8,18 @@ const PersonalQuestions = (props) => {
     const [thirdQuestion, setThirdQuestion] = useState(false);
     const [forthQuestion, setForthQuestion] = useState(false);
     const [fifthQuestion, setFifthQuestion] = useState(false);
-    const [thirdLang, setThirdLang] = useState(false);
     const [haveFollower, setHaveFollower] = useState(false);
     const [countOfFollowers, setCountOfFollowers] = useState(false);
     const [firstLanLevel, setFirstLanLevel] = useState("");
     const [firstLan, setFirstLan] = useState("");
     const [answers, setAnswers] = useState("");
 
-    // const setAnswer=(e)=>{
-    //     var a = document.querySelector(".answer").innerHTML;
-    //     setAnswers([...answers,a])
-    // }
-
-console.log(answers)
+    const setAnswer=(id)=>{
+        console.log(id)
+        // var a = document.querySelector(".answer").innerHTML;
+        // setAnswers([...answers,a])
+    }
+console.log(props.isMobile)
     return (
         <React.Fragment>
             {
@@ -37,7 +36,7 @@ console.log(answers)
                                         </div>
                                         <div className={` ${!props.isMobile ? style.chooseAge : style.chooseAgeM} mt-5 mb-5`}>
                                             <div>
-                                                <button onClick={() => setFirstQuestion(true)}>Over 50 years</button>
+                                                <button onClick={() => {setFirstQuestion(true);setAnswer(1)}}>Over 50 years</button>
                                             </div>
                                             <div>
                                                 <button onClick={() => setFirstQuestion(true)}>Between 35 and 49 years
@@ -208,7 +207,7 @@ console.log(answers)
                                             </div>
                                         </div>
                                     </React.Fragment>
-                                ) : !fifthQuestion ? (
+                                ) : !fifthQuestion &&
                                     <React.Fragment>
                                         {
                                             !haveFollower ? (
@@ -245,130 +244,32 @@ console.log(answers)
                                                                 <div className={`${!props.isMobile ? style.chooseCount : style.chooseCountM} mt-5 mb-5`}>
                                                                     <div>
                                                                         <button
-                                                                            onClick={() => setCountOfFollowers(true)}>1
+                                                                            onClick={() => setFifthQuestion(true)}>1
                                                                         </button>
                                                                     </div>
                                                                     <div>
                                                                         <button
-                                                                            onClick={() => setCountOfFollowers(true)}>2
+                                                                            onClick={() => setFifthQuestion(true)}>2
                                                                         </button>
                                                                     </div>
                                                                     <div>
                                                                         <button
-                                                                            onClick={() => setCountOfFollowers(true)}>3
+                                                                            onClick={() => setFifthQuestion(true)}>3
                                                                         </button>
                                                                     </div>
                                                                     <div>
                                                                         <button
-                                                                            onClick={() => setCountOfFollowers(true)}>4
+                                                                            onClick={() => setFifthQuestion(true)}>4
                                                                         </button>
                                                                     </div>
                                                                 </div>
                                                             </React.Fragment>
                                                         ) : null
-                                                        //     (
-                                                        //     <React.Fragment>
-                                                        //         <div className={`mb-3 ${style.question}`}>
-                                                        //             <p className={`mt-3`}>
-                                                        //                 همراه اول چه نسبتی با شما دارد؟
-                                                        //             </p>
-                                                        //         </div>
-                                                        //         <div className={` ${style.followers} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 همسر
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 پدر و مادر
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 خواهر و برادر
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 فرزند
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 سایر:
-                                                        //                 <textarea/>
-                                                        //             </label>
-                                                        //         </div>
-                                                        //         <div className={`mb-3`}>
-                                                        //             <p className={`mt-3`}>
-                                                        //                 بازه سنی همزاه اول را وارد کنید:
-                                                        //             </p>
-                                                        //         </div>
-                                                        //         <div className={` ${!props.isMobile ? style.followers : style.followersM} mt-5 mb-5`}>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 بالای ۵۰ سال
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 بین ۳۰ تا ۵۰ سال
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 بین ۲۰ تا ۳۰
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 بین ۱۰ تا ۲۰
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 کودک ۳تا ۵ سال
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 نوزاد(زیر سه سال)
-                                                        //             </label>
-                                                        //         </div>
-                                                        //         <div className={`mb-3`}>
-                                                        //             <p className={`mt-3`}>
-                                                        //                 جنسیت همراه اول را مشخص کنید:
-                                                        //             </p>
-                                                        //         </div>
-                                                        //         <div className={` ${style.followers} mt-5 mb-5`}>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 زن
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 مرد
-                                                        //             </label>
-                                                        //             <label>
-                                                        //                 <input type="radio" value="wife"/>
-                                                        //                 سایر
-                                                        //             </label>
-                                                        //         </div>
-                                                        //         <div className={`mb-3`}>
-                                                        //             <p className={`mt-3`}>
-                                                        //                 وضعیت زبان همراه اول:
-                                                        //             </p>
-                                                        //         </div>
-                                                        //         <div className={`mb-3`}>
-                                                        //             <p className={`mt-3`}>
-                                                        //                 شغل و تخصص:
-                                                        //             </p>
-                                                        //         </div>
-                                                        //         <div className={`${!props.isMobile ? "" : style.mobileButton}`}>
-                                                        //             <button
-                                                        //                 className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        //                 onClick={() => setFifthQuestion(true)}>سوال بعدی
-                                                        //             </button>
-                                                        //         </div>
-                                                        //     </React.Fragment>
-                                                        // )
                                                     }
                                                 </React.Fragment>
                                             )
                                         }
                                     </React.Fragment>
-                                ) : null
                             }
                         </div>
                     </div>

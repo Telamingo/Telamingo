@@ -131,7 +131,7 @@
 }
 .chooseAgeM div{
     border-radius: 10px;
-    border: 1px solid orange;
+    border: 1px solid lightgrey;
     width: 200px;
     height: 100px;
     box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -149,12 +149,11 @@
     border-radius: 10px;
 }
 .chooseAgeM button:hover{
-    background-color: orange;
-    color: white;
+    border: 1px solid orange;
+    color: black;
 }
 .chooseAgeM div:hover{
-    background-color: orange;
-    color: white;
+    color: black;
 }
 .chooseCount{
     width: 100%;
@@ -169,12 +168,12 @@
     border-radius: 10px;
 }
 .chooseCount button:hover{
-    background-color: orange;
-    color: white;
+    border: 1px solid orange;
+    color: black;
 }
 .chooseCount div{
     border-radius: 10px;
-    border: 1px solid orange;
+    border: 1px solid lightgrey;
     width: 200px;
     height: 100px;
     box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -185,8 +184,7 @@
     margin-left: 35px;
 }
 .chooseCount div:hover button:hover{
-    background-color: orange;
-    color: white;
+    color: black;
 }
 .chooseCountM{
     width: 100%;
@@ -201,12 +199,12 @@
     border-radius: 10px;
 }
 .chooseCountM button:hover{
-    background-color: orange;
-    color: white;
+    border: 1px solid orange;
+    color: black;
 }
 .chooseCountM div{
     border-radius: 10px;
-    border: 1px solid orange;
+    border: 1px solid lightgrey;
     width: 200px;
     height: 100px;
     box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -217,8 +215,7 @@
     margin-left: 5px;
 }
 .chooseCountM div:hover button:hover{
-    background-color: orange;
-    color: white;
+    color: black;
 }
 .language{
     width: 100%;
@@ -227,12 +224,14 @@
     margin-left: 20px;
 }
 .languageM{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .languageM label{
     margin-bottom: 10px;
+    text-align: center;
 }
 .language label select{
     margin-right: 10px;
@@ -328,5 +327,11 @@
     width: 115px;
 }
 .nextButton button{
+    width: 115px;
+}
+.previousButtonM button {
+    width: 115px;
+}
+.nextButtonM button{
     width: 115px;
 }
