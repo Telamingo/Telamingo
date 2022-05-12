@@ -6,17 +6,10 @@ const EnvironmentQuestions = (props) => {
     const [firstQuestion, setFirstQuestion] = useState(false);
     const [secondQuestion, setSecondQuestion] = useState(false);
     const [thirdQuestion, setThirdQuestion] = useState(false);
-    // const [forthQuestion, setForthQuestion] = useState(false);
+    const [forthQuestion, setForthQuestion] = useState(false);
     const [firstEnvironmentRate, setFirstEnvironmentRate] = useState("");
-    // const [secondEnvironmentRate, setSecondEnvironmentRate] = useState("");
     const [thirdEnvironmentRate, setThirdEnvironmentRate] = useState("");
     const [forthEnvironmentRate, setForthEnvironmentRate] = useState("");
-    // const [fifthEnvironmentRate, setFifthEnvironmentRate] = useState("");
-    // const [firstFinalQuestionRate, setFirstFinalQuestionRate] = useState("");
-    // const [secondFinalQuestionRate, setSecondFinalQuestionRate] = useState("");
-    // const [thirdFinalQuestionRate, setThirdFinalQuestionRate] = useState("");
-    // const [forthFinalQuestionRate, setForthFinalQuestionRate] = useState("");
-    // const [fifthFinalQuestionRate, setFifthFinalQuestionRate] = useState("");
     const [finalAnswer, setFinalAnswer] = useState([]);
     console.log(forthEnvironmentRate, thirdEnvironmentRate)
 
@@ -214,16 +207,46 @@ const EnvironmentQuestions = (props) => {
                                 </React.Fragment>
                             ) : (
                                 <React.Fragment>
-                                    <div className={` col-lg-12 ${style.questionBody}`}>
-                                        <div className={`mb-3 ${style.question}`}>
-                                            <h3>
-                                                thank you so much, we will email the response for you, please enter your
-                                                email:
-                                            </h3>
-                                            <input className={`mt-5 ${style.emailInput}`} type="email"
-                                                   placeholder="your email"/>
-                                        </div>
-                                    </div>
+                                    {
+                                        !forthQuestion ? (
+                                            <React.Fragment>
+                                                <div className={`mt-5 col-lg-12 ${style.questionBody}`}>
+                                                    <div className={`mb-3 ${style.question}`}>
+                                                        <h3>
+                                                            please enter your
+                                                            specification below:
+                                                        </h3>
+                                                        <div className={`${style.information} mt-3 mb-3`}>
+                                                            <label htmlFor="name">name: </label>
+                                                            <input id="name" name="name" required/><br/>
+                                                        </div>
+                                                        <div className={`${style.information} mt-3 mb-3`}>
+                                                            <label htmlFor="email">email: </label>
+                                                            <input type="email" id="email" name="email" required/>
+                                                        </div>
+                                                        <div className={`${style.information} mt-3 mb-3`}>
+                                                            <label htmlFor="email">phone number: </label>
+                                                            <input type="number" id="email" name="email" required/>
+                                                        </div>
+                                                        <div>
+                                                            <input className={style.saveButton} type="submit"
+                                                                   value="save" onClick={() => setForthQuestion(true)}/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </React.Fragment>
+                                        ) : (
+                                            <React.Fragment>
+                                                <div className={`mt-5 col-lg-12 ${style.questionBody}`}>
+                                                    <div className={`mb-3 ${style.question}`}>
+                                                        <h3 className="mb-5 mt-5" style={{color:"green"}}>
+                                                            thank you so much, we will email the response for you.
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </React.Fragment>
+                                        )
+                                    }
                                 </React.Fragment>
                             )
                         }

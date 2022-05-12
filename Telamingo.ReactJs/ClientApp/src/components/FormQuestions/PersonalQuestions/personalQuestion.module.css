@@ -220,6 +220,9 @@
     background-color: orange;
     color: white;
 }
+.language{
+    width: 100%;
+}
 .language label{
     margin-left: 20px;
 }
