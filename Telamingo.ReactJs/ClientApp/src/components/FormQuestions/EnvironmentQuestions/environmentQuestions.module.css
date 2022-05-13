@@ -271,6 +271,7 @@
  width: 100%;
 }
 .information input{
+    outline: none;
     width: 30%;
     border: 1px solid lightgrey;
     border-radius: 5px;

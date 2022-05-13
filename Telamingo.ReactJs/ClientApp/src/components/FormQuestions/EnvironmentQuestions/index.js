@@ -375,22 +375,24 @@ const EnvironmentQuestions = (props) => {
                                         !forthQuestion ? (
                                             <React.Fragment>
                                                 <div className={`mt-5 col-lg-12 ${style.questionBody}`}>
-                                                    <div className={`mb-3 ${style.question}`}>
+                                                    <div className={`mb-3 mt-5 ${style.question}`}>
                                                         <h3>
                                                             please enter your
                                                             specification below:
                                                         </h3>
-                                                        <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
-                                                            <label htmlFor="name">name: </label>
-                                                            <input id="name" name="name" required/><br/>
-                                                        </div>
-                                                        <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
-                                                            <label htmlFor="email">email: </label>
-                                                            <input type="email" id="email" name="email" required/>
-                                                        </div>
-                                                        <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
-                                                            <label htmlFor="email">phone number: </label>
-                                                            <input type="number" id="email" name="email" required/>
+                                                        <div style={{display:"flex"}} className="mb-5 mt-5">
+                                                            <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
+                                                                <label htmlFor="name">name: </label>
+                                                                <input id="name" name="name" required/><br/>
+                                                            </div>
+                                                            <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
+                                                                <label htmlFor="email">email: </label>
+                                                                <input type="email" id="email" name="email" required/>
+                                                            </div>
+                                                            <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
+                                                                <label htmlFor="email">phone number: </label>
+                                                                <input type="tel" id="email" name="email" required/>
+                                                            </div>
                                                         </div>
                                                         <div>
                                                             <input className={style.saveButton} type="submit"
