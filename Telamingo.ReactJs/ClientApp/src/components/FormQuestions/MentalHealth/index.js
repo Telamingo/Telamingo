@@ -75,7 +75,7 @@ const MentalHealth = (props) => {
                                                         </label>
                                                         <label>
                                                             Other:
-                                                            <input type="text"/>
+                                                            <input type="text" className={style.otherMentalIllness}/>
                                                         </label>
                                                     </div>
                                                     {
