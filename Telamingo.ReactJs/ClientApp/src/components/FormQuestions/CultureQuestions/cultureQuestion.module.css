@@ -145,20 +145,6 @@
 .creedRateM div:hover{
     color: black;
 }
-.mobileButton{
-    width: 100%;
-    text-align: left;
-}
-.mobileButtonM{
-    width: 100%;
-    text-align: center;
-}
-.question{
-    font-weight: bold;
-    font-size: 18px;
-    width: 100%;
-    text-align: center;
-}
 .creedRateDsc{
     width: 100%;
     display: flex;
@@ -175,3 +161,18 @@
     display: flex;
     justify-content: center;
 }
+.mobileButton{
+    width: 100%;
+    text-align: left;
+}
+.mobileButtonM{
+    width: 100%;
+    text-align: center;
+}
+.question{
+    font-weight: bold;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+

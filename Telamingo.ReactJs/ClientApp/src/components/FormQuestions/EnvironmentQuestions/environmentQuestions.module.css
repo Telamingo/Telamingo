@@ -59,6 +59,21 @@
 .nextQuestionButtonActive:hover{
     background-color: rgba(231,78,11,0.89);
 }
+.environmentHoby{
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.environmentHoby div{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.environmentHoby label{
+    width: 350px;
+    text-align: initial;
+}
 .environmentHoby input{
     border: 1px solid orange;
     margin-left: 15px;
@@ -150,6 +165,18 @@
     justify-content: center;
     cursor: pointer;
 }
+.creedRate div:nth-child(1){
+    border-radius: 10px 0 0 10px;
+}
+.creedRate div:nth-last-child(1){
+    border-radius: 0 10px 10px 0;
+}
+.creedRate div:nth-child(1) button{
+    border-radius: 10px 0 0 10px;
+}
+.creedRate div:nth-last-child(1) button{
+    border-radius: 0 10px 10px 0;
+}
 .creedRate button{
     background-color: white;
     border: none;
@@ -189,6 +216,18 @@
     height: 100%;
     /*border-radius: 10px;*/
 }
+.creedRateM div:nth-child(1){
+    border-radius: 10px 10px 0 0;
+}
+.creedRateM div:nth-last-child(1){
+    border-radius: 0 0 10px 10px;
+}
+.creedRateM div:nth-child(1) button{
+    border-radius: 10px 10px 0 0;
+}
+.creedRateM div:nth-last-child(1) button{
+    border-radius: 0 0 10px 10px;
+}
 .creedRateM button:hover{
     border: 1px solid orange;
     color: black;
@@ -199,18 +238,18 @@
 .creedRateDsc{
     width: 100%;
     display: flex;
-    justify-content:  space-between;
-}
-.creedRateDscM{
-    width: 100%;
-    display: flex;
-    justify-content:  center;
+    justify-content:space-between;
 }
 .creedRateDsc span{
     color: #939292;
 }
 .creedRateDscM span{
     color: #939292;
+}
+.creedRateDscM{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .previousButton button {
     width: 115px;

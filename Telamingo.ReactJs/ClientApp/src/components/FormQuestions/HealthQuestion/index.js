@@ -10,16 +10,13 @@ const HealthQuestion = (props) => {
     const [forthQuestion, setForthQuestion] = useState(false);
     const [haveASick, setHaveASick] = useState(false);
     const [sick, setSick] = useState("");
-    const [firstMealRate, setFirstMealRate] = useState("");
-    const [secondMealRate, setSecondMealRate] = useState("");
-    const [thirdMealRate, setThirdMealRate] = useState("");
-    // const [forthMealRate, setForthMealRate] = useState("");
-    // const [fifthMealRate, setFifthMealRate] = useState("");
+    const [firstMealRate, setFirstMealRate] = useState(false);
+    const [secondMealRate, setSecondMealRate] = useState(false);
+    const [thirdMealRate, setThirdMealRate] = useState(false);
 
     const sicks = [
         "sick a", "sick b", "sick c"
     ]
-    console.log(secondMealRate,thirdMealRate)
     return (
         <React.Fragment>
             {
@@ -167,43 +164,119 @@ const HealthQuestion = (props) => {
                                                 Do you follow a certain food lifestyle?(Rate from 1 to 10 below)
                                             </p>
                                         </div>
-                                        <div className={`mt-3 ${!props.isMobile?style.mealHoby:style.mealHobyM}`}>
-                                            <label>Traditional dishes of my country</label>
-                                            <input type="number" min="1" max="10" step="1"
-                                                   onChange={(event) => setFirstMealRate(event.target.value)}/>
-                                        </div>
-                                        <div className={`mt-3 ${style.mealHoby}`}>
-                                            <label>Fast Food</label>
-                                            <input type="number" min="1" max="10" step="1"
-                                                   onChange={(event) => setSecondMealRate(event.target.value)}/>
-                                        </div>
-                                        <div className={`mt-3 ${style.mealHoby}`}>
-                                            <label>Vegetarian</label>
-                                            <input type="number" min="1" max="10" step="1"
-                                                   onChange={(event) => setThirdMealRate(event.target.value)}/>
-                                        </div>
-                                        <div className={`${style.buttons}`}>
-                                            <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
-                                                <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                        onClick={() => setThirdQuestion(false)}>previous
-                                                </button>
-                                            </div>
-                                            {
-                                                firstMealRate === "" ?
-                                                    <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
-                                                        <button
-                                                            className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
-                                                        </button>
+                                        {
+                                            !firstMealRate ? (
+                                                <div className={`mt-3 ${!props.isMobile?style.mealHoby:style.mealHobyM}`}>
+                                                    <div>
+                                                        <label>Traditional dishes of my country:</label>
+                                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                            <div>
+                                                                <button onClick={()=>setFirstMealRate(true)}>0
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setFirstMealRate(true)}>1
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setFirstMealRate(true)}>2
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setFirstMealRate(true)}>3
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setFirstMealRate(true)}>4
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setFirstMealRate(true)}>5
+                                                                </button>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    :
-                                                    <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
-                                                        <button
-                                                            className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                            onClick={() => setForthQuestion(true)}>next
-                                                        </button>
+                                                </div>
+                                            ) : !secondMealRate ? (
+                                                <div className={`mt-3 ${style.mealHoby}`}>
+                                                    <div>
+                                                        <label>Fast Food:</label>
+                                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                            <div>
+                                                                <button onClick={()=>setSecondMealRate(true)}>0
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setSecondMealRate(true)}>1
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setSecondMealRate(true)}>2
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setSecondMealRate(true)}>3
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setSecondMealRate(true)}>4
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>setSecondMealRate(true)}>5
+                                                                </button>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                            }
-                                        </div>
+                                                    <div className={`${style.buttons}`}>
+                                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
+                                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                    onClick={() => setFirstMealRate(false)}>previous
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : !thirdMealRate && (
+                                                <div className={`mt-3 ${style.mealHoby}`}>
+                                                    <div>
+                                                        <label>Vegetarian:</label>
+                                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                            <div>
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>0
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>1
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>2
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>3
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>4
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={()=> {setThirdMealRate(true);setForthQuestion(true)}}>5
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className={`${style.buttons}`}>
+                                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
+                                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                    onClick={() => setSecondMealRate(false)}>previous
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
                                     </React.Fragment>
                                 ) : null
                             }

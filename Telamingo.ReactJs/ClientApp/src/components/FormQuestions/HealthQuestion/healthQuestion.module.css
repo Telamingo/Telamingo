@@ -186,8 +186,19 @@
     outline: none;
 }
 .mealHoby{
-    text-align: right;
-    font-size: 17px;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.mealHoby label{
+    width: 350px;
+    text-align: initial;
+}
+.mealHoby div{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
 }
 .mealHoby input{
     border: 1px solid orange;
@@ -245,4 +256,109 @@
 .nextButtonM button{
     width: 115px;
     box-shadow: 0 2px 5px #8b8b8b;
+}
+.creedRate{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.creedRate div{
+    /*border-radius: 10px;*/
+    border: 1px solid lightgrey;
+    width: 100px;
+    height: 50px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.creedRate div:nth-child(1){
+    border-radius: 10px 0 0 10px;
+}
+.creedRate div:nth-last-child(1){
+    border-radius: 0 10px 10px 0;
+}
+.creedRate div:nth-child(1) button{
+    border-radius: 10px 0 0 10px;
+}
+.creedRate div:nth-last-child(1) button{
+    border-radius: 0 10px 10px 0;
+}
+.creedRate button{
+    background-color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    /*border-radius: 10px;*/
+}
+.creedRate button:hover{
+    border: 1px solid orange;
+    color: black;
+}
+.creedRate div:hover{
+    color: black;
+}
+.creedRateM{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.creedRateM div{
+    /*border-radius: 10px;*/
+    border: 1px solid lightgrey;
+    width: 100px;
+    height: 50px;
+    box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.creedRateM button{
+    background-color: white;
+    border: none;
+    width: 100%;
+    height: 100%;
+    /*border-radius: 10px;*/
+}
+.creedRateM div:nth-child(1){
+    border-radius: 10px 10px 0 0;
+}
+.creedRateM div:nth-last-child(1){
+    border-radius: 0 0 10px 10px;
+}
+.creedRateM div:nth-child(1) button{
+    border-radius: 10px 10px 0 0;
+}
+.creedRateM div:nth-last-child(1) button{
+    border-radius: 0 0 10px 10px;
+}
+.creedRateM button:hover{
+    border: 1px solid orange;
+    color: black;
+}
+.creedRateM div:hover{
+    color: black;
+}
+.creedRateDsc{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+}
+.creedRateDsc span{
+    color: #939292;
+}
+.creedRateDscM span{
+    color: #939292;
+}
+.creedRateDscM{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.clicked{
+    color: orange;
 }
