@@ -4,6 +4,7 @@ import {useState} from "react";
 import React from "react";
 
 import HomePagePic from "../../static/homePage/homePagePic.jpeg"
+import HealthQuestion from "./HealthQuestion";
 
 
 
@@ -22,7 +23,7 @@ const FormQuestions = (props) =>{
                         <button className={`container mt-5 ${style.startFormButton}`} onClick={()=>setIsStart(true)}>Start</button>
                     </div>
                 ) : (
-                    <PersonalQuestions isMobile={props.isMobile}/>
+                    <HealthQuestion isMobile={props.isMobile}/>
                 )
             }
         </div>

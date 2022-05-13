@@ -170,6 +170,19 @@
     border-radius: 10px;
     outline: none;
 }
+.chooseSick div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.chooseSick div div label{
+    margin-right: 10px;
+}
+.chooseSick div div input{
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    outline: none;
+}
 .chooseSickM{
     width: 100%;
     display: flex;

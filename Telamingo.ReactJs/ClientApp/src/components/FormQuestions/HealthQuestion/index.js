@@ -14,9 +14,10 @@ const HealthQuestion = (props) => {
     const [secondMealRate, setSecondMealRate] = useState(false);
     const [thirdMealRate, setThirdMealRate] = useState(false);
 
-    const sicks = [
-        "sick a", "sick b", "sick c"
-    ]
+    const getSickVal =(e)=>{
+        setSick(e.target.value)
+    }
+
     return (
         <React.Fragment>
             {
@@ -87,14 +88,20 @@ const HealthQuestion = (props) => {
                                                                your illness :
                                                             </p>
                                                         </div>
-                                                        <select value={sick}
-                                                                onChange={(event) => setSick(event.target.value)} required>
-                                                            <option value="انتخاب کشوراول" selected>choose your illness
-                                                            </option>
-                                                            {
-                                                                sicks.map(item => <option value={item}>{item}</option>)
-                                                            }
-                                                        </select>
+                                                        <div className="mt-5">
+                                                            <div className="mb-3">
+                                                                <label>first illness:</label>
+                                                                <input type="text" id="firstSickVal" onChange={getSickVal}/>
+                                                            </div>
+                                                            <div className="mb-3">
+                                                                <label>second illness:</label>
+                                                                <input type="text"/>
+                                                            </div>
+                                                            <div className="mb-3">
+                                                                <label>third illness:</label>
+                                                                <input type="text"/>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div className={`${style.buttons}`}>
                                                         <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
@@ -166,7 +173,7 @@ const HealthQuestion = (props) => {
                                         </div>
                                         {
                                             !firstMealRate ? (
-                                                <div className={`mt-3 ${!props.isMobile?style.mealHoby:style.mealHobyM}`}>
+                                                <div className={`mt-3 mb-5 ${!props.isMobile?style.mealHoby:style.mealHobyM}`}>
                                                     <div>
                                                         <label>Traditional dishes of my country:</label>
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
@@ -198,7 +205,7 @@ const HealthQuestion = (props) => {
                                                     </div>
                                                 </div>
                                             ) : !secondMealRate ? (
-                                                <div className={`mt-3 ${style.mealHoby}`}>
+                                                <div className={`mt-3 mb-5 ${style.mealHoby}`}>
                                                     <div>
                                                         <label>Fast Food:</label>
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
@@ -237,7 +244,7 @@ const HealthQuestion = (props) => {
                                                     </div>
                                                 </div>
                                             ) : !thirdMealRate && (
-                                                <div className={`mt-3 ${style.mealHoby}`}>
+                                                <div className={`mt-3 mb-5 ${style.mealHoby}`}>
                                                     <div>
                                                         <label>Vegetarian:</label>
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
