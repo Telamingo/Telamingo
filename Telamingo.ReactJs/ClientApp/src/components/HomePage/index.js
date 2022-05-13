@@ -16,6 +16,7 @@ const HomePage = (props) =>{
     const [country, setCountry]=useState()
 
     const {isMobile} = props
+
     return(
         <div className={`container col-lg-10 mt-5 ${style.homePage}`}>
             <div className={`row  ${style.content}`}>
@@ -36,9 +37,15 @@ const HomePage = (props) =>{
                                     }
                                 </select>
                             </label>
-                            <Link to="/form" className={`${!isMobile ? style.selectCountryButton:style.selectCountryButtonM}`}>
-                                Explore
-                            </Link>
+                            {
+                                country ?
+                                    <Link to="/form" className={`${!isMobile ? style.selectCountryButton:style.selectCountryButtonM}`}>
+                                        Explore
+                                    </Link> :
+                                    <button className={`${!isMobile ? style.selectCountryButtonDeactive:style.selectCountryButtonDeactiveM}`}>
+                                        Explore
+                                    </button>
+                            }
                         </div>
                     </div>
                 </div>

@@ -125,3 +125,29 @@
     border-radius: 10px;
     outline: none;
 }
+.selectCountryButtonDeactive{
+    background-color: lightgrey;
+    border: none;
+    border-radius: 35px;
+    margin: 5px;
+    padding: 12px 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selectCountryButtonDeactiveM{
+    background-color: lightgrey;
+    border: none;
+    border-radius: 35px;
+    margin: 5px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
