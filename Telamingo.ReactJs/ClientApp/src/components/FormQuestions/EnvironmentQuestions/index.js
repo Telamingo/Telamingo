@@ -79,54 +79,107 @@ const EnvironmentQuestions = (props) => {
                                                 Problems with unusual day and night hours (long day or long night)?
                                             </p>
                                         </div>
-                                        <div className={`${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
-                                            <span>It is not tolerable for me at all</span>
-                                        </div>
-                                        <div
-                                            className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>0</button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>1</button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>2
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>3
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>4
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>5</button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>6</button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>7
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>8
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>9
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <button onClick={() => setSecondQuestion(true)}>10</button>
-                                            </div>
-                                        </div>
-                                        <div className={`mb-5 ${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
-                                            <span>It does not matter to me</span>
-                                        </div>
+                                        {
+                                            props.isMobile?(
+                                                <React.Fragment>
+                                                    <div className={`${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
+                                                        <span>It is not tolerable for me at all</span>
+                                                    </div>
+                                                    <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>0</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>1</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>2
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>3
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>4
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>5</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>6</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>7
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>8
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>9
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>10</button>
+                                                        </div>
+                                                    </div>
+                                                    <div className={`mb-5 ${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
+                                                        <span>It does not matter to me</span>
+                                                    </div>
+                                                </React.Fragment>
+                                            ):(
+                                                <React.Fragment>
+                                                    <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>0</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>1</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>2
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>3
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>4
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>5</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>6</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>7
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>8
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>9
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => setSecondQuestion(true)}>10</button>
+                                                        </div>
+                                                    </div>
+                                                    <div className={`mb-5 ${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
+                                                        <span>It is not tolerable for me at all</span>
+                                                        <span>It does not matter to me</span>
+                                                    </div>
+                                                </React.Fragment>
+                                            )
+                                        }
                                     </React.Fragment>
                                 ) : null
                             }

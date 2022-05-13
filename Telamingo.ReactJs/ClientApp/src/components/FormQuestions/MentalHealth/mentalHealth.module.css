@@ -134,6 +134,9 @@
 }
 .chooseMentalSick input{
     margin: 0 5px;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    outline: none;
 }
 .chooseMentalSickM{
     display: flex;
@@ -148,6 +151,9 @@
 }
 .chooseMentalSickM input{
     margin: 0 5px;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    outline: none;
 }
 .chooseMeetingRate{
     width: 100%;
@@ -208,7 +214,17 @@
 }
 .previousButton button {
     width: 115px;
+    box-shadow: 0 2px 5px #8b8b8b;
 }
 .nextButton button{
     width: 115px;
+    box-shadow: 0 2px 5px #8b8b8b;
+}
+.previousButtonM button {
+    width: 115px;
+    box-shadow: 0 2px 5px #8b8b8b;
+}
+.nextButtonM button{
+    width: 115px;
+    box-shadow: 0 2px 5px #8b8b8b;
 }

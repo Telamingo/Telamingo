@@ -65,7 +65,7 @@
     width: 100%;
 }
 .creedRate div{
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     border: 1px solid lightgrey;
     width: 100px;
     height: 50px;
@@ -75,6 +75,9 @@
     justify-content: center;
     cursor: pointer;
 }
+/*.creedRate div:nth-child(1){*/
+/*    border-radius: 10px 0 10px 0;*/
+/*}*/
 .creedRate button{
     background-color: white;
     border: none;
@@ -97,7 +100,7 @@
     align-items: center;
 }
 .creedRateM div{
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     border: 1px solid lightgrey;
     width: 100px;
     height: 50px;

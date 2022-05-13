@@ -140,7 +140,7 @@
     width: 100%;
 }
 .creedRate div{
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     border: 1px solid lightgrey;
     width: 100px;
     height: 50px;
@@ -172,7 +172,7 @@
     align-items: center;
 }
 .creedRateM div{
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     border: 1px solid lightgrey;
     width: 100px;
     height: 50px;
@@ -208,15 +208,19 @@
 }
 .previousButton button {
     width: 115px;
+    box-shadow: 0 2px 5px #8b8b8b;
 }
 .nextButton button{
     width: 115px;
+    box-shadow: 0 2px 5px #8b8b8b;
 }
 .previousButtonM button {
     width: 115px;
+    box-shadow: 0 2px 5px #8b8b8b;
 }
 .nextButtonM button{
     width: 115px;
+    box-shadow: 0 2px 5px #8b8b8b;
 }
 .information{
  width: 100%;

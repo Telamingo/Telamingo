@@ -9,17 +9,17 @@ const PersonalQuestions = (props) => {
     const [forthQuestion, setForthQuestion] = useState(false);
     const [fifthQuestion, setFifthQuestion] = useState(false);
     const [haveFollower, setHaveFollower] = useState(false);
-    const [countOfFollowers, setCountOfFollowers] = useState(false);
+    // const [countOfFollowers, setCountOfFollowers] = useState(false);
     const [firstLanLevel, setFirstLanLevel] = useState("");
     const [firstLan, setFirstLan] = useState("");
-    const [answers, setAnswers] = useState("");
+    // const [answers, setAnswers] = useState("");
 
     const setAnswer=(id)=>{
         console.log(id)
         // var a = document.querySelector(".answer").innerHTML;
         // setAnswers([...answers,a])
     }
-console.log(props.isMobile)
+console.log(firstLan)
     return (
         <React.Fragment>
             {
@@ -233,8 +233,6 @@ console.log(props.isMobile)
                                                 </React.Fragment>
                                             ) : (
                                                 <React.Fragment>
-                                                    {
-                                                        !countOfFollowers ? (
                                                             <React.Fragment>
                                                                 <div className={`mb-3 ${style.question}`}>
                                                                     <p className={`mt-3`}>
@@ -264,8 +262,6 @@ console.log(props.isMobile)
                                                                     </div>
                                                                 </div>
                                                             </React.Fragment>
-                                                        ) : null
-                                                    }
                                                 </React.Fragment>
                                             )
                                         }
