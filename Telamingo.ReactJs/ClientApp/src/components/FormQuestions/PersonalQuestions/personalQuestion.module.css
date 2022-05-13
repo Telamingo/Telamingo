@@ -220,6 +220,13 @@
 .language{
     width: 100%;
 }
+.language div select{
+    outline: none;
+    margin-left: 10px;
+}
+.language div select option{
+    box-shadow: 0 2px 5px #8b8b8b;
+}
 .language label{
     margin-left: 20px;
 }

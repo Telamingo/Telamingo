@@ -95,6 +95,11 @@
     flex-direction: column;
     align-items: flex-start;
 }
+.finalAnswer input{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
 .finalAnswerM{
     display: flex;
     flex-direction: column;

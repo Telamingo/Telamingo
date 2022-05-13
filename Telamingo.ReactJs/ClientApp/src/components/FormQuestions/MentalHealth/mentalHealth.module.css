@@ -133,10 +133,19 @@
     width: 100%;
 }
 .chooseMentalSick input{
-    margin: 0 5px;
+    margin: 0 10px;
     border: none;
     border-bottom: 1px solid lightgrey;
     outline: none;
+    width: 20px;
+    height: 20px;
+}
+.otherMentalIllness{
+    margin: 0 0!important;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    outline: none;
+    width: 100px !important;
 }
 .chooseMentalSickM{
     display: flex;

@@ -122,19 +122,19 @@ console.log(firstLan)
                                         <div className={`${!props.isMobile ? style.language : style.languageM}`}>
                                             <div className="mb-3">
                                                 <label>
-                                                    Choose first language:
-                                                    <select onChange={(event)=>setFirstLan(event.target.value)}>
-                                                        <option selected>Choose your first language</option>
+                                                    Choose First Language:
+                                                    <select>
+                                                        <option selected>Choose Your First Language</option>
                                                         <option>English</option>
                                                         <option>French</option>
-                                                        <option>italian</option>
+                                                        <option>Italian</option>
                                                     </select>
                                                 </label>
                                                 <label>
-                                                    First language level:
+                                                    First Language Level:
                                                     <select
                                                         onChange={(event) => setFirstLanLevel(event.target.value)}>
-                                                        <option selected>Choose your level</option>
+                                                        <option selected>Choose Your Level</option>
                                                         <option>Advance</option>
                                                         <option>Intermediate</option>
                                                         <option>Beginner</option>
@@ -143,19 +143,18 @@ console.log(firstLan)
                                             </div>
                                             <div  className="mb-3">
                                                 <label>
-                                                    Choose second language:
-                                                    <select onChange={(event)=>setFirstLan(event.target.value)}>
-                                                        <option selected>Choose your first language</option>
+                                                    Choose Second Language:
+                                                    <select>
+                                                        <option selected>Choose Your First Language</option>
                                                         <option>English</option>
                                                         <option>French</option>
-                                                        <option>italian</option>
+                                                        <option>Italian</option>
                                                     </select>
                                                 </label>
                                                 <label>
-                                                    Second language level:
-                                                    <select
-                                                        onChange={(event) => setFirstLanLevel(event.target.value)}>
-                                                        <option selected>Choose your level</option>
+                                                    Second Language Level:
+                                                    <select>
+                                                        <option selected>Choose Your Level</option>
                                                         <option>Advance</option>
                                                         <option>Intermediate</option>
                                                         <option>Beginner</option>
@@ -164,19 +163,18 @@ console.log(firstLan)
                                             </div>
                                             <div  className="mb-3">
                                                 <label>
-                                                    Choose third language:
-                                                    <select onChange={(event)=>setFirstLan(event.target.value)}>
-                                                        <option selected>Choose your first language</option>
+                                                    Choose Third Language:
+                                                    <select>
+                                                        <option selected>Choose Your First Language</option>
                                                         <option>English</option>
                                                         <option>French</option>
-                                                        <option>italian</option>
+                                                        <option>Italian</option>
                                                     </select>
                                                 </label>
                                                 <label>
-                                                    Third language level:
-                                                    <select
-                                                        onChange={(event) => setFirstLanLevel(event.target.value)}>
-                                                        <option selected>Choose your level</option>
+                                                    Third Language Level:
+                                                    <select>
+                                                        <option selected>Choose Your Level</option>
                                                         <option>Advance</option>
                                                         <option>Intermediate</option>
                                                         <option>Beginner</option>
