@@ -1,5 +1,7 @@
 import React from "react";
 
+import logo from "../../../static/header/logo.jpeg"
+
 import style from "./header.module.css";
 
 const Header = (props) => {
@@ -10,7 +12,7 @@ const Header = (props) => {
                 <div className={`row ${style.header}`}>
                     <div className={`col-lg-6 col-sm-6 ${style.header_leftSide}`}>
                         <img
-                            src="	https://www.opencare.com/images/brand/opencare-logo-cross-and-text-charcoal.svg"
+                            src={logo}
                             alt="logo"/>
                         <span>Mentors</span>
                         <span>Blogs</span>

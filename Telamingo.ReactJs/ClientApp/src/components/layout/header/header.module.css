@@ -35,6 +35,9 @@
     justify-content: space-around;
     align-items: center;
 }
+.header_leftSide img{
+    width: 145px;
+}
 
 .header_leftSide > span {
     color: grey;

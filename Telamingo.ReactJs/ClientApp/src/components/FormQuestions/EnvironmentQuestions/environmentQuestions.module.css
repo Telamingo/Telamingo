@@ -155,7 +155,7 @@
     border: none;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 .creedRate button:hover{
     border: 1px solid orange;
@@ -187,7 +187,7 @@
     border: none;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 .creedRateM button:hover{
     border: 1px solid orange;
@@ -205,6 +205,12 @@
     width: 100%;
     display: flex;
     justify-content:  center;
+}
+.creedRateDsc span{
+    color: #939292;
+}
+.creedRateDscM span{
+    color: #939292;
 }
 .previousButton button {
     width: 115px;

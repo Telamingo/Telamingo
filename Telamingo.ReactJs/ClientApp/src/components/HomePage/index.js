@@ -1,7 +1,9 @@
 import style from "./homePage.module.css";
 import React from "react";
 import {Link} from "react-router-dom";
-import {useState} from "react"
+import {useState} from "react";
+
+import homePagePic from "../../static/homePage/homePagePic.jpeg"
 
 const HomePage = (props) =>{
 
@@ -41,7 +43,7 @@ const HomePage = (props) =>{
                     </div>
                 </div>
                 <div className={`${!isMobile ? `col-lg-6 ${style.homePagePic}` : `mt-3 ${style.homePagePicM}`}`}>
-                    <img src="https://takhfifan.com/_next/static/images/Group%205172-1ed0859b45b3fa9b3170a69e9276d256.svg" alt="homePagePic"/>
+                    <img src={homePagePic} alt="homePagePic"/>
                 </div>
             </div>
         </div>
