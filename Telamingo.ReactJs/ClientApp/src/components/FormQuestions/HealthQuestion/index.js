@@ -90,15 +90,15 @@ const HealthQuestion = (props) => {
                                                         </div>
                                                         <div className="mt-5">
                                                             <div className="mb-3">
-                                                                <label>first illness:</label>
+                                                                <label>First illness:</label>
                                                                 <input type="text" id="firstSickVal" onChange={getSickVal}/>
                                                             </div>
                                                             <div className="mb-3">
-                                                                <label>second illness:</label>
+                                                                <label>Second illness:</label>
                                                                 <input type="text"/>
                                                             </div>
                                                             <div className="mb-3">
-                                                                <label>third illness:</label>
+                                                                <label>Third illness:</label>
                                                                 <input type="text"/>
                                                             </div>
                                                         </div>

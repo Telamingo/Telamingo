@@ -122,19 +122,19 @@ console.log(firstLan)
                                         <div className={`${!props.isMobile ? style.language : style.languageM}`}>
                                             <div className="mb-3">
                                                 <label>
-                                                    choose first language:
+                                                    Choose first language:
                                                     <select onChange={(event)=>setFirstLan(event.target.value)}>
-                                                        <option selected>choose your first language</option>
+                                                        <option selected>Choose your first language</option>
                                                         <option>English</option>
                                                         <option>French</option>
                                                         <option>italian</option>
                                                     </select>
                                                 </label>
                                                 <label>
-                                                    first language level:
+                                                    First language level:
                                                     <select
                                                         onChange={(event) => setFirstLanLevel(event.target.value)}>
-                                                        <option selected>choose your level</option>
+                                                        <option selected>Choose your level</option>
                                                         <option>Advance</option>
                                                         <option>Intermediate</option>
                                                         <option>Beginner</option>
@@ -143,19 +143,19 @@ console.log(firstLan)
                                             </div>
                                             <div  className="mb-3">
                                                 <label>
-                                                    choose second language:
+                                                    Choose second language:
                                                     <select onChange={(event)=>setFirstLan(event.target.value)}>
-                                                        <option selected>choose your first language</option>
+                                                        <option selected>Choose your first language</option>
                                                         <option>English</option>
                                                         <option>French</option>
                                                         <option>italian</option>
                                                     </select>
                                                 </label>
                                                 <label>
-                                                    second language level:
+                                                    Second language level:
                                                     <select
                                                         onChange={(event) => setFirstLanLevel(event.target.value)}>
-                                                        <option selected>choose your level</option>
+                                                        <option selected>Choose your level</option>
                                                         <option>Advance</option>
                                                         <option>Intermediate</option>
                                                         <option>Beginner</option>
@@ -164,19 +164,19 @@ console.log(firstLan)
                                             </div>
                                             <div  className="mb-3">
                                                 <label>
-                                                    choose third language:
+                                                    Choose third language:
                                                     <select onChange={(event)=>setFirstLan(event.target.value)}>
-                                                        <option selected>choose your first language</option>
+                                                        <option selected>Choose your first language</option>
                                                         <option>English</option>
                                                         <option>French</option>
                                                         <option>italian</option>
                                                     </select>
                                                 </label>
                                                 <label>
-                                                    third language level:
+                                                    Third language level:
                                                     <select
                                                         onChange={(event) => setFirstLanLevel(event.target.value)}>
-                                                        <option selected>choose your level</option>
+                                                        <option selected>Choose your level</option>
                                                         <option>Advance</option>
                                                         <option>Intermediate</option>
                                                         <option>Beginner</option>

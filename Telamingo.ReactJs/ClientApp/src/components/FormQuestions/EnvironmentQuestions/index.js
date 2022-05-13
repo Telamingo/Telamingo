@@ -382,15 +382,15 @@ const EnvironmentQuestions = (props) => {
                                                         </h3>
                                                         <div style={{display:"flex"}} className="mb-5 mt-5">
                                                             <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
-                                                                <label htmlFor="name">name: </label>
+                                                                <label htmlFor="name">Name: </label>
                                                                 <input id="name" name="name" required/><br/>
                                                             </div>
                                                             <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
-                                                                <label htmlFor="email">email: </label>
+                                                                <label htmlFor="email">Email: </label>
                                                                 <input type="email" id="email" name="email" required/>
                                                             </div>
                                                             <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
-                                                                <label htmlFor="email">phone number: </label>
+                                                                <label htmlFor="email">Phone number: </label>
                                                                 <input type="tel" id="email" name="email" required/>
                                                             </div>
                                                         </div>
