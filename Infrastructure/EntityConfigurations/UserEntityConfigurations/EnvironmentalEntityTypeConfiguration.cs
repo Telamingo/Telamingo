@@ -1,13 +1,14 @@
-﻿using Domain.AggregateModels.UserAggregate;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.AggregateModels.UserAggregate;
+using Infrastructure;
 
-namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
+namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
     internal class EnvironmentalEntityTypeConfiguration : IEntityTypeConfiguration<Environmental>
     {

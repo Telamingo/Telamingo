@@ -1,13 +1,15 @@
-﻿using Domain.AggregateModels.UserAggregate;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.AggregateModels.UserAggregate;
+using Infrastructure;
 
-namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
+
+namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
     internal class PhysicalEntityTypeConfiguration : IEntityTypeConfiguration<Physical>
     {
@@ -76,28 +78,28 @@ namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("SpecialFood")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.TraditionalFood)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("TraditionalFood")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.FastFood)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("FastFood")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Vegeterian)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Vegeterian")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.UserAnswerId)

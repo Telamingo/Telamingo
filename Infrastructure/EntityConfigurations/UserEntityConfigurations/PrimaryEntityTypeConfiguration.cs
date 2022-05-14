@@ -1,19 +1,21 @@
-﻿using Domain.AggregateModels.UserAggregate;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.AggregateModels.UserAggregate;
+using Infrastructure;
 
-namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
+
+namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
     internal class PrimaryEntityTypeConfiguration : IEntityTypeConfiguration<Primary>
     {
         public void Configure(EntityTypeBuilder<Primary> userConfiguration)
         {
-            userConfiguration.ToTable("User", TelamingoDbContext.DEFAULT_SCHEMA);
+            userConfiguration.ToTable("Primary", TelamingoDbContext.DEFAULT_SCHEMA);
 
             userConfiguration.HasKey(ct => ct.Id);
 
@@ -45,7 +47,7 @@ namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Age")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Sex)
@@ -68,7 +70,7 @@ namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Level")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Second_Lang)
@@ -83,7 +85,7 @@ namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Second_LangLevel")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Third_Lang)
@@ -98,21 +100,21 @@ namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Third_LangLevel")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Marriage)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Marriage")
                 .HasColumnType("bit")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.NumberOfCompanions)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("NumberOfCompanions")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.UserAnswerId)

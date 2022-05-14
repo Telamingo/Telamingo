@@ -1,13 +1,14 @@
-﻿using Domain.AggregateModels.UserAggregate;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.AggregateModels.UserAggregate;
+using Infrastructure;
 
-namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
+namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
     internal class MentalEntityTypeConfiguration : IEntityTypeConfiguration<Mental>
     {
@@ -44,7 +45,7 @@ namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnName("First")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
-                .IsRequired();
+                .IsRequired(false);
 
             userConfiguration
                 .Property(ct => ct.Secend)
@@ -52,7 +53,7 @@ namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnName("Secend")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
-                .IsRequired();
+                .IsRequired(false);
 
             userConfiguration
                 .Property(ct => ct.Third)
@@ -60,7 +61,7 @@ namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnName("Third")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
-                .IsRequired();
+                .IsRequired(false);
 
             userConfiguration
                 .Property(ct => ct.UserAnswerId)

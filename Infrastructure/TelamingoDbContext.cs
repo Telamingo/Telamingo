@@ -6,7 +6,6 @@ using System.Data;
 using Domain.AggregateModels.AdminAggregate;
 using Domain.AggregateModels.UserAggregate;
 using Domain.SeedWork;
-using Infrastructure.EntityConfigurations.UserEntityConfigurations;
 using Infrastructure.EntityConfigurations.AdminEntityConfigurations;
 using Domain.AggregateModels.CountryAggregate;
 using Infrastructure.EntityConfigurations.CountryEntityConfigurations;
@@ -17,6 +16,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using Domain.AggregateModels.QuestionAggregate;
 using Infrastructure.EntityConfigurations.QuestionEntityConfigurations;
+using Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations;
 
 namespace Infrastructure
 {
