@@ -220,10 +220,6 @@
 .language{
     width: 100%;
 }
-.language div select{
-    outline: none;
-    margin-left: 10px;
-}
 .language div select option{
     box-shadow: 0 2px 5px #8b8b8b;
 }
@@ -241,10 +237,16 @@
     text-align: center;
 }
 .language label select{
-    margin-right: 10px;
+    outline: none;
     border: 1px solid lightgrey;
     border-radius: 10px;
     padding: 5px 15px;
+}
+.language div:nth-child(1) label select{
+    margin-left: 27px;
+}
+.language div:nth-child(3) label select{
+    margin-left: 21px;
 }
 .languageM label select{
     margin-right: 10px;
