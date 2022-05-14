@@ -18,9 +18,8 @@ const EnvironmentQuestions = (props) => {
 
         // setFinalAnswer((mentalProblem) => [...mentalProblem, event.target.value])
         setFinalAnswer(event.target.value)
-        console.log(finalAnswer);
     }
-
+    console.log(setForthEnvironmentRate);
     return (
         <React.Fragment>
             {

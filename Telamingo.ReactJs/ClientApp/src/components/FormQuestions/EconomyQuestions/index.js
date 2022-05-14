@@ -12,7 +12,21 @@ const EconomyQuestions = (props) => {
     const [job, setJob] = useState("");
 
     const jobs = [
-        "doctore", "developer", "saler"
+        " Managerial jobs",
+
+        " Engineering jobs (except IT, computer engineering, etc.)",
+
+        "IT, Developer and Computer Eng.",
+
+        "Public jobs (requires a license such as taxi driver, electrical technician, etc.)",
+
+        "Public jobs (without the need for a license such as restaurant worker, cashier, etc.)",
+
+        "Lawyers and legal professions",
+
+        "General Practitioner",
+
+        "specialist"
     ]
 
     return (

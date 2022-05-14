@@ -9,17 +9,12 @@ const PersonalQuestions = (props) => {
     const [forthQuestion, setForthQuestion] = useState(false);
     const [fifthQuestion, setFifthQuestion] = useState(false);
     const [haveFollower, setHaveFollower] = useState(false);
-    // const [countOfFollowers, setCountOfFollowers] = useState(false);
     const [firstLanLevel, setFirstLanLevel] = useState("");
-    const [firstLan, setFirstLan] = useState("");
-    // const [answers, setAnswers] = useState("");
-
     const setAnswer=(id)=>{
         console.log(id)
         // var a = document.querySelector(".answer").innerHTML;
         // setAnswers([...answers,a])
     }
-console.log(firstLan)
     return (
         <React.Fragment>
             {
