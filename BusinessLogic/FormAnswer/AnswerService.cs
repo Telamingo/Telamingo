@@ -9,14 +9,14 @@ namespace BusinessLogic.FormAnswer
 {
     public class AnswerService: IAnswerService
     {
-
-        public AnswerService() 
-        { 
-
+        private readonly IUserRepository userRepository;
+        public AnswerService(IUserRepository userRepository)
+        {
+            this.userRepository = userRepository;
         }
         public async Task AddAsync(UserAnswer model)
         {
-
+            await userRepository.AddUserAnswerAsync(model);
         }
     }
 }

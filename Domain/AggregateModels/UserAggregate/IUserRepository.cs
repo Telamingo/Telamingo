@@ -9,6 +9,6 @@ namespace Domain.AggregateModels.UserAggregate
     {
         Task<UserDto> GetUserByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken);
         Task<List<UserInformation>> GetUserList();
-        Task AddUserAnswerAsync(UserAnswer model, CancellationToken cancellationToken);
+        Task AddUserAnswerAsync(UserAnswer model);
     }
 }

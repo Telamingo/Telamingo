@@ -21,5 +21,10 @@ namespace Telamingo.BusinessLogic.UserService
             List<UserInformation> Result = await userRepository.GetUserList();
             return Result;
         }
+        public async Task<UserAnswer> GetUserAnswer(int id)
+        {
+            UserAnswer Result = await userRepository.GetAnswer(id);
+            return Result;
+        }
     }
 }

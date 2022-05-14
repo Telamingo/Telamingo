@@ -43,6 +43,21 @@ public class UserRepository : IUserRepository
         }
         return users;
     }
+    public async Task<UserAnswer> GetAnswer(int id)
+    {
+        UserAnswer answer = await _context.UserAnswers.Where(x => x.Id == id)
+            .Include(a => a.Cultural)
+            .Include(a => a.Economy)
+            .Include(a => a.Environmental)
+            .Include(a => a.Mental)
+            .Include(a => a.MostImportants)
+            .Include(a => a.Physical)
+            .Include(a => a.Primary).ThenInclude(b => b.Companions)
+            .Include(a => a.UserInformation)
+            .FirstOrDefaultAsync();
+
+        return answer;
+    }
 
     //public async Task<UserDto> GetUserByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken)
     //{

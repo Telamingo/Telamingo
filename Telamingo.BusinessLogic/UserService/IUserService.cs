@@ -11,5 +11,6 @@ namespace Telamingo.BusinessLogic.UserService
     public interface IUserService
     {
         Task<List<UserInformation>> GetUserList();
+        Task<UserAnswer> GetUserAnswer(int id);
     }
 }
