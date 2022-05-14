@@ -7,5 +7,6 @@ namespace Domain.AggregateModels.UserAggregate
     public interface IUserRepository
     {
         Task<UserDto> GetUserByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken);
+        Task AddUserAnswerAsync(UserAnwer model, CancellationToken cancellationToken);
     }
 }

@@ -55,5 +55,14 @@ namespace Infrastructure.Repositories.UserRepository
         //        throw new UnauthorizedAccessException(message: "user was not found");
         //    }
         //}
+
+        public async Task AddUserAnswerAsync(UserAnwer model, CancellationToken cancellationToken)
+        {
+            UserAnwer userAnwer = model;
+
+            await UnitOfWork.SaveChangesAsync();
+
+        }
+
     }
 }
