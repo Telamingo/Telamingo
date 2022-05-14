@@ -36,7 +36,7 @@ public class UserRepository : IUserRepository
     }
     public async Task<List<UserInformation>> GetUserList()
     {
-        List<UserInformation>? users = await _context.UserInformations.ToList();
+        List<UserInformation>? users = await _context.UserInformations.ToListAsync();
         if (users == null)
         {
             throw new Exception("user was not found");

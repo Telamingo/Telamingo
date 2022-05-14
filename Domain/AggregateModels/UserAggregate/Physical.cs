@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.SeedWork;
 
 namespace Domain.AggregateModels.UserAggregate
 {
-    public class Physical
+    public class Physical : Entity
     {
-        public int MedicineNeed { get; set; }
+        public int UserAnswerId { get; set; }
+        public virtual UserAnswer UserAnswer { get; set; }
+
+        public string MedicineNeed { get; set; }
         public bool SpecialIll { get; set; }
         public string First { get; set; }
         public string Secend { get; set; }

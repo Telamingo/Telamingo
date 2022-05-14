@@ -1,5 +1,6 @@
 ﻿#nullable enable
 
+using Domain.Dtos.User;
 using Domain.Dtos.CountryDtos;
 
 namespace Domain.Dtos.User

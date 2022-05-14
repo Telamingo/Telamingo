@@ -13,7 +13,7 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Primary> userConfiguration)
         {
-            userConfiguration.ToTable("User", TelamingoDbContext.DEFAULT_SCHEMA);
+            userConfiguration.ToTable("Primary", TelamingoDbContext.DEFAULT_SCHEMA);
 
             userConfiguration.HasKey(ct => ct.Id);
 
@@ -45,7 +45,7 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Age")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Sex)
@@ -68,7 +68,7 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Level")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Second_Lang)
@@ -83,7 +83,7 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Second_LangLevel")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Third_Lang)
@@ -98,21 +98,21 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Third_LangLevel")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.Marriage)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Marriage")
                 .HasColumnType("bit")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.NumberOfCompanions)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("NumberOfCompanions")
                 .HasColumnType("int")
-                .IsRequired(false);
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.UserAnswerId)

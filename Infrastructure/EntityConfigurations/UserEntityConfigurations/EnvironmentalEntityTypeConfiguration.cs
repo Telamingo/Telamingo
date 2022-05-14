@@ -1,19 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.AggregateModels.UserAggregate;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Telamingo.Domain.AggregateModels.UserAggregate;
 
-namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
+namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
-    internal class MentalEntityTypeConfiguration : IEntityTypeConfiguration<Mental>
+    internal class EnvironmentalEntityTypeConfiguration : IEntityTypeConfiguration<Environmental>
     {
-        public void Configure(EntityTypeBuilder<Mental> userConfiguration)
+        public void Configure(EntityTypeBuilder<Environmental> userConfiguration)
         {
-            userConfiguration.ToTable("Mental", TelamingoDbContext.DEFAULT_SCHEMA);
+            userConfiguration.ToTable("Environmental", TelamingoDbContext.DEFAULT_SCHEMA);
 
             userConfiguration.HasKey(ct => ct.Id);
 
@@ -25,42 +25,46 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.FamilyVisit)
+                .Property(ct => ct.SpecialWeather)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("FamilyVisit")
-                .HasColumnType("int")
-                .IsRequired();
-
-            userConfiguration
-                .Property(ct => ct.MentalIll)
-                .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("MentalIll")
+                .HasColumnName("SpecialWeather")
                 .HasColumnType("bit")
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.First)
+                .Property(ct => ct.Cloudy)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("First")
-                .HasColumnType("nvarchar")
-                .HasMaxLength(250)
-                .IsRequired(false);
+                .HasColumnName("Cloudy")
+                .HasColumnType("int")
+                .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.Secend)
+                .Property(ct => ct.Snowy)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Secend")
-                .HasColumnType("nvarchar")
-                .HasMaxLength(250)
-                .IsRequired(false);
+                .HasColumnName("Snowy")
+                .HasColumnType("int")
+                .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.Third)
+                .Property(ct => ct.Sunny)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Third")
-                .HasColumnType("nvarchar")
-                .HasMaxLength(250)
-                .IsRequired(false);
+                .HasColumnName("Sunny ")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .Property(ct => ct.Moderate)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("Moderate")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .Property(ct => ct.UnusualDaytime)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("UnusualDaytime")
+                .HasColumnType("int")
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.UserAnswerId)
@@ -71,10 +75,11 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 
             userConfiguration
                 .HasOne(a => a.UserAnswer)
-                .WithMany(a => a.Mentals)
+                .WithMany(a => a.Environmentals)
                 .HasForeignKey(a => a.UserAnswerId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
+
 
         }
     }

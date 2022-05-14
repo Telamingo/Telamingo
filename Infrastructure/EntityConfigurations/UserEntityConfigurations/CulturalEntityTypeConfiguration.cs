@@ -1,19 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.AggregateModels.UserAggregate;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Telamingo.Domain.AggregateModels.UserAggregate;
 
-namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
+namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
-    internal class MentalEntityTypeConfiguration : IEntityTypeConfiguration<Mental>
+    internal class CulturalEntityTypeConfiguration : IEntityTypeConfiguration<Cultural>
     {
-        public void Configure(EntityTypeBuilder<Mental> userConfiguration)
+        public void Configure(EntityTypeBuilder<Cultural> userConfiguration)
         {
-            userConfiguration.ToTable("Mental", TelamingoDbContext.DEFAULT_SCHEMA);
+            userConfiguration.ToTable("Cultural", TelamingoDbContext.DEFAULT_SCHEMA);
 
             userConfiguration.HasKey(ct => ct.Id);
 
@@ -25,42 +25,39 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.FamilyVisit)
+                .Property(ct => ct.ReligiousMatters)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("FamilyVisit")
+                .HasColumnName("ReligiousMatters")
                 .HasColumnType("int")
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.MentalIll)
+                .Property(ct => ct.NationalMatters)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("MentalIll")
+                .HasColumnName("NationalMatters")
                 .HasColumnType("bit")
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.First)
+                .Property(ct => ct.IfYesHowMuch)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("First")
-                .HasColumnType("nvarchar")
-                .HasMaxLength(250)
-                .IsRequired(false);
+                .HasColumnName("IfYesHowMuch")
+                .HasColumnType("int")
+                .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.Secend)
+                .Property(ct => ct.ImmigrantCommunity)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Secend")
-                .HasColumnType("nvarchar")
-                .HasMaxLength(250)
-                .IsRequired(false);
+                .HasColumnName("ImmigrantCommunity")
+                .HasColumnType("int")
+                .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.Third)
+                .Property(ct => ct.Similarity)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Third")
-                .HasColumnType("nvarchar")
-                .HasMaxLength(250)
-                .IsRequired(false);
+                .HasColumnName("Similarity")
+                .HasColumnType("int")
+                .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.UserAnswerId)
@@ -71,7 +68,7 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 
             userConfiguration
                 .HasOne(a => a.UserAnswer)
-                .WithMany(a => a.Mentals)
+                .WithMany(a => a.Culturals)
                 .HasForeignKey(a => a.UserAnswerId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);

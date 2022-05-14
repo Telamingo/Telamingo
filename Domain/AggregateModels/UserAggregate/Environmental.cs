@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.SeedWork;
 
 namespace Domain.AggregateModels.UserAggregate
 {
-    public class Environmental
+    public class Environmental : Entity
     {
+        public int UserAnswerId { get; set; }
+        public virtual UserAnswer UserAnswer { get; set; }
+
         public bool SpecialWeather { get; set; }
         public int Cloudy { get; set; }
         public int Snowy { get; set; }

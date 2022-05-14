@@ -1,19 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.AggregateModels.UserAggregate;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Telamingo.Domain.AggregateModels.UserAggregate;
 
-namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
+namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
-    internal class MentalEntityTypeConfiguration : IEntityTypeConfiguration<Mental>
+    internal class EconomyEntityTypeConfiguration : IEntityTypeConfiguration<Economy>
     {
-        public void Configure(EntityTypeBuilder<Mental> userConfiguration)
+        public void Configure(EntityTypeBuilder<Economy> userConfiguration)
         {
-            userConfiguration.ToTable("Mental", TelamingoDbContext.DEFAULT_SCHEMA);
+            userConfiguration.ToTable("Economy", TelamingoDbContext.DEFAULT_SCHEMA);
 
             userConfiguration.HasKey(ct => ct.Id);
 
@@ -25,39 +25,33 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.FamilyVisit)
+                .Property(ct => ct.CurrentJob)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("FamilyVisit")
-                .HasColumnType("int")
-                .IsRequired();
-
-            userConfiguration
-                .Property(ct => ct.MentalIll)
-                .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("MentalIll")
-                .HasColumnType("bit")
-                .IsRequired();
-
-            userConfiguration
-                .Property(ct => ct.First)
-                .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("First")
+                .HasColumnName("CurrentJob")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
 
             userConfiguration
-                .Property(ct => ct.Secend)
+                .Property(ct => ct.CurrentSaving)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Secend")
+                .HasColumnName("CurrentSaving")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
 
             userConfiguration
-                .Property(ct => ct.Third)
+                .Property(ct => ct.PreferredSaving)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Third")
+                .HasColumnName("PreferredSaving")
+                .HasColumnType("nvarchar")
+                .HasMaxLength(250)
+                .IsRequired(false);
+
+            userConfiguration
+                .Property(ct => ct.PreferredJob)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("PreferredJob")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
@@ -71,7 +65,7 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 
             userConfiguration
                 .HasOne(a => a.UserAnswer)
-                .WithMany(a => a.Mentals)
+                .WithMany(a => a.Economys)
                 .HasForeignKey(a => a.UserAnswerId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
