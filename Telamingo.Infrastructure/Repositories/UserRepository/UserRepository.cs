@@ -46,15 +46,15 @@ public class UserRepository : IUserRepository
     public async Task<UserAnswer> GetAnswer(int id)
     {
         UserAnswer answer = await _context.UserAnswers.Where(x => x.Id == id)
-            .Include(a => a.Cultural)
-            .Include(a => a.Economy)
-            .Include(a => a.Environmental)
-            .Include(a => a.Mental)
-            .Include(a => a.MostImportants)
-            .Include(a => a.Physical)
-            .Include(a => a.Primary).ThenInclude(b => b.Companions)
-            .Include(a => a.UserInformation)
-            .FirstOrDefaultAsync();
+            .Include(a => a.Culturals)
+            .Include(a => a.Economys)
+            .Include(a => a.Environmentals)
+            .Include(a => a.Mentals)
+            .Include(a => a.MostImportantss)
+            .Include(a => a.Physicals)
+            .Include(a => a.Primarys).ThenInclude(b => b.Companions)
+            .Include(a => a.UserInformations)
+            .FirstAsync();
 
         return answer;
     }

@@ -9,6 +9,7 @@ using Telamingo.BusinessLogic.Identity.GenerateToken;
 using Telamingo.BusinessLogic.Identity.VerifyToken;
 using Telamingo.BusinessLogic.JobService;
 using Telamingo.BusinessLogic.Login;
+using Telamingo.BusinessLogic.UserService;
 using Telamingo.Domain.AggregateModels.AdminAggregate;
 using Telamingo.Domain.AggregateModels.CountryAggregate;
 using Telamingo.Domain.AggregateModels.SharedAggregate;
@@ -151,6 +152,7 @@ builder.Services.AddScoped<ICountryService, CountryService>();
 
 builder.Services.AddScoped<IJobService, JobService>();
 builder.Services.AddScoped<ISharedRepository, SharedRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 builder.Services.AddControllers();

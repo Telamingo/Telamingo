@@ -125,9 +125,9 @@
         <div class="col-md-7 mt-4">
           <div class="card">
             <div class="card-header pb-0 px-3">
-              <h5 class="mb-0">@Model.Result.UserInformation.Name:</h5>
-              <h6 class="mb-0">@Model.Result.UserInformation.PhoneNumber</h6>
-              <h6 class="mb-0">@Model.Result.UserInformation.Email</h6>
+              <h5 class="mb-0">@Model.Result.UserInformations.First().Name:</h5>
+              <h6 class="mb-0">@Model.Result.UserInformations.First().PhoneNumber</h6>
+              <h6 class="mb-0">@Model.Result.UserInformations.First().Email</h6>
             </div>
             <div class="card-body pt-4 p-3">
               <ul class="list-group">
@@ -137,34 +137,34 @@
                     <hr/>
                     <h6 class="mb-3 text-sm">Primary</h6>
                     <span class="mb-2 text-xs">User_Destination: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.User_Destination</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().User_Destination</span></span>
                     <span class="mb-2 text-xs">Preferred_Visa_Type: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Preferred_Visa_Type</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Preferred_Visa_Type</span></span>
                     <span class="mb-2 text-xs">Age: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Age</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Age</span></span>
                     <span class="mb-2 text-xs">Sex: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Sex</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Sex</span></span>
                     <span class="mb-2 text-xs">First_Lang: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.First_Lang</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().First_Lang</span></span>
                     <span class="mb-2 text-xs">Level: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Level</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Level</span></span>
                     <span class="mb-2 text-xs">Second_Lang: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Second_Lang</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Second_Lang</span></span>
                     <span class="mb-2 text-xs">Second_LangLevel: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Second_LangLevel</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Second_LangLevel</span></span>
                     <span class="mb-2 text-xs">Third_Lang: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Third_Lang</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Third_Lang</span></span>
                     <span class="mb-2 text-xs">Third_LangLevel: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Third_LangLevel</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Third_LangLevel</span></span>
                     <span class="mb-2 text-xs">Marriage: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.Marriage</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().Marriage</span></span>
                     <span class="mb-2 text-xs">NumberOfCompanions: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primary.NumberOfCompanions</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Primarys.First().NumberOfCompanions</span></span>
 
                     <span class="mb-2 text-xs">Companions<span class="text-dark font-weight-bold ms-sm-2">
                     </span></span>
                     @{
-                        foreach (var item in @Model.Result.Primary.Companions)
+                        foreach (var item in @Model.Result.Primarys.First().Companions)
                         {
                             <span class="mb-2 text-xs">Age<span class="text-dark font-weight-bold ms-sm-2">
                             @item.Age
@@ -190,79 +190,79 @@
                     <hr/>
                     <h6 class="mb-3 text-sm">Economy</h6>
                     <span class="mb-2 text-xs">CurrentJob: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Economy.CurrentJob</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Economys.First().CurrentJob</span></span>
                     <span class="mb-2 text-xs">CurrentSaving: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Economy.CurrentSaving</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Economys.First().CurrentSaving</span></span>
                     <span class="mb-2 text-xs">PreferredJob: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Economy.PreferredJob</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Economys.First().PreferredJob</span></span>
                     <span class="mb-2 text-xs">PreferredSaving: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Economy.PreferredSaving</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Economys.First().PreferredSaving</span></span>
                     <hr/>
                     <h6 class="mb-3 text-sm">Cultural</h6>
                     <span class="mb-2 text-xs">ReligiousMatters: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Cultural.ReligiousMatters</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Culturals.First().ReligiousMatters</span></span>
                     <span class="mb-2 text-xs">ReligiousMatters: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Cultural.ReligiousMatters</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Culturals.First().ReligiousMatters</span></span>
                     <span class="mb-2 text-xs">IfYesHowMuch: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Cultural.IfYesHowMuch</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Culturals.First().IfYesHowMuch</span></span>
                     <span class="mb-2 text-xs">ImmigrantCommunity: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Cultural.ImmigrantCommunity</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Culturals.First().ImmigrantCommunity</span></span>
                     <span class="mb-2 text-xs">Similarity: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Cultural.Similarity</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Culturals.First().Similarity</span></span>
                     <hr/>
                     <h6 class="mb-3 text-sm">Physical</h6>
                     <span class="mb-2 text-xs">MedicineNeed: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.MedicineNeed</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().MedicineNeed</span></span>
                     <span class="mb-2 text-xs">SpecialIll: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.SpecialIll</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().SpecialIll</span></span>
                     <span class="mb-2 text-xs">First: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.First</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().First</span></span>
                     <span class="mb-2 text-xs">Secend: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.Secend</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().Secend</span></span>
                     <span class="mb-2 text-xs">Third: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.Third</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().Third</span></span>
                     <span class="mb-2 text-xs">MedicineCost: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.MedicineCost</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().MedicineCost</span></span>
                     <span class="mb-2 text-xs">SpecialFood: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.SpecialFood</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().SpecialFood</span></span>
                     <span class="mb-2 text-xs">TraditionalFood: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.TraditionalFood</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().TraditionalFood</span></span>
                     <span class="mb-2 text-xs">FastFood: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.FastFood</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().FastFood</span></span>
                     <span class="mb-2 text-xs">Vegeterian: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physical.Vegeterian</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Physicals.First().Vegeterian</span></span>
                     <hr/>
                     <h6 class="mb-3 text-sm">Mental</h6>
                     <span class="mb-2 text-xs">FamilyVisit: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mental.FamilyVisit</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mentals.First().FamilyVisit</span></span>
                     <span class="mb-2 text-xs">MentalIll: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mental.MentalIll</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mentals.First().MentalIll</span></span>
                     <span class="mb-2 text-xs">First: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mental.First</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mentals.First().First</span></span>
                     <span class="mb-2 text-xs">Secend: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mental.Secend</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mentals.First().Secend</span></span>
                     <span class="mb-2 text-xs">Third: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mental.Third</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Mentals.First().Third</span></span>
                     <hr/>
                     <h6 class="mb-3 text-sm">Environmental</h6>
                     <span class="mb-2 text-xs">SpecialWeather: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.SpecialWeather</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmentals.First().SpecialWeather</span></span>
                     <span class="mb-2 text-xs">Cloudy: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.Cloudy</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmentals.First().Cloudy</span></span>
                     <span class="mb-2 text-xs">Snowy: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.Snowy</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmentals.First().Snowy</span></span>
                     <span class="mb-2 text-xs">Sunny: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.Sunny</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmentals.First().Sunny</span></span>
                     <span class="mb-2 text-xs">Moderate: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.Moderate</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmentals.First().Moderate</span></span>
                     <span class="mb-2 text-xs">UnusualDaytime: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmental.UnusualDaytime</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.Environmentals.First().UnusualDaytime</span></span>
                     <hr/>
                     <h6 class="mb-3 text-sm">MostImportants</h6>
                     <span class="mb-2 text-xs">FirstProblem: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.MostImportants.FirstProblem</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.MostImportantss.First().FirstProblem</span></span>
                     <span class="mb-2 text-xs">SecendProblem: 
-                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.MostImportants.SecendProblem</span></span>
+                        <span class="text-dark font-weight-bold ms-sm-2">@Model.Result.MostImportantss.First().SecendProblem</span></span>
                     <hr/>
                   </div>
                   <div class="ms-auto text-end">

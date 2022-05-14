@@ -4,14 +4,38 @@ namespace Telamingo.Domain.AggregateModels.UserAggregate
 {
     public class UserAnswer: Entity
     {
-        public UserInformation UserInformation{ get; set; } = new UserInformation();
-        public Cultural Cultural{ get; set; } = new Cultural();
-        public Economy Economy{ get; set; } = new Economy();
-        public Environmental Environmental{ get; set; } = new Environmental();
-        public Mental Mental{ get; set; } = new Mental();
-        public MostImportants MostImportants{ get; set; } = new MostImportants();
-        public Physical Physical{ get; set; } = new Physical();
-        public Primary Primary{ get; set; } = new Primary();
+        public UserAnswer()
+        {
+            _userInformation = new List<UserInformation>();
+            _cultural = new List<Cultural>();
+            _economy = new List<Economy>();
+            _environmental = new List<Environmental>();
+            _mental = new List<Mental>();
+            _mostImportants = new List<MostImportants>();
+            _physical = new List<Physical>();
+            _primary = new List<Primary>();
+        }
+        public UserAnswer(List<UserInformation> userInformation, List<Cultural> culturals, List<Economy> economies, List<Environmental> environmentals,
+            List<Mental> mentals, List<MostImportants> mostImportants, List<Physical> physicals, List<Primary> primaries)
+        {
+            _userInformation = userInformation;
+            _cultural = culturals;
+            _economy = economies;
+            _environmental = environmentals;
+            _mental = mentals;
+            _mostImportants = mostImportants;
+            _physical = physicals;
+            _primary = primaries;
+        }
+
+        public UserInformation UserInformation { get; set; }
+        public Cultural Cultural { get; set; }
+        public Economy Economy { get; set; }
+        public Environmental Environmental { get; set; }
+        public Mental Mental { get; set; }
+        public MostImportants MostImportants { get; set; }
+        public Physical Physical { get; set; }
+        public Primary Primary { get; set; }
 
         public IReadOnlyCollection<UserInformation> UserInformations => _userInformation;
         private readonly List<UserInformation> _userInformation;
