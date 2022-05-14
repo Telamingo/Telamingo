@@ -14,7 +14,7 @@ namespace BusinessLogic.FormAnswer
         { 
 
         }
-        public async Task AddAsync(UserAnwer model)
+        public async Task AddAsync(UserAnswer model)
         {
 
         }

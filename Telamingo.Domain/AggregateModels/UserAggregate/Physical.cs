@@ -9,6 +9,9 @@ namespace Telamingo.Domain.AggregateModels.UserAggregate
 {
     public class Physical: Entity
     {
+        public int UserAnswerId { get; set; }
+        public virtual UserAnswer UserAnswer { get; set; }
+
         public int MedicineNeed { get; set; }
         public bool SpecialIll { get; set; }
         public string First { get; set; }

@@ -65,6 +65,22 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnName("UnusualDaytime")
                 .HasColumnType("int")
                 .IsRequired();
+
+            userConfiguration
+                .Property(ct => ct.UserAnswerId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("UserAnswerId")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .HasOne(a => a.UserAnswer)
+                .WithMany(a => a.Environmentals)
+                .HasForeignKey(a => a.UserAnswerId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+
         }
     }
 }

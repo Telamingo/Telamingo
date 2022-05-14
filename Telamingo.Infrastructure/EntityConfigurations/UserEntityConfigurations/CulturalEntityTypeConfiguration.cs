@@ -58,6 +58,21 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnName("Similarity")
                 .HasColumnType("int")
                 .IsRequired();
+
+            userConfiguration
+                .Property(ct => ct.UserAnswerId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("UserAnswerId")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .HasOne(a => a.UserAnswer)
+                .WithMany(a => a.Culturals)
+                .HasForeignKey(a => a.UserAnswerId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

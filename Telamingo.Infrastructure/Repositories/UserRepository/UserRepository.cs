@@ -34,6 +34,15 @@ public class UserRepository : IUserRepository
             Password = user.Password,
         };
     }
+    public async Task<List<UserInformation>> GetUserList()
+    {
+        List<UserInformation>? users = await _context.UserInformations.ToList();
+        if (users == null)
+        {
+            throw new Exception("user was not found");
+        }
+        return users;
+    }
 
     //public async Task<UserDto> GetUserByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken)
     //{

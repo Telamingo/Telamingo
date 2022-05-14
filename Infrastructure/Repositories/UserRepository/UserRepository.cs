@@ -56,9 +56,9 @@ namespace Infrastructure.Repositories.UserRepository
         //    }
         //}
 
-        public async Task AddUserAnswerAsync(UserAnwer model, CancellationToken cancellationToken)
+        public async Task AddUserAnswerAsync(UserAnswer model, CancellationToken cancellationToken)
         {
-            UserAnwer userAnwer = model;
+            UserAnswer userAnwer = model;
 
             await UnitOfWork.SaveChangesAsync();
 

@@ -113,6 +113,20 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnName("NumberOfCompanions")
                 .HasColumnType("int")
                 .IsRequired(false);
+
+            userConfiguration
+                .Property(ct => ct.UserAnswerId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("UserAnswerId")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .HasOne(a => a.UserAnswer)
+                .WithMany(a => a.Primarys)
+                .HasForeignKey(a => a.UserAnswerId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

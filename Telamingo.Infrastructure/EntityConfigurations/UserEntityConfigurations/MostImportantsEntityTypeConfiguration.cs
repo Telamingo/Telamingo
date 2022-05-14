@@ -39,6 +39,21 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
+
+            userConfiguration
+                .Property(ct => ct.UserAnswerId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("UserAnswerId")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .HasOne(a => a.UserAnswer)
+                .WithMany(a => a.MostImportantss)
+                .HasForeignKey(a => a.UserAnswerId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

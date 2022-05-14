@@ -9,6 +9,9 @@ namespace Telamingo.Domain.AggregateModels.UserAggregate
 {
     public class Environmental: Entity
     {
+        public int UserAnswerId { get; set; }
+        public virtual UserAnswer UserAnswer { get; set; }
+
         public bool SpecialWeather { get; set; }
         public int Cloudy { get; set; }
         public int Snowy { get; set; }

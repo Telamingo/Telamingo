@@ -15,5 +15,9 @@ namespace Telamingo.Domain.AggregateModels.UserAggregate
         public string Third_Lang { get; set; }
         public string Gender { get; set; }
         public string Relationship { get; set; }
+
+        public int PrimaryId { get; set; }
+        public virtual Primary Primary { get; set; }
+
     }
 }

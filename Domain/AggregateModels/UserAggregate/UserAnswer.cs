@@ -2,7 +2,7 @@
 
 namespace Domain.AggregateModels.UserAggregate
 {
-    public class UserAnwer : Entity
+    public class UserAnswer : Entity
     {
         public UserInformation UserInformation { get; set; }
         public Cultural Cultural { get; set; }

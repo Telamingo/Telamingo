@@ -25,7 +25,7 @@ namespace Telamingo.ReactJs.Controllers
         }
         [HttpPost]
         [Route("UserAnwer")]
-        public async Task<ActionResult> UserAnwer(UserAnwer model)
+        public async Task<ActionResult> UserAnwer(UserAnswer model)
         {
             await answerService.AddAsync(model);
             return Ok();

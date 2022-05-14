@@ -9,6 +9,6 @@ namespace BusinessLogic.FormAnswer
 {
     public interface IAnswerService
     {
-        Task AddAsync(UserAnwer model);
+        Task AddAsync(UserAnswer model);
     }
 }

@@ -25,6 +25,13 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .IsRequired();
 
             userConfiguration
+                .Property(ct => ct.PrimaryId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("PrimaryId")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
                 .Property(ct => ct.Age)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Age")
@@ -70,6 +77,14 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
+
+            userConfiguration
+            .HasOne(a => a.Primary)
+            .WithMany(a => a.Companions)
+            .HasForeignKey(a => a.PrimaryId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

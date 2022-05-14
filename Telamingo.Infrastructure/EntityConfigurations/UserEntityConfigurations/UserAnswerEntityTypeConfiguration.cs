@@ -9,9 +9,9 @@ using Telamingo.Domain.AggregateModels.UserAggregate;
 
 namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
-    public class UserAnswerEntityTypeConfiguration : IEntityTypeConfiguration<UserAnwer>
+    public class UserAnswerEntityTypeConfiguration : IEntityTypeConfiguration<UserAnswer>
     {
-        public void Configure(EntityTypeBuilder<UserAnwer> userConfiguration)
+        public void Configure(EntityTypeBuilder<UserAnswer> userConfiguration)
         {
             userConfiguration.ToTable("UserAnwer", TelamingoDbContext.DEFAULT_SCHEMA);
 

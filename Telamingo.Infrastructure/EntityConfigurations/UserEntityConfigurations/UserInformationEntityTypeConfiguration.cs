@@ -25,6 +25,13 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .IsRequired();
 
             userConfiguration
+                .Property(ct => ct.UserAnswerId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("UserAnswerId")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
                 .Property(ct => ct.Email)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Email")
@@ -47,6 +54,14 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .HasColumnType("nvarchar")
                 .HasMaxLength(200)
                 .IsRequired(false);
+
+            userConfiguration
+                .HasOne(a => a.UserAnswer)
+                .WithMany(a => a.UserInformations)
+                .HasForeignKey(a => a.UserAnswerId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

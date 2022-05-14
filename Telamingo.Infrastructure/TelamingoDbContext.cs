@@ -49,8 +49,19 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
     public DbSet<Job> Jobs { get; set; }
     public DbSet<Language> Languages { get; set; }
     public DbSet<Weather> Weathers { get; set; }
-    public DbSet<Question> Questions{ get; set; }
+    public DbSet<Question> Questions { get; set; }
     public DbSet<Answer> Answers { get; set; }
+
+    public DbSet<Companions> Companions { get; set; }
+    public DbSet<Cultural> Culturals { get; set; }
+    public DbSet<Economy> Economies { get; set; }
+    public DbSet<Environmental> Environmentals { get; set; }
+    public DbSet<Mental> Mentals { get; set; }
+    public DbSet<MostImportants> MostImportants { get; set; }
+    public DbSet<Physical> Physicals { get; set; }
+    public DbSet<Primary> Primaries { get; set; }
+    public DbSet<UserAnswer> UserAnswers { get; set; }
+    public DbSet<UserInformation> UserInformations { get; set; }
 
     #endregion
 
@@ -100,6 +111,18 @@ public class TelamingoDbContext : DbContext, IUnitOfWork
 
         modelBuilder.ApplyConfiguration(new AnswerEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new QuestionEntityTypeConfiguration());
+
+        modelBuilder.ApplyConfiguration(new CompanionsEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new CulturalEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new EconomyEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new EnvironmentalEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new MentalEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new MostImportantsEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new PhysicalEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new PrimaryEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new UserAnswerEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new UserInformationEntityTypeConfiguration());
+
 
 }
 public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))
