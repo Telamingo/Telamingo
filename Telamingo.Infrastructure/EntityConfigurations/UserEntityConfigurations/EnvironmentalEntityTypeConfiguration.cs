@@ -9,11 +9,11 @@ using Telamingo.Domain.AggregateModels.UserAggregate;
 
 namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
-    internal class CulturalEntityTypeConfiguration : IEntityTypeConfiguration<Cultural>
+    internal class EnvironmentalEntityTypeConfiguration : IEntityTypeConfiguration<Environmental>
     {
-        public void Configure(EntityTypeBuilder<Cultural> userConfiguration)
+        public void Configure(EntityTypeBuilder<Environmental> userConfiguration)
         {
-            userConfiguration.ToTable("Cultural", TelamingoDbContext.DEFAULT_SCHEMA);
+            userConfiguration.ToTable("Environmental", TelamingoDbContext.DEFAULT_SCHEMA);
 
             userConfiguration.HasKey(ct => ct.Id);
 
@@ -25,37 +25,44 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.ReligiousMatters)
+                .Property(ct => ct.SpecialWeather)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("ReligiousMatters")
-                .HasColumnType("int")
-                .IsRequired();
-
-            userConfiguration
-                .Property(ct => ct.NationalMatters)
-                .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("NationalMatters")
+                .HasColumnName("SpecialWeather")
                 .HasColumnType("bit")
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.IfYesHowMuch)
+                .Property(ct => ct.Cloudy)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("IfYesHowMuch")
+                .HasColumnName("Cloudy")
                 .HasColumnType("int")
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.ImmigrantCommunity)
+                .Property(ct => ct.Snowy)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("ImmigrantCommunity")
+                .HasColumnName("Snowy")
                 .HasColumnType("int")
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.Similarity)
+                .Property(ct => ct.Sunny)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Similarity")
+                .HasColumnName("Sunny ")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .Property(ct => ct.Moderate)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("Moderate")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .Property(ct => ct.UnusualDaytime)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("UnusualDaytime")
                 .HasColumnType("int")
                 .IsRequired();
         }

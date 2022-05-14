@@ -60,14 +60,17 @@
     display: flex;
     justify-content: center;
 }
-.chooseJob select{
-    width: 50%;
-    padding: 10px 15px;
-    margin-right: 10px;
-    border: 1px solid lightgrey;
-    border-radius: 10px;
-    outline: none;
-}
+    .chooseJob select {
+        width: 50%;
+        padding: 10px 15px;
+        margin-right: 10px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid lightgrey;
+        background: #efefef8a;
+        border-radius: 5px 5px 4px 4px;
+        color: #565656;
+    }
 .chooseJob select option{
     box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }

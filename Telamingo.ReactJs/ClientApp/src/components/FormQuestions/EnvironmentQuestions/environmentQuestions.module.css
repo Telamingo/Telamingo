@@ -275,13 +275,13 @@
 .information{
  width: 100%;
 }
-.information input{
-    outline: none;
-    width: 60%;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    margin-left: 10px;
-}
+    .information input {
+        outline: none;
+        width: 60%;
+        border: none;
+        border-bottom: 1px solid lightgrey;
+        margin-left: 10px;
+    }
 .informationM{
  width: 100%;
     text-align: initial;

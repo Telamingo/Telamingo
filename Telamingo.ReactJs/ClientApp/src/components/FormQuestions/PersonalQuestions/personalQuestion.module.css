@@ -236,11 +236,15 @@
     margin-bottom: 10px;
     text-align: center;
 }
-.language label select{
+.language label select {
+    border: none;
+    border-bottom: 1px solid lightgrey;
     outline: none;
-    border: 1px solid lightgrey;
-    border-radius: 10px;
+    background: #efefef8a;
     padding: 5px 15px;
+    border-radius: 5px 5px 4px 4px;
+    color: #565656;
+    font-size: 17px;
 }
 .language div:nth-child(1) label select{
     margin-left: 27px;

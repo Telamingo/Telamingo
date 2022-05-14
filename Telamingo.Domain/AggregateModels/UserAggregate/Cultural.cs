@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telamingo.Domain.SeedWork;
 
 namespace Telamingo.Domain.AggregateModels.UserAggregate
 {
-    public class Cultural
+    public class Cultural: Entity
     {
         public int ReligiousMatters { get; set; }
         public bool NationalMatters { get; set; }

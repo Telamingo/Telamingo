@@ -9,11 +9,11 @@ using Telamingo.Domain.AggregateModels.UserAggregate;
 
 namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
-    internal class EconomyEntityTypeConfiguration : IEntityTypeConfiguration<Economy>
+    public class CompanionsEntityTypeConfiguration : IEntityTypeConfiguration<Companions>
     {
-        public void Configure(EntityTypeBuilder<Economy> userConfiguration)
+        public void Configure(EntityTypeBuilder<Companions> userConfiguration)
         {
-            userConfiguration.ToTable("Economy", TelamingoDbContext.DEFAULT_SCHEMA);
+            userConfiguration.ToTable("Companions", TelamingoDbContext.DEFAULT_SCHEMA);
 
             userConfiguration.HasKey(ct => ct.Id);
 
@@ -25,37 +25,51 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .IsRequired();
 
             userConfiguration
-                .Property(ct => ct.CurrentJob)
+                .Property(ct => ct.Age)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("CurrentJob")
+                .HasColumnName("Age")
+                .HasColumnType("int")
+                .IsRequired();
+
+            userConfiguration
+                .Property(ct => ct.First_Lang)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("First_Lang")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
 
             userConfiguration
-                .Property(ct => ct.CurrentSaving)
+                .Property(ct => ct.Second_Lang)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("CurrentSaving")
+                .HasColumnName("Second_Lang")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
 
             userConfiguration
-                .Property(ct => ct.PreferredSaving)
+                .Property(ct => ct.Third_Lang)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("PreferredSaving")
+                .HasColumnName("Third_Lang")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
 
             userConfiguration
-                .Property(ct => ct.PreferredJob)
+                .Property(ct => ct.Gender)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("PreferredJob")
+                .HasColumnName("Gender")
                 .HasColumnType("nvarchar")
                 .HasMaxLength(250)
                 .IsRequired(false);
 
+            userConfiguration
+                .Property(ct => ct.Relationship)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("Relationship")
+                .HasColumnType("nvarchar")
+                .HasMaxLength(250)
+                .IsRequired(false);
         }
     }
 }

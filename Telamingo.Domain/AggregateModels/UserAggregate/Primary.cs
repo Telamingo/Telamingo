@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telamingo.Domain.SeedWork;
 
 namespace Telamingo.Domain.AggregateModels.UserAggregate
 {
-    public class Primary
+    public class Primary: Entity
     {
         public string User_Destination { get; set; }
         public string Preferred_Visa_Type { get; set; }
@@ -21,14 +22,5 @@ namespace Telamingo.Domain.AggregateModels.UserAggregate
         public bool Marriage { get; set; }
         public int NumberOfCompanions { get; set; }
         public List<Companions> Companions { get; set; }
-    }
-    public class Companions
-    {
-        public int Age { get; set; }
-        public string First_Lang { get; set; }
-        public string Second_Lang { get; set; }
-        public string Third_Lang { get; set; }
-        public string Gender { get; set; }
-        public string Relationship { get; set; }
     }
 }

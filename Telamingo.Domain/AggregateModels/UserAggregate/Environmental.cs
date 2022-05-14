@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telamingo.Domain.SeedWork;
 
 namespace Telamingo.Domain.AggregateModels.UserAggregate
 {
-    public class Environmental
+    public class Environmental: Entity
     {
         public bool SpecialWeather { get; set; }
         public int Cloudy { get; set; }
