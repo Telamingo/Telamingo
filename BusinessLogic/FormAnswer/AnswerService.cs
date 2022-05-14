@@ -1,4 +1,5 @@
 ﻿using Domain.AggregateModels.UserAggregate;
+using Domain.Dtos.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,36 @@ namespace BusinessLogic.FormAnswer
         {
             this.userRepository = userRepository;
         }
-        public async Task AddAsync(UserAnswer model)
+        public async Task AddAsync(UserAnswerDto model)
         {
-            await userRepository.AddUserAnswerAsync(model);
+            await userRepository.AddUserAnswerAsync(new UserAnswer
+                (
+                    new List<UserInformation>
+                            {
+                                new(model.UserInformation)
+                            },new List<Cultural>
+                            {
+                                new(model.Cultural)
+                            },new List<Economy>
+                            {
+                                new(model.Economy)
+                            },new List<Environmental>
+                            {
+                                new(model.Environmental)
+                            },new List<Mental>
+                            {
+                                new(model.Mental)
+                            },new List<MostImportants>
+                            {
+                                new(model.MostImportants)
+                            },new List<Physical>
+                            {
+                                new(model.Physical)
+                            },new List<Primary>
+                            {
+                                new(model.Primary)
+                            }
+                ));
         }
     }
 }

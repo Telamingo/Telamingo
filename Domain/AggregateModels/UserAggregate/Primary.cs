@@ -9,6 +9,23 @@ namespace Domain.AggregateModels.UserAggregate
 {
     public class Primary : Entity
     {
+        public Primary() { }
+
+        public Primary(PrimaryDto model)
+        {
+            User_Destination = model.User_Destination;
+            Preferred_Visa_Type = model.Preferred_Visa_Type;
+            Age = model.Age;
+            Sex = model.Sex;
+            First_Lang = model.First_Lang;
+            Level = model.Level;
+            Second_Lang = model.Second_Lang;
+            Second_LangLevel = model.Second_LangLevel;
+            Third_Lang = model.Third_Lang;
+            Third_LangLevel = model.Third_LangLevel;
+            Marriage = model.Marriage;
+            NumberOfCompanions = model.NumberOfCompanions;
+        }
         public int UserAnswerId { get; set; }
         public virtual UserAnswer UserAnswer { get; set; }
 
@@ -27,5 +44,20 @@ namespace Domain.AggregateModels.UserAggregate
 
         public IReadOnlyCollection<Companions> Companions => _companions;
         private readonly List<Companions> _companions;
+    }
+    public class PrimaryDto
+    {
+        public string User_Destination { get; set; }
+        public string Preferred_Visa_Type { get; set; }
+        public int Age { get; set; }
+        public string Sex { get; set; }
+        public string First_Lang { get; set; }
+        public int Level { get; set; }
+        public string Second_Lang { get; set; }
+        public int Second_LangLevel { get; set; }
+        public string Third_Lang { get; set; }
+        public int Third_LangLevel { get; set; }
+        public bool Marriage { get; set; }
+        public int NumberOfCompanions { get; set; }
     }
 }

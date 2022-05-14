@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.FormAnswer;
 using Domain.AggregateModels.UserAggregate;
+using Domain.Dtos.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Telamingo.ReactJs.Controllers
         }
         [HttpPost]
         [Route("UserAnwer")]
-        public async Task<ActionResult> UserAnwer(UserAnswer model)
+        public async Task<ActionResult> UserAnwer(UserAnswerDto model)
         {
             await answerService.AddAsync(model);
             return Ok();
