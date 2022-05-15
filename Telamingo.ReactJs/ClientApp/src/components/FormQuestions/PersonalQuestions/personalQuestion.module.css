@@ -7,7 +7,7 @@
 .active{
     height: 25px;
     width: 25px;
-    background-color: orange;
+    background-color: #ff6600;
     border-radius: 50%;
     display: inline-block;
 }
@@ -76,19 +76,19 @@
     border-radius: 10px;
     outline: none;
 }
-.nextQuestionButtonDeActive{
+.nextQuestionButtonDeActive {
     color: white;
     background-color: lightgrey;
     border: 1px solid lightgrey;
-    border-radius: 20px;
-    padding: 5px 20px;
+    border-radius: 5px;
+    height: 60px;
 }
-.nextQuestionButtonActive{
+.nextQuestionButtonActive {
     color: white;
-    background-color: orange;
-    border: 1px solid orange;
-    border-radius: 20px;
-    padding: 5px 20px;
+    background-color: #ff6600;
+    border: 1px solid #ff6600;
+    border-radius: 5px;
+    height: 60px;
 }
 .nextQuestionButtonActive:hover{
     background-color: rgba(231,78,11,0.89);
@@ -116,10 +116,11 @@
     height: 100%;
     border-radius: 10px;
 }
-.chooseAge button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .chooseAge button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .chooseAge div:hover{
     color: black;
 }
@@ -148,10 +149,11 @@
     height: 100%;
     border-radius: 10px;
 }
-.chooseAgeM button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .chooseAgeM button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .chooseAgeM div:hover{
     color: black;
 }
@@ -167,10 +169,11 @@
     height: 100%;
     border-radius: 10px;
 }
-.chooseCount button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .chooseCount button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .chooseCount div{
     border-radius: 10px;
     border: 1px solid lightgrey;
@@ -198,10 +201,11 @@
     height: 100%;
     border-radius: 10px;
 }
-.chooseCountM button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .chooseCountM button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .chooseCountM div{
     border-radius: 10px;
     border: 1px solid lightgrey;
@@ -240,9 +244,9 @@
     border: none;
     border-bottom: 1px solid lightgrey;
     outline: none;
-    background: #efefef8a;
+
     padding: 5px 15px;
-    border-radius: 5px 5px 4px 4px;
+    border-radius: 5px 5px 0px 0px;
     color: #565656;
     font-size: 17px;
 }
@@ -260,7 +264,7 @@
 }
 .moreLang{
     margin-right: 30px;
-    background-color: orange;
+    background-color: #ff6600;
     border-radius: 20px;
     color: white;
     padding: 8px 10px;
@@ -271,7 +275,7 @@
 }
 .moreLangM{
     font-size: 17px;
-    background-color: orange;
+    background-color: #ff6600;
     border-radius: 20px;
     color: white;
     padding: 8px 10px;
@@ -325,9 +329,10 @@
     width: 100%;
     text-align: center;
 }
-.previousButton{
+.previousButton {
     width: 100%;
     text-align: left;
+    padding: 0 25px 20px 25px;
 }
 .previousButtonM{
     width: 100%;

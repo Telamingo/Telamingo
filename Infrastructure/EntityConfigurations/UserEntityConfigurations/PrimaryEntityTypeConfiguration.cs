@@ -11,7 +11,7 @@ using Infrastructure;
 
 namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
-    internal class PrimaryEntityTypeConfiguration : IEntityTypeConfiguration<Primary>
+    public class PrimaryEntityTypeConfiguration : IEntityTypeConfiguration<Primary>
     {
         public void Configure(EntityTypeBuilder<Primary> userConfiguration)
         {
@@ -46,8 +46,9 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .Property(ct => ct.Age)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Age")
-                .HasColumnType("int")
-                .IsRequired();
+                .HasColumnType("nvarchar")
+                .HasMaxLength(250)
+                .IsRequired(false);
 
             userConfiguration
                 .Property(ct => ct.Sex)
@@ -66,11 +67,12 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .IsRequired(false);
 
             userConfiguration
-                .Property(ct => ct.Level)
+                .Property(ct => ct.First_LangLevel)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Level")
-                .HasColumnType("int")
-                .IsRequired();
+                .HasColumnName("First_LangLevel")
+                .HasColumnType("nvarchar")
+                .HasMaxLength(250)
+                .IsRequired(false);
 
             userConfiguration
                 .Property(ct => ct.Second_Lang)
@@ -84,8 +86,9 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .Property(ct => ct.Second_LangLevel)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Second_LangLevel")
-                .HasColumnType("int")
-                .IsRequired();
+                .HasColumnType("nvarchar")
+                .HasMaxLength(250)
+                .IsRequired(false);
 
             userConfiguration
                 .Property(ct => ct.Third_Lang)
@@ -99,15 +102,24 @@ namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
                 .Property(ct => ct.Third_LangLevel)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("Third_LangLevel")
-                .HasColumnType("int")
-                .IsRequired();
+                .HasColumnType("nvarchar")
+                .HasMaxLength(250)
+                .IsRequired(false);
 
             userConfiguration
-                .Property(ct => ct.Marriage)
+                .Property(ct => ct.MaritalStatus)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("Marriage")
-                .HasColumnType("bit")
-                .IsRequired();
+                .HasColumnName("MaritalStatus")
+                .HasColumnType("nvarchar")
+                .HasMaxLength(250)
+                .IsRequired(false);
+
+            //userConfiguration
+            //    .Property(ct => ct.Marriage)
+            //    .UsePropertyAccessMode(PropertyAccessMode.Field)
+            //    .HasColumnName("Marriage")
+            //    .HasColumnType("bit")
+            //    .IsRequired();
 
             userConfiguration
                 .Property(ct => ct.NumberOfCompanions)

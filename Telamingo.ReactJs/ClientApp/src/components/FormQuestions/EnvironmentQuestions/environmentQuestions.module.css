@@ -31,7 +31,7 @@
 .active{
     height: 25px;
     width: 25px;
-    background-color: orange;
+    background-color: #ff6600;
     border-radius: 50%;
     display: inline-block;
 }
@@ -46,15 +46,15 @@
     color: white;
     background-color: lightgrey;
     border: 1px solid lightgrey;
-    border-radius: 20px;
-    padding: 5px 20px;
+    border-radius: 5px;
+    height: 60px;
 }
-.nextQuestionButtonActive{
+.nextQuestionButtonActive {
     color: white;
-    background-color: orange;
-    border: 1px solid orange;
-    border-radius: 20px;
-    padding: 5px 20px;
+    background-color: #ff6600;
+    border: 1px solid #ff6600;
+    border-radius: 5px;
+    height: 60px;
 }
 .nextQuestionButtonActive:hover{
     background-color: rgba(231,78,11,0.89);
@@ -75,13 +75,13 @@
     text-align: initial;
 }
 .environmentHoby input{
-    border: 1px solid orange;
+    border: 1px solid #ff6600;
     margin-left: 15px;
     border-radius: 10px;
     outline: none;
 }
 .environmentHobyM input{
-    border: 1px solid orange;
+    border: 1px solid #ff6600;
     margin-left: 15px;
     border-radius: 10px;
     outline: none;
@@ -127,7 +127,7 @@
     color: grey;
 }
 .FinalHeader span{
-    color: orange;
+    color: #ff6600;
     font-size: 24px;
     font-weight: bold;
 }
@@ -135,7 +135,7 @@
     text-align: left;
 }
 .resultDsc p:nth-child(1){
-    color: orange;
+    color: #ff6600;
 }
 .question{
     font-weight: bold;
@@ -189,10 +189,11 @@
     height: 100%;
     /*border-radius: 10px;*/
 }
-.creedRate button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .creedRate button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .creedRate div:hover{
     color: black;
 }
@@ -233,10 +234,11 @@
 .creedRateM div:nth-last-child(1) button{
     border-radius: 0 0 10px 10px;
 }
-.creedRateM button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .creedRateM button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .creedRateM div:hover{
     color: black;
 }
@@ -277,7 +279,7 @@
 }
     .information input {
         outline: none;
-        width: 60%;
+        width: 65%;
         border: none;
         border-bottom: 1px solid lightgrey;
         margin-left: 10px;
@@ -293,11 +295,12 @@
     margin-left: 10px;
 }
 .saveButton{
-    width: 100px;
-    background-color: orange;
+    width: 120px;
+    background-color: #ff6600;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
+    height: 60px;
 }
 .saveButton:hover{
     background-color: rgba(231,78,11,0.89);
