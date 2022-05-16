@@ -152,9 +152,10 @@
     display: flex;
     justify-content:space-between;
 }
-.creedRateDsc span{
-    color: #939292;
-}
+    .creedRateDsc span {
+        color: #939292;
+        font-size: 15px;
+    }
 .creedRateDscM span{
     color: #939292;
 }

@@ -70,10 +70,11 @@
     justify-content: flex-start;
     width: 100%;
 }
-.environmentHoby label{
-    width: 350px;
-    text-align: initial;
-}
+    .environmentHoby label {
+        text-align: initial;
+        width: 45%;
+        padding: 8px 0 0 0;
+    }
 .environmentHoby input{
     border: 1px solid #ff6600;
     margin-left: 15px;
@@ -247,9 +248,10 @@
     display: flex;
     justify-content:space-between;
 }
-.creedRateDsc span{
-    color: #939292;
-}
+    .creedRateDsc span {
+        color: #939292;
+        font-size: 15px;
+    }
 .creedRateDscM span{
     color: #939292;
 }

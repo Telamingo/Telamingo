@@ -31,7 +31,7 @@ const HomePage = (props) =>{
                             <label className={style.chooseCountryLabel}>
                                 <select value={country} className={style.chooseCountrySelect}
                                         onChange={(event) => setCountry(event.target.value)} required>
-                                    <option value="انتخاب کشوراول" selected>choose your country</option>
+                                    <option value="انتخاب کشوراول" selected>Choose your country...</option>
                                     {
                                         countrys.map(item => <option value={item}>{item}</option>)
                                     }
