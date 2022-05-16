@@ -111,7 +111,7 @@ const EnvironmentQuestions = (props) => {
                 "Age": props.personalAnswers[0],
                 "Sex": props.personalAnswers[1],
                 "First_Lang": props.personalAnswers[3],
-                "Level": props.personalAnswers[4],
+                "First_LangLevel": props.personalAnswers[4],
                 "Second_Lang": "",
                 "Second_LangLevel": "",
                 "Third_Lang": "",

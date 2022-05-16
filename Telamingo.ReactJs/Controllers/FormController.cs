@@ -42,16 +42,19 @@ namespace Telamingo.ReactJs.Controllers
                 string k = w.Remove((w.Length - 2), 1);
 
                 var options = new JsonSerializerOptions { IncludeFields = true };
-                UserAnswerDto? weatherForecast = System.Text.Json.JsonSerializer.Deserialize<UserAnswerDto>(k, options);
-                string e = s.Replace("{", "");
+                UserAnswerDto? answer = System.Text.Json.JsonSerializer.Deserialize<UserAnswerDto>(k, options);
+
+                answer.MostImportants.FirstProblem = "-";
+                answer.MostImportants.SecendProblem = "-";
+
+                await answerService.AddAsync(answer);
+                return Ok();
             }
             catch (System.Exception ex)
             {
 
                 throw ex;
             }
-            await answerService.AddAsync(model);
-            return Ok();
         }
     }
 }
