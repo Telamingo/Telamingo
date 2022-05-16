@@ -19,7 +19,7 @@ namespace Domain.AggregateModels.UserAggregate
             Secend = model.Secend;
             Third = model.Third;
             MedicineCost = model.MedicineCost;
-            SpecialFood = model.SpecialFood;
+            SpecialFood = model.SpecialFood ? 1 : 0;
             TraditionalFood = model.TraditionalFood;    
             FastFood = model.FastFood;  
             Vegeterian = model.Vegeterian;
@@ -46,7 +46,7 @@ namespace Domain.AggregateModels.UserAggregate
         public string? Secend { get; set; }
         public string? Third { get; set; }
         public string? MedicineCost { get; set; }
-        public int SpecialFood { get; set; }
+        public bool SpecialFood { get; set; }
         public int TraditionalFood { get; set; }
         public int FastFood { get; set; }
         public int Vegeterian { get; set; }
