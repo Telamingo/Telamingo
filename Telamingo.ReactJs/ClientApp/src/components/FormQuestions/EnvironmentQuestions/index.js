@@ -62,9 +62,9 @@ const EnvironmentQuestions = (props) => {
     if (environmentAnswer.length >= 9) {
         const UserAnswerDto = {
             "UserInformation": {
-                "Name": environmentAnswer[7][0],
-                "Email": environmentAnswer[7][1],
-                "PhoneNumber": environmentAnswer[7][2]
+                "Name": environmentAnswer[8][0],
+                "Email": environmentAnswer[8][1],
+                "PhoneNumber": environmentAnswer[8][2]
             },
             "Cultural": {
                 "ReligiousMatters": parseInt(props.cultureAnswer[0]),
@@ -79,7 +79,7 @@ const EnvironmentQuestions = (props) => {
                 "PreferredSaving": props.economyAnswer[2]
             },
             "Environmental": {
-                "SpecialWeather":parseInt(environmentAnswer[1]),
+                "SpecialWeather":environmentAnswer[1],
                 "Cloudy": parseInt(environmentAnswer[2]),
                 "Snowy": parseInt(environmentAnswer[3]),
                 "Sunny": parseInt(environmentAnswer[4]),
