@@ -100,7 +100,7 @@ const EnvironmentQuestions = (props) => {
                 "First": "",
                 "Secend": "",
                 "Third": "",
-                "MedicineCost": props.healthAnswer[3],
+                "MedicineCost": props.healthAnswer[props.healthAnswer.length-4],
                 "TraditionalFood": parseInt(props.healthAnswer[4]),
                 "FastFood": parseInt(props.healthAnswer[4]),
                 "Vegeterian": parseInt(props.healthAnswer[4])
