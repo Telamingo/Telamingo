@@ -60,13 +60,13 @@ const EnvironmentQuestions = (props) => {
 
    if(environmentAnswer.length >= 8){
        const UserAnswerDto = {
-               "userInformation": {
+               "UserInformation": {
                    "name": environmentAnswer[7][0],
                    "email": environmentAnswer[7][1],
                    "phoneNumber": environmentAnswer[7][2]
                },
-               "cultural": {
-                   "religiousMatters": parseInt(props.cultureAnswer[0]),
+               "Cultural": {
+                   "ReligiousMatters": parseInt(props.cultureAnswer[0]),
                    "nationalMatters": parseInt(props.cultureAnswer[1]),
                    "immigrantCommunity": parseInt(props.cultureAnswer[2]),
                    "similarity": parseInt(props.cultureAnswer[3])
@@ -106,7 +106,7 @@ const EnvironmentQuestions = (props) => {
                    "vegeterian": parseInt(props.healthAnswer[4])
                },
                "primary": {
-                   "user_Destination": "iran",
+                   "user_Destination": "canada",
                    "preferred_Visa_Type": "job",
                    "age": props.personalAnswers[0],
                    "sex": props.personalAnswers[1],
@@ -129,7 +129,7 @@ const EnvironmentQuestions = (props) => {
                'Content-Type': 'application/json',
            },
            body: JSON.stringify({
-               userAnswerDto:UserAnswerDto
+               model:UserAnswerDto
            }),
        })
            .then(response => response.json())

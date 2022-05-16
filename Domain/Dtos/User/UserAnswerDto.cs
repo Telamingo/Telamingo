@@ -9,14 +9,14 @@ namespace Domain.Dtos.User
 {
     public class UserAnswerDto
     {
-        public UserInformationDto UserInformation { get; set; }
-        public CulturalDto Cultural { get; set; }
-        public EconomyDto Economy { get; set; }
-        public EnvironmentalDto Environmental { get; set; } 
-        public MentalDto Mental { get; set; }
-        public MostImportantsDto MostImportants { get; set; }
-        public PhysicalDto Physical { get; set; }
-        public PrimaryDto Primary { get; set; }
+        public UserInformationDto UserInformation { get; set; } = new UserInformationDto();
+        public CulturalDto Cultural { get; set; } = new CulturalDto();
+        public EconomyDto Economy { get; set; } = new EconomyDto();
+        public EnvironmentalDto Environmental { get; set; } = new EnvironmentalDto();
+        public MentalDto Mental { get; set; } = new MentalDto();
+        public MostImportantsDto MostImportants { get; set; } = new MostImportantsDto();
+        public PhysicalDto Physical { get; set; } = new PhysicalDto();
+        public PrimaryDto Primary { get; set; } = new PrimaryDto();
 
     }
 }
