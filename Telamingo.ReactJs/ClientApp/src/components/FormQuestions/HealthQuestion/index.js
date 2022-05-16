@@ -9,6 +9,7 @@ const HealthQuestion = (props) => {
     const [thirdQuestion, setThirdQuestion] = useState(false);
     const [forthQuestion, setForthQuestion] = useState(false);
     const [haveASick, setHaveASick] = useState(false);
+    const [haveFoodLife, setHaveFoodLife] = useState(false);
     const [firstSick, setFirstSick] = useState("");
     const [secondSick, setSecondSick] = useState("");
     const [thirdSick, setThirdSick] = useState("");
@@ -233,13 +234,9 @@ const HealthQuestion = (props) => {
                                     </React.Fragment>
                                 ) : !forthQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3 ${style.question}`}>
-                                            <p>
-                                                Do you follow a certain food lifestyle?(Rate from 0 to 5 below)
-                                            </p>
-                                        </div>
                                         {
-                                            !firstMealRate ? (
+                                            haveFoodLife ?
+                                                !firstMealRate ? (
                                                 <div className={`mt-3 mb-5 ${!props.isMobile?style.mealHoby:style.mealHobyM}`}>
                                                     <div>
                                                         <label>Traditional dishes of my country:</label>
@@ -353,32 +350,32 @@ const HealthQuestion = (props) => {
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                             <div>
                                                                 <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
-                                                                setAnswer("0")}}>0
+                                                                    setAnswer("0")}}>0
                                                                 </button>
                                                             </div>
                                                             <div>
                                                                 <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
-                                                                setAnswer("1")}}>1
+                                                                    setAnswer("1")}}>1
                                                                 </button>
                                                             </div>
                                                             <div>
                                                                 <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
-                                                                setAnswer("2")}}>2
+                                                                    setAnswer("2")}}>2
                                                                 </button>
                                                             </div>
                                                             <div>
                                                                 <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
-                                                                setAnswer("3")}}>3
+                                                                    setAnswer("3")}}>3
                                                                 </button>
                                                             </div>
                                                             <div>
                                                                 <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
-                                                                setAnswer("4")}}>4
+                                                                    setAnswer("4")}}>4
                                                                 </button>
                                                             </div>
                                                             <div>
                                                                 <button onClick={()=> {setThirdMealRate(true);setForthQuestion(true);
-                                                                setAnswer("5")}}>5
+                                                                    setAnswer("5")}}>5
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -392,6 +389,29 @@ const HealthQuestion = (props) => {
                                                     </div>
                                                 </div>
                                             )
+                                                : (
+                                                    <React.Fragment>
+                                                        <div className={`mb-3 ${style.question}`}>
+                                                            <p>
+                                                                Is the weather matters to you?
+                                                            </p>
+                                                        </div>
+                                                        <div className={` ${!props.isMobile ? style.chooseHaveSick : style.chooseHaveSickM} mt-3 ${!props.isMobile ? " ":`row`}`}>
+                                                            <div>
+                                                                <button onClick={() => {
+                                                                    setHaveFoodLife(true);
+                                                                    setAnswer(false)
+                                                                }}>No</button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={() => {
+                                                                    setHaveFoodLife(true);
+                                                                    setAnswer(true)
+                                                                }}>Yes</button>
+                                                            </div>
+                                                        </div>
+                                                    </React.Fragment>
+                                                )
                                         }
                                     </React.Fragment>
                                 ) : null
