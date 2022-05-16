@@ -28,9 +28,9 @@ namespace Domain.AggregateModels.UserAggregate
     }
     public class EconomyDto
     {
-        public string CurrentJob { get; set; }
-        public string CurrentSaving { get; set; }
-        public string PreferredJob { get; set; }
-        public string PreferredSaving { get; set; }
+        public string? CurrentJob { get; set; }
+        public string? CurrentSaving { get; set; }
+        public string? PreferredJob { get; set; }
+        public string? PreferredSaving { get; set; }
     }
 }

@@ -40,12 +40,12 @@ namespace Domain.AggregateModels.UserAggregate
     }
     public class PhysicalDto
     {
-        public string MedicineNeed { get; set; }
+        public string? MedicineNeed { get; set; }
         public bool SpecialIll { get; set; }
-        public string First { get; set; }
-        public string Secend { get; set; }
-        public string Third { get; set; }
-        public string MedicineCost { get; set; }
+        public string? First { get; set; }
+        public string? Secend { get; set; }
+        public string? Third { get; set; }
+        public string? MedicineCost { get; set; }
         public int SpecialFood { get; set; }
         public int TraditionalFood { get; set; }
         public int FastFood { get; set; }

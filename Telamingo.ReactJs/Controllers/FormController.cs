@@ -3,7 +3,13 @@ using Domain.AggregateModels.UserAggregate;
 using Domain.Dtos.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System;
+using System.Linq;
 
 namespace Telamingo.ReactJs.Controllers
 {
@@ -26,9 +32,25 @@ namespace Telamingo.ReactJs.Controllers
         }
         [HttpPost]
         [Route("UserAnwer")]
-        public async Task<ActionResult> UserAnwer(UserAnswerDto model)
+        public async Task<ActionResult> UserAnwer([FromBody]dynamic model)
         {
-            await answerService.AddAsync(model);
+            try
+            {
+                string s = Convert.ToString(model);
+
+                string w = s.Remove(1, 17);
+                string k = w.Remove((w.Length - 2), 1);
+
+                var options = new JsonSerializerOptions { IncludeFields = true };
+                UserAnswerDto? weatherForecast = System.Text.Json.JsonSerializer.Deserialize<UserAnswerDto>(k, options);
+                string e = s.Replace("{", "");
+            }
+            catch (System.Exception ex)
+            {
+
+                throw ex;
+            }
+            //await answerService.AddAsync(model);
             return Ok();
         }
     }
