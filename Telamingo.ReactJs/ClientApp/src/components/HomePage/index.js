@@ -21,7 +21,7 @@ const HomePage = (props) =>{
         <div className={`container col-lg-10 mt-5 ${style.homePage}`}>
             <div className={`row  ${style.content}`}>
                 <div className={`col-lg-6`}>
-                    <h1 className={`${ !isMobile ? style.content_title : style.content_titleM}`}>set aside the ambiguities with the most reliable rout</h1>
+                    <h1 className={`${ !isMobile ? style.content_title : style.content_titleM}`}>Set aside the ambiguities with the most reliable rout</h1>
                     <p className={`mt-4 ${!isMobile ? style.content_dsc : style.content_dscM}`}>Telamingo helps you to set aside the ambiguities with
                         the most reliable route based on the experiences of the
                         people with the most similar conditions you have.
@@ -31,7 +31,7 @@ const HomePage = (props) =>{
                             <label className={style.chooseCountryLabel}>
                                 <select value={country} className={style.chooseCountrySelect}
                                         onChange={(event) => setCountry(event.target.value)} required>
-                                    <option value="انتخاب کشوراول" selected>choose your country</option>
+                                    <option value="انتخاب کشوراول" selected>Choose your country...</option>
                                     {
                                         countrys.map(item => <option value={item}>{item}</option>)
                                     }

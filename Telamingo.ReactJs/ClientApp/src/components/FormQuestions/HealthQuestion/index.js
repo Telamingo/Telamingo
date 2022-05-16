@@ -232,7 +232,7 @@ const HealthQuestion = (props) => {
                                     <React.Fragment>
                                         <div className={`mb-3 ${style.question}`}>
                                             <p>
-                                                Do you follow a certain food lifestyle?(Rate from 1 to 10 below)
+                                                Do you follow a certain food lifestyle?(Rate from 0 to 5 below)
                                             </p>
                                         </div>
                                         {

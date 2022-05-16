@@ -753,6 +753,445 @@ namespace Telamingo.Infrastructure.Migrations
                     b.ToTable("Weather", "dbo");
                 });
 
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Companions", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int")
+                        .HasColumnName("Age");
+
+                    b.Property<string>("First_Lang")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("First_Lang");
+
+                    b.Property<string>("Gender")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Gender");
+
+                    b.Property<int>("PrimaryId")
+                        .HasColumnType("int")
+                        .HasColumnName("PrimaryId");
+
+                    b.Property<string>("Relationship")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Relationship");
+
+                    b.Property<string>("Second_Lang")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Second_Lang");
+
+                    b.Property<string>("Third_Lang")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Third_Lang");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PrimaryId");
+
+                    b.ToTable("Companions", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Cultural", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("IfYesHowMuch")
+                        .HasColumnType("int")
+                        .HasColumnName("IfYesHowMuch");
+
+                    b.Property<int>("ImmigrantCommunity")
+                        .HasColumnType("int")
+                        .HasColumnName("ImmigrantCommunity");
+
+                    b.Property<bool>("NationalMatters")
+                        .HasColumnType("bit")
+                        .HasColumnName("NationalMatters");
+
+                    b.Property<int>("ReligiousMatters")
+                        .HasColumnType("int")
+                        .HasColumnName("ReligiousMatters");
+
+                    b.Property<int>("Similarity")
+                        .HasColumnType("int")
+                        .HasColumnName("Similarity");
+
+                    b.Property<int>("UserAnswerId")
+                        .HasColumnType("int")
+                        .HasColumnName("UserAnswerId");
+
+                    b.Property<int?>("UserAnswerId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserAnswerId");
+
+                    b.HasIndex("UserAnswerId1")
+                        .IsUnique()
+                        .HasFilter("[UserAnswerId1] IS NOT NULL");
+
+                    b.ToTable("Cultural", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Economy", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CurrentJob")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("CurrentJob");
+
+                    b.Property<string>("CurrentSaving")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("CurrentSaving");
+
+                    b.Property<string>("PreferredJob")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("PreferredJob");
+
+                    b.Property<string>("PreferredSaving")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("PreferredSaving");
+
+                    b.Property<int>("UserAnswerId")
+                        .HasColumnType("int")
+                        .HasColumnName("UserAnswerId");
+
+                    b.Property<int?>("UserAnswerId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserAnswerId");
+
+                    b.HasIndex("UserAnswerId1")
+                        .IsUnique()
+                        .HasFilter("[UserAnswerId1] IS NOT NULL");
+
+                    b.ToTable("Economy", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Environmental", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Cloudy")
+                        .HasColumnType("int")
+                        .HasColumnName("Cloudy");
+
+                    b.Property<int>("Moderate")
+                        .HasColumnType("int")
+                        .HasColumnName("Moderate");
+
+                    b.Property<int>("Snowy")
+                        .HasColumnType("int")
+                        .HasColumnName("Snowy");
+
+                    b.Property<bool>("SpecialWeather")
+                        .HasColumnType("bit")
+                        .HasColumnName("SpecialWeather");
+
+                    b.Property<int>("Sunny")
+                        .HasColumnType("int")
+                        .HasColumnName("Sunny ");
+
+                    b.Property<int>("UnusualDaytime")
+                        .HasColumnType("int")
+                        .HasColumnName("UnusualDaytime");
+
+                    b.Property<int>("UserAnswerId")
+                        .HasColumnType("int")
+                        .HasColumnName("UserAnswerId");
+
+                    b.Property<int?>("UserAnswerId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserAnswerId");
+
+                    b.HasIndex("UserAnswerId1")
+                        .IsUnique()
+                        .HasFilter("[UserAnswerId1] IS NOT NULL");
+
+                    b.ToTable("Environmental", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Mental", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FamilyVisit")
+                        .HasColumnType("int")
+                        .HasColumnName("FamilyVisit");
+
+                    b.Property<string>("First")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("First");
+
+                    b.Property<bool>("MentalIll")
+                        .HasColumnType("bit")
+                        .HasColumnName("MentalIll");
+
+                    b.Property<string>("Secend")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Secend");
+
+                    b.Property<string>("Third")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Third");
+
+                    b.Property<int>("UserAnswerId")
+                        .HasColumnType("int")
+                        .HasColumnName("UserAnswerId");
+
+                    b.Property<int?>("UserAnswerId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserAnswerId");
+
+                    b.HasIndex("UserAnswerId1")
+                        .IsUnique()
+                        .HasFilter("[UserAnswerId1] IS NOT NULL");
+
+                    b.ToTable("Mental", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.MostImportants", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("FirstProblem")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("FirstProblem");
+
+                    b.Property<string>("SecendProblem")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("SecendProblem");
+
+                    b.Property<int>("UserAnswerId")
+                        .HasColumnType("int")
+                        .HasColumnName("UserAnswerId");
+
+                    b.Property<int?>("UserAnswerId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserAnswerId");
+
+                    b.HasIndex("UserAnswerId1")
+                        .IsUnique()
+                        .HasFilter("[UserAnswerId1] IS NOT NULL");
+
+                    b.ToTable("MostImportants", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Physical", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FastFood")
+                        .HasColumnType("int")
+                        .HasColumnName("FastFood");
+
+                    b.Property<string>("First")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("First");
+
+                    b.Property<string>("MedicineCost")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("MedicineCost");
+
+                    b.Property<string>("MedicineNeed")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("MedicineNeed");
+
+                    b.Property<string>("Secend")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Secend");
+
+                    b.Property<int>("SpecialFood")
+                        .HasColumnType("int")
+                        .HasColumnName("SpecialFood");
+
+                    b.Property<bool>("SpecialIll")
+                        .HasColumnType("bit")
+                        .HasColumnName("SpecialIll");
+
+                    b.Property<string>("Third")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Third");
+
+                    b.Property<int>("TraditionalFood")
+                        .HasColumnType("int")
+                        .HasColumnName("TraditionalFood");
+
+                    b.Property<int>("UserAnswerId")
+                        .HasColumnType("int")
+                        .HasColumnName("UserAnswerId");
+
+                    b.Property<int?>("UserAnswerId1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Vegeterian")
+                        .HasColumnType("int")
+                        .HasColumnName("Vegeterian");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserAnswerId");
+
+                    b.HasIndex("UserAnswerId1")
+                        .IsUnique()
+                        .HasFilter("[UserAnswerId1] IS NOT NULL");
+
+                    b.ToTable("Physical", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Primary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Age")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Age");
+
+                    b.Property<string>("First_Lang")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("First_Lang");
+
+                    b.Property<string>("First_LangLevel")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("First_LangLevel");
+
+                    b.Property<string>("MaritalStatus")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("MaritalStatus");
+
+                    b.Property<int>("NumberOfCompanions")
+                        .HasColumnType("int")
+                        .HasColumnName("NumberOfCompanions");
+
+                    b.Property<string>("Preferred_Visa_Type")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Preferred_Visa_Type");
+
+                    b.Property<string>("Second_Lang")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Second_Lang");
+
+                    b.Property<string>("Second_LangLevel")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Second_LangLevel");
+
+                    b.Property<string>("Sex")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Sex");
+
+                    b.Property<string>("Third_Lang")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Third_Lang");
+
+                    b.Property<string>("Third_LangLevel")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Third_LangLevel");
+
+                    b.Property<int>("UserAnswerId")
+                        .HasColumnType("int")
+                        .HasColumnName("UserAnswerId");
+
+                    b.Property<int?>("UserAnswerId1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("User_Destination")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("User_Destination");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserAnswerId");
+
+                    b.HasIndex("UserAnswerId1")
+                        .IsUnique()
+                        .HasFilter("[UserAnswerId1] IS NOT NULL");
+
+                    b.ToTable("Primary", "dbo");
+                });
+
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.User", b =>
                 {
                     b.Property<int>("Id")
@@ -775,6 +1214,62 @@ namespace Telamingo.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserAnwer", "dbo");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.UserInformation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("Email");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("Name");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("PhoneNumber");
+
+                    b.Property<int>("UserAnswerId")
+                        .HasColumnType("int")
+                        .HasColumnName("UserAnswerId");
+
+                    b.Property<int?>("UserAnswerId1")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserAnswerId");
+
+                    b.HasIndex("UserAnswerId1")
+                        .IsUnique()
+                        .HasFilter("[UserAnswerId1] IS NOT NULL");
+
+                    b.ToTable("UserInformation", "dbo");
                 });
 
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.AdminAggregate.Admin", b =>
@@ -1017,6 +1512,137 @@ namespace Telamingo.Infrastructure.Migrations
                     b.Navigation("Question");
                 });
 
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Companions", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.Primary", "Primary")
+                        .WithMany("Companions")
+                        .HasForeignKey("PrimaryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Primary");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Cultural", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", "UserAnswer")
+                        .WithMany("Culturals")
+                        .HasForeignKey("UserAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", null)
+                        .WithOne("Cultural")
+                        .HasForeignKey("Telamingo.Domain.AggregateModels.UserAggregate.Cultural", "UserAnswerId1");
+
+                    b.Navigation("UserAnswer");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Economy", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", "UserAnswer")
+                        .WithMany("Economys")
+                        .HasForeignKey("UserAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", null)
+                        .WithOne("Economy")
+                        .HasForeignKey("Telamingo.Domain.AggregateModels.UserAggregate.Economy", "UserAnswerId1");
+
+                    b.Navigation("UserAnswer");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Environmental", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", "UserAnswer")
+                        .WithMany("Environmentals")
+                        .HasForeignKey("UserAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", null)
+                        .WithOne("Environmental")
+                        .HasForeignKey("Telamingo.Domain.AggregateModels.UserAggregate.Environmental", "UserAnswerId1");
+
+                    b.Navigation("UserAnswer");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Mental", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", "UserAnswer")
+                        .WithMany("Mentals")
+                        .HasForeignKey("UserAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", null)
+                        .WithOne("Mental")
+                        .HasForeignKey("Telamingo.Domain.AggregateModels.UserAggregate.Mental", "UserAnswerId1");
+
+                    b.Navigation("UserAnswer");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.MostImportants", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", "UserAnswer")
+                        .WithMany("MostImportantss")
+                        .HasForeignKey("UserAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", null)
+                        .WithOne("MostImportants")
+                        .HasForeignKey("Telamingo.Domain.AggregateModels.UserAggregate.MostImportants", "UserAnswerId1");
+
+                    b.Navigation("UserAnswer");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Physical", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", "UserAnswer")
+                        .WithMany("Physicals")
+                        .HasForeignKey("UserAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", null)
+                        .WithOne("Physical")
+                        .HasForeignKey("Telamingo.Domain.AggregateModels.UserAggregate.Physical", "UserAnswerId1");
+
+                    b.Navigation("UserAnswer");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Primary", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", "UserAnswer")
+                        .WithMany("Primarys")
+                        .HasForeignKey("UserAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", null)
+                        .WithOne("Primary")
+                        .HasForeignKey("Telamingo.Domain.AggregateModels.UserAggregate.Primary", "UserAnswerId1");
+
+                    b.Navigation("UserAnswer");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.UserInformation", b =>
+                {
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", "UserAnswer")
+                        .WithMany("UserInformations")
+                        .HasForeignKey("UserAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", null)
+                        .WithOne("UserInformation")
+                        .HasForeignKey("Telamingo.Domain.AggregateModels.UserAggregate.UserInformation", "UserAnswerId1");
+
+                    b.Navigation("UserAnswer");
+                });
+
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.AdminAggregate.AdminRole", b =>
                 {
                     b.Navigation("Admins");
@@ -1108,6 +1734,54 @@ namespace Telamingo.Infrastructure.Migrations
             modelBuilder.Entity("Telamingo.Domain.AggregateModels.SharedAggregate.Weather", b =>
                 {
                     b.Navigation("culturalweatherInformation");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.Primary", b =>
+                {
+                    b.Navigation("Companions");
+                });
+
+            modelBuilder.Entity("Telamingo.Domain.AggregateModels.UserAggregate.UserAnswer", b =>
+                {
+                    b.Navigation("Cultural")
+                        .IsRequired();
+
+                    b.Navigation("Culturals");
+
+                    b.Navigation("Economy")
+                        .IsRequired();
+
+                    b.Navigation("Economys");
+
+                    b.Navigation("Environmental")
+                        .IsRequired();
+
+                    b.Navigation("Environmentals");
+
+                    b.Navigation("Mental")
+                        .IsRequired();
+
+                    b.Navigation("Mentals");
+
+                    b.Navigation("MostImportants")
+                        .IsRequired();
+
+                    b.Navigation("MostImportantss");
+
+                    b.Navigation("Physical")
+                        .IsRequired();
+
+                    b.Navigation("Physicals");
+
+                    b.Navigation("Primary")
+                        .IsRequired();
+
+                    b.Navigation("Primarys");
+
+                    b.Navigation("UserInformation")
+                        .IsRequired();
+
+                    b.Navigation("UserInformations");
                 });
 #pragma warning restore 612, 618
         }

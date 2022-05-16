@@ -31,7 +31,7 @@
 .active{
     height: 25px;
     width: 25px;
-    background-color: orange;
+    background-color: #ff6600;
     border-radius: 50%;
     display: inline-block;
 }
@@ -51,8 +51,8 @@
 }
 .nextQuestionButtonActive{
     color: white;
-    background-color: orange;
-    border: 1px solid orange;
+    background-color: #ff6600;
+    border: 1px solid #ff6600;
     border-radius: 20px;
     padding: 5px 20px;
 }
@@ -94,10 +94,11 @@
     height: 100%;
     /*border-radius: 10px;*/
 }
-.creedRate button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .creedRate button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .creedRate div:hover{
     color: black;
 }
@@ -138,10 +139,11 @@
 .creedRateM div:nth-last-child(1) button{
     border-radius: 0 0 10px 10px;
 }
-.creedRateM button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .creedRateM button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .creedRateM div:hover{
     color: black;
 }
@@ -150,9 +152,10 @@
     display: flex;
     justify-content:space-between;
 }
-.creedRateDsc span{
-    color: #939292;
-}
+    .creedRateDsc span {
+        color: #939292;
+        font-size: 15px;
+    }
 .creedRateDscM span{
     color: #939292;
 }

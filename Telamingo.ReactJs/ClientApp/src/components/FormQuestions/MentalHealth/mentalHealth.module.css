@@ -32,7 +32,7 @@
 .active{
     height: 25px;
     width: 25px;
-    background-color: orange;
+    background-color: #ff6600;
     border-radius: 50%;
     display: inline-block;
 }
@@ -47,16 +47,16 @@
     color: white;
     background-color: lightgrey;
     border: 1px solid lightgrey;
-    border-radius: 20px;
-    padding: 5px 20px;
+    border-radius: 5px;
+    height: 60px;
 }
 .nextQuestionButtonActive{
     width: 115px;
     color: white;
-    background-color: orange;
-    border: 1px solid orange;
-    border-radius: 20px;
-    padding: 5px 20px;
+    background-color: #ff6600;
+    border: 1px solid #ff6600;
+    border-radius: 5px;
+    height: 60px;
 }
 .nextQuestionButtonActive:hover{
     background-color: rgba(231,78,11,0.89);
@@ -68,7 +68,7 @@
 }
 .haveMentalSick div{
     border-radius: 10px;
-    border: 1px solid orange;
+    border: 1px solid #ff6600;
     width: 200px;
     height: 100px;
     box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -85,14 +85,16 @@
     height: 100%;
     border-radius: 10px;
 }
-.haveMentalSick button:hover{
-    background-color: orange;
+    .haveMentalSick button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
+/*.haveMentalSick div:hover{
+    background-color: #ff6600;
     color: white;
 }
-.haveMentalSick div:hover{
-    background-color: orange;
-    color: white;
-}
+*/
 .haveMentalSickM{
     width: 100%;
     display: flex;
@@ -102,7 +104,7 @@
 }
 .haveMentalSickM div{
     border-radius: 10px;
-    border: 1px solid orange;
+    border: 1px solid #ff6600;
     width: 100%;
     height: 100px;
     box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -119,16 +121,19 @@
     height: 100%;
     border-radius: 10px;
 }
-.haveMentalSickM button:hover{
-    background-color: orange;
+    .haveMentalSickM button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
+/*.haveMentalSickM div:hover{
+    background-color: #ff6600;
     color: white;
 }
-.haveMentalSickM div:hover{
-    background-color: orange;
-    color: white;
-}
-.chooseMentalSick{
+*/
+.chooseMentalSick {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     width: 100%;
 }
@@ -141,11 +146,10 @@
     height: 20px;
 }
 .otherMentalIllness{
-    margin: 0 0!important;
     border: none;
     border-bottom: 1px solid lightgrey;
     outline: none;
-    width: 100px !important;
+    width: 220px !important;
 }
 .chooseMentalSickM{
     display: flex;
@@ -174,7 +178,7 @@
     border-radius: 10px;
     border: 1px solid lightgrey;
     width: 100%;
-    height: 100px;
+    height: 60px;
     box-shadow :0 1px 2px 0 rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
@@ -189,10 +193,11 @@
     height: 100%;
     border-radius: 10px;
 }
-.chooseMeetingRate button:hover{
-    border: 1px solid orange;
-    color: black;
-}
+    .chooseMeetingRate button:hover {
+        border: 1px solid #ff6600;
+        color: black;
+        background: #fff0e6;
+    }
 .chooseMeetingRate div:hover{
     color: black;
 }

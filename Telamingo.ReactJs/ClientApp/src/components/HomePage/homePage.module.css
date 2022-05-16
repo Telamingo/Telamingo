@@ -55,7 +55,7 @@
     outline: none;
 }
 .selectCountryButton{
-    background-color: orange;
+    background-color: #ff6600;
     border: none;
     border-radius: 35px;
     margin: 5px;
@@ -73,7 +73,7 @@
     text-decoration: none;
 }
 .selectCountryButtonM{
-    background-color: orange;
+    background-color: #ff6600;
     border: none;
     border-radius: 35px;
     margin: 5px;
@@ -95,9 +95,10 @@
     display: flex;
     justify-content: space-around;
 }
-.chooseCountryLabel{
+.chooseCountryLabel {
     width: 100%;
     text-align: center;
+    margin-bottom: 0;
 }
 .chooseCountrySelect{
     outline: none;

@@ -107,21 +107,6 @@ namespace Infrastructure.Repositories.CountryRepository
         public async Task<List<Country>> GetAllAsync()
         {
             List<Country> countrys = await _context.Countries
-                //.Include(x => x.educationalInformation)
-                //.ThenInclude(a => a.educationalInformationTuitions)
-                //.Include(x => x.educationalInformation)
-                //.ThenInclude(a => a.educationalProbabilityOfAcceptances)
-                //.Include(x => x.environmentalInformation)
-                //.ThenInclude(a => a.environmentalLanguageInformation)
-                //.Include(x => x.mentalHealthInformation)
-                //.ThenInclude(a => a.mentalHealthPossibilityOfExacerbationOfTheDisorders)
-                //.Include(x => x.PhysicalHealthInformation)
-                //.ThenInclude(a => a.physicalHealthDesiredFoods)
-                //.Include(x => x.welfareInformation)
-                //.Include(x => x.culturalInformation)
-                //.ThenInclude(a => a.culturalClimateInformation)
-                //.Include(x => x.culturalInformation)
-                //.ThenInclude(a => a.culturalweatherInformation)
                 .ToListAsync();
 
             if (countrys == null)

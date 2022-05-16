@@ -3,6 +3,7 @@ using Domain.Dtos.User;
 using Domain.SeedWork;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -55,5 +56,21 @@ namespace Infrastructure.Repositories.UserRepository
         //        throw new UnauthorizedAccessException(message: "user was not found");
         //    }
         //}
+
+        public async Task AddUserAnswerAsync(UserAnswer model)
+        {
+            _context.UserAnwers.Add(model);
+            await UnitOfWork.SaveChangesAsync();
+        }
+        public async Task<List<UserInformation>> GetUserList()
+        {
+            List<UserInformation>? users = await _context.UserInformations.ToListAsync();
+            if (users == null)
+            {
+                throw new Exception("user was not found");
+            }
+            return users;
+        }
+
     }
 }

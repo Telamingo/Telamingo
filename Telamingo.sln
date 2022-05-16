@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{AB1FD0D7-99EC-474A-86FF-F9003CF2C07F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telamingo.ReactJs", "Telamingo.ReactJs\Telamingo.ReactJs.csproj", "{1676FCBE-4F6E-4344-BA31-028FCD884CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telamingo.ReactJs", "Telamingo.ReactJs\Telamingo.ReactJs.csproj", "{1676FCBE-4F6E-4344-BA31-028FCD884CF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

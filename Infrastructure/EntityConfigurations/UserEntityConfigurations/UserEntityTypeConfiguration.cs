@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domain.AggregateModels.UserAggregate;
+using Infrastructure;
 
-namespace Infrastructure.EntityConfigurations.UserEntityConfigurations
+namespace Telamingo.Infrastructure.EntityConfigurations.UserEntityConfigurations
 {
     public class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
     {

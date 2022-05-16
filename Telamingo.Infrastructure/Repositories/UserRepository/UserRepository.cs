@@ -34,6 +34,30 @@ public class UserRepository : IUserRepository
             Password = user.Password,
         };
     }
+    public async Task<List<UserInformation>> GetUserList()
+    {
+        List<UserInformation>? users = await _context.UserInformations.ToListAsync();
+        if (users == null)
+        {
+            throw new Exception("user was not found");
+        }
+        return users;
+    }
+    public async Task<UserAnswer> GetAnswer(int id)
+    {
+        UserAnswer answer = await _context.UserAnswers.Where(x => x.Id == id)
+            .Include(a => a.Culturals)
+            .Include(a => a.Economys)
+            .Include(a => a.Environmentals)
+            .Include(a => a.Mentals)
+            .Include(a => a.MostImportantss)
+            .Include(a => a.Physicals)
+            .Include(a => a.Primarys).ThenInclude(b => b.Companions)
+            .Include(a => a.UserInformations)
+            .FirstAsync();
+
+        return answer;
+    }
 
     //public async Task<UserDto> GetUserByEmailAndPasswordAsync(string email, string password, CancellationToken cancellationToken)
     //{
