@@ -116,7 +116,7 @@ const EnvironmentQuestions = (props) => {
                 "Second_LangLevel": "",
                 "Third_Lang": "",
                 "Third_LangLevel": "",
-                "Marriage": props.personalAnswers[2],
+                "MaritalStatus": props.personalAnswers[2],
                 "NumberOfCompanions": parseInt(props.personalAnswers[props.personalAnswers.length - 1])
             }
         }
