@@ -393,7 +393,7 @@ const HealthQuestion = (props) => {
                                                     <React.Fragment>
                                                         <div className={`mb-3 ${style.question}`}>
                                                             <p>
-                                                                Is the weather matters to you?
+                                                                Do you follow a certain food lifestyle?
                                                             </p>
                                                         </div>
                                                         <div className={` ${!props.isMobile ? style.chooseHaveSick : style.chooseHaveSickM} mt-3 ${!props.isMobile ? " ":`row`}`}>
