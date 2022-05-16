@@ -121,7 +121,25 @@ const EnvironmentQuestions = (props) => {
                }
            }
        console.log(UserAnswerDto)
+
+
+       fetch('http://localhost:3000/api/form/userAnswer', {
+           method: 'POST',
+           headers: {
+               'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(UserAnswerDto),
+       })
+           .then(response => response.json())
+           .then(UserAnswerDto => {
+               console.log('Success:', UserAnswerDto);
+           })
+           .catch((error) => {
+               console.error('Error:', error);
+           });
+
    }
+
 console.log(environmentAnswer)
 
 
