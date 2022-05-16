@@ -50,7 +50,7 @@ namespace Telamingo.ReactJs.Controllers
 
                 throw ex;
             }
-            //await answerService.AddAsync(model);
+            await answerService.AddAsync(model);
             return Ok();
         }
     }
