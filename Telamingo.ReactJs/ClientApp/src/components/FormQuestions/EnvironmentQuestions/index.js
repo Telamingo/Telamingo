@@ -59,7 +59,7 @@ const EnvironmentQuestions = (props) => {
         setEnvironmentAnswer([...environmentAnswer, answer])
     }
 
-    if (environmentAnswer.length >= 10) {
+    if (environmentAnswer.length >= 8) {
         const UserAnswerDto = {
             "UserInformation": {
                 "Name": environmentAnswer[7][0],
@@ -162,7 +162,7 @@ const EnvironmentQuestions = (props) => {
                                                 <React.Fragment>
                                                     <div className={`mb-3 ${style.question}`}>
                                                         <p>
-                                                            How compatible are you with any of the following weather conditions?
+                                                            Is the weather matters to you?
                                                         </p>
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.chooseHaveSick : style.chooseHaveSickM} mt-3 ${!props.isMobile ? " ":`row`}`}>
