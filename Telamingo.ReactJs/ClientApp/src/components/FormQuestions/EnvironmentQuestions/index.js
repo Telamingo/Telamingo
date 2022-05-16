@@ -59,7 +59,7 @@ const EnvironmentQuestions = (props) => {
         setEnvironmentAnswer([...environmentAnswer, answer])
     }
 
-    if (environmentAnswer.length >= 8) {
+    if (environmentAnswer.length >= 9) {
         const UserAnswerDto = {
             "UserInformation": {
                 "Name": environmentAnswer[7][0],
