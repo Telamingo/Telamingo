@@ -40,6 +40,9 @@ const HealthQuestion = (props) => {
         setHealthAnswer([...healthAnswer,answer])
     }
 
+    // if(healthAnswer.length>=6){
+    //     console.log(healthAnswer[healthAnswer.length-3])
+    // }
     console.log(healthAnswer)
 
 

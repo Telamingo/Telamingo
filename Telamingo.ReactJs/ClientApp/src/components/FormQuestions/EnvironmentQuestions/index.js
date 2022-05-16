@@ -101,9 +101,9 @@ const EnvironmentQuestions = (props) => {
                 "Secend": "",
                 "Third": "",
                 "MedicineCost": props.healthAnswer[props.healthAnswer.length-4],
-                "TraditionalFood": parseInt(props.healthAnswer[4]),
-                "FastFood": parseInt(props.healthAnswer[4]),
-                "Vegeterian": parseInt(props.healthAnswer[4])
+                "TraditionalFood": parseInt(props.healthAnswer[props.healthAnswer.length-3]),
+                "FastFood": parseInt(props.healthAnswer[props.healthAnswer.length-2]),
+                "Vegeterian": parseInt(props.healthAnswer[props.healthAnswer.length-1])
             },
             "Primary": {
                 "User_Destination": "canada",
