@@ -11,6 +11,7 @@ const EnvironmentQuestions = (props) => {
     const [secondEnvironmentRate, setSecondEnvironmentRate] = useState(false);
     const [thirdEnvironmentRate, setThirdEnvironmentRate] = useState(false);
     const [forthEnvironmentRate, setForthEnvironmentRate] = useState(false);
+    const [weatherConditions, setWeatherConditions] = useState(false);
     const [firstChallenge, setFirstChallenge] = useState("");
     const [secondChallenge, setSecondChallenge] = useState("");
     const [thirdChallenge, setThirdChallenge] = useState("");
@@ -58,7 +59,7 @@ const EnvironmentQuestions = (props) => {
         setEnvironmentAnswer([...environmentAnswer, answer])
     }
 
-    if (environmentAnswer.length >= 8) {
+    if (environmentAnswer.length >= 10) {
         const UserAnswerDto = {
             "UserInformation": {
                 "Name": environmentAnswer[7][0],
@@ -78,11 +79,12 @@ const EnvironmentQuestions = (props) => {
                 "PreferredSaving": props.economyAnswer[2]
             },
             "Environmental": {
-                "Cloudy": parseInt(environmentAnswer[1]),
-                "Snowy": parseInt(environmentAnswer[2]),
-                "Sunny": parseInt(environmentAnswer[3]),
-                "Moderate": parseInt(environmentAnswer[4]),
-                "UnusualDaytime": parseInt(environmentAnswer[5])
+                "SpecialWeather":parseInt(environmentAnswer[1]),
+                "Cloudy": parseInt(environmentAnswer[2]),
+                "Snowy": parseInt(environmentAnswer[3]),
+                "Sunny": parseInt(environmentAnswer[4]),
+                "Moderate": parseInt(environmentAnswer[5]),
+                "UnusualDaytime": parseInt(environmentAnswer[6])
             },
             "Mental": {
                 "MentalIll": props.mentalHealthAnswer[1],
@@ -92,15 +94,16 @@ const EnvironmentQuestions = (props) => {
                 "FamilyVisit": props.mentalHealthAnswer[props.mentalHealthAnswer.length - 1]
             },
             "MostImportants": {
-                "Problems": environmentAnswer[6]
+                "Problems": ""
             },
             "Physical": {
                 "MedicineNeed": props.healthAnswer[1],
                 "SpecialIll": props.healthAnswer[2],
+                "SpecialFood":props.healthAnswer[props.healthAnswer.length-4],
                 "First": "",
                 "Secend": "",
                 "Third": "",
-                "MedicineCost": props.healthAnswer[props.healthAnswer.length-4],
+                "MedicineCost": props.healthAnswer[props.healthAnswer.length-5],
                 "TraditionalFood": parseInt(props.healthAnswer[props.healthAnswer.length-3]),
                 "FastFood": parseInt(props.healthAnswer[props.healthAnswer.length-2]),
                 "Vegeterian": parseInt(props.healthAnswer[props.healthAnswer.length-1])
@@ -154,234 +157,261 @@ const EnvironmentQuestions = (props) => {
                             {
                                 !firstQuestion ? (
                                     <React.Fragment>
-                                        <div className={`mb-3 ${style.question}`}>
-                                            <p>
-                                                How compatible are you with any of the following weather conditions?
-                                            </p>
-                                        </div>
                                         {
-                                            !firstEnvironmentRate ? (
-                                                <div className={`mt-3 mb-5 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
-                                                    <div>
-                                                        <label>Mostly cloudy and rainy:</label>
-                                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setFirstEnvironmentRate(true);
-                                                                    setAnswer("0")
-                                                                }}>0
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setFirstEnvironmentRate(true);
-                                                                    setAnswer("1")
-                                                                }}>1
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setFirstEnvironmentRate(true);
-                                                                    setAnswer("2")
-                                                                }}>2
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setFirstEnvironmentRate(true);
-                                                                    setAnswer("3")
-                                                                }}>3
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setFirstEnvironmentRate(true);
-                                                                    setAnswer("4")
-                                                                }}>4
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setFirstEnvironmentRate(true);
-                                                                    setAnswer("5")
-                                                                }}>5
-                                                                </button>
-                                                            </div>
+                                            !weatherConditions ? (
+                                                <React.Fragment>
+                                                    <div className={`mb-3 ${style.question}`}>
+                                                        <p>
+                                                            How compatible are you with any of the following weather conditions?
+                                                        </p>
+                                                    </div>
+                                                    <div className={` ${!props.isMobile ? style.chooseHaveSick : style.chooseHaveSickM} mt-3 ${!props.isMobile ? " ":`row`}`}>
+                                                        <div>
+                                                            <button onClick={() => {
+                                                                setWeatherConditions(true);
+                                                                setAnswer(false)
+                                                            }}>No</button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => {
+                                                                setWeatherConditions(true);
+                                                                setAnswer(true)
+                                                            }}>Yes</button>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            ) : !secondEnvironmentRate ? (
-                                                <div className={`mt-3 mb-5 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
-                                                    <div>
-                                                        <label>Mostly snowy: </label>
-                                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setSecondEnvironmentRate(true);
-                                                                    setAnswer("0")
-                                                                }}>0
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setSecondEnvironmentRate(true);
-                                                                    setAnswer("1")
-                                                                }}>1
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setSecondEnvironmentRate(true);
-                                                                    setAnswer("2")
-                                                                }}>2
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setSecondEnvironmentRate(true);
-                                                                    setAnswer("3")
-                                                                }}>3
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setSecondEnvironmentRate(true);
-                                                                    setAnswer("4")
-                                                                }}>4
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button onClick={()=> {
-                                                                    setSecondEnvironmentRate(true);
-                                                                    setAnswer("5")
-                                                                }}>5
-                                                                </button>
-                                                            </div>
-                                                        </div>
+                                                </React.Fragment>
+                                            ):
+                                                <React.Fragment>
+                                                    <div className={`mb-3 ${style.question}`}>
+                                                        <p>
+                                                            How compatible are you with any of the following weather conditions?
+                                                        </p>
                                                     </div>
-                                                    <div className={`${style.buttons}`}>
-                                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
-                                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                    onClick={() => setFirstEnvironmentRate(false)}>previous
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : !thirdEnvironmentRate ? (
-                                                <div className={`mt-3 mb-5 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
-                                                   <div>
-                                                       <label>Mostly Sunny:</label>
-                                                       <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
-                                                           <div>
-                                                               <button onClick={()=> {
-                                                                   setThirdEnvironmentRate(true);
-                                                                   setAnswer("0")
-                                                               }}>0
-                                                               </button>
-                                                           </div>
-                                                           <div>
-                                                               <button onClick={()=> {
-                                                                   setThirdEnvironmentRate(true);
-                                                                   setAnswer("1")
-                                                               }}>1
-                                                               </button>
-                                                           </div>
-                                                           <div>
-                                                               <button onClick={()=> {
-                                                                   setThirdEnvironmentRate(true);
-                                                                   setAnswer("2")
-                                                               }}>2
-                                                               </button>
-                                                           </div>
-                                                           <div>
-                                                               <button onClick={()=> {
-                                                                   setThirdEnvironmentRate(true);
-                                                                   setAnswer("3")
-                                                               }}>3
-                                                               </button>
-                                                           </div>
-                                                           <div>
-                                                               <button onClick={()=> {
-                                                                   setThirdEnvironmentRate(true);
-                                                                   setAnswer("4")
-                                                               }}>4
-                                                               </button>
-                                                           </div>
-                                                           <div>
-                                                               <button onClick={()=> {
-                                                                   setThirdEnvironmentRate(true);
-                                                                   setAnswer("5")
-                                                               }}>5
-                                                               </button>
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                    <div className={`${style.buttons}`}>
-                                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
-                                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                    onClick={() => setSecondEnvironmentRate(false)}>previous
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ) : !forthEnvironmentRate && (
-                                                <div className={`mt-3 mb-5 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
-                                                  <div>
-                                                      <label>Four seasons and moderate:</label>
-                                                      <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
-                                                          <div>
-                                                              <button onClick={() => {
-                                                                  setFirstQuestion(true);
-                                                                  setAnswer("0")
-                                                              }}>0
-                                                              </button>
-                                                          </div>
-                                                          <div>
-                                                              <button onClick={() => {
-                                                                  setFirstQuestion(true);
-                                                                  setAnswer("1")
-                                                              }}>1
-                                                              </button>
-                                                          </div>
-                                                          <div>
-                                                              <button onClick={() => {
-                                                                  setFirstQuestion(true);
-                                                                  setAnswer("2")
-                                                              }}>2
-                                                              </button>
-                                                          </div>
-                                                          <div>
-                                                              <button onClick={() => {
-                                                                  setFirstQuestion(true);
-                                                                  setAnswer("3")
-                                                              }}>3
-                                                              </button>
-                                                          </div>
-                                                          <div>
-                                                              <button onClick={() => {
-                                                                  setFirstQuestion(true);
-                                                                  setAnswer("4")
-                                                              }}>4
-                                                              </button>
-                                                          </div>
-                                                          <div>
-                                                              <button onClick={() => {
-                                                                  setFirstQuestion(true);
-                                                                  setAnswer("5")
-                                                              }}>5
-                                                              </button>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                                    <div className={`${style.buttons}`}>
-                                                        <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
-                                                            <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                    onClick={() => setThirdEnvironmentRate(false)}>previous
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )
+                                                    {
+                                                        !firstEnvironmentRate ? (
+                                                            <div className={`mt-3 mb-5 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
+                                                                <div>
+                                                                    <label>Mostly cloudy and rainy:</label>
+                                                                    <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setFirstEnvironmentRate(true);
+                                                                                setAnswer("0")
+                                                                            }}>0
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setFirstEnvironmentRate(true);
+                                                                                setAnswer("1")
+                                                                            }}>1
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setFirstEnvironmentRate(true);
+                                                                                setAnswer("2")
+                                                                            }}>2
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setFirstEnvironmentRate(true);
+                                                                                setAnswer("3")
+                                                                            }}>3
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setFirstEnvironmentRate(true);
+                                                                                setAnswer("4")
+                                                                            }}>4
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setFirstEnvironmentRate(true);
+                                                                                setAnswer("5")
+                                                                            }}>5
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        ) : !secondEnvironmentRate ? (
+                                                            <div className={`mt-3 mb-5 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
+                                                                <div>
+                                                                    <label>Mostly snowy: </label>
+                                                                    <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setSecondEnvironmentRate(true);
+                                                                                setAnswer("0")
+                                                                            }}>0
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setSecondEnvironmentRate(true);
+                                                                                setAnswer("1")
+                                                                            }}>1
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setSecondEnvironmentRate(true);
+                                                                                setAnswer("2")
+                                                                            }}>2
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setSecondEnvironmentRate(true);
+                                                                                setAnswer("3")
+                                                                            }}>3
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setSecondEnvironmentRate(true);
+                                                                                setAnswer("4")
+                                                                            }}>4
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setSecondEnvironmentRate(true);
+                                                                                setAnswer("5")
+                                                                            }}>5
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className={`${style.buttons}`}>
+                                                                    <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
+                                                                        <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                                onClick={() => setFirstEnvironmentRate(false)}>previous
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        ) : !thirdEnvironmentRate ? (
+                                                            <div className={`mt-3 mb-5 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
+                                                                <div>
+                                                                    <label>Mostly Sunny:</label>
+                                                                    <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setThirdEnvironmentRate(true);
+                                                                                setAnswer("0")
+                                                                            }}>0
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setThirdEnvironmentRate(true);
+                                                                                setAnswer("1")
+                                                                            }}>1
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setThirdEnvironmentRate(true);
+                                                                                setAnswer("2")
+                                                                            }}>2
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setThirdEnvironmentRate(true);
+                                                                                setAnswer("3")
+                                                                            }}>3
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setThirdEnvironmentRate(true);
+                                                                                setAnswer("4")
+                                                                            }}>4
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={()=> {
+                                                                                setThirdEnvironmentRate(true);
+                                                                                setAnswer("5")
+                                                                            }}>5
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className={`${style.buttons}`}>
+                                                                    <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
+                                                                        <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                                onClick={() => setSecondEnvironmentRate(false)}>previous
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        ) : !forthEnvironmentRate && (
+                                                            <div className={`mt-3 mb-5 ${!props.isMobile ? style.environmentHoby:style.environmentHobyM}`}>
+                                                                <div>
+                                                                    <label>Four seasons and moderate:</label>
+                                                                    <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
+                                                                        <div>
+                                                                            <button onClick={() => {
+                                                                                setFirstQuestion(true);
+                                                                                setAnswer("0")
+                                                                            }}>0
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={() => {
+                                                                                setFirstQuestion(true);
+                                                                                setAnswer("1")
+                                                                            }}>1
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={() => {
+                                                                                setFirstQuestion(true);
+                                                                                setAnswer("2")
+                                                                            }}>2
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={() => {
+                                                                                setFirstQuestion(true);
+                                                                                setAnswer("3")
+                                                                            }}>3
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={() => {
+                                                                                setFirstQuestion(true);
+                                                                                setAnswer("4")
+                                                                            }}>4
+                                                                            </button>
+                                                                        </div>
+                                                                        <div>
+                                                                            <button onClick={() => {
+                                                                                setFirstQuestion(true);
+                                                                                setAnswer("5")
+                                                                            }}>5
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className={`${style.buttons}`}>
+                                                                    <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
+                                                                        <button className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
+                                                                                onClick={() => setThirdEnvironmentRate(false)}>previous
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    }
+                                                </React.Fragment>
                                         }
                                     </React.Fragment>
                                 ) : !secondQuestion ? (
