@@ -128,7 +128,9 @@ const EnvironmentQuestions = (props) => {
            headers: {
                'Content-Type': 'application/json',
            },
-           body: JSON.stringify(UserAnswerDto),
+           body: JSON.stringify({
+               userAnswerDto:UserAnswerDto
+           }),
        })
            .then(response => response.json())
            .then(UserAnswerDto => {
