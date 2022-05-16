@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import style from "./healthQuestion.module.css";
 import MentalHealth from "../MentalHealth";
 
@@ -9,14 +9,39 @@ const HealthQuestion = (props) => {
     const [thirdQuestion, setThirdQuestion] = useState(false);
     const [forthQuestion, setForthQuestion] = useState(false);
     const [haveASick, setHaveASick] = useState(false);
-    const [sick, setSick] = useState("");
+    const [firstSick, setFirstSick] = useState("");
+    const [secondSick, setSecondSick] = useState("");
+    const [thirdSick, setThirdSick] = useState("");
+    const [illness, setIllness] = useState("");
     const [firstMealRate, setFirstMealRate] = useState(false);
     const [secondMealRate, setSecondMealRate] = useState(false);
     const [thirdMealRate, setThirdMealRate] = useState(false);
+    const [healthAnswer, setHealthAnswer] = useState("");
 
-    const getSickVal =(e)=>{
-        setSick(e.target.value)
+    const getFirstSickVal =(e)=>{
+        setFirstSick(e.target.value)
     }
+    const getSecondSickVal =(e)=>{
+        setSecondSick(e.target.value)
+    }
+    const getThirdSickVal =(e)=>{
+        setThirdSick(e.target.value)
+    }
+
+    const combineIllness=  ()=>{
+         setIllness([...illness,firstSick,secondSick,thirdSick])
+    }
+
+    useEffect(()=>{
+        setAnswer(illness)
+    },[illness])
+
+    const setAnswer=(answer)=>{
+        setHealthAnswer([...healthAnswer,answer])
+    }
+
+    console.log(healthAnswer)
+
 
     return (
         <React.Fragment>
@@ -34,24 +59,39 @@ const HealthQuestion = (props) => {
                                         </div>
                                         <div className={` ${style.chooseSickRate} mt-3`}>
                                             <div>
-                                                <button onClick={() => setFirstQuestion(true)}>I rarely see a doctor / I rarely need a doctor
+                                                <button onClick={() => {
+                                                    setFirstQuestion(true);
+                                                    setAnswer("I rarely see a doctor / I rarely need a doctor")
+                                                }}>I rarely see a doctor / I rarely need a doctor
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFirstQuestion(true)}>I see a doctor for periodic checkups
+                                                <button onClick={() => {
+                                                    setFirstQuestion(true);
+                                                    setAnswer("I see a doctor for periodic checkups")
+                                                }}>I see a doctor for periodic checkups
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFirstQuestion(true)}>Due to certain diseases, I have to see a doctor regularly
+                                                <button onClick={() => {
+                                                    setFirstQuestion(true);
+                                                    setAnswer("Due to certain diseases, I have to see a doctor regularly")
+                                                }}>Due to certain diseases, I have to see a doctor regularly
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFirstQuestion(true)}>
+                                                <button onClick={() => {
+                                                    setFirstQuestion(true);
+                                                    setAnswer("I usually need a doctor urgently")
+                                                }}>
                                                     I usually need a doctor urgently
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFirstQuestion(true)}>I only go to traditional medicine doctors
+                                                <button onClick={() => {
+                                                    setFirstQuestion(true);
+                                                    setAnswer("I only go to traditional medicine doctors")
+                                                }}>I only go to traditional medicine doctors
                                                 </button>
                                             </div>
                                         </div>
@@ -68,10 +108,16 @@ const HealthQuestion = (props) => {
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.chooseHaveSick : style.chooseHaveSickM} mt-3 ${!props.isMobile ? " ":`row`}`}>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>No</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer(false)
+                                                            }}>No</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setHaveASick(true)}>Yes</button>
+                                                            <button onClick={() => {
+                                                                setHaveASick(true);
+                                                                setAnswer(true)
+                                                            }}>Yes</button>
                                                         </div>
                                                     </div>
                                                     <div className={`${!props.isMobile ? style.previousButton : style.previousButtonM}`}>
@@ -91,15 +137,15 @@ const HealthQuestion = (props) => {
                                                         <div className="mt-5">
                                                             <div className="mb-3">
                                                                 <label>First illness:</label>
-                                                                <input type="text" id="firstSickVal" onChange={getSickVal}/>
+                                                                <input type="text" onChange={getFirstSickVal}/>
                                                             </div>
                                                             <div className="mb-3">
                                                                 <label>Second illness:</label>
-                                                                <input type="text"/>
+                                                                <input type="text" onChange={getSecondSickVal}/>
                                                             </div>
                                                             <div className="mb-3">
                                                                 <label>Third illness:</label>
-                                                                <input type="text"/>
+                                                                <input type="text" onChange={getThirdSickVal}/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -110,7 +156,7 @@ const HealthQuestion = (props) => {
                                                             </button>
                                                         </div>
                                                         {
-                                                            sick === "" ?
+                                                            firstSick === "" ?
                                                                 <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                     <button
                                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
@@ -120,7 +166,10 @@ const HealthQuestion = (props) => {
                                                                 <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                     <button
                                                                         className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                        onClick={() => setSecondQuestion(true)}>next
+                                                                        onClick={() => {
+                                                                            setSecondQuestion(true);
+                                                                            combineIllness();
+                                                                        }}>next
                                                                     </button>
                                                                 </div>
                                                         }
@@ -139,22 +188,37 @@ const HealthQuestion = (props) => {
                                         </div>
                                         <div className={` ${!props.isMobile ? style.chooseHaveSick : style.chooseHaveSickM} mt-3 ${!props.isMobile ? " ":`row`}`}>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Over $ 10,000</button>
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Over $ 10,000")
+                                                }}>Over $ 10,000</button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Between $ 5,000 and $ 10,000
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Between $ 5,000 and $ 10,000")
+                                                }}>Between $ 5,000 and $ 10,000
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Between $ 2,000 and $ 5,000
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Between $ 2,000 and $ 5,000")
+                                                }}>Between $ 2,000 and $ 5,000
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Between $ 1,000 and $ 2,000
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Between $ 1,000 and $ 2,000")
+                                                }}>Between $ 1,000 and $ 2,000
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Less than $ 1,000
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Less than $ 1,000")
+                                                }}>Less than $ 1,000
                                                 </button>
                                             </div>
                                         </div>
@@ -178,27 +242,45 @@ const HealthQuestion = (props) => {
                                                         <label>Traditional dishes of my country:</label>
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                             <div>
-                                                                <button onClick={()=>setFirstMealRate(true)}>0
+                                                                <button onClick={()=> {
+                                                                    setFirstMealRate(true);
+                                                                    setAnswer("0")
+                                                                }}>0
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstMealRate(true)}>1
+                                                                <button onClick={()=> {
+                                                                    setFirstMealRate(true);
+                                                                    setAnswer("1")
+                                                                }}>1
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstMealRate(true)}>2
+                                                                <button onClick={()=> {
+                                                                    setFirstMealRate(true);
+                                                                    setAnswer("2")
+                                                                }}>2
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstMealRate(true)}>3
+                                                                <button onClick={()=> {
+                                                                    setFirstMealRate(true);
+                                                                    setAnswer("3")
+                                                                }}>3
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstMealRate(true)}>4
+                                                                <button onClick={()=> {
+                                                                    setFirstMealRate(true);
+                                                                    setAnswer("4")
+                                                                }}>4
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstMealRate(true)}>5
+                                                                <button onClick={()=> {
+                                                                    setFirstMealRate(true);
+                                                                    setAnswer("5")
+                                                                }}>5
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -210,27 +292,45 @@ const HealthQuestion = (props) => {
                                                         <label>Fast Food:</label>
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                             <div>
-                                                                <button onClick={()=>setSecondMealRate(true)}>0
+                                                                <button onClick={()=> {
+                                                                    setSecondMealRate(true);
+                                                                    setAnswer("0")
+                                                                }}>0
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondMealRate(true)}>1
+                                                                <button onClick={()=> {
+                                                                    setSecondMealRate(true);
+                                                                    setAnswer("1")
+                                                                }}>1
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondMealRate(true)}>2
+                                                                <button onClick={()=> {
+                                                                    setSecondMealRate(true);
+                                                                    setAnswer("2")
+                                                                }}>2
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondMealRate(true)}>3
+                                                                <button onClick={()=> {
+                                                                    setSecondMealRate(true);
+                                                                    setAnswer("3")
+                                                                }}>3
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondMealRate(true)}>4
+                                                                <button onClick={()=> {
+                                                                    setSecondMealRate(true);
+                                                                    setAnswer("4")
+                                                                }}>4
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondMealRate(true)}>5
+                                                                <button onClick={()=> {
+                                                                    setSecondMealRate(true);
+                                                                    setAnswer("5")
+                                                                }}>5
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -249,27 +349,33 @@ const HealthQuestion = (props) => {
                                                         <label>Vegetarian:</label>
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                             <div>
-                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>0
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
+                                                                setAnswer("0")}}>0
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>1
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
+                                                                setAnswer("1")}}>1
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>2
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
+                                                                setAnswer("2")}}>2
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>3
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
+                                                                setAnswer("3")}}>3
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true)}}>4
+                                                                <button onClick={()=>{setThirdMealRate(true);setForthQuestion(true);
+                                                                setAnswer("4")}}>4
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=> {setThirdMealRate(true);setForthQuestion(true)}}>5
+                                                                <button onClick={()=> {setThirdMealRate(true);setForthQuestion(true);
+                                                                setAnswer("5")}}>5
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -289,7 +395,7 @@ const HealthQuestion = (props) => {
                             }
                         </div>
                     </div>
-                ) : <MentalHealth isMobile={props.isMobile}/>
+                ) : <MentalHealth isMobile={props.isMobile} personalAnswers={props.personalAnswers} economyAnswer={props.economyAnswer} cultureAnswer={props.cultureAnswer} healthAnswer={healthAnswer}/>
             }
         </React.Fragment>
     )

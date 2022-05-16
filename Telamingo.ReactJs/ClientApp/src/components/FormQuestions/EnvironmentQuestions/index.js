@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import style from "./environmentQuestions.module.css"
 
 const EnvironmentQuestions = (props) => {
@@ -11,15 +11,120 @@ const EnvironmentQuestions = (props) => {
     const [secondEnvironmentRate, setSecondEnvironmentRate] = useState(false);
     const [thirdEnvironmentRate, setThirdEnvironmentRate] = useState(false);
     const [forthEnvironmentRate, setForthEnvironmentRate] = useState(false);
+    const [firstChallenge,setFirstChallenge]=useState("");
+    const [secondChallenge,setSecondChallenge]=useState("");
+    const [thirdChallenge,setThirdChallenge]=useState("");
+    const [forthChallenge,setForthChallenge]=useState("");
+    const [fifthChallenge,setFifthChallenge]=useState("");
+    const [challenges,setChallenges]=useState("");
+    const [firstInformation,setFirstInformation]=useState("");
+    const [secondInformation,setSecondInformation]=useState("");
+    const [thirdInformation,setThirdInformation]=useState("");
+    const [informations,setInformations]=useState("");
     const [finalAnswer, setFinalAnswer] = useState([]);
-
+    const [environmentAnswer, setEnvironmentAnswer] = useState("");
 
     function checkFinalAnswer(event) {
-
-        // setFinalAnswer((mentalProblem) => [...mentalProblem, event.target.value])
         setFinalAnswer(event.target.value)
     }
-    console.log(setForthEnvironmentRate);
+
+    const checkFirstChallenge=(e)=>{
+        setFirstChallenge(e.target.value)
+    }
+    const checkSecondChallenge=(e)=>{
+        setSecondChallenge(e.target.value)
+    }
+    const checkThirdChallenge=(e)=>{
+        setThirdChallenge(e.target.value)
+    }
+    const checkForthChallenge=(e)=>{
+        setForthChallenge(e.target.value)
+    }
+    const combineChallenges=()=>{
+        setChallenges([...challenges,firstChallenge,secondChallenge,thirdChallenge,forthChallenge,fifthChallenge])
+    }
+    useEffect(()=>{
+        setAnswer(challenges)
+    },[challenges])
+
+    const combineInformation=()=>{
+        setInformations([...informations,firstInformation,secondInformation,thirdInformation])
+    }
+    useEffect(()=>{
+        setAnswer(informations)
+    },[informations])
+
+    const setAnswer=(answer)=>{
+        setEnvironmentAnswer([...environmentAnswer,answer])
+    }
+
+   if(environmentAnswer.length >= 8){
+       const UserAnswerDto = {
+               "userInformation": {
+                   "name": environmentAnswer[7][0],
+                   "email": environmentAnswer[7][1],
+                   "phoneNumber": environmentAnswer[7][2]
+               },
+               "cultural": {
+                   "religiousMatters": parseInt(props.cultureAnswer[0]),
+                   "nationalMatters": parseInt(props.cultureAnswer[1]),
+                   "immigrantCommunity": parseInt(props.cultureAnswer[2]),
+                   "similarity": parseInt(props.cultureAnswer[3])
+               },
+               "economy": {
+                   "currentJob": props.economyAnswer[0],
+                   "currentSaving":  props.economyAnswer[3],
+                   "preferredJob": props.economyAnswer[1],
+                   "preferredSaving":  props.economyAnswer[2]
+               },
+               "environmental": {
+                   "cloudy": parseInt(environmentAnswer[1]),
+                   "snowy": parseInt(environmentAnswer[2]),
+                   "sunny": parseInt(environmentAnswer[3]),
+                   "moderate": parseInt(environmentAnswer[4]),
+                   "unusualDaytime": parseInt(environmentAnswer[5])
+               },
+               "mental": {
+                   "mentalIll": props.mentalHealthAnswer[1],
+                   "first": "",
+                   "secend": "",
+                   "third": "",
+                   "familyVisit": props.mentalHealthAnswer[props.mentalHealthAnswer.length-1]
+               },
+               "mostImportants": {
+                  "problems":environmentAnswer[6]
+               },
+               "physical": {
+                   "medicineNeed": props.healthAnswer[1],
+                   "specialIll": props.healthAnswer[2],
+                   "first": "",
+                   "secend": "",
+                   "third": "",
+                   "medicineCost": props.healthAnswer[3],
+                   "traditionalFood": parseInt(props.healthAnswer[4]),
+                   "fastFood": parseInt(props.healthAnswer[4]),
+                   "vegeterian": parseInt(props.healthAnswer[4])
+               },
+               "primary": {
+                   "user_Destination": "iran",
+                   "preferred_Visa_Type": "job",
+                   "age": props.personalAnswers[0],
+                   "sex": props.personalAnswers[1],
+                   "first_Lang": props.personalAnswers[3],
+                   "level": props.personalAnswers[4],
+                   "second_Lang": "",
+                   "second_LangLevel": "",
+                   "third_Lang": "",
+                   "third_LangLevel": "",
+                   "marriage":props.personalAnswers[2],
+                   "numberOfCompanions": parseInt(props.personalAnswers[props.personalAnswers.length-1])
+               }
+           }
+       console.log(UserAnswerDto)
+   }
+console.log(environmentAnswer)
+
+
     return (
         <React.Fragment>
             {
@@ -41,27 +146,45 @@ const EnvironmentQuestions = (props) => {
                                                         <label>Mostly cloudy and rainy:</label>
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                             <div>
-                                                                <button onClick={()=>setFirstEnvironmentRate(true)}>0
+                                                                <button onClick={()=> {
+                                                                    setFirstEnvironmentRate(true);
+                                                                    setAnswer("0")
+                                                                }}>0
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstEnvironmentRate(true)}>1
+                                                                <button onClick={()=> {
+                                                                    setFirstEnvironmentRate(true);
+                                                                    setAnswer("1")
+                                                                }}>1
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstEnvironmentRate(true)}>2
+                                                                <button onClick={()=> {
+                                                                    setFirstEnvironmentRate(true);
+                                                                    setAnswer("2")
+                                                                }}>2
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstEnvironmentRate(true)}>3
+                                                                <button onClick={()=> {
+                                                                    setFirstEnvironmentRate(true);
+                                                                    setAnswer("3")
+                                                                }}>3
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstEnvironmentRate(true)}>4
+                                                                <button onClick={()=> {
+                                                                    setFirstEnvironmentRate(true);
+                                                                    setAnswer("4")
+                                                                }}>4
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setFirstEnvironmentRate(true)}>5
+                                                                <button onClick={()=> {
+                                                                    setFirstEnvironmentRate(true);
+                                                                    setAnswer("5")
+                                                                }}>5
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -73,27 +196,45 @@ const EnvironmentQuestions = (props) => {
                                                         <label>Mostly snowy: </label>
                                                         <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                             <div>
-                                                                <button onClick={()=>setSecondEnvironmentRate(true)}>0
+                                                                <button onClick={()=> {
+                                                                    setSecondEnvironmentRate(true);
+                                                                    setAnswer("0")
+                                                                }}>0
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondEnvironmentRate(true)}>1
+                                                                <button onClick={()=> {
+                                                                    setSecondEnvironmentRate(true);
+                                                                    setAnswer("1")
+                                                                }}>1
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondEnvironmentRate(true)}>2
+                                                                <button onClick={()=> {
+                                                                    setSecondEnvironmentRate(true);
+                                                                    setAnswer("2")
+                                                                }}>2
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondEnvironmentRate(true)}>3
+                                                                <button onClick={()=> {
+                                                                    setSecondEnvironmentRate(true);
+                                                                    setAnswer("3")
+                                                                }}>3
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondEnvironmentRate(true)}>4
+                                                                <button onClick={()=> {
+                                                                    setSecondEnvironmentRate(true);
+                                                                    setAnswer("4")
+                                                                }}>4
                                                                 </button>
                                                             </div>
                                                             <div>
-                                                                <button onClick={()=>setSecondEnvironmentRate(true)}>5
+                                                                <button onClick={()=> {
+                                                                    setSecondEnvironmentRate(true);
+                                                                    setAnswer("5")
+                                                                }}>5
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -112,27 +253,45 @@ const EnvironmentQuestions = (props) => {
                                                        <label>Mostly Sunny:</label>
                                                        <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                            <div>
-                                                               <button onClick={()=>setThirdEnvironmentRate(true)}>0
+                                                               <button onClick={()=> {
+                                                                   setThirdEnvironmentRate(true);
+                                                                   setAnswer("0")
+                                                               }}>0
                                                                </button>
                                                            </div>
                                                            <div>
-                                                               <button onClick={()=>setThirdEnvironmentRate(true)}>1
+                                                               <button onClick={()=> {
+                                                                   setThirdEnvironmentRate(true);
+                                                                   setAnswer("1")
+                                                               }}>1
                                                                </button>
                                                            </div>
                                                            <div>
-                                                               <button onClick={()=>setThirdEnvironmentRate(true)}>2
+                                                               <button onClick={()=> {
+                                                                   setThirdEnvironmentRate(true);
+                                                                   setAnswer("2")
+                                                               }}>2
                                                                </button>
                                                            </div>
                                                            <div>
-                                                               <button onClick={()=>setThirdEnvironmentRate(true)}>3
+                                                               <button onClick={()=> {
+                                                                   setThirdEnvironmentRate(true);
+                                                                   setAnswer("3")
+                                                               }}>3
                                                                </button>
                                                            </div>
                                                            <div>
-                                                               <button onClick={()=>setThirdEnvironmentRate(true)}>4
+                                                               <button onClick={()=> {
+                                                                   setThirdEnvironmentRate(true);
+                                                                   setAnswer("4")
+                                                               }}>4
                                                                </button>
                                                            </div>
                                                            <div>
-                                                               <button onClick={()=>setThirdEnvironmentRate(true)}>5
+                                                               <button onClick={()=> {
+                                                                   setThirdEnvironmentRate(true);
+                                                                   setAnswer("5")
+                                                               }}>5
                                                                </button>
                                                            </div>
                                                        </div>
@@ -151,27 +310,45 @@ const EnvironmentQuestions = (props) => {
                                                       <label>Four seasons and moderate:</label>
                                                       <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                           <div>
-                                                              <button onClick={() => setFirstQuestion(true)}>0
+                                                              <button onClick={() => {
+                                                                  setFirstQuestion(true);
+                                                                  setAnswer("0")
+                                                              }}>0
                                                               </button>
                                                           </div>
                                                           <div>
-                                                              <button onClick={() => setFirstQuestion(true)}>1
+                                                              <button onClick={() => {
+                                                                  setFirstQuestion(true);
+                                                                  setAnswer("1")
+                                                              }}>1
                                                               </button>
                                                           </div>
                                                           <div>
-                                                              <button onClick={() => setFirstQuestion(true)}>2
+                                                              <button onClick={() => {
+                                                                  setFirstQuestion(true);
+                                                                  setAnswer("2")
+                                                              }}>2
                                                               </button>
                                                           </div>
                                                           <div>
-                                                              <button onClick={() => setFirstQuestion(true)}>3
+                                                              <button onClick={() => {
+                                                                  setFirstQuestion(true);
+                                                                  setAnswer("3")
+                                                              }}>3
                                                               </button>
                                                           </div>
                                                           <div>
-                                                              <button onClick={() => setFirstQuestion(true)}>4
+                                                              <button onClick={() => {
+                                                                  setFirstQuestion(true);
+                                                                  setAnswer("4")
+                                                              }}>4
                                                               </button>
                                                           </div>
                                                           <div>
-                                                              <button onClick={() => setFirstQuestion(true)}>5
+                                                              <button onClick={() => {
+                                                                  setFirstQuestion(true);
+                                                                  setAnswer("5")
+                                                              }}>5
                                                               </button>
                                                           </div>
                                                       </div>
@@ -202,43 +379,76 @@ const EnvironmentQuestions = (props) => {
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>5</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>8
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
@@ -249,43 +459,76 @@ const EnvironmentQuestions = (props) => {
                                                 <React.Fragment>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>5</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>8
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile?style.creedRateDsc:style.creedRateDscM}`}>
@@ -317,32 +560,33 @@ const EnvironmentQuestions = (props) => {
                                                         (Choose two options)
                                                     </p>
                                                 </div>
-                                                <div
-                                                    className={`${!props.isMobile ? style.finalAnswer : style.finalAnswerM}`}>
+                                                <div className={`${!props.isMobile ? style.finalAnswer : style.finalAnswerM}`}>
                                                     <label>
-                                                        <input type="checkbox" value=" مسائل مالی و اقتصادی"
-                                                               onChange={checkFinalAnswer}/>
+                                                        <input type="checkbox" value="Financial and economic issues"
+                                                               onClick={(e)=> {
+                                                                   checkFinalAnswer(e);
+                                                                   setFifthChallenge(e.target.value)
+                                                               }}/>
                                                         Financial and economic issues
                                                     </label>
                                                     <label>
-                                                        <input type="checkbox" value="مسائل شغلی و یا تحصیلی"
-                                                               onChange={checkFinalAnswer}/>
+                                                        <input type="checkbox" value=" Occupational or educational issues"
+                                                               onClick={(e)=>{checkFinalAnswer(e);checkFirstChallenge(e)}}/>
                                                         Occupational or educational issues
                                                     </label>
                                                     <label>
-                                                        <input type="checkbox" value=" مسائل مربوط به سلامت روحی و جسمی"
-                                                               onChange={checkFinalAnswer}/>
+                                                        <input type="checkbox" value="Health issues (mental or physical)"
+                                                               onClick={(e)=>{checkFinalAnswer(e);checkSecondChallenge(e)}}/>
                                                         Health issues (mental or physical)
                                                     </label>
                                                     <label>
-                                                        <input type="checkbox"
-                                                               value="مسائل مربوط به آب و هوا و شرایط اقلیمی"
-                                                               onChange={checkFinalAnswer}/>
+                                                        <input type="checkbox" value="Socio-cultural differences"
+                                                               onClick={(e)=>{checkFinalAnswer(e);checkThirdChallenge(e)}}/>
                                                         Socio-cultural differences
                                                     </label>
                                                     <label>
-                                                        <input type="checkbox" value="تفاوت های فرهنگی-اجتماعی"
-                                                               onChange={checkFinalAnswer}/>
+                                                        <input type="checkbox" value="Weather and climate issues"
+                                                               onClick={(e)=>{checkFinalAnswer(e);checkForthChallenge(e)}}/>
                                                         Weather and climate issues
                                                     </label>
                                                 </div>
@@ -359,7 +603,10 @@ const EnvironmentQuestions = (props) => {
                                                             className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                             <button
                                                                 className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                onClick={() => setThirdQuestion(true)}>next
+                                                                onClick={() => {
+                                                                    setThirdQuestion(true);
+                                                                    combineChallenges();
+                                                                }}>next
                                                             </button>
                                                         </div>
                                                     )
@@ -382,20 +629,23 @@ const EnvironmentQuestions = (props) => {
                                                         <div style={{display:"flex"}} className="mb-5 mt-5">
                                                             <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
                                                                 <label htmlFor="name">Name: </label>
-                                                                <input id="name" name="name" required/><br/>
+                                                                <input id="name" name="name" required onChange={(e)=>setFirstInformation(e.target.value)}/><br/>
                                                             </div>
                                                             <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
                                                                 <label htmlFor="email">Email: </label>
-                                                                <input type="email" id="email" name="email" required/>
+                                                                <input type="email" id="email" name="email" required onChange={(e)=>setSecondInformation(e.target.value)}/>
                                                             </div>
                                                             <div className={`${!props.isMobile ? style.information:style.informationM} mt-3 mb-3`}>
                                                                 <label htmlFor="email">Phone number: </label>
-                                                                <input type="tel" id="email" name="email" required/>
+                                                                <input type="tel" id="email" name="email" required onChange={(e)=>setThirdInformation(e.target.value)}/>
                                                             </div>
                                                         </div>
                                                         <div>
                                                             <input className={style.saveButton} type="submit"
-                                                                   value="save" onClick={() => setForthQuestion(true)}/>
+                                                                   value="save" onClick={() => {
+                                                                setForthQuestion(true);
+                                                                combineInformation();
+                                                            }}/>
                                                         </div>
                                                     </div>
                                                 </div>

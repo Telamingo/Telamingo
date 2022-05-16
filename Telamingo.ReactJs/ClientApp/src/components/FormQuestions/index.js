@@ -5,8 +5,6 @@ import React from "react";
 
 import HomePagePic from "../../static/homePage/homePagePic.jpeg"
 
-
-
 const FormQuestions = (props) =>{
     const [isStart, setIsStart] = useState(false);
     return(

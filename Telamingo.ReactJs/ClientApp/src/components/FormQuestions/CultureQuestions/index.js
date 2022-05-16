@@ -8,6 +8,13 @@ const CultureQuestions = (props) =>{
     const [secondQuestion, setSecondQuestion] = useState(false);
     const [thirdQuestion, setThirdQuestion] = useState(false);
     const [forthQuestion, setForthQuestion] = useState(false);
+    const [cultureAnswer, setCultureAnswer] = useState("");
+
+    const setAnswer=(answer)=>{
+        setCultureAnswer([...cultureAnswer,answer])
+    }
+
+    console.log(cultureAnswer)
 
     return(
         <React.Fragment>
@@ -36,43 +43,76 @@ const CultureQuestions = (props) =>{
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>5</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>8
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
@@ -90,43 +130,76 @@ const CultureQuestions = (props) =>{
                                                 <React.Fragment>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>5</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>8
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setFirstQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setFirstQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
@@ -164,43 +237,76 @@ const CultureQuestions = (props) =>{
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>5</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>8
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
@@ -218,43 +324,76 @@ const CultureQuestions = (props) =>{
                                                 <React.Fragment>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>5</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>8
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setSecondQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setSecondQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
@@ -288,43 +427,76 @@ const CultureQuestions = (props) =>{
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>5</button>
+                                                            <button onClick={() =>{
+                                                                setThirdQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>8
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
@@ -342,43 +514,76 @@ const CultureQuestions = (props) =>{
                                                 <React.Fragment>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>5</button>
+                                                            <button onClick={() =>{
+                                                                setThirdQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>8
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setThirdQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setThirdQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
@@ -419,43 +624,76 @@ const CultureQuestions = (props) =>{
                                                     </div>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>5</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>8
+                                                            <button onClick={() =>{
+                                                                setForthQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
@@ -466,43 +704,76 @@ const CultureQuestions = (props) =>{
                                                 <React.Fragment>
                                                     <div className={` ${!props.isMobile ? style.creedRate : style.creedRateM}`}>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>0</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("0")
+                                                            }}>0</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>1</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("1")
+                                                            }}>1</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>2
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("2")
+                                                            }}>2
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>3
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("3")
+                                                            }}>3
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>4
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("4")
+                                                            }}>4
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>5</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("5")
+                                                            }}>5</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>6</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("6")
+                                                            }}>6</button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>7
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("7")
+                                                            }}>7
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>8
+                                                            <button onClick={() =>{
+                                                                setForthQuestion(true);
+                                                                setAnswer("8")
+                                                            }}>8
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>9
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("9")
+                                                            }}>9
                                                             </button>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => setForthQuestion(true)}>10</button>
+                                                            <button onClick={() => {
+                                                                setForthQuestion(true);
+                                                                setAnswer("10")
+                                                            }}>10</button>
                                                         </div>
                                                     </div>
                                                     <div className={`mb-5 ${!props.isMobile ? style.creedRateDsc:style.creedRateDscM}`}>
@@ -525,7 +796,7 @@ const CultureQuestions = (props) =>{
                         </div>
                     </div>
                     :
-                    <HealthQuestion isMobile={props.isMobile}/>
+                    <HealthQuestion isMobile={props.isMobile} personalAnswers={props.personalAnswers} economyAnswer={props.economyAnswer} cultureAnswer={cultureAnswer}/>
             }
 
         </React.Fragment>

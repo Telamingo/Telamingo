@@ -10,6 +10,7 @@ const EconomyQuestions = (props) => {
     const [forthQuestion, setForthQuestion] = useState(false);
     const [fifthQuestion, setFifthQuestion] = useState(false);
     const [job, setJob] = useState("");
+    const [economyAnswer, setEconomyAnswer] = useState("");
 
     const jobs = [
         " Managerial jobs",
@@ -29,6 +30,12 @@ const EconomyQuestions = (props) => {
         "specialist"
     ]
 
+    const setAnswer=(answer)=>{
+        setEconomyAnswer([...economyAnswer,answer])
+    }
+
+    console.log(economyAnswer)
+
     return (
         <React.Fragment>
             {
@@ -44,9 +51,11 @@ const EconomyQuestions = (props) => {
                                             </p>
                                         </div>
                                         <div className={`${!props.isMobile ? style.chooseJob:style.chooseJobM} mt-5 mb-5`}>
-                                            <select value={job}
-                                                    onChange={(event) => setJob(event.target.value)} required>
-                                                <option value="انتخاب کشوراول" selected>choose your job</option>
+                                            <select value={job} onChange={(event) => {
+                                                setJob(event.target.value);
+                                                setAnswer(event.target.value)
+                                            }} required>
+                                                <option selected>choose your job</option>
                                                 {
                                                     jobs.map(item => <option value={item}>{item}</option>)
                                                 }
@@ -77,19 +86,31 @@ const EconomyQuestions = (props) => {
                                         </div>
                                         <div className={` ${!props.isMobile ? style.jobPosition : style.jobPositionM} mt-5 mb-5 ${!props.isMobile ? " ":`row`}`}>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}>Just In my job and specialization
+                                                <button onClick={() => {
+                                                    setSecondQuestion(true);
+                                                    setAnswer("Just In my job and specialization")
+                                                }}>Just In my job and specialization
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}> Preferably in my job and specialty
+                                                <button onClick={() => {
+                                                    setSecondQuestion(true);
+                                                    setAnswer(" Preferably in my job and specialty")
+                                                }}> Preferably in my job and specialty
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}>it does not matter
+                                                <button onClick={() => {
+                                                    setSecondQuestion(true);
+                                                    setAnswer("it does not matter")
+                                                }}>it does not matter
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setSecondQuestion(true)}>In a particular profession different from my previous experience
+                                                <button onClick={() => {
+                                                    setSecondQuestion(true);
+                                                    setAnswer("In a particular profession different from my previous experience")
+                                                }}>In a particular profession different from my previous experience
                                                 </button>
                                             </div>
                                         </div>
@@ -108,25 +129,40 @@ const EconomyQuestions = (props) => {
                                         </div>
                                         <div className={` ${!props.isMobile ? style.salary : style.salaryM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>More than 50000 dollars
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("More than 50000 dollars")
+                                                }}>More than 50000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Between 20000 and 50000 dollars
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Between 20000 and 50000 dollars")
+                                                }}>Between 20000 and 50000 dollars
                                                     (4)
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Between 10000 and 20000 dollars
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Between 10000 and 20000 dollars")
+                                                }}>Between 10000 and 20000 dollars
                                                     (3)
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Between 5000 and 10000 dollars
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Between 5000 and 10000 dollars")
+                                                }}>Between 5000 and 10000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setThirdQuestion(true)}>Under 5000
+                                                <button onClick={() => {
+                                                    setThirdQuestion(true);
+                                                    setAnswer("Under 5000")
+                                                }}>Under 5000
                                                 </button>
                                             </div>
                                         </div>
@@ -145,25 +181,38 @@ const EconomyQuestions = (props) => {
                                         </div>
                                         <div className={` ${!props.isMobile ? style.salary : style.salaryM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>More than 50000 dollars
+                                                <button onClick={() => {
+                                                    setForthQuestion(true);
+                                                    setAnswer("More than 50000 dollars")
+                                                }}>More than 50000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>Between 20000 and 50000 dollars
-                                                    (4)
+                                                <button onClick={() => {
+                                                    setForthQuestion(true);
+                                                    setAnswer("Between 20000 and 50000 dollars")
+                                                }}>Between 20000 and 50000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>Between 10000 and 20000 dollars
-                                                    (3)
+                                                <button onClick={() => {
+                                                    setForthQuestion(true);
+                                                    setAnswer("Between 10000 and 20000 dollars")
+                                                }}>Between 10000 and 20000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>Between 5000 and 10000 dollars
+                                                <button onClick={() => {
+                                                    setForthQuestion(true);
+                                                    setAnswer("Between 5000 and 10000 dollars")
+                                                }}>Between 5000 and 10000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setForthQuestion(true)}>Under 5000
+                                                <button onClick={() => {
+                                                    setForthQuestion(true);
+                                                    setAnswer("Under 5000")
+                                                }}>Under 5000
                                                 </button>
                                             </div>
                                         </div>
@@ -183,25 +232,38 @@ const EconomyQuestions = (props) => {
                                         </div>
                                         <div className={` ${!props.isMobile ? style.salary : style.salaryM} mt-5 mb-5 ${!props.isMobile ? " ": `row`}`}>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>More than 50000 dollars
+                                                <button onClick={() => {
+                                                    setFifthQuestion(true);
+                                                    setAnswer("More than 50000 dollars")
+                                                }}>More than 50000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>Between 20000 and 50000 dollars
-                                                    (4)
+                                                <button onClick={() => {
+                                                    setFifthQuestion(true);
+                                                    setAnswer("Between 20000 and 50000 dollars")
+                                                }}>Between 20000 and 50000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>Between 10000 and 20000 dollars
-                                                    (3)
+                                                <button onClick={() => {
+                                                    setFifthQuestion(true);
+                                                    setAnswer("Between 10000 and 20000 dollars")
+                                                }}>Between 10000 and 20000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>Between 5000 and 10000 dollars
+                                                <button onClick={() => {
+                                                    setFifthQuestion(true);
+                                                    setAnswer("Between 5000 and 10000 dollars")
+                                                }}>Between 5000 and 10000 dollars
                                                 </button>
                                             </div>
                                             <div>
-                                                <button onClick={() => setFifthQuestion(true)}>Under 5000
+                                                <button onClick={() => {
+                                                    setFifthQuestion(true);
+                                                    setAnswer("Under 5000")
+                                                }}>Under 5000
                                                 </button>
                                             </div>
                                         </div>
@@ -216,7 +278,7 @@ const EconomyQuestions = (props) => {
                         </div>
                     </div>
                 ) : (
-                   <CultureQuestions isMobile={props.isMobile}/>
+                   <CultureQuestions isMobile={props.isMobile} personalAnswers={props.personalAnswers} economyAnswer={economyAnswer}/>
                 )
             }
         </React.Fragment>
