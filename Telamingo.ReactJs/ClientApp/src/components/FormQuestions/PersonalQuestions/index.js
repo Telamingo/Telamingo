@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import style from "./personalQuestion.module.css";
 import EconomyQuestions from "../EconomyQuestions";
 
@@ -13,7 +13,15 @@ const PersonalQuestions = (props) => {
     const [secondLang, setSecondLang] = useState(false);
     const [thirdLang, setThirdLang] = useState(false);
     const [firstLanLevel, setFirstLanLevel] = useState("");
+    const [firstLanContent, setFirstLanContent] = useState("");
+    const [secondLanLevel, setSecondLanLevel] = useState("");
+    const [secondLanContent, setSecondLanContent] = useState("");
+    const [thirdLanLevel, setThirdLanLevel] = useState("");
+    const [thirdLanContent, setThirdLanContent] = useState("");
     const [personalAnswers, setPersonalAnswers] = useState("");
+    const [firstLanData, setFirstLanData] = useState("");
+    const [secondLanData, setSecondLanData] = useState("");
+    const [thirdLanData, setThirdLanData] = useState("");
 
     const language = [
         {
@@ -33,6 +41,24 @@ const PersonalQuestions = (props) => {
         },
     ]
 
+    const combineFirstLanData=()=>{
+        setFirstLanData([...firstLanData,firstLanContent,firstLanLevel])
+    }
+    useEffect(()=>{
+        setAnswer(firstLanData)
+    },[firstLanData])
+    const combineSecondLanData=()=>{
+        setSecondLanData([...secondLanData,secondLanContent,secondLanLevel])
+    }
+    useEffect(()=>{
+        setAnswer(secondLanData)
+    },[secondLanData])
+    const combineThirdLanData=()=>{
+        setThirdLanData([...thirdLanData,thirdLanContent,thirdLanLevel])
+    }
+    useEffect(()=>{
+        setAnswer(thirdLanData)
+    },[thirdLanData])
     const setAnswer=(answer)=>{
         setPersonalAnswers([...personalAnswers,answer])
     }
@@ -181,7 +207,7 @@ const PersonalQuestions = (props) => {
                                                 !firstLang ? (
                                                        <React.Fragment>
                                                            <div className="mb-3">
-                                                               <label onChange={(e)=>setAnswer(e.target.value)}>
+                                                               <label onChange={(e)=>setFirstLanContent(e.target.value)}>
                                                                    Choose First Language:
                                                                    <select>
                                                                        <option selected>Choose Your First Language</option>
@@ -192,9 +218,9 @@ const PersonalQuestions = (props) => {
                                                                        }
                                                                    </select>
                                                                </label>
-                                                               <label onChange={(e)=>setAnswer(e.target.value)}>
+                                                               <label onChange={(e)=> setFirstLanLevel(e.target.value)}>
                                                                    First Language Level:
-                                                                   <select onChange={(event) => setFirstLanLevel(event.target.value)}>
+                                                                   <select>
                                                                        <option selected>Choose Your Level</option>
                                                                        <option>Advance</option>
                                                                        <option>Intermediate</option>
@@ -219,7 +245,10 @@ const PersonalQuestions = (props) => {
                                                                        <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                            <button
                                                                                className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                               onClick={() => setFirstLang(true)}>next
+                                                                               onClick={() => {
+                                                                                   setFirstLang(true);
+                                                                                   combineFirstLanData()
+                                                                               }}>next
                                                                            </button>
                                                                        </div>
                                                                }
@@ -228,7 +257,7 @@ const PersonalQuestions = (props) => {
                                                 ) : !secondLang ? (
                                                     <React.Fragment>
                                                         <div  className="mb-3">
-                                                            <label onChange={(e)=>setAnswer(e.target.value)}>
+                                                            <label onChange={(e)=>setSecondLanContent(e.target.value)}>
                                                                 Choose Second Language:
                                                                 <select>
                                                                     <option selected>Choose Your First Language</option>
@@ -239,7 +268,7 @@ const PersonalQuestions = (props) => {
                                                                     }
                                                                 </select>
                                                             </label>
-                                                            <label onChange={(e)=>setAnswer(e.target.value)}>
+                                                            <label onChange={(e)=> setSecondLanLevel(e.target.value)}>
                                                                 Second Language Level:
                                                                 <select>
                                                                     <option selected>Choose Your Level</option>
@@ -258,7 +287,10 @@ const PersonalQuestions = (props) => {
                                                             <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                    onClick={() => setSecondLang(true)}>next
+                                                                    onClick={() => {
+                                                                        setSecondLang(true);
+                                                                        combineSecondLanData()
+                                                                    }}>next
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -266,7 +298,7 @@ const PersonalQuestions = (props) => {
                                                 ) : !thirdLang ? (
                                                     <React.Fragment>
                                                         <div  className="mb-3">
-                                                            <label onChange={(e)=>setAnswer(e.target.value)}>
+                                                            <label onChange={(e)=>setThirdLanContent(e.target.value)}>
                                                                 Choose Third Language:
                                                                 <select>
                                                                     <option selected>Choose Your First Language</option>
@@ -277,7 +309,7 @@ const PersonalQuestions = (props) => {
                                                                     }
                                                                 </select>
                                                             </label>
-                                                            <label onChange={(e)=>setAnswer(e.target.value)}>
+                                                            <label onChange={(e)=> setThirdLanLevel(e.target.value)}>
                                                                 Third Language Level:
                                                                 <select>
                                                                     <option selected>Choose Your Level</option>
@@ -296,7 +328,10 @@ const PersonalQuestions = (props) => {
                                                             <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
-                                                                    onClick={() => setForthQuestion(true)}>next
+                                                                    onClick={() => {
+                                                                        setForthQuestion(true);
+                                                                        combineThirdLanData()
+                                                                    }}>next
                                                                 </button>
                                                             </div>
                                                         </div>
