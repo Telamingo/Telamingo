@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import style from "./environmentQuestions.module.css"
 
 const EnvironmentQuestions = (props) => {
@@ -11,16 +11,16 @@ const EnvironmentQuestions = (props) => {
     const [secondEnvironmentRate, setSecondEnvironmentRate] = useState(false);
     const [thirdEnvironmentRate, setThirdEnvironmentRate] = useState(false);
     const [forthEnvironmentRate, setForthEnvironmentRate] = useState(false);
-    const [firstChallenge,setFirstChallenge]=useState("");
-    const [secondChallenge,setSecondChallenge]=useState("");
-    const [thirdChallenge,setThirdChallenge]=useState("");
-    const [forthChallenge,setForthChallenge]=useState("");
-    const [fifthChallenge,setFifthChallenge]=useState("");
-    const [challenges,setChallenges]=useState("");
-    const [firstInformation,setFirstInformation]=useState("");
-    const [secondInformation,setSecondInformation]=useState("");
-    const [thirdInformation,setThirdInformation]=useState("");
-    const [informations,setInformations]=useState("");
+    const [firstChallenge, setFirstChallenge] = useState("");
+    const [secondChallenge, setSecondChallenge] = useState("");
+    const [thirdChallenge, setThirdChallenge] = useState("");
+    const [forthChallenge, setForthChallenge] = useState("");
+    const [fifthChallenge, setFifthChallenge] = useState("");
+    const [challenges, setChallenges] = useState("");
+    const [firstInformation, setFirstInformation] = useState("");
+    const [secondInformation, setSecondInformation] = useState("");
+    const [thirdInformation, setThirdInformation] = useState("");
+    const [informations, setInformations] = useState("");
     const [finalAnswer, setFinalAnswer] = useState([]);
     const [environmentAnswer, setEnvironmentAnswer] = useState("");
 
@@ -28,121 +28,121 @@ const EnvironmentQuestions = (props) => {
         setFinalAnswer(event.target.value)
     }
 
-    const checkFirstChallenge=(e)=>{
+    const checkFirstChallenge = (e) => {
         setFirstChallenge(e.target.value)
     }
-    const checkSecondChallenge=(e)=>{
+    const checkSecondChallenge = (e) => {
         setSecondChallenge(e.target.value)
     }
-    const checkThirdChallenge=(e)=>{
+    const checkThirdChallenge = (e) => {
         setThirdChallenge(e.target.value)
     }
-    const checkForthChallenge=(e)=>{
+    const checkForthChallenge = (e) => {
         setForthChallenge(e.target.value)
     }
-    const combineChallenges=()=>{
-        setChallenges([...challenges,firstChallenge,secondChallenge,thirdChallenge,forthChallenge,fifthChallenge])
+    const combineChallenges = () => {
+        setChallenges([...challenges, firstChallenge, secondChallenge, thirdChallenge, forthChallenge, fifthChallenge])
     }
-    useEffect(()=>{
+    useEffect(() => {
         setAnswer(challenges)
-    },[challenges])
+    }, [challenges])
 
-    const combineInformation=()=>{
-        setInformations([...informations,firstInformation,secondInformation,thirdInformation])
+    const combineInformation = () => {
+        setInformations([...informations, firstInformation, secondInformation, thirdInformation])
     }
-    useEffect(()=>{
+    useEffect(() => {
         setAnswer(informations)
-    },[informations])
+    }, [informations])
 
-    const setAnswer=(answer)=>{
-        setEnvironmentAnswer([...environmentAnswer,answer])
+    const setAnswer = (answer) => {
+        setEnvironmentAnswer([...environmentAnswer, answer])
     }
 
-   if(environmentAnswer.length >= 8){
-       const UserAnswerDto = {
-               "userInformation": {
-                   "name": environmentAnswer[7][0],
-                   "email": environmentAnswer[7][1],
-                   "phoneNumber": environmentAnswer[7][2]
-               },
-               "cultural": {
-                   "religiousMatters": parseInt(props.cultureAnswer[0]),
-                   "nationalMatters": parseInt(props.cultureAnswer[1]),
-                   "immigrantCommunity": parseInt(props.cultureAnswer[2]),
-                   "similarity": parseInt(props.cultureAnswer[3])
-               },
-               "economy": {
-                   "currentJob": props.economyAnswer[0],
-                   "currentSaving":  props.economyAnswer[3],
-                   "preferredJob": props.economyAnswer[1],
-                   "preferredSaving":  props.economyAnswer[2]
-               },
-               "environmental": {
-                   "cloudy": parseInt(environmentAnswer[1]),
-                   "snowy": parseInt(environmentAnswer[2]),
-                   "sunny": parseInt(environmentAnswer[3]),
-                   "moderate": parseInt(environmentAnswer[4]),
-                   "unusualDaytime": parseInt(environmentAnswer[5])
-               },
-               "mental": {
-                   "mentalIll": props.mentalHealthAnswer[1],
-                   "first": "",
-                   "secend": "",
-                   "third": "",
-                   "familyVisit": props.mentalHealthAnswer[props.mentalHealthAnswer.length-1]
-               },
-               "mostImportants": {
-                  "problems":environmentAnswer[6]
-               },
-               "physical": {
-                   "medicineNeed": props.healthAnswer[1],
-                   "specialIll": props.healthAnswer[2],
-                   "first": "",
-                   "secend": "",
-                   "third": "",
-                   "medicineCost": props.healthAnswer[props.healthAnswer.length-4],
-                   "traditionalFood": parseInt(props.healthAnswer[4]),
-                   "fastFood": parseInt(props.healthAnswer[4]),
-                   "vegeterian": parseInt(props.healthAnswer[4])
-               },
-               "primary": {
-                   "user_Destination": "iran",
-                   "preferred_Visa_Type": "job",
-                   "age": props.personalAnswers[0],
-                   "sex": props.personalAnswers[1],
-                   "first_Lang": props.personalAnswers[3],
-                   "level": props.personalAnswers[4],
-                   "second_Lang": "",
-                   "second_LangLevel": "",
-                   "third_Lang": "",
-                   "third_LangLevel": "",
-                   "marriage":props.personalAnswers[2],
-                   "numberOfCompanions": parseInt(props.personalAnswers[props.personalAnswers.length-1])
-               }
-           }
-       console.log(UserAnswerDto)
+    if (environmentAnswer.length >= 8) {
+        const UserAnswerDto = {
+            "UserInformation": {
+                "Name": environmentAnswer[7][0],
+                "Email": environmentAnswer[7][1],
+                "PhoneNumber": environmentAnswer[7][2]
+            },
+            "Cultural": {
+                "ReligiousMatters": parseInt(props.cultureAnswer[0]),
+                "NationalMatters": parseInt(props.cultureAnswer[1]),
+                "ImmigrantCommunity": parseInt(props.cultureAnswer[2]),
+                "Similarity": parseInt(props.cultureAnswer[3])
+            },
+            "Economy": {
+                "CurrentJob": props.economyAnswer[0],
+                "CurrentSaving": props.economyAnswer[3],
+                "PreferredJob": props.economyAnswer[1],
+                "PreferredSaving": props.economyAnswer[2]
+            },
+            "Environmental": {
+                "Cloudy": parseInt(environmentAnswer[1]),
+                "Snowy": parseInt(environmentAnswer[2]),
+                "Sunny": parseInt(environmentAnswer[3]),
+                "Moderate": parseInt(environmentAnswer[4]),
+                "UnusualDaytime": parseInt(environmentAnswer[5])
+            },
+            "Mental": {
+                "MentalIll": props.mentalHealthAnswer[1],
+                "First": "",
+                "Secend": "",
+                "Third": "",
+                "FamilyVisit": props.mentalHealthAnswer[props.mentalHealthAnswer.length - 1]
+            },
+            "MostImportants": {
+                "Problems": environmentAnswer[6]
+            },
+            "Physical": {
+                "MedicineNeed": props.healthAnswer[1],
+                "SpecialIll": props.healthAnswer[2],
+                "First": "",
+                "Secend": "",
+                "Third": "",
+                "MedicineCost": props.healthAnswer[3],
+                "TraditionalFood": parseInt(props.healthAnswer[4]),
+                "FastFood": parseInt(props.healthAnswer[4]),
+                "Vegeterian": parseInt(props.healthAnswer[4])
+            },
+            "Primary": {
+                "User_Destination": "canada",
+                "Preferred_Visa_Type": "job",
+                "Age": props.personalAnswers[0],
+                "Sex": props.personalAnswers[1],
+                "First_Lang": props.personalAnswers[3],
+                "Level": props.personalAnswers[4],
+                "Second_Lang": "",
+                "Second_LangLevel": "",
+                "Third_Lang": "",
+                "Third_LangLevel": "",
+                "Marriage": props.personalAnswers[2],
+                "NumberOfCompanions": parseInt(props.personalAnswers[props.personalAnswers.length - 1])
+            }
+        }
+        console.log(UserAnswerDto)
 
 
-       fetch('http://localhost:3000/api/form/userAnswer', {
-           method: 'POST',
-           headers: {
-               'Content-Type': 'application/json',
-           },
-           body: JSON.stringify({
-               userAnswerDto:UserAnswerDto
-           }),
-       })
-           .then(response => response.json())
-           .then(UserAnswerDto => {
-               console.log('Success:', UserAnswerDto);
-           })
-           .catch((error) => {
-               console.error('Error:', error);
-           });
+        fetch('https://localhost:5001/api/Form/UserAnwer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                UserAnswerDto
+            }),
+        })
+            .then(response => response.json())
+            .then(UserAnswerDto => {
+                console.log('Success:', UserAnswerDto);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
 
-   }
+    }
 
-console.log(environmentAnswer)
+    console.log(environmentAnswer)
 
 
     return (
