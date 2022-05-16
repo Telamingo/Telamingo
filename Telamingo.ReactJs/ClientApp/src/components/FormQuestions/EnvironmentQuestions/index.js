@@ -108,15 +108,15 @@ const EnvironmentQuestions = (props) => {
             "Primary": {
                 "User_Destination": "canada",
                 "Preferred_Visa_Type": "job",
-                "Age": props.personalAnswers[0],
-                "Sex": props.personalAnswers[1],
-                "First_Lang": props.personalAnswers[3],
-                "First_LangLevel": props.personalAnswers[4],
-                "Second_Lang": "",
-                "Second_LangLevel": "",
-                "Third_Lang": "",
-                "Third_LangLevel": "",
-                "MaritalStatus": props.personalAnswers[2],
+                "Age": props.personalAnswers[1],
+                "Sex": props.personalAnswers[2],
+                "First_Lang": props.personalAnswers[4][0],
+                "First_LangLevel": props.personalAnswers[4][1],
+                "Second_Lang": props.personalAnswers[5][0],
+                "Second_LangLevel":props.personalAnswers[5][1],
+                "Third_Lang": props.personalAnswers[6][0],
+                "Third_LangLevel": props.personalAnswers[6][1],
+                "MaritalStatus": props.personalAnswers[3],
                 "NumberOfCompanions": parseInt(props.personalAnswers[props.personalAnswers.length - 1])
             }
         }
