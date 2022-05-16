@@ -24,7 +24,7 @@ namespace Domain.AggregateModels.UserAggregate
     }
     public class MostImportantsDto
     {
-        public string FirstProblem { get; set; }
-        public string SecendProblem { get; set; }
+        public string? FirstProblem { get; set; }
+        public string? SecendProblem { get; set; }
     }
 }

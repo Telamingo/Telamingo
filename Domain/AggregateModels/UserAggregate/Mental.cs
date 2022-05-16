@@ -17,7 +17,7 @@ namespace Domain.AggregateModels.UserAggregate
             First = model.First;
             Secend = model.Secend;  
             Third = model.Third;
-            FamilyVisit = model.FamilyVisit;
+            //FamilyVisit = model.FamilyVisit;
         }
         public int UserAnswerId { get; set; }
         public virtual UserAnswer UserAnswer { get; set; }
@@ -31,9 +31,9 @@ namespace Domain.AggregateModels.UserAggregate
     public class MentalDto
     {
         public bool MentalIll { get; set; }
-        public string First { get; set; }
-        public string Secend { get; set; }
-        public string Third { get; set; }
-        public int FamilyVisit { get; set; }
+        public string? First { get; set; }
+        public string? Secend { get; set; }
+        public string? Third { get; set; }
+        public string FamilyVisit { get; set; }
     }
 }
