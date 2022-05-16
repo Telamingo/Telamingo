@@ -1,4 +1,4 @@
-import PersonalQuestions from "./PersonalQuestions";
+import HealthQuestion from "./HealthQuestion";
 import style from "./formQuestion.module.css"
 import {useState} from "react";
 import React from "react";
@@ -20,7 +20,7 @@ const FormQuestions = (props) =>{
                         <button className={`container mt-5 ${style.startFormButton}`} onClick={()=>setIsStart(true)}>Start</button>
                     </div>
                 ) : (
-                    <PersonalQuestions isMobile={props.isMobile}/>
+                    <HealthQuestion isMobile={props.isMobile}/>
                 )
             }
         </div>
