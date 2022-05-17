@@ -8,6 +8,7 @@ const PersonalQuestions = (props) => {
     const [thirdQuestion, setThirdQuestion] = useState(false);
     const [forthQuestion, setForthQuestion] = useState(false);
     const [fifthQuestion, setFifthQuestion] = useState(false);
+    const [sixthQuestion, setSixthQuestion] = useState(false);
     const [haveFollower, setHaveFollower] = useState(false);
     const [firstLang, setFirstLang] = useState(false);
     const [secondLang, setSecondLang] = useState(false);
@@ -59,6 +60,11 @@ const PersonalQuestions = (props) => {
     useEffect(()=>{
         setAnswer(thirdLanData)
     },[thirdLanData])
+
+    useEffect(()=>{
+        setAnswer(props.destination)
+    },[])
+
     const setAnswer=(answer)=>{
         setPersonalAnswers([...personalAnswers,answer])
     }
@@ -67,7 +73,7 @@ const PersonalQuestions = (props) => {
     return (
         <React.Fragment>
             {
-                !fifthQuestion ? (
+                !sixthQuestion ? (
                     <div className={` col-lg-12 container ${style.questionBody}`}>
                         <div className={`${style.questionContent} mt-5`} dir='ltr'>
                             {
@@ -340,7 +346,7 @@ const PersonalQuestions = (props) => {
                                             }
                                         </div>
                                     </React.Fragment>
-                                ) : !fifthQuestion &&
+                                ) : !fifthQuestion ? (
                                     <React.Fragment>
                                         {
                                             !haveFollower ? (
@@ -413,6 +419,46 @@ const PersonalQuestions = (props) => {
                                                 </React.Fragment>
                                             )
                                         }
+                                    </React.Fragment>
+                                ) : !sixthQuestion &&
+                                    <React.Fragment>
+                                        <div className={`mb-3 ${style.question}`}>
+                                            <p className={`mt-3`}>
+                                                How do you want to get a visa faster?
+                                            </p>
+                                        </div>
+                                        <div className={` ${!props.isMobile ? style.chooseAge : style.chooseAgeM} mt-5 mb-5`}>
+                                            <div>
+                                                <button onClick={() => {setSixthQuestion(true);setAnswer("educational")}}>educational</button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => {
+                                                    setSixthQuestion(true);
+                                                    setAnswer("Job Offer (or Seeker)")
+                                                }}>Job Offer (or Seeker)
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => {
+                                                    setSixthQuestion(true);
+                                                    setAnswer("Start-Up Visa")
+                                                }} >Start-Up Visa
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => {
+                                                    setSixthQuestion(true);
+                                                    setAnswer("investment")
+                                                }} >investment
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button onClick={() => {
+                                                    setSixthQuestion(true);
+                                                    setAnswer("I do not know")
+                                                }}>I do not know</button>
+                                            </div>
+                                        </div>
                                     </React.Fragment>
                             }
                         </div>

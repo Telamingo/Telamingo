@@ -6,6 +6,7 @@ import React from "react";
 import HomePagePic from "../../static/homePage/homePagePic.jpeg"
 
 const FormQuestions = (props) =>{
+
     const [isStart, setIsStart] = useState(false);
     return(
         <div className={`container col-12 mt-5 `}>
@@ -20,7 +21,7 @@ const FormQuestions = (props) =>{
                         <button className={`container mt-5 ${style.startFormButton}`} onClick={()=>setIsStart(true)}>Start</button>
                     </div>
                 ) : (
-                    <PersonalQuestions isMobile={props.isMobile}/>
+                    <PersonalQuestions isMobile={props.isMobile} destination={props.destination}/>
                 )
             }
         </div>

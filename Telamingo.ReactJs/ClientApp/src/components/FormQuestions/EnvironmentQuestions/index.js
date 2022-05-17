@@ -109,8 +109,8 @@ const EnvironmentQuestions = (props) => {
                 "Vegeterian": parseInt(props.healthAnswer[props.healthAnswer.length-1])
             },
             "Primary": {
-                "User_Destination": "canada",
-                "Preferred_Visa_Type": "job",
+                "User_Destination": props.personalAnswers[0],
+                "Preferred_Visa_Type": props.personalAnswers[8],
                 "Age": props.personalAnswers[1],
                 "Sex": props.personalAnswers[2],
                 "First_Lang": props.personalAnswers[4][0],
@@ -120,7 +120,7 @@ const EnvironmentQuestions = (props) => {
                 "Third_Lang": props.personalAnswers[6][0],
                 "Third_LangLevel": props.personalAnswers[6][1],
                 "MaritalStatus": props.personalAnswers[3],
-                "NumberOfCompanions": parseInt(props.personalAnswers[props.personalAnswers.length - 1])
+                "NumberOfCompanions": parseInt(props.personalAnswers[7])
             }
         }
         console.log(UserAnswerDto)
