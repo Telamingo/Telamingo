@@ -216,7 +216,7 @@ const PersonalQuestions = (props) => {
                                                                <label onChange={(e)=>setFirstLanContent(e.target.value)}>
                                                                    Choose First Language:
                                                                    <select>
-                                                                       <option selected>Choose Your First Language</option>
+                                                                       <option selected disabled="">Choose Your First Language</option>
                                                                        {
                                                                            language.map((lang)=>(
                                                                                <option value={lang.value} key={lang.id}>{lang.label}</option>
@@ -227,7 +227,7 @@ const PersonalQuestions = (props) => {
                                                                <label onChange={(e)=> setFirstLanLevel(e.target.value)}>
                                                                    First Language Level:
                                                                    <select>
-                                                                       <option selected>Choose Your Level</option>
+                                                                       <option selected disabled="">Choose Your Level</option>
                                                                        <option>Advance</option>
                                                                        <option>Intermediate</option>
                                                                        <option>Beginner</option>
@@ -266,21 +266,19 @@ const PersonalQuestions = (props) => {
                                                             <label onChange={(e)=>setSecondLanContent(e.target.value)}>
                                                                 Choose Second Language:
                                                                 <select>
-                                                                    <option selected>Choose Your First Language</option>
-                                                                    {
-                                                                        language.map((lang)=>(
-                                                                            <option value={lang.value} key={lang.id}>{lang.label}</option>
-                                                                        ))
-                                                                    }
+                                                                    <option value="Choose Your Second Language" selected disabled="">Choose Your Second Language</option>
+                                                                    <option value="english">English</option>
+                                                                    <option value="French">French</option>
+                                                                    <option value="Italian">Italian</option>
                                                                 </select>
                                                             </label>
                                                             <label onChange={(e)=> setSecondLanLevel(e.target.value)}>
                                                                 Second Language Level:
                                                                 <select>
-                                                                    <option selected>Choose Your Level</option>
-                                                                    <option>Advance</option>
-                                                                    <option>Intermediate</option>
-                                                                    <option>Beginner</option>
+                                                                    <option value="advance">Advance</option>
+                                                                    <option value="intermediate">Intermediate</option>
+                                                                    <option value="beginner">Beginner</option>
+                                                                    <option value="Choose Your Level" selected disabled="">Choose Your Level</option>
                                                                 </select>
                                                             </label>
                                                         </div>
@@ -307,21 +305,19 @@ const PersonalQuestions = (props) => {
                                                             <label onChange={(e)=>setThirdLanContent(e.target.value)}>
                                                                 Choose Third Language:
                                                                 <select>
-                                                                    <option selected>Choose Your First Language</option>
-                                                                    {
-                                                                        language.map((lang)=>(
-                                                                            <option value={lang.value} key={lang.id}>{lang.label}</option>
-                                                                        ))
-                                                                    }
+                                                                    <option defaultValue="Choose Your Third Language" disabled="" selected>Choose Your Third Language</option>
+                                                                    <option value="english">English</option>
+                                                                    <option value="French">French</option>
+                                                                    <option value="Italian">Italian</option>
                                                                 </select>
                                                             </label>
                                                             <label onChange={(e)=> setThirdLanLevel(e.target.value)}>
                                                                 Third Language Level:
                                                                 <select>
-                                                                    <option selected>Choose Your Level</option>
-                                                                    <option>Advance</option>
-                                                                    <option>Intermediate</option>
-                                                                    <option>Beginner</option>
+                                                                    <option value="Advance">Advance</option>
+                                                                    <option value="Intermediate">Intermediate</option>
+                                                                    <option value="beginner">beginner</option>
+                                                                    <option value="Choose Your Level" selected disabled="">Choose Your Level</option>
                                                                 </select>
                                                             </label>
                                                         </div>

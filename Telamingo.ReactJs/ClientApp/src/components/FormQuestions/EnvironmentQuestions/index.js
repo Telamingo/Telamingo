@@ -22,12 +22,8 @@ const EnvironmentQuestions = (props) => {
     const [secondInformation, setSecondInformation] = useState("");
     const [thirdInformation, setThirdInformation] = useState("");
     const [informations, setInformations] = useState("");
-    const [finalAnswer, setFinalAnswer] = useState([]);
     const [environmentAnswer, setEnvironmentAnswer] = useState("");
 
-    function checkFinalAnswer(event) {
-        setFinalAnswer(event.target.value)
-    }
 
     const checkFirstChallenge = (e) => {
         setFirstChallenge(e.target.value)
@@ -614,49 +610,46 @@ const EnvironmentQuestions = (props) => {
                                                     <label>
                                                         <input type="checkbox" value="Financial and economic issues"
                                                                onClick={(e)=> {
-                                                                   checkFinalAnswer(e);
                                                                    setFifthChallenge(e.target.value)
                                                                }}/>
                                                         Financial and economic issues
                                                     </label>
                                                     <label>
                                                         <input type="checkbox" value=" Occupational or educational issues"
-                                                               onClick={(e)=>{checkFinalAnswer(e);checkFirstChallenge(e)}}/>
+                                                               onClick={(e)=>{checkFirstChallenge(e)}}/>
                                                         Occupational or educational issues
                                                     </label>
                                                     <label>
                                                         <input type="checkbox" value="Health issues (mental or physical)"
-                                                               onClick={(e)=>{checkFinalAnswer(e);checkSecondChallenge(e)}}/>
+                                                               onClick={(e)=>{checkSecondChallenge(e)}}/>
                                                         Health issues (mental or physical)
                                                     </label>
                                                     <label>
                                                         <input type="checkbox" value="Socio-cultural differences"
-                                                               onClick={(e)=>{checkFinalAnswer(e);checkThirdChallenge(e)}}/>
+                                                               onClick={(e)=>{checkThirdChallenge(e)}}/>
                                                         Socio-cultural differences
                                                     </label>
                                                     <label>
                                                         <input type="checkbox" value="Weather and climate issues"
-                                                               onClick={(e)=>{checkFinalAnswer(e);checkForthChallenge(e)}}/>
+                                                               onClick={(e)=>{checkForthChallenge(e)}}/>
                                                         Weather and climate issues
                                                     </label>
                                                 </div>
                                                 {
-                                                    finalAnswer === "" ? (
-                                                        <div
-                                                            className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
-                                                            <button
-                                                                className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
-                                                            </button>
-                                                        </div>
-                                                    ) : (
-                                                        <div
-                                                            className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
+                                                    firstChallenge || secondChallenge || thirdChallenge || forthChallenge||fifthChallenge !== "" ? (
+                                                        <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                             <button
                                                                 className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
                                                                 onClick={() => {
                                                                     setThirdQuestion(true);
                                                                     combineChallenges();
                                                                 }}>next
+                                                            </button>
+                                                        </div>
+                                                    ) : (
+                                                        <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
+                                                            <button
+                                                                className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
                                                             </button>
                                                         </div>
                                                     )
@@ -691,7 +684,9 @@ const EnvironmentQuestions = (props) => {
                                                             </div>
                                                         </div>
                                                         <div>
-                                                            <input className={style.saveButton} type="submit"
+                                                            <input
+                                                                className={`${firstInformation && secondInformation && thirdInformation !=="" ? style.saveButtonActive : style.saveButtonDeActive}`}
+                                                                type="submit"
                                                                    value="save" onClick={() => {
                                                                 setForthQuestion(true);
                                                                 combineInformation();

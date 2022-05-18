@@ -54,7 +54,8 @@ const MentalHealth = (props) => {
     useEffect(()=>{
         setAnswer(mentalIllness)
     },[mentalIllness])
-    
+
+    console.log(  firstMentalProblem ,secondMentalProblem , thirdMentalProblem , forthMentalProblem , fifthMentalProblem )
     return (
         <React.Fragment>
             {
@@ -124,13 +125,7 @@ const MentalHealth = (props) => {
                                                         </label>
                                                     </div>
                                                     {
-                                                        firstMentalProblem === "" ? (
-                                                            <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
-                                                                <button
-                                                                    className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
-                                                                </button>
-                                                            </div>
-                                                        ) : (
+                                                        firstMentalProblem || secondMentalProblem || thirdMentalProblem || forthMentalProblem || fifthMentalProblem !== "" ? (
                                                             <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
                                                                 <button
                                                                     className={`mt-5 mb-3 ${style.nextQuestionButtonActive}`}
@@ -138,6 +133,13 @@ const MentalHealth = (props) => {
                                                                         setFirstQuestion(true);
                                                                         combineMentalHealth()
                                                                     }}>next
+                                                                </button>
+                                                            </div>
+
+                                                        ) : (
+                                                            <div className={`${!props.isMobile ? style.nextButton : style.nextButtonM}`}>
+                                                                <button
+                                                                    className={`mt-5 mb-3 ${style.nextQuestionButtonDeActive}`}>next
                                                                 </button>
                                                             </div>
                                                         )

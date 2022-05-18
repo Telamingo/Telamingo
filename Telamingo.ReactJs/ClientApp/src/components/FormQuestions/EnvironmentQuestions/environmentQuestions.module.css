@@ -296,7 +296,7 @@
     border-radius: 5px;
     margin-left: 10px;
 }
-.saveButton{
+.saveButtonActive{
     width: 120px;
     background-color: #ff6600;
     color: white;
@@ -304,8 +304,16 @@
     border-radius: 5px;
     height: 60px;
 }
-.saveButton:hover{
+.saveButtonActive:hover{
     background-color: rgba(231,78,11,0.89);
+}
+.saveButtonDeActive{
+    width: 120px;
+    background-color: lightgrey;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 60px;
 }
 
 .chooseHaveSick{
